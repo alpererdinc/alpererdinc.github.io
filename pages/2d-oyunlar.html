@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="tr" data-lang="tr">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2D Oyunlar — Alper Erdinç</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&family=Sora:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .game-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin: 2rem 0;
+    }
+    .game-block {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.75rem;
+      transition: all 0.3s ease;
+    }
+    .game-block:hover {
+      border-color: rgba(232,201,122,0.35);
+      transform: translateY(-3px);
+    }
+    .game-number {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+    .game-block h3 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    .game-block p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin: 0;
+    }
+    @media (max-width: 500px) { .game-pair { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <a href="../index.html" class="nav-logo">AE<span class="dot">.</span></a>
+    <div class="nav-links">
+      <a href="../index.html" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a>
+      <a href="dottoman.html">Dottoman</a>
+      <a href="eticaret.html" data-tr="E-Ticaret" data-en="E-Commerce">E-Ticaret</a>
+      <a href="tez-oyunu.html" data-tr="Tez Oyunu" data-en="Thesis Game">Tez Oyunu</a>
+      <a href="2d-oyunlar.html" data-tr="2D Oyunlar" data-en="2D Games">2D Oyunlar</a>
+      <a href="brand-detection.html">Brand AI</a>
+    </div>
+    <button class="lang-toggle" id="langToggle">EN</button>
+    <button class="nav-hamburger" id="navHamburger">&#9776;</button>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="../index.html" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a>
+    <a href="dottoman.html">Dottoman</a>
+    <a href="eticaret.html" data-tr="E-Ticaret" data-en="E-Commerce">E-Ticaret</a>
+    <a href="tez-oyunu.html" data-tr="Tez Oyunu" data-en="Thesis Game">Tez Oyunu</a>
+    <a href="2d-oyunlar.html" data-tr="2D Oyunlar" data-en="2D Games">2D Oyunlar</a>
+    <a href="brand-detection.html">Brand AI</a>
+  </div>
+
+  <section class="project-hero">
+    <div class="project-hero-bg"></div>
+    <div class="project-hero-overlay"></div>
+    <div class="project-hero-content">
+      <div class="card-tag" data-tr="Oyun Geliştirme · 2D" data-en="Game Development · 2D">Oyun Geliştirme · 2D</div>
+      <h1 data-tr="2D Oyunlar" data-en="2D Games">2D Oyunlar</h1>
+      <p class="lead" data-tr="Oyun geliştirme yolculuğumun erken dönemlerinden iki farklı 2D oyun projesi." data-en="Two different 2D game projects from the early days of my game development journey.">Oyun geliştirme yolculuğumun erken dönemlerinden iki farklı 2D oyun projesi.</p>
+    </div>
+  </section>
+
+  <div class="project-body">
+    <a href="../index.html" class="back-link">← <span data-tr="Tüm Projeler" data-en="All Projects">Tüm Projeler</span></a>
+    <h2 data-tr="İki Proje" data-en="Two Projects">İki Proje</h2>
+    <p data-tr="Bu projeler, oyun geliştirmeye olan ilgimin somutlaştığı ilk dönem çalışmalarıdır. Her biri farklı mekanikler ve zorluklar içeriyor." data-en="These projects represent my first concrete steps into game development, each featuring different mechanics and challenges.">Bu projeler, oyun geliştirmeye olan ilgimin somutlaştığı ilk dönem çalışmalarıdır. Her biri farklı mekanikler ve zorluklar içeriyor.</p>
+
+    <div class="game-pair">
+      <div class="game-block">
+        <div class="game-number">OYUN 01 / GAME 01</div>
+        <h3 data-tr="2D Oyun #1" data-en="2D Game #1">2D Oyun #1</h3>
+        <p data-tr="İlk 2D oyun projem. Temel oyun mekanikleri ve level tasarımı üzerine odaklanıldı." data-en="My first 2D game project. Focused on basic game mechanics and level design.">İlk 2D oyun projem. Temel oyun mekanikleri ve level tasarımı üzerine odaklanıldı.</p>
+      </div>
+      <div class="game-block">
+        <div class="game-number">OYUN 02 / GAME 02</div>
+        <h3 data-tr="2D Oyun #2" data-en="2D Game #2">2D Oyun #2</h3>
+        <p data-tr="İkinci 2D oyun projem. İlk oyunda öğrenilenler üzerine inşa edildi; daha gelişmiş mekanikler içeriyor." data-en="My second 2D game project. Built on lessons from the first; features more advanced mechanics.">İkinci 2D oyun projem. İlk oyunda öğrenilenler üzerine inşa edildi; daha gelişmiş mekanikler içeriyor.</p>
+      </div>
+    </div>
+
+    <h2 data-tr="Teknolojiler" data-en="Technologies">Teknolojiler</h2>
+    <ul><li>Unity</li><li>C#</li><li>2D Physics</li><li>Sprite Animation</li><li>Level Design</li></ul>
+    <div class="project-links">
+      <a href="https://github.com/alpererdinc" target="_blank" class="btn-ghost">GitHub →</a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p class="footer-name">Alper Erdinç</p>
+    <div class="footer-links">
+      <a href="https://github.com/alpererdinc" target="_blank">GitHub</a>
+      <a href="https://dottoman.com" target="_blank">dottoman.com</a>
+    </div>
+    <p class="footer-copy">© 2025</p>
+  </footer>
+  <script src="../js/main.js"></script>
+</body>
+</html>

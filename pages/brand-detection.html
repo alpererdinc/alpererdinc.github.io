@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="tr" data-lang="tr">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brand Detection — Alper Erdinç</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&family=Sora:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .ai-flow {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin: 2rem 0;
+    }
+    .flow-step {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.75rem 1.25rem;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+    }
+    .flow-arrow {
+      color: var(--accent);
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <a href="../index.html" class="nav-logo">AE<span class="dot">.</span></a>
+    <div class="nav-links">
+      <a href="../index.html" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a>
+      <a href="dottoman.html">Dottoman</a>
+      <a href="eticaret.html" data-tr="E-Ticaret" data-en="E-Commerce">E-Ticaret</a>
+      <a href="tez-oyunu.html" data-tr="Tez Oyunu" data-en="Thesis Game">Tez Oyunu</a>
+      <a href="2d-oyunlar.html" data-tr="2D Oyunlar" data-en="2D Games">2D Oyunlar</a>
+      <a href="brand-detection.html">Brand AI</a>
+    </div>
+    <button class="lang-toggle" id="langToggle">EN</button>
+    <button class="nav-hamburger" id="navHamburger">&#9776;</button>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="../index.html" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a>
+    <a href="dottoman.html">Dottoman</a>
+    <a href="eticaret.html" data-tr="E-Ticaret" data-en="E-Commerce">E-Ticaret</a>
+    <a href="tez-oyunu.html" data-tr="Tez Oyunu" data-en="Thesis Game">Tez Oyunu</a>
+    <a href="2d-oyunlar.html" data-tr="2D Oyunlar" data-en="2D Games">2D Oyunlar</a>
+    <a href="brand-detection.html">Brand AI</a>
+  </div>
+
+  <section class="project-hero">
+    <div class="project-hero-bg"></div>
+    <div class="project-hero-overlay"></div>
+    <div class="project-hero-content">
+      <div class="card-tag" data-tr="Yapay Zekâ · Görüntü İşleme · Makine Öğrenmesi" data-en="AI · Computer Vision · Machine Learning">Yapay Zekâ · Görüntü İşleme · Makine Öğrenmesi</div>
+      <h1>Brand Detection</h1>
+      <p class="lead" data-tr="Araç markalarını görüntüden otomatik olarak tanıyan derin öğrenme tabanlı sınıflandırma projesi." data-en="A deep-learning-based classification project that automatically recognizes vehicle brands from images.">Araç markalarını görüntüden otomatik olarak tanıyan derin öğrenme tabanlı sınıflandırma projesi.</p>
+    </div>
+  </section>
+
+  <div class="project-body">
+    <a href="../index.html" class="back-link">← <span data-tr="Tüm Projeler" data-en="All Projects">Tüm Projeler</span></a>
+    <h2 data-tr="Proje Hakkında" data-en="About the Project">Proje Hakkında</h2>
+    <p data-tr="Bu proje, bir araç görüntüsünü girdi olarak alıp hangi markaya ait olduğunu tahmin eden bir yapay zekâ sistemi geliştirmeyi hedefliyor. Görüntü işleme ve derin öğrenme tekniklerini bir arada kullanıyor." data-en="This project aims to develop an AI system that takes a vehicle image as input and predicts which brand it belongs to. It combines image processing and deep learning techniques.">Bu proje, bir araç görüntüsünü girdi olarak alıp hangi markaya ait olduğunu tahmin eden bir yapay zekâ sistemi geliştirmeyi hedefliyor. Görüntü işleme ve derin öğrenme tekniklerini bir arada kullanıyor.</p>
+    <p data-tr="Model eğitimi için çok sayıda araç markasına ait görüntü verisi toplandı ve işlendi. Doğruluk oranını artırmak için çeşitli mimari denemeleri yapıldı." data-en="Image data from numerous vehicle brands was collected and processed for model training. Various architectural experiments were conducted to improve accuracy.">Model eğitimi için çok sayıda araç markasına ait görüntü verisi toplandı ve işlendi. Doğruluk oranını artırmak için çeşitli mimari denemeleri yapıldı.</p>
+
+    <h2 data-tr="Nasıl Çalışır?" data-en="How Does It Work?">Nasıl Çalışır?</h2>
+    <div class="ai-flow">
+      <div class="flow-step" data-tr="Görüntü Girişi" data-en="Image Input">Görüntü Girişi</div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-step" data-tr="Ön İşleme" data-en="Preprocessing">Ön İşleme</div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-step" data-tr="CNN Modeli" data-en="CNN Model">CNN Modeli</div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-step" data-tr="Marka Tahmini" data-en="Brand Prediction">Marka Tahmini</div>
+    </div>
+
+    <h2 data-tr="Teknolojiler" data-en="Technologies">Teknolojiler</h2>
+    <ul><li>Python</li><li>TensorFlow / Keras</li><li>OpenCV</li><li>CNN</li><li>NumPy</li><li>Matplotlib</li></ul>
+    <div class="project-links">
+      <a href="https://github.com/alpererdinc" target="_blank" class="btn-ghost">GitHub →</a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p class="footer-name">Alper Erdinç</p>
+    <div class="footer-links">
+      <a href="https://github.com/alpererdinc" target="_blank">GitHub</a>
+      <a href="https://dottoman.com" target="_blank">dottoman.com</a>
+    </div>
+    <p class="footer-copy">© 2025</p>
+  </footer>
+  <script src="../js/main.js"></script>
+</body>
+</html>
