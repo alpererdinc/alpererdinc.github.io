@@ -394,6 +394,10 @@ body::after {
   box-shadow:
     0 0 0 1px rgba(255,122,26,0.06) inset,
     0 24px 70px rgba(0,0,0,0.34);
+
+  opacity: 0;
+  transform: translateY(18px) scale(0.985);
+  animation: cardFadeIn 0.8s ease both;
 }
 
 .hero-card::before {
@@ -508,7 +512,7 @@ body::after {
   font-style: normal;
   line-height: 0.92;
   letter-spacing: -0.045em;
-  text-transform: uppercase;
+  text-transform: none;
   color: var(--text);
 
   margin-bottom: 1rem;
@@ -518,7 +522,7 @@ body::after {
   filter: none;
 
   animation: nameFadeIn 0.9s ease both;
-  animation-delay: 0.12s;
+  animation-delay: 0.35s;
 }
 
 .hero-name .underlined {
@@ -548,7 +552,7 @@ body::after {
   font-style: italic;
   line-height: inherit;
   letter-spacing: -0.055em;
-  text-transform: uppercase;
+  text-transform: none;
   color: var(--muted);
 }
 
@@ -562,6 +566,20 @@ body::after {
   to {
     opacity: 1;
     transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.985);
+    filter: blur(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
     filter: blur(0);
   }
 }
@@ -1406,8 +1424,12 @@ body::after {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .hero-card,
   .hero-name,
   .marquee-inner {
     animation: none;
+    opacity: 1;
+    transform: none;
+    filter: none;
   }
 }
