@@ -1,7 +1,4 @@
-/* ================================
-   ALPER ERDİNÇ — indie developer portfolio
-   black / orange / simple
-   ================================ */
+
 
 @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&family=Work+Sans:wght@400;500;600&display=swap');
 
@@ -28,13 +25,11 @@
   --display: 'Archivo', system-ui, sans-serif;
   --mono: 'Space Mono', monospace;
 
-  /* eski class / değişken uyumluluğu */
   --ink: var(--text);
   --ink2: var(--muted);
   --ink3: var(--faint);
   --border: var(--line);
   --yellow: var(--accent);
-  --bg-old: var(--bg);
   --shadow: none;
   --shadow-hover: none;
 }
@@ -49,6 +44,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
 }
 
 body {
@@ -427,19 +423,29 @@ body::after {
   }
 }
 
-/* ===== ABOUT ===== */
+/* ===== SHARED SECTIONS ===== */
+
+.about-section,
+.focus-section,
+.projects-section,
+.contact-section {
+  width: min(1040px, calc(100% - 2rem));
+  margin: 0 auto;
+  border-top: 1px solid var(--line);
+}
 
 .about-section {
-  width: min(860px, calc(100% - 2rem));
-  margin: 0 auto;
   padding: 5.5rem 0;
-
   display: grid;
   grid-template-columns: 145px 1fr;
   gap: 3.5rem;
   align-items: start;
+  width: min(860px, calc(100% - 2rem));
+}
 
-  border-top: 1px solid var(--line);
+.focus-section,
+.contact-section {
+  padding: 5rem 0;
 }
 
 .about-avatar {
@@ -466,7 +472,9 @@ body::after {
 }
 
 .about-text h2,
+.focus-section h2,
 .projects-section > h2,
+.contact-section h2,
 .project-body h2 {
   font-family: var(--display);
   font-weight: 800;
@@ -475,19 +483,25 @@ body::after {
   letter-spacing: -0.045em;
 }
 
-.about-text h2 {
+.about-text h2,
+.focus-section h2,
+.projects-section > h2,
+.contact-section h2 {
   font-size: 1.22rem;
   margin-bottom: 1rem;
 }
 
 .about-text h2::before,
+.focus-section h2::before,
 .projects-section > h2::before,
+.contact-section h2::before,
 .project-body h2::before {
   content: "/ ";
   color: var(--accent);
 }
 
-.about-text p {
+.about-text p,
+.contact-section p {
   color: var(--muted);
   font-size: 0.95rem;
   line-height: 1.85;
@@ -525,18 +539,44 @@ body::after {
   background: var(--accent-soft);
 }
 
+/* ===== FOCUS ===== */
+
+.focus-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.8rem;
+}
+
+.focus-item {
+  min-height: 135px;
+  padding: 1rem;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.focus-item span {
+  display: block;
+  margin-bottom: 1.2rem;
+
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  color: var(--accent);
+}
+
+.focus-item p {
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.65;
+}
+
 /* ===== PROJECTS ===== */
 
 .projects-section {
-  width: min(1040px, calc(100% - 2rem));
-  margin: 0 auto;
   padding: 5rem 0 6.5rem;
-
-  border-top: 1px solid var(--line);
 }
 
 .projects-section > h2 {
-  font-size: 1.22rem;
   max-width: 860px;
   margin: 0 auto 0.65rem;
 }
@@ -661,6 +701,19 @@ body::after {
 
 .project-card:hover .card-cta {
   color: var(--accent);
+}
+
+/* ===== CONTACT ===== */
+
+.contact-section {
+  max-width: min(860px, calc(100% - 2rem));
+}
+
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.5rem;
 }
 
 /* ===== FOOTER ===== */
@@ -842,6 +895,87 @@ body::after {
   border-radius: 4px;
 }
 
+/* ===== CASE STUDY ===== */
+
+.case-meta {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.8rem;
+  margin-bottom: 3rem;
+}
+
+.meta-item {
+  padding: 1rem;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.meta-item span {
+  display: block;
+  margin-bottom: 0.5rem;
+
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  color: var(--accent);
+}
+
+.meta-item p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.55;
+}
+
+/* ===== MEDIA / GIF AREA ===== */
+
+.media-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.8rem;
+  margin: 1rem 0 2.5rem;
+}
+
+.media-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.media-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  image-rendering: pixelated;
+}
+
+.media-placeholder {
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--faint);
+
+  background:
+    linear-gradient(45deg, rgba(255,122,26,0.05) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(255,122,26,0.05) 25%, transparent 25%),
+    #101010;
+  background-size: 18px 18px;
+}
+
+.media-card figcaption {
+  padding: 0.75rem;
+  border-top: 1px solid var(--line);
+
+  font-family: var(--mono);
+  font-size: 0.64rem;
+  color: var(--faint);
+}
+
 /* ===== RESPONSIVE ===== */
 
 @media (max-width: 900px) {
@@ -864,12 +998,24 @@ body::after {
     font-size: 1.4rem;
   }
 
+  .focus-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .projects-grid {
     grid-template-columns: 1fr 1fr;
   }
 
   .project-card:nth-child(n) {
     grid-column: span 1;
+  }
+
+  .case-meta {
+    grid-template-columns: 1fr;
+  }
+
+  .media-grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -899,7 +1045,8 @@ body::after {
     font-size: 0.9rem;
   }
 
-  .hero-cta {
+  .hero-cta,
+  .contact-links {
     flex-direction: column;
   }
 
@@ -908,11 +1055,14 @@ body::after {
   }
 
   .about-section,
+  .focus-section,
   .projects-section,
+  .contact-section,
   .footer {
     width: calc(100% - 1.5rem);
   }
 
+  .focus-grid,
   .projects-grid {
     grid-template-columns: 1fr;
   }
