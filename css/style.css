@@ -975,8 +975,42 @@ body::after {
   font-size: 0.64rem;
   color: var(--faint);
 }
+body,
+*,
+a,
+button,
+.btn,
+.nav-logo,
+.nav-links a,
+.mobile-menu a,
+.project-card,
+.card-cta,
+.lang-toggle,
+.nav-hamburger,
+.footer-links a,
+.contact-links a,
+.back-link,
+input,
+textarea,
+select,
+label,
+summary {
+  cursor: none;
+}
 
 /* ===== RESPONSIVE ===== */
+@media (max-width: 640px) {
+  body,
+  *,
+  a,
+  button {
+    cursor: auto;
+  }
+
+  .cursor {
+    display: none;
+  }
+}
 
 @media (max-width: 900px) {
   .nav-links {
