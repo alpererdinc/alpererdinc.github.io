@@ -1,62 +1,104 @@
 <!DOCTYPE html>
 <html lang="tr" data-lang="tr">
 <head>
-  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Brand Detection — Alper Erdinç</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vehicle Brand Detection — Alper Erdinç</title>
   <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
   <div class="cursor" id="cursor"></div>
+
   <nav class="navbar">
-    <a href="../index.html" class="nav-logo">alper.dev</a>
+    <a href="../index.html" class="nav-logo">ae.</a>
+
     <div class="nav-links">
       <a href="../index.html" data-tr="ana sayfa" data-en="home">ana sayfa</a>
-      <a href="dottoman.html" data-tr="dottoman" data-en="dottoman">dottoman</a>
-      <a href="eticaret.html" data-tr="e-ticaret" data-en="e-commerce">e-ticaret</a>
+      <a href="dottoman.html" data-tr="dotto•man" data-en="dotto•man">dotto•man</a>
+      <a href="eticaret.html" data-tr="collecZone" data-en="collecZone">collecZone</a>
       <a href="tez-oyunu.html" data-tr="tez oyunu" data-en="thesis game">tez oyunu</a>
       <a href="2d-oyunlar.html" data-tr="2d oyunlar" data-en="2d games">2d oyunlar</a>
-      <a href="brand-detection.html" data-tr="brand ai" data-en="brand ai">brand ai</a>
+      <a href="brand-detection.html" data-tr="brand detection" data-en="brand detection">brand detection</a>
     </div>
+
     <button class="lang-toggle" id="langToggle">EN</button>
-    <button class="nav-hamburger" id="navHamburger">☰</button>
+    <button class="nav-hamburger" id="navHamburger">menü</button>
   </nav>
+
   <div class="mobile-menu" id="mobileMenu">
     <a href="../index.html" data-tr="ana sayfa" data-en="home">ana sayfa</a>
-    <a href="dottoman.html" data-tr="dottoman" data-en="dottoman">dottoman</a>
-    <a href="eticaret.html" data-tr="e-ticaret" data-en="e-commerce">e-ticaret</a>
+    <a href="dottoman.html" data-tr="dotto•man" data-en="dotto•man">dotto•man</a>
+    <a href="eticaret.html" data-tr="collecZone" data-en="collecZone">collecZone</a>
     <a href="tez-oyunu.html" data-tr="tez oyunu" data-en="thesis game">tez oyunu</a>
     <a href="2d-oyunlar.html" data-tr="2d oyunlar" data-en="2d games">2d oyunlar</a>
-    <a href="brand-detection.html" data-tr="brand ai" data-en="brand ai">brand ai</a>
+    <a href="brand-detection.html" data-tr="brand detection" data-en="brand detection">brand detection</a>
   </div>
+
   <section class="project-hero">
     <div class="project-hero-dots"></div>
+
     <div class="project-hero-content">
-      <div class="badge" data-tr="yapay zekâ · görüntü işleme" data-en="ai · computer vision">yapay zekâ · görüntü işleme</div>
-      <h1>Brand Detection</h1>
-      <p class="lead" data-tr="Araç fotoğrafına bakıp markayı söyleyen bir yapay zekâ modeli." data-en="An AI model that looks at a car photo and tells you the brand.">Araç fotoğrafına bakıp markayı söyleyen bir yapay zekâ modeli.</p>
+      <div class="badge" data-tr="yapay zekâ / computer vision" data-en="ai / computer vision">yapay zekâ / computer vision</div>
+      <h1>Vehicle Brand Detection</h1>
+      <p
+        class="lead"
+        data-tr="Araç görüntülerinden marka tespiti yapmaya yönelik computer vision projesi."
+        data-en="A computer vision project for vehicle brand detection."
+      >
+        Araç görüntülerinden marka tespiti yapmaya yönelik computer vision projesi.
+      </p>
     </div>
   </section>
-  <div class="project-body">
-    <a href="../index.html" class="back-link">← <span data-tr="geri dön" data-en="go back">geri dön</span></a>
-    <h2 data-tr="ne bu?" data-en="what is it?">ne bu?</h2>
-    <p data-tr="Bir araç fotoğrafını veriyorsun, model hangi markaya ait olduğunu söylüyor. Derin öğrenme ile görüntü sınıflandırması yaptım — veri toplamaktan model eğitimine kadar her aşamada çalıştım." data-en="You give it a car photo, the model tells you which brand it is. Image classification with deep learning — I worked on every stage from data collection to model training.">Bir araç fotoğrafını veriyorsun, model hangi markaya ait olduğunu söylüyor. Derin öğrenme ile görüntü sınıflandırması yaptım — veri toplamaktan model eğitimine kadar her aşamada çalıştım.</p>
-    <p data-tr="En eğlenceli yanı modelin neyi yanlış anladığını görmekti. Bazı arabalar gerçekten birbirine çok benziyor." data-en="The most fun part was seeing what the model got wrong. Some cars really do look alike.">En eğlenceli yanı modelin neyi yanlış anladığını görmekti. Bazı arabalar gerçekten birbirine çok benziyor.</p>
-    <h2 data-tr="nasıl çalışır?" data-en="how does it work?">nasıl çalışır?</h2>
-    <p><code style="font-family:var(--mono);font-size:0.85rem;background:var(--bg2);padding:0.2rem 0.5rem;border-radius:6px;border:1px solid var(--border);">görüntü → ön işleme → CNN → tahmin</code></p>
+
+  <main class="project-body">
+    <a href="../index.html" class="back-link" data-tr="geri dön" data-en="go back">geri dön</a>
+
+    <h2 data-tr="özet" data-en="overview">özet</h2>
+    <p
+      data-tr="Bu proje, araç görüntülerini analiz ederek marka sınıflandırması yapmayı amaçlayan bir yapay zekâ çalışmasıdır."
+      data-en="This project is an artificial intelligence study aimed at classifying vehicle brands from images."
+    >
+      Bu proje, araç görüntülerini analiz ederek marka sınıflandırması yapmayı amaçlayan bir yapay zekâ çalışmasıdır.
+    </p>
+
+    <h2 data-tr="kapsam" data-en="scope">kapsam</h2>
+    <p
+      data-tr="Çalışmada veri hazırlama, görüntü ön işleme, model eğitimi ve tahmin süreci üzerine odaklanılmıştır."
+      data-en="The work focuses on data preparation, image preprocessing, model training, and prediction workflow."
+    >
+      Çalışmada veri hazırlama, görüntü ön işleme, model eğitimi ve tahmin süreci üzerine odaklanılmıştır.
+    </p>
+
+    <h2 data-tr="süreç" data-en="pipeline">süreç</h2>
+    <p>
+      <code class="inline-code">görüntü / ön işleme / model / tahmin</code>
+    </p>
+
     <h2 data-tr="teknolojiler" data-en="tech stack">teknolojiler</h2>
-    <ul><li>Python</li><li>TensorFlow</li><li>Keras</li><li>OpenCV</li><li>NumPy</li></ul>
+    <ul>
+      <li>Python</li>
+      <li>TensorFlow</li>
+      <li>Keras</li>
+      <li>OpenCV</li>
+      <li>NumPy</li>
+    </ul>
+
     <div class="project-links">
-      <a href="https://github.com/alpererdinc" target="_blank" class="btn btn-white">GitHub →</a>
+      <a href="https://github.com/alpererdinc" target="_blank" class="btn btn-white" data-tr="github" data-en="github">github</a>
     </div>
-  </div>
+  </main>
+
   <footer class="footer">
-    <div class="footer-left">alper erdinç // 2025</div>
+    <div class="footer-left">alper erdinç / 2025</div>
+
     <div class="footer-links">
       <a href="https://github.com/alpererdinc" target="_blank">github</a>
       <a href="https://dottoman.com" target="_blank">dottoman.com</a>
     </div>
-    <div class="footer-right">made with ☕ in adana</div>
+
+    <div class="footer-right">personal portfolio</div>
   </footer>
+
   <script src="../js/main.js"></script>
 </body>
 </html>
