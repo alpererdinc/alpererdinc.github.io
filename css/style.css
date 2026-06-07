@@ -284,17 +284,25 @@ body::after {
 
 .hero-name {
   font-family: var(--display);
-  font-size: clamp(3.4rem, 11vw, 7.4rem);
+  font-size: clamp(2.9rem, 8.5vw, 5.9rem);
   font-weight: 800;
-  line-height: 0.88;
-  letter-spacing: -0.08em;
+  line-height: 0.95;
+  letter-spacing: -0.065em;
   text-transform: uppercase;
 
   margin-bottom: 1.7rem;
 }
 
 .hero-name em {
+  display: inline-block;
+  margin-top: 0.18rem;
+
+  font-family: var(--mono);
+  font-size: clamp(1.75rem, 5vw, 3.6rem);
+  font-weight: 400;
   font-style: normal;
+  letter-spacing: -0.08em;
+  text-transform: lowercase;
   color: var(--muted);
 }
 
