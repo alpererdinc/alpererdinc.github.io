@@ -3,12 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Alper Erdinç</title>
+
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
-<body>
 
+<body>
   <div class="cursor" id="cursor"></div>
 
   <!-- NAV -->
@@ -16,179 +18,201 @@
     <a href="index.html" class="nav-logo">ae.</a>
 
     <div class="nav-links">
-  <a href="index.html" data-tr="ana sayfa" data-en="home">ana sayfa</a>
-  <a href="#about" data-tr="hakkımda" data-en="about">hakkımda</a>
+      <a href="index.html" data-tr="ana sayfa" data-en="home">ana sayfa</a>
+      <a href="#about" data-tr="hakkımda" data-en="about">hakkımda</a>
 
-  <details class="nav-dropdown">
-    <summary data-tr="projeler" data-en="projects">projeler</summary>
+      <details class="nav-dropdown">
+        <summary data-tr="projeler" data-en="projects">projeler</summary>
 
-    <div class="dropdown-menu">
-      <a href="#projects" data-tr="tüm projeler" data-en="all projects">tüm projeler</a>
-      <a href="pages/dottoman.html">Dotto•Man</a>
-      <a href="pages/tez-oyunu.html" data-tr="Tez Oyunu" data-en="Thesis Game">Tez Oyunu</a>
-      <a href="pages/eticaret.html">CollecZone</a>
-      <a href="pages/2d-oyunlar.html" data-tr="2D Oyunlar" data-en="2D Games">2D Oyunlar</a>
-      <a href="pages/brand-detection.html">Vehicle Brand Detection</a>
+        <div class="dropdown-menu">
+          <a href="#projects" data-tr="tüm projeler" data-en="all projects">tüm projeler</a>
+          <a href="pages/dottoman.html">Dotto•Man</a>
+          <a href="pages/tez-oyunu.html" data-tr="Tez Oyunu" data-en="Thesis Game">Tez Oyunu</a>
+          <a href="pages/eticaret.html">CollecZone</a>
+          <a href="pages/2d-oyunlar.html" data-tr="2D Oyunlar" data-en="2D Games">2D Oyunlar</a>
+          <a href="pages/brand-detection.html">Vehicle Brand Detection</a>
+        </div>
+      </details>
+
+      <a href="#contact" data-tr="iletişim" data-en="contact">iletişim</a>
     </div>
-  </details>
-
-  <a href="#contact" data-tr="iletişim" data-en="contact">iletişim</a>
-</div>
 
     <button class="lang-toggle" id="langToggle">EN</button>
     <button class="nav-hamburger" id="navHamburger">menü</button>
   </nav>
 
+  <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobileMenu">
-  <a href="index.html" data-tr="ana sayfa" data-en="home">ana sayfa</a>
-  <a href="#about" data-tr="hakkımda" data-en="about">hakkımda</a>
+    <a href="index.html" data-tr="ana sayfa" data-en="home">ana sayfa</a>
+    <a href="#about" data-tr="hakkımda" data-en="about">hakkımda</a>
 
-  <details class="mobile-dropdown">
-    <summary data-tr="projeler" data-en="projects">projeler</summary>
+    <details class="mobile-dropdown">
+      <summary data-tr="projeler" data-en="projects">projeler</summary>
 
-    <div class="mobile-dropdown-menu">
-      <a href="#projects" data-tr="tüm projeler" data-en="all projects">tüm projeler</a>
-      <a href="pages/dottoman.html">Dotto•Man</a>
-      <a href="pages/tez-oyunu.html" data-tr="Tez Oyunu" data-en="Thesis Game">Tez Oyunu</a>
-      <a href="pages/eticaret.html">CollecZone</a>
-      <a href="pages/2d-oyunlar.html" data-tr="2D Oyunlar" data-en="2D Games">2D Oyunlar</a>
-      <a href="pages/brand-detection.html">Vehicle Brand Detection</a>
-    </div>
-  </details>
+      <div class="mobile-dropdown-menu">
+        <a href="#projects" data-tr="tüm projeler" data-en="all projects">tüm projeler</a>
+        <a href="pages/dottoman.html">Dotto•Man</a>
+        <a href="pages/tez-oyunu.html" data-tr="Tez Oyunu" data-en="Thesis Game">Tez Oyunu</a>
+        <a href="pages/eticaret.html">CollecZone</a>
+        <a href="pages/2d-oyunlar.html" data-tr="2D Oyunlar" data-en="2D Games">2D Oyunlar</a>
+        <a href="pages/brand-detection.html">Vehicle Brand Detection</a>
+      </div>
+    </details>
 
-  <a href="#contact" data-tr="iletişim" data-en="contact">iletişim</a>
-</div>
+    <a href="#contact" data-tr="iletişim" data-en="contact">iletişim</a>
+  </div>
 
   <!-- HERO -->
-  <!-- HERO -->
-<section class="hero">
-  <div class="hero-card">
+  <section class="hero">
+    <div class="hero-card">
 
-    <div class="card-top">
-      <span class="card-series">AE-001 / CHARACTER CARD / ACTIVE BUILD</span>
-      <span class="card-rarity">INDIE BUILD</span>
-    </div>
+      <div class="card-top">
+        <span
+          class="card-series"
+          data-tr="AE-001 / PORTFOLYO KARTI"
+          data-en="AE-001 / PORTFOLIO CARD"
+        >
+          AE-001 / PORTFOLYO KARTI
+        </span>
 
-    <div class="card-main">
-      <div class="card-portrait">
-        <!-- Buraya pixel art portreni koyabilirsin -->
-        <img src="images/aePhoto2.png" alt="Alper Erdinç portrait">
-        <!-- <div class="portrait-placeholder">AE</div> -->
+        <span
+          class="card-rarity"
+          data-tr="INDIE BUILD"
+          data-en="INDIE BUILD"
+        >
+          INDIE BUILD
+        </span>
       </div>
 
-      <div class="card-identity">
-        <h1 class="hero-name">
-          <span class="underlined" data-tr="Alper" data-en="Alper">Alper</span><br>
-          <em data-tr="Erdinç" data-en="Erdinç">Erdinç</em>
-        </h1>
+      <div class="card-main">
+        <div class="card-portrait">
+          <img src="images/aePhoto2.png" alt="Alper Erdinç portrait" />
+        </div>
 
-        <p class="card-subtitle">
+        <div class="card-identity">
+          <h1 class="hero-name">
+            <span class="underlined" data-tr="ALPER" data-en="ALPER">ALPER</span><br />
+            <em data-tr="ERDİNÇ" data-en="ERDİNÇ">ERDİNÇ</em>
+          </h1>
+
+          <p class="card-subtitle">
+            <span
+              data-tr="Bilgisayar Mühendisliği Öğrencisi"
+              data-en="Computer Engineering Student"
+            >
+              Bilgisayar Mühendisliği Öğrencisi
+            </span>
+            <br />
+
+            <span
+              data-tr="2D Animatör / Dijital Çizer"
+              data-en="2D Animator / Digital Artist"
+            >
+              2D Animatör / Dijital Çizer
+            </span>
+            <br />
+
+            <span
+              data-tr="Indie Game Developer, still grinding XP"
+              data-en="Indie Game Developer, still grinding XP"
+            >
+              Indie Game Developer, still grinding XP
+            </span>
+          </p>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <div class="card-line">
+          <span class="card-label" data-tr="sınıf" data-en="class">sınıf</span>
           <span
+            class="card-value"
             data-tr="Bilgisayar Mühendisliği Öğrencisi"
             data-en="Computer Engineering Student"
           >
             Bilgisayar Mühendisliği Öğrencisi
           </span>
-          <br>
+        </div>
 
+        <div class="card-line">
+          <span class="card-label" data-tr="alt sınıf" data-en="subclass">alt sınıf</span>
           <span
+            class="card-value"
             data-tr="2D Animatör / Dijital Çizer"
             data-en="2D Animator / Digital Artist"
           >
             2D Animatör / Dijital Çizer
           </span>
-          <br>
+        </div>
 
+        <div class="card-line">
+          <span class="card-label" data-tr="rol" data-en="role">rol</span>
           <span
+            class="card-value"
             data-tr="Indie Game Developer, still grinding XP"
             data-en="Indie Game Developer, still grinding XP"
           >
             Indie Game Developer, still grinding XP
           </span>
-        </p>
-      </div>
-    </div>
+        </div>
 
-    <div class="card-body">
-      <div class="card-line">
-        <span class="card-label">class</span>
-        <span
-          class="card-value"
-          data-tr="Computer Engineering Student"
-          data-en="Computer Engineering Student"
+        <div class="card-line">
+          <span class="card-label" data-tr="build" data-en="build">build</span>
+          <span
+            class="card-value"
+            data-tr="Game Dev / AI / Pixel Art"
+            data-en="Game Dev / AI / Pixel Art"
+          >
+            Game Dev / AI / Pixel Art
+          </span>
+        </div>
+      </div>
+
+      <div class="card-stats">
+        <div class="stat-box">
+          <span class="stat-name" data-tr="unity" data-en="unity">unity</span>
+          <span class="stat-value">78</span>
+        </div>
+
+        <div class="stat-box">
+          <span class="stat-name" data-tr="animasyon" data-en="animation">animasyon</span>
+          <span class="stat-value">74</span>
+        </div>
+
+        <div class="stat-box">
+          <span class="stat-name" data-tr="ai / ml" data-en="ai / ml">ai / ml</span>
+          <span class="stat-value">69</span>
+        </div>
+
+        <div class="stat-box">
+          <span class="stat-name" data-tr="web" data-en="web">web</span>
+          <span class="stat-value">72</span>
+        </div>
+      </div>
+
+      <div class="hero-cta">
+        <a
+          href="#projects"
+          class="btn btn-yellow"
+          data-tr="Projeleri incele"
+          data-en="View projects"
         >
-          Computer Engineering Student
-        </span>
-      </div>
+          Projeleri incele
+        </a>
 
-      <div class="card-line">
-        <span class="card-label">subclass</span>
-        <span
-          class="card-value"
-          data-tr="2D Animator / Digital Artist"
-          data-en="2D Animator / Digital Artist"
+        <a
+          href="https://github.com/alpererdinc"
+          target="_blank"
+          class="btn btn-white"
+          data-tr="GitHub profili"
+          data-en="GitHub profile"
         >
-          2D Animator / Digital Artist
-        </span>
+          GitHub profili
+        </a>
       </div>
 
-      <div class="card-line">
-        <span class="card-label">role</span>
-        <span
-          class="card-value"
-          data-tr="Indie Game Developer, still grinding XP"
-          data-en="Indie Game Developer, still grinding XP"
-        >
-          Indie Game Developer, still grinding XP
-        </span>
-      </div>
-
-      <div class="card-line">
-        <span class="card-label">build</span>
-        <span
-          class="card-value"
-          data-tr="Game Dev / AI / Pixel Art"
-          data-en="Game Dev / AI / Pixel Art"
-        >
-          Game Dev / AI / Pixel Art
-        </span>
-      </div>
     </div>
-
-    <div class="card-stats">
-      <div class="stat-box">
-        <span class="stat-name">unity</span>
-        <span class="stat-value">99</span>
-      </div>
-
-      <div class="stat-box">
-        <span class="stat-name">animation</span>
-        <span class="stat-value">99</span>
-      </div>
-
-      <div class="stat-box">
-        <span class="stat-name">ai / ml</span>
-        <span class="stat-value">99</span>
-      </div>
-
-      <div class="stat-box">
-        <span class="stat-name">web</span>
-        <span class="stat-value">99</span>
-      </div>
-    </div>
-
-    <div class="hero-cta">
-      <a href="#projects" class="btn btn-yellow" data-tr="Projeleri incele" data-en="View projects">
-        Projeleri incele
-      </a>
-
-      <a href="https://github.com/alpererdinc" target="_blank" class="btn btn-white" data-tr="GitHub profili" data-en="GitHub profile">
-        GitHub profili
-      </a>
-    </div>
-
-  </div>
-</section>
+  </section>
 
   <!-- MARQUEE -->
   <div class="marquee-strip">
@@ -247,33 +271,6 @@
     </div>
   </section>
 
-  <!-- FOCUS
-  <section class="focus-section">
-    <h2 data-tr="odak alanlarım" data-en="focus areas">odak alanlarım</h2>
-
-    <div class="focus-grid">
-      <div class="focus-item">
-        <span>01</span>
-        <p data-tr="Oyun sistemleri ve karakter davranışları" data-en="Game systems and character behavior">Oyun sistemleri ve karakter davranışları</p>
-      </div>
-
-      <div class="focus-item">
-        <span>02</span>
-        <p data-tr="Yapay zekâ destekli etkileşimler" data-en="AI-supported interactions">Yapay zekâ destekli etkileşimler</p>
-      </div>
-
-      <div class="focus-item">
-        <span>03</span>
-        <p data-tr="Computer vision ve görüntü işleme" data-en="Computer vision and image processing">Computer vision ve görüntü işleme</p>
-      </div>
-
-      <div class="focus-item">
-        <span>04</span>
-        <p data-tr="2D animasyon ve dijital çizim" data-en="2D animation and digital drawing">2D animasyon ve dijital çizim</p>
-      </div>
-    </div>
-  </section>
- -->
   <!-- PROJECTS -->
   <section class="projects-section" id="projects">
     <h2 data-tr="projeler" data-en="projects">projeler</h2>
