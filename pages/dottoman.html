@@ -1,124 +1,65 @@
 <!DOCTYPE html>
 <html lang="tr" data-lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dottoman — Alper Erdinç</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&family=Sora:wght@300;400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../css/style.css" />
-  <style>
-    .dotto-accent { color: var(--accent); }
-    .char-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
-      margin: 2rem 0;
-    }
-    .char-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.25rem 1rem;
-      text-align: center;
-      transition: all 0.3s ease;
-    }
-    .char-card:hover {
-      border-color: rgba(232,201,122,0.4);
-      transform: translateY(-3px);
-    }
-    .char-symbol { font-size: 2rem; margin-bottom: 0.5rem; }
-    .char-name { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; color: var(--accent); }
-    .char-alias { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem; }
-    @media (max-width: 500px) { .char-grid { grid-template-columns: repeat(2, 1fr); } }
-  </style>
 </head>
 <body>
-
+  <div class="cursor" id="cursor"></div>
   <nav class="navbar">
-    <a href="../index.html" class="nav-logo">AE<span class="dot">.</span></a>
+    <a href="../index.html" class="nav-logo">alper.dev</a>
     <div class="nav-links">
-      <a href="../index.html" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a>
-      <a href="dottoman.html" data-tr="Dottoman" data-en="Dottoman">Dottoman</a>
-      <a href="eticaret.html" data-tr="E-Ticaret" data-en="E-Commerce">E-Ticaret</a>
-      <a href="tez-oyunu.html" data-tr="Tez Oyunu" data-en="Thesis Game">Tez Oyunu</a>
-      <a href="2d-oyunlar.html" data-tr="2D Oyunlar" data-en="2D Games">2D Oyunlar</a>
-      <a href="brand-detection.html" data-tr="Brand AI" data-en="Brand AI">Brand AI</a>
+      <a href="../index.html" data-tr="ana sayfa" data-en="home">ana sayfa</a>
+      <a href="dottoman.html" data-tr="dottoman" data-en="dottoman">dottoman</a>
+      <a href="eticaret.html" data-tr="e-ticaret" data-en="e-commerce">e-ticaret</a>
+      <a href="tez-oyunu.html" data-tr="tez oyunu" data-en="thesis game">tez oyunu</a>
+      <a href="2d-oyunlar.html" data-tr="2d oyunlar" data-en="2d games">2d oyunlar</a>
+      <a href="brand-detection.html" data-tr="brand ai" data-en="brand ai">brand ai</a>
     </div>
     <button class="lang-toggle" id="langToggle">EN</button>
-    <button class="nav-hamburger" id="navHamburger">&#9776;</button>
+    <button class="nav-hamburger" id="navHamburger">☰</button>
   </nav>
   <div class="mobile-menu" id="mobileMenu">
-    <a href="../index.html" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a>
-    <a href="dottoman.html" data-tr="Dottoman" data-en="Dottoman">Dottoman</a>
-    <a href="eticaret.html" data-tr="E-Ticaret" data-en="E-Commerce">E-Ticaret</a>
-    <a href="tez-oyunu.html" data-tr="Tez Oyunu" data-en="Thesis Game">Tez Oyunu</a>
-    <a href="2d-oyunlar.html" data-tr="2D Oyunlar" data-en="2D Games">2D Oyunlar</a>
-    <a href="brand-detection.html" data-tr="Brand AI" data-en="Brand AI">Brand AI</a>
+    <a href="../index.html" data-tr="ana sayfa" data-en="home">ana sayfa</a>
+    <a href="dottoman.html" data-tr="dottoman" data-en="dottoman">dottoman</a>
+    <a href="eticaret.html" data-tr="e-ticaret" data-en="e-commerce">e-ticaret</a>
+    <a href="tez-oyunu.html" data-tr="tez oyunu" data-en="thesis game">tez oyunu</a>
+    <a href="2d-oyunlar.html" data-tr="2d oyunlar" data-en="2d games">2d oyunlar</a>
+    <a href="brand-detection.html" data-tr="brand ai" data-en="brand ai">brand ai</a>
   </div>
-
   <section class="project-hero">
-    <div class="project-hero-bg"></div>
-    <div class="project-hero-overlay"></div>
+    <div class="project-hero-dots"></div>
     <div class="project-hero-content">
-      <div class="card-tag" data-tr="Animasyon · Web · Piksel Sanat" data-en="Animation · Web · Pixel Art">Animasyon · Web · Piksel Sanat</div>
-      <h1>Dottoman<span class="dotto-accent">.</span></h1>
-      <p class="lead" data-tr="Noktalama işaretlerinin kahraman olduğu, iki dilli piksel sanat animasyon evreni." data-en="A bilingual pixel-art animation universe where punctuation marks are the heroes.">Noktalama işaretlerinin kahraman olduğu, iki dilli piksel sanat animasyon evreni.</p>
+      <div class="badge">animasyon · web · piksel sanat</div>
+      <h1>Dottoman ✦</h1>
+      <p class="lead" data-tr="Noktalama işaretleri karakter olursa? Türkçe ve İngilizce piksel sanat animasyon evreni." data-en="What if punctuation marks became characters? A pixel art animation universe in Turkish & English.">Noktalama işaretleri karakter olursa? Türkçe ve İngilizce piksel sanat animasyon evreni.</p>
     </div>
   </section>
-
   <div class="project-body">
-    <a href="../index.html" class="back-link">← <span data-tr="Tüm Projeler" data-en="All Projects">Tüm Projeler</span></a>
-
-    <h2 data-tr="Proje Hakkında" data-en="About the Project">Proje Hakkında</h2>
-    <p data-tr="Dottoman, noktalama işaretlerini renkli karakterlere dönüştüren özgün bir Türk animasyon projesidir. Nokta/Dotto, Soru/Quinna, Ünlem/Rex ve Virgül/Paus gibi karakterler; piksel sanat estetiğiyle hayat buluyor." data-en="Dottoman is an original Turkish animation project that turns punctuation marks into vibrant characters. Nokta/Dotto, Soru/Quinna, Ünlem/Rex, and Virgül/Paus come to life through pixel-art aesthetics.">Dottoman, noktalama işaretlerini renkli karakterlere dönüştüren özgün bir Türk animasyon projesidir. Nokta/Dotto, Soru/Quinna, Ünlem/Rex ve Virgül/Paus gibi karakterler; piksel sanat estetiğiyle hayat buluyor.</p>
-    <p data-tr="Site Türkçe ve İngilizce olarak tam çift dil desteğiyle yayın yapıyor. PHP, CSS ve JavaScript ile geliştirildi; bölümler, karakter sayfaları, animasyonlar ve mobil uyumlu tasarım içeriyor." data-en="The site runs with full TR/EN bilingual support. Built with PHP, CSS, and JavaScript — featuring episodes, character pages, animations, and a mobile-friendly design.">Site Türkçe ve İngilizce olarak tam çift dil desteğiyle yayın yapıyor. PHP, CSS ve JavaScript ile geliştirildi; bölümler, karakter sayfaları, animasyonlar ve mobil uyumlu tasarım içeriyor.</p>
-
-    <h2 data-tr="Karakterler" data-en="Characters">Karakterler</h2>
-    <div class="char-grid">
-      <div class="char-card">
-        <div class="char-symbol">•</div>
-        <div class="char-name">NOKTA / DOTTO</div>
-        <div class="char-alias" data-tr="Sakin, bilge" data-en="Calm, wise">Sakin, bilge</div>
-      </div>
-      <div class="char-card">
-        <div class="char-symbol">?</div>
-        <div class="char-name">SORU / QUINNA</div>
-        <div class="char-alias" data-tr="Meraklı, sorgulayıcı" data-en="Curious, inquisitive">Meraklı, sorgulayıcı</div>
-      </div>
-      <div class="char-card">
-        <div class="char-symbol">!</div>
-        <div class="char-name">ÜNLEM / REX</div>
-        <div class="char-alias" data-tr="Enerjik, cesur" data-en="Energetic, bold">Enerjik, cesur</div>
-      </div>
-      <div class="char-card">
-        <div class="char-symbol">,</div>
-        <div class="char-name">VİRGÜL / PAUS</div>
-        <div class="char-alias" data-tr="Düşünceli, dengeli" data-en="Thoughtful, balanced">Düşünceli, dengeli</div>
-      </div>
-    </div>
-
-    <h2 data-tr="Teknolojiler" data-en="Technologies">Teknolojiler</h2>
-    <ul>
-      <li>PHP</li><li>CSS3 Animations</li><li>JavaScript</li>
-      <li>Pixel Art</li><li>TR / EN i18n</li><li>YouTube Embed</li>
-    </ul>
-
+    <a href="../index.html" class="back-link">← <span data-tr="geri dön" data-en="go back">geri dön</span></a>
+    <h2 data-tr="ne bu?" data-en="what is it?">ne bu?</h2>
+    <p data-tr="Dottoman benim en sevdiğim projem. Nokta (Dotto), Soru (Quinna), Ünlem (Rex) ve Virgül (Paus) adlı dört karakter etrafında dönen, piksel sanat estetiğiyle yapılmış özgün bir animasyon evreni." data-en="Dottoman is my favorite project. An original animation universe built around four characters — Nokta (Dotto), Soru (Quinna), Ünlem (Rex), and Virgül (Paus) — all in pixel art style.">Dottoman benim en sevdiğim projem. Nokta (Dotto), Soru (Quinna), Ünlem (Rex) ve Virgül (Paus) adlı dört karakter etrafında dönen, piksel sanat estetiğiyle yapılmış özgün bir animasyon evreni.</p>
+    <p data-tr="Hem Türkçe hem İngilizce çalışıyor, bölüm sayfaları, karakter tanıtımları ve YouTube entegrasyonu var. PHP, CSS ve JS ile sıfırdan yazdım." data-en="It runs in both Turkish and English, with episode pages, character introductions, and YouTube integration. Written from scratch with PHP, CSS, and JS.">Hem Türkçe hem İngilizce çalışıyor, bölüm sayfaları, karakter tanıtımları ve YouTube entegrasyonu var. PHP, CSS ve JS ile sıfırdan yazdım.</p>
+    <h2 data-tr="karakterler" data-en="characters">karakterler</h2>
+    <p>• &nbsp;<strong>Nokta / Dotto</strong> — <span data-tr="sakin, bilge" data-en="calm, wise">sakin, bilge</span><br>
+       ? &nbsp;<strong>Soru / Quinna</strong> — <span data-tr="meraklı, sorgulayıcı" data-en="curious, inquisitive">meraklı, sorgulayıcı</span><br>
+       ! &nbsp;<strong>Ünlem / Rex</strong> — <span data-tr="enerjik, cesur" data-en="energetic, bold">enerjik, cesur</span><br>
+       , &nbsp;<strong>Virgül / Paus</strong> — <span data-tr="düşünceli, dengeli" data-en="thoughtful, balanced">düşünceli, dengeli</span></p>
+    <h2 data-tr="teknolojiler" data-en="tech stack">teknolojiler</h2>
+    <ul><li>PHP</li><li>CSS3</li><li>JavaScript</li><li>Pixel Art</li><li>TR/EN i18n</li></ul>
     <div class="project-links">
-      <a href="https://dottoman.com" target="_blank" class="btn-primary" data-tr="Siteyi Ziyaret Et" data-en="Visit Site">Siteyi Ziyaret Et</a>
+      <a href="https://dottoman.com" target="_blank" class="btn btn-yellow" data-tr="🌐 siteyi aç" data-en="🌐 open site">🌐 siteyi aç</a>
     </div>
   </div>
-
   <footer class="footer">
-    <p class="footer-name">Alper Erdinç</p>
+    <div class="footer-left">alper erdinç // 2025</div>
     <div class="footer-links">
-      <a href="https://github.com/alpererdinc" target="_blank">GitHub</a>
+      <a href="https://github.com/alpererdinc" target="_blank">github</a>
       <a href="https://dottoman.com" target="_blank">dottoman.com</a>
     </div>
-    <p class="footer-copy">© 2025</p>
+    <div class="footer-right">made with ☕ in adana</div>
   </footer>
-
   <script src="../js/main.js"></script>
 </body>
 </html>

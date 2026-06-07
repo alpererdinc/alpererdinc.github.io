@@ -3,98 +3,59 @@
 <head>
   <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Brand Detection — Alper Erdinç</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&family=Sora:wght@300;400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../css/style.css" />
-  <style>
-    .ai-flow {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      margin: 2rem 0;
-    }
-    .flow-step {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 0.75rem 1.25rem;
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      letter-spacing: 0.06em;
-      color: var(--text-muted);
-    }
-    .flow-arrow {
-      color: var(--accent);
-      font-size: 1.1rem;
-    }
-  </style>
 </head>
 <body>
+  <div class="cursor" id="cursor"></div>
   <nav class="navbar">
-    <a href="../index.html" class="nav-logo">AE<span class="dot">.</span></a>
+    <a href="../index.html" class="nav-logo">alper.dev</a>
     <div class="nav-links">
-      <a href="../index.html" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a>
-      <a href="dottoman.html">Dottoman</a>
-      <a href="eticaret.html" data-tr="E-Ticaret" data-en="E-Commerce">E-Ticaret</a>
-      <a href="tez-oyunu.html" data-tr="Tez Oyunu" data-en="Thesis Game">Tez Oyunu</a>
-      <a href="2d-oyunlar.html" data-tr="2D Oyunlar" data-en="2D Games">2D Oyunlar</a>
-      <a href="brand-detection.html">Brand AI</a>
+      <a href="../index.html" data-tr="ana sayfa" data-en="home">ana sayfa</a>
+      <a href="dottoman.html" data-tr="dottoman" data-en="dottoman">dottoman</a>
+      <a href="eticaret.html" data-tr="e-ticaret" data-en="e-commerce">e-ticaret</a>
+      <a href="tez-oyunu.html" data-tr="tez oyunu" data-en="thesis game">tez oyunu</a>
+      <a href="2d-oyunlar.html" data-tr="2d oyunlar" data-en="2d games">2d oyunlar</a>
+      <a href="brand-detection.html" data-tr="brand ai" data-en="brand ai">brand ai</a>
     </div>
     <button class="lang-toggle" id="langToggle">EN</button>
-    <button class="nav-hamburger" id="navHamburger">&#9776;</button>
+    <button class="nav-hamburger" id="navHamburger">☰</button>
   </nav>
   <div class="mobile-menu" id="mobileMenu">
-    <a href="../index.html" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a>
-    <a href="dottoman.html">Dottoman</a>
-    <a href="eticaret.html" data-tr="E-Ticaret" data-en="E-Commerce">E-Ticaret</a>
-    <a href="tez-oyunu.html" data-tr="Tez Oyunu" data-en="Thesis Game">Tez Oyunu</a>
-    <a href="2d-oyunlar.html" data-tr="2D Oyunlar" data-en="2D Games">2D Oyunlar</a>
-    <a href="brand-detection.html">Brand AI</a>
+    <a href="../index.html" data-tr="ana sayfa" data-en="home">ana sayfa</a>
+    <a href="dottoman.html" data-tr="dottoman" data-en="dottoman">dottoman</a>
+    <a href="eticaret.html" data-tr="e-ticaret" data-en="e-commerce">e-ticaret</a>
+    <a href="tez-oyunu.html" data-tr="tez oyunu" data-en="thesis game">tez oyunu</a>
+    <a href="2d-oyunlar.html" data-tr="2d oyunlar" data-en="2d games">2d oyunlar</a>
+    <a href="brand-detection.html" data-tr="brand ai" data-en="brand ai">brand ai</a>
   </div>
-
   <section class="project-hero">
-    <div class="project-hero-bg"></div>
-    <div class="project-hero-overlay"></div>
+    <div class="project-hero-dots"></div>
     <div class="project-hero-content">
-      <div class="card-tag" data-tr="Yapay Zekâ · Görüntü İşleme · Makine Öğrenmesi" data-en="AI · Computer Vision · Machine Learning">Yapay Zekâ · Görüntü İşleme · Makine Öğrenmesi</div>
+      <div class="badge" data-tr="yapay zekâ · görüntü işleme" data-en="ai · computer vision">yapay zekâ · görüntü işleme</div>
       <h1>Brand Detection</h1>
-      <p class="lead" data-tr="Araç markalarını görüntüden otomatik olarak tanıyan derin öğrenme tabanlı sınıflandırma projesi." data-en="A deep-learning-based classification project that automatically recognizes vehicle brands from images.">Araç markalarını görüntüden otomatik olarak tanıyan derin öğrenme tabanlı sınıflandırma projesi.</p>
+      <p class="lead" data-tr="Araç fotoğrafına bakıp markayı söyleyen bir yapay zekâ modeli." data-en="An AI model that looks at a car photo and tells you the brand.">Araç fotoğrafına bakıp markayı söyleyen bir yapay zekâ modeli.</p>
     </div>
   </section>
-
   <div class="project-body">
-    <a href="../index.html" class="back-link">← <span data-tr="Tüm Projeler" data-en="All Projects">Tüm Projeler</span></a>
-    <h2 data-tr="Proje Hakkında" data-en="About the Project">Proje Hakkında</h2>
-    <p data-tr="Bu proje, bir araç görüntüsünü girdi olarak alıp hangi markaya ait olduğunu tahmin eden bir yapay zekâ sistemi geliştirmeyi hedefliyor. Görüntü işleme ve derin öğrenme tekniklerini bir arada kullanıyor." data-en="This project aims to develop an AI system that takes a vehicle image as input and predicts which brand it belongs to. It combines image processing and deep learning techniques.">Bu proje, bir araç görüntüsünü girdi olarak alıp hangi markaya ait olduğunu tahmin eden bir yapay zekâ sistemi geliştirmeyi hedefliyor. Görüntü işleme ve derin öğrenme tekniklerini bir arada kullanıyor.</p>
-    <p data-tr="Model eğitimi için çok sayıda araç markasına ait görüntü verisi toplandı ve işlendi. Doğruluk oranını artırmak için çeşitli mimari denemeleri yapıldı." data-en="Image data from numerous vehicle brands was collected and processed for model training. Various architectural experiments were conducted to improve accuracy.">Model eğitimi için çok sayıda araç markasına ait görüntü verisi toplandı ve işlendi. Doğruluk oranını artırmak için çeşitli mimari denemeleri yapıldı.</p>
-
-    <h2 data-tr="Nasıl Çalışır?" data-en="How Does It Work?">Nasıl Çalışır?</h2>
-    <div class="ai-flow">
-      <div class="flow-step" data-tr="Görüntü Girişi" data-en="Image Input">Görüntü Girişi</div>
-      <span class="flow-arrow">→</span>
-      <div class="flow-step" data-tr="Ön İşleme" data-en="Preprocessing">Ön İşleme</div>
-      <span class="flow-arrow">→</span>
-      <div class="flow-step" data-tr="CNN Modeli" data-en="CNN Model">CNN Modeli</div>
-      <span class="flow-arrow">→</span>
-      <div class="flow-step" data-tr="Marka Tahmini" data-en="Brand Prediction">Marka Tahmini</div>
-    </div>
-
-    <h2 data-tr="Teknolojiler" data-en="Technologies">Teknolojiler</h2>
-    <ul><li>Python</li><li>TensorFlow / Keras</li><li>OpenCV</li><li>CNN</li><li>NumPy</li><li>Matplotlib</li></ul>
+    <a href="../index.html" class="back-link">← <span data-tr="geri dön" data-en="go back">geri dön</span></a>
+    <h2 data-tr="ne bu?" data-en="what is it?">ne bu?</h2>
+    <p data-tr="Bir araç fotoğrafını veriyorsun, model hangi markaya ait olduğunu söylüyor. Derin öğrenme ile görüntü sınıflandırması yaptım — veri toplamaktan model eğitimine kadar her aşamada çalıştım." data-en="You give it a car photo, the model tells you which brand it is. Image classification with deep learning — I worked on every stage from data collection to model training.">Bir araç fotoğrafını veriyorsun, model hangi markaya ait olduğunu söylüyor. Derin öğrenme ile görüntü sınıflandırması yaptım — veri toplamaktan model eğitimine kadar her aşamada çalıştım.</p>
+    <p data-tr="En eğlenceli yanı modelin neyi yanlış anladığını görmekti. Bazı arabalar gerçekten birbirine çok benziyor." data-en="The most fun part was seeing what the model got wrong. Some cars really do look alike.">En eğlenceli yanı modelin neyi yanlış anladığını görmekti. Bazı arabalar gerçekten birbirine çok benziyor.</p>
+    <h2 data-tr="nasıl çalışır?" data-en="how does it work?">nasıl çalışır?</h2>
+    <p><code style="font-family:var(--mono);font-size:0.85rem;background:var(--bg2);padding:0.2rem 0.5rem;border-radius:6px;border:1px solid var(--border);">görüntü → ön işleme → CNN → tahmin</code></p>
+    <h2 data-tr="teknolojiler" data-en="tech stack">teknolojiler</h2>
+    <ul><li>Python</li><li>TensorFlow</li><li>Keras</li><li>OpenCV</li><li>NumPy</li></ul>
     <div class="project-links">
-      <a href="https://github.com/alpererdinc" target="_blank" class="btn-ghost">GitHub →</a>
+      <a href="https://github.com/alpererdinc" target="_blank" class="btn btn-white">GitHub →</a>
     </div>
   </div>
-
   <footer class="footer">
-    <p class="footer-name">Alper Erdinç</p>
+    <div class="footer-left">alper erdinç // 2025</div>
     <div class="footer-links">
-      <a href="https://github.com/alpererdinc" target="_blank">GitHub</a>
+      <a href="https://github.com/alpererdinc" target="_blank">github</a>
       <a href="https://dottoman.com" target="_blank">dottoman.com</a>
     </div>
-    <p class="footer-copy">© 2025</p>
+    <div class="footer-right">made with ☕ in adana</div>
   </footer>
   <script src="../js/main.js"></script>
 </body>

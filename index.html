@@ -3,124 +3,144 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Alper Erdinç — Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&family=Sora:wght@300;400;600&display=swap" rel="stylesheet" />
+  <title>Alper Erdinç</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
+  <div class="cursor" id="cursor"></div>
+
   <!-- NAV -->
   <nav class="navbar">
-    <a href="index.html" class="nav-logo">AE<span class="dot">.</span></a>
+    <a href="index.html" class="nav-logo">alper.dev</a>
     <div class="nav-links">
-      <a href="index.html" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a>
-      <a href="pages/dottoman.html" data-tr="Dottoman" data-en="Dottoman">Dottoman</a>
-      <a href="pages/eticaret.html" data-tr="E-Ticaret" data-en="E-Commerce">E-Ticaret</a>
-      <a href="pages/tez-oyunu.html" data-tr="Tez Oyunu" data-en="Thesis Game">Tez Oyunu</a>
-      <a href="pages/2d-oyunlar.html" data-tr="2D Oyunlar" data-en="2D Games">2D Oyunlar</a>
-      <a href="pages/brand-detection.html" data-tr="Brand AI" data-en="Brand AI">Brand AI</a>
+      <a href="index.html"                data-tr="ana sayfa"  data-en="home">ana sayfa</a>
+      <a href="pages/dottoman.html"       data-tr="dottoman"   data-en="dottoman">dottoman</a>
+      <a href="pages/eticaret.html"       data-tr="e-ticaret"  data-en="e-commerce">e-ticaret</a>
+      <a href="pages/tez-oyunu.html"      data-tr="tez oyunu"  data-en="thesis game">tez oyunu</a>
+      <a href="pages/2d-oyunlar.html"     data-tr="2d oyunlar" data-en="2d games">2d oyunlar</a>
+      <a href="pages/brand-detection.html" data-tr="brand ai"  data-en="brand ai">brand ai</a>
     </div>
     <button class="lang-toggle" id="langToggle">EN</button>
-    <button class="nav-hamburger" id="navHamburger">&#9776;</button>
+    <button class="nav-hamburger" id="navHamburger">☰</button>
   </nav>
 
-  <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobileMenu">
-    <a href="index.html" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a>
-    <a href="pages/dottoman.html" data-tr="Dottoman" data-en="Dottoman">Dottoman</a>
-    <a href="pages/eticaret.html" data-tr="E-Ticaret" data-en="E-Commerce">E-Ticaret</a>
-    <a href="pages/tez-oyunu.html" data-tr="Tez Oyunu" data-en="Thesis Game">Tez Oyunu</a>
-    <a href="pages/2d-oyunlar.html" data-tr="2D Oyunlar" data-en="2D Games">2D Oyunlar</a>
-    <a href="pages/brand-detection.html" data-tr="Brand AI" data-en="Brand AI">Brand AI</a>
+    <a href="index.html"                 data-tr="ana sayfa"  data-en="home">ana sayfa</a>
+    <a href="pages/dottoman.html"        data-tr="dottoman"   data-en="dottoman">dottoman</a>
+    <a href="pages/eticaret.html"        data-tr="e-ticaret"  data-en="e-commerce">e-ticaret</a>
+    <a href="pages/tez-oyunu.html"       data-tr="tez oyunu"  data-en="thesis game">tez oyunu</a>
+    <a href="pages/2d-oyunlar.html"      data-tr="2d oyunlar" data-en="2d games">2d oyunlar</a>
+    <a href="pages/brand-detection.html" data-tr="brand ai"   data-en="brand ai">brand ai</a>
   </div>
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-bg-grid"></div>
-    <div class="hero-content">
-      <p class="hero-eyebrow" data-tr="Merhaba, ben" data-en="Hey, I'm">Merhaba, ben</p>
-      <h1 class="hero-name">Alper Erdinç</h1>
-      <p class="hero-tagline" data-tr="Geliştirici · Tasarımcı · Hikaye Anlatıcısı" data-en="Developer · Designer · Storyteller">Geliştirici · Tasarımcı · Hikaye Anlatıcısı</p>
-      <div class="hero-cta">
-        <a href="#projects" class="btn-primary" data-tr="Projeleri Gör" data-en="See Projects">Projeleri Gör</a>
-        <a href="mailto:alpererdinc@gmail.com" class="btn-ghost" data-tr="İletişim" data-en="Contact">İletişim</a>
-      </div>
-    </div>
     <div class="hero-deco">
-      <div class="deco-ring r1"></div>
-      <div class="deco-ring r2"></div>
-      <div class="deco-dot d1"></div>
-      <div class="deco-dot d2"></div>
-      <div class="deco-dot d3"></div>
+      <div class="deco-blob b1"></div>
+      <div class="deco-blob b2"></div>
+      <div class="deco-blob b3"></div>
+    </div>
+    <div class="hero-inner">
+      <div class="hero-wave">👋</div>
+      <h1 class="hero-name">
+        <span class="underlined" data-tr="Alper" data-en="Alper">Alper</span><br>
+        <em data-tr="Erdinç" data-en="Erdinç">Erdinç</em>
+      </h1>
+      <p class="hero-desc" data-tr="Kod yazıyorum, oyun yapıyorum, bazen animasyon karakterleri tasarlıyorum. <strong>Dottoman</strong>'ın yaratıcısıyım. Web'den oyun motoruna, piksel sanattan yapay zekâya — her şeyden biraz." data-en="I write code, make games, sometimes design animation characters. Creator of <strong>Dottoman</strong>. From the web to game engines, pixel art to AI — a little bit of everything.">Kod yazıyorum, oyun yapıyorum, bazen animasyon karakterleri tasarlıyorum. <strong>Dottoman</strong>'ın yaratıcısıyım. Web'den oyun motoruna, piksel sanattan yapay zekâya — her şeyden biraz.</p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-yellow" data-tr="👇 projelere bak" data-en="👇 see projects">👇 projelere bak</a>
+        <a href="https://github.com/alpererdinc" target="_blank" class="btn btn-white">GitHub →</a>
+      </div>
     </div>
   </section>
 
-  <!-- ABOUT STRIP -->
-  <section class="about-strip">
-    <div class="about-strip-inner">
-      <div class="about-text">
-        <h2 class="section-title" data-tr="Hakkımda" data-en="About Me">Hakkımda</h2>
-        <p data-tr="Yazılım ve yaratıcılığı bir arada taşıyan bir geliştirici ve tasarımcıyım. Piksel sanatından yapay zekâya, 2D oyunlardan animasyon projelerine uzanan geniş bir alanda çalışıyorum." data-en="I'm a developer and designer who blends software with creativity. My work spans from pixel art to AI, from 2D games to animated web projects.">Yazılım ve yaratıcılığı bir arada taşıyan bir geliştirici ve tasarımcıyım. Piksel sanatından yapay zekâya, 2D oyunlardan animasyon projelerine uzanan geniş bir alanda çalışıyorum.</p>
-      </div>
-      <div class="about-tags">
-        <span class="tag">PHP</span>
-        <span class="tag">JavaScript</span>
-        <span class="tag">CSS</span>
-        <span class="tag">Python</span>
-        <span class="tag">Game Dev</span>
-        <span class="tag">Pixel Art</span>
-        <span class="tag">AI / ML</span>
+  <!-- MARQUEE -->
+  <div class="marquee-strip">
+    <div class="marquee-inner">
+      <span>PHP</span><span class="sep">✦</span>
+      <span>JavaScript</span><span class="sep">✦</span>
+      <span>CSS</span><span class="sep">✦</span>
+      <span>Python</span><span class="sep">✦</span>
+      <span>Unity</span><span class="sep">✦</span>
+      <span>Pixel Art</span><span class="sep">✦</span>
+      <span>Machine Learning</span><span class="sep">✦</span>
+      <span>Game Design</span><span class="sep">✦</span>
+      <span>PHP</span><span class="sep">✦</span>
+      <span>JavaScript</span><span class="sep">✦</span>
+      <span>CSS</span><span class="sep">✦</span>
+      <span>Python</span><span class="sep">✦</span>
+      <span>Unity</span><span class="sep">✦</span>
+      <span>Pixel Art</span><span class="sep">✦</span>
+      <span>Machine Learning</span><span class="sep">✦</span>
+      <span>Game Design</span><span class="sep">✦</span>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="about-section">
+    <div class="about-avatar">🎮</div>
+    <div class="about-text">
+      <h2 data-tr="benim hakkımda" data-en="about me">benim hakkımda</h2>
+      <p data-tr="Adana'da yaşayan, kod ve yaratıcılık arasında gidip gelen bir developer'ım. Hem teknik hem de tasarım tarafını seviyorum — bir şeyin <strong>hem güzel hem de çalışması</strong> gerektiğine inanıyorum." data-en="A developer living in Adana, bouncing between code and creativity. I love both the technical and design side — I believe something needs to <strong>look good and work well</strong>.">Adana'da yaşayan, kod ve yaratıcılık arasında gidip gelen bir developer'ım. Hem teknik hem de tasarım tarafını seviyorum — bir şeyin <strong>hem güzel hem de çalışması</strong> gerektiğine inanıyorum.</p>
+      <p data-tr="Dottoman dışında da birkaç farklı projede çalıştım — e-ticaret, oyunlar, yapay zekâ. Hepsini burada bulabilirsin." data-en="Beyond Dottoman, I've worked on several different projects — e-commerce, games, AI. You can find them all here.">Dottoman dışında da birkaç farklı projede çalıştım — e-ticaret, oyunlar, yapay zekâ. Hepsini burada bulabilirsin.</p>
+      <div class="skill-pills">
+        <span class="pill">PHP</span>
+        <span class="pill">JS</span>
+        <span class="pill">CSS</span>
+        <span class="pill">Python</span>
+        <span class="pill">Unity</span>
+        <span class="pill">Pixel Art</span>
+        <span class="pill">AI / ML</span>
       </div>
     </div>
   </section>
 
   <!-- PROJECTS -->
   <section class="projects-section" id="projects">
-    <h2 class="section-title centered" data-tr="Projeler" data-en="Projects">Projeler</h2>
-    <p class="section-sub" data-tr="Her proje bir fikrin somutlaşmış hali." data-en="Each project is an idea made real.">Her proje bir fikrin somutlaşmış hali.</p>
+    <h2 data-tr="projelerim" data-en="my projects">projelerim</h2>
+    <p class="sub" data-tr="şimdiye kadar yaptıklarım — büyük küçük demeden" data-en="things I've built — big and small">şimdiye kadar yaptıklarım — büyük küçük demeden</p>
 
     <div class="projects-grid">
 
-      <a href="pages/dottoman.html" class="project-card card-featured">
-        <div class="card-tag" data-tr="Animasyon · Web" data-en="Animation · Web">Animasyon · Web</div>
-        <div class="card-icon">✦</div>
-        <h3 class="card-title">Dottoman</h3>
-        <p class="card-desc" data-tr="Noktalama işaretlerinin kahramanlar olduğu, Türkçe–İngilizce piksel sanat animasyon evreni." data-en="A pixel-art animation universe where punctuation marks are the heroes, in Turkish & English.">Noktalama işaretlerinin kahramanlar olduğu, Türkçe–İngilizce piksel sanat animasyon evreni.</p>
-        <span class="card-arrow">→</span>
+      <a href="pages/dottoman.html" class="project-card">
+        <div class="card-color-bar"></div>
+        <div class="card-label" data-tr="animasyon · web · piksel sanat" data-en="animation · web · pixel art">animasyon · web · piksel sanat</div>
+        <div class="card-title">Dottoman ✦</div>
+        <p class="card-desc" data-tr="Noktalama işaretleri karakter olursa? Türkçe-İngilizce piksel sanat animasyon evreni. Benim için en özel proje." data-en="What if punctuation marks became characters? A Turkish-English pixel art animation universe. My most personal project.">Noktalama işaretleri karakter olursa? Türkçe-İngilizce piksel sanat animasyon evreni. Benim için en özel proje.</p>
+        <span class="card-cta">dottoman.com'a git <span>→</span></span>
       </a>
 
       <a href="pages/eticaret.html" class="project-card">
-        <div class="card-tag" data-tr="Web · E-Ticaret" data-en="Web · E-Commerce">Web · E-Ticaret</div>
-        <div class="card-icon">◈</div>
-        <h3 class="card-title" data-tr="E-Ticaret Sitesi" data-en="E-Commerce Site">E-Ticaret Sitesi</h3>
-        <p class="card-desc" data-tr="Tam işlevli bir alışveriş deneyimi için tasarlanmış web projesi." data-en="A web project built for a complete shopping experience.">Tam işlevli bir alışveriş deneyimi için tasarlanmış web projesi.</p>
-        <span class="card-arrow">→</span>
+        <div class="card-color-bar"></div>
+        <div class="card-label" data-tr="web · full stack" data-en="web · full stack">web · full stack</div>
+        <div class="card-title" data-tr="E-Ticaret Sitesi" data-en="E-Commerce Site">E-Ticaret Sitesi</div>
+        <p class="card-desc" data-tr="Ürün listeleme, sepet, kullanıcı hesabı — sıfırdan yazılmış tam işlevli alışveriş sitesi." data-en="Product listing, cart, user accounts — a fully functional shopping site written from scratch.">Ürün listeleme, sepet, kullanıcı hesabı — sıfırdan yazılmış tam işlevli alışveriş sitesi.</p>
+        <span class="card-cta" data-tr="detaylara bak →" data-en="see details →">detaylara bak →</span>
       </a>
 
       <a href="pages/tez-oyunu.html" class="project-card">
-        <div class="card-tag" data-tr="Oyun · Tez" data-en="Game · Thesis">Oyun · Tez</div>
-        <div class="card-icon">◉</div>
-        <h3 class="card-title" data-tr="Tez Oyunu" data-en="Thesis Game">Tez Oyunu</h3>
-        <p class="card-desc" data-tr="Lisans tezi kapsamında geliştirilen, araştırma destekli özgün oyun projesi." data-en="An original game project developed as a bachelor's thesis, backed by research.">Lisans tezi kapsamında geliştirilen, araştırma destekli özgün oyun projesi.</p>
-        <span class="card-arrow">→</span>
+        <div class="card-color-bar"></div>
+        <div class="card-label" data-tr="oyun · lisans tezi" data-en="game · thesis">oyun · lisans tezi</div>
+        <div class="card-title" data-tr="Tez Oyunu" data-en="Thesis Game">Tez Oyunu</div>
+        <p class="card-desc" data-tr="Hem araştırma hem de oyun. Tezim için geliştirdiğim özgün oyun projesi." data-en="Both research and gameplay. An original game project developed for my thesis.">Hem araştırma hem de oyun. Tezim için geliştirdiğim özgün oyun projesi.</p>
+        <span class="card-cta" data-tr="detaylara bak →" data-en="see details →">detaylara bak →</span>
       </a>
 
       <a href="pages/2d-oyunlar.html" class="project-card">
-        <div class="card-tag" data-tr="Oyun · 2D" data-en="Game · 2D">Oyun · 2D</div>
-        <div class="card-icon">▣</div>
-        <h3 class="card-title" data-tr="2D Oyunlar" data-en="2D Games">2D Oyunlar</h3>
-        <p class="card-desc" data-tr="Erken dönem oyun geliştirme maceralarından iki 2D oyun projesi." data-en="Two 2D game projects from early game development adventures.">Erken dönem oyun geliştirme maceralarından iki 2D oyun projesi.</p>
-        <span class="card-arrow">→</span>
+        <div class="card-color-bar"></div>
+        <div class="card-label" data-tr="oyun · 2d" data-en="game · 2d">oyun · 2d</div>
+        <div class="card-title" data-tr="2D Oyunlar" data-en="2D Games">2D Oyunlar</div>
+        <p class="card-desc" data-tr="İki 2D oyun projesi. Oyun yapmaya başladığım ilk günlerden." data-en="Two 2D game projects. From the very first days I started making games.">İki 2D oyun projesi. Oyun yapmaya başladığım ilk günlerden.</p>
+        <span class="card-cta" data-tr="detaylara bak →" data-en="see details →">detaylara bak →</span>
       </a>
 
-      <a href="pages/brand-detection.html" class="project-card card-wide">
-        <div class="card-tag" data-tr="Yapay Zekâ · Görüntü İşleme" data-en="AI · Computer Vision">Yapay Zekâ · Görüntü İşleme</div>
-        <div class="card-icon">◎</div>
-        <h3 class="card-title">Brand Detection</h3>
-        <p class="card-desc" data-tr="Araç markalarını görüntüden otomatik olarak tanıyan yapay zekâ tabanlı sınıflandırma projesi." data-en="An AI-powered classification project that automatically recognizes vehicle brands from images.">Araç markalarını görüntüden otomatik olarak tanıyan yapay zekâ tabanlı sınıflandırma projesi.</p>
-        <span class="card-arrow">→</span>
+      <a href="pages/brand-detection.html" class="project-card">
+        <div class="card-color-bar"></div>
+        <div class="card-label" data-tr="yapay zekâ · görüntü işleme" data-en="ai · computer vision">yapay zekâ · görüntü işleme</div>
+        <div class="card-title">Brand Detection</div>
+        <p class="card-desc" data-tr="Araç fotoğrafından markayı tanıyan bir yapay zekâ modeli. Python ve derin öğrenme." data-en="An AI model that recognizes vehicle brands from photos. Python and deep learning.">Araç fotoğrafından markayı tanıyan bir yapay zekâ modeli. Python ve derin öğrenme.</p>
+        <span class="card-cta" data-tr="detaylara bak →" data-en="see details →">detaylara bak →</span>
       </a>
 
     </div>
@@ -128,12 +148,12 @@
 
   <!-- FOOTER -->
   <footer class="footer">
-    <p class="footer-name">Alper Erdinç</p>
+    <div class="footer-left">alper erdinç // 2025</div>
     <div class="footer-links">
-      <a href="https://github.com/alpererdinc" target="_blank">GitHub</a>
+      <a href="https://github.com/alpererdinc" target="_blank">github</a>
       <a href="https://dottoman.com" target="_blank">dottoman.com</a>
     </div>
-    <p class="footer-copy">© 2025</p>
+    <div class="footer-right">made with ☕ in adana</div>
   </footer>
 
   <script src="js/main.js"></script>
