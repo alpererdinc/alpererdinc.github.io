@@ -666,6 +666,29 @@ body::after {
   color: var(--text);
 }
 
+.stat-unit {
+  display: block;
+  margin-top: 0.25rem;
+
+  font-family: var(--mono);
+  font-size: 0.55rem;
+  color: var(--faint);
+  text-transform: lowercase;
+}
+
+.card-section-label {
+  position: relative;
+  z-index: 2;
+
+  margin: 0.2rem 0 0.55rem;
+
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
 .hero-cta {
   position: relative;
   z-index: 2;
@@ -1433,3 +1456,169 @@ body::after {
     filter: none;
   }
 }
+
+/* ===== HERO CARD COMPACT FIT ===== */
+
+.hero {
+  min-height: 100svh;
+  padding: 5.8rem 1rem 1.8rem;
+}
+
+.hero-card {
+  width: min(760px, 100%);
+  padding: 0.85rem;
+}
+
+.card-top {
+  padding-bottom: 0.65rem;
+  margin-bottom: 0.75rem;
+}
+
+.card-main {
+  grid-template-columns: 165px 1fr;
+  gap: 0.85rem;
+  padding-bottom: 0.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.card-portrait {
+  min-height: 185px;
+}
+
+.hero-name {
+  font-size: clamp(2.35rem, 6.2vw, 4.35rem);
+  margin-bottom: 0.65rem;
+}
+
+.hero-name em {
+  font-size: inherit;
+}
+
+.card-subtitle {
+  font-size: 0.68rem;
+  line-height: 1.65;
+}
+
+.card-body {
+  gap: 0.45rem;
+  margin-bottom: 0.8rem;
+}
+
+.card-line {
+  grid-template-columns: 105px 1fr;
+  gap: 0.75rem;
+  padding: 0.5rem 0.65rem;
+}
+
+.card-label {
+  font-size: 0.6rem;
+}
+
+.card-value {
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.card-stats {
+  gap: 0.55rem;
+  margin-bottom: 0.9rem;
+}
+
+.stat-box {
+  padding: 0.6rem;
+}
+
+.stat-name {
+  font-size: 0.56rem;
+  margin-bottom: 0.25rem;
+}
+
+.stat-value {
+  font-size: 1.15rem;
+}
+
+.hero-cta {
+  gap: 0.55rem;
+}
+
+.btn {
+  min-height: 2.35rem;
+  padding: 0.55rem 0.85rem;
+}
+
+@media (max-height: 760px) and (min-width: 761px) {
+  .hero {
+    padding-top: 5.2rem;
+    padding-bottom: 1rem;
+  }
+
+  .hero-card {
+    width: min(720px, 100%);
+    padding: 0.75rem;
+  }
+
+  .card-top {
+    padding-bottom: 0.55rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .card-main {
+    grid-template-columns: 150px 1fr;
+    gap: 0.75rem;
+    padding-bottom: 0.65rem;
+    margin-bottom: 0.65rem;
+  }
+
+  .card-portrait {
+    min-height: 155px;
+  }
+
+  .hero-name {
+    font-size: clamp(2.1rem, 5.4vw, 3.75rem);
+    margin-bottom: 0.5rem;
+  }
+
+  .card-subtitle {
+    font-size: 0.64rem;
+    line-height: 1.55;
+  }
+
+  .card-body {
+    gap: 0.35rem;
+    margin-bottom: 0.65rem;
+  }
+
+  .card-line {
+    padding: 0.42rem 0.6rem;
+  }
+
+  .card-stats {
+    display: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .hero {
+    min-height: 100svh;
+    padding: 6.4rem 1rem 1.5rem;
+  }
+
+  .hero-card {
+    width: min(560px, 100%);
+    padding: 0.85rem;
+  }
+
+  .card-main {
+    grid-template-columns: 1fr;
+  }
+
+  .card-portrait {
+    min-height: 170px;
+    max-height: 230px;
+  }
+
+  .hero-name {
+    font-size: clamp(2.35rem, 14vw, 4rem);
+  }
+}
+
