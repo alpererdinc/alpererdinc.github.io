@@ -130,6 +130,8 @@
     const canvas = document.getElementById("pongCanvas");
     const scoreEl = document.getElementById("pongScore");
     const modeButtons = document.querySelectorAll("[data-pong-mode]");
+    const touchUpBtn = document.getElementById("pongTouchUp");
+    const touchDownBtn = document.getElementById("pongTouchDown");
 
     if (!trigger || !modal || !closeBtn || !canvas || !scoreEl) return;
 
@@ -143,6 +145,12 @@
     let currentMode = "normal";
 
     const keys = new Set();
+    const touchControl = {
+      active: false,
+      targetY: null,
+      up: false,
+      down: false
+    };
 
     const modes = {
       easy: {
@@ -316,12 +324,35 @@
     function updatePlayer() {
       const player = game.player;
 
-      if (keys.has("w") || keys.has("arrowup")) {
+      const keyboardUp = keys.has("w") || keys.has("arrowup");
+      const keyboardDown = keys.has("s") || keys.has("arrowdown");
+
+      let movedManually = false;
+
+      if (keyboardUp || touchControl.up) {
         player.y -= player.speed;
+        movedManually = true;
       }
 
-      if (keys.has("s") || keys.has("arrowdown")) {
+      if (keyboardDown || touchControl.down) {
         player.y += player.speed;
+        movedManually = true;
+      }
+
+      /*
+        Mobilde canvas üzerinde parmak sürüklenirse paddle,
+        parmağın yüksekliğine doğru yumuşak şekilde gider.
+      */
+      if (!movedManually && touchControl.active && touchControl.targetY !== null) {
+        const target = clamp(touchControl.targetY, 0, game.height - player.h);
+        const diff = target - player.y;
+        const maxStep = player.speed * 1.35;
+
+        if (Math.abs(diff) <= maxStep) {
+          player.y = target;
+        } else {
+          player.y += Math.sign(diff) * maxStep;
+        }
       }
 
       player.y = clamp(player.y, 0, game.height - player.h);
@@ -505,6 +536,7 @@
 
     function openGame() {
       modal.classList.add("show");
+      document.body.classList.add("game-open");
       modal.setAttribute("aria-hidden", "false");
 
       resetGame();
@@ -516,11 +548,16 @@
 
     function closeGame() {
       modal.classList.remove("show");
+      document.body.classList.remove("game-open");
       modal.setAttribute("aria-hidden", "true");
 
       running = false;
       cancelAnimationFrame(animationId);
       keys.clear();
+      touchControl.active = false;
+      touchControl.up = false;
+      touchControl.down = false;
+      touchControl.targetY = null;
     }
 
     trigger.addEventListener("click", () => {
@@ -583,6 +620,64 @@
     window.addEventListener("keyup", (event) => {
       keys.delete(event.key.toLowerCase());
     });
+
+    function setTouchTargetFromEvent(event) {
+      const rect = canvas.getBoundingClientRect();
+      const scaleY = game.height / rect.height;
+
+      const pointerY = (event.clientY - rect.top) * scaleY;
+      touchControl.targetY = pointerY - game.player.h / 2;
+      touchControl.active = true;
+    }
+
+    canvas.addEventListener("pointerdown", (event) => {
+      if (!running) return;
+
+      event.preventDefault();
+      canvas.setPointerCapture?.(event.pointerId);
+      setTouchTargetFromEvent(event);
+    });
+
+    canvas.addEventListener("pointermove", (event) => {
+      if (!running || !touchControl.active) return;
+
+      event.preventDefault();
+      setTouchTargetFromEvent(event);
+    });
+
+    canvas.addEventListener("pointerup", () => {
+      touchControl.active = false;
+    });
+
+    canvas.addEventListener("pointercancel", () => {
+      touchControl.active = false;
+    });
+
+    function bindTouchButton(button, direction) {
+      if (!button) return;
+
+      button.addEventListener("pointerdown", (event) => {
+        if (!running) return;
+
+        event.preventDefault();
+        touchControl[direction] = true;
+      });
+
+      button.addEventListener("pointerup", () => {
+        touchControl[direction] = false;
+      });
+
+      button.addEventListener("pointerleave", () => {
+        touchControl[direction] = false;
+      });
+
+      button.addEventListener("pointercancel", () => {
+        touchControl[direction] = false;
+      });
+    }
+
+    bindTouchButton(touchUpBtn, "up");
+    bindTouchButton(touchDownBtn, "down");
 
     updateModeButtons();
     draw();

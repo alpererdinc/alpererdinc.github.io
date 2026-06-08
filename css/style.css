@@ -1547,7 +1547,60 @@ button.card-rarity {
   border-color: var(--accent);
 }
 
+#pongCanvas {
+  touch-action: none;
+  user-select: none;
+}
+
+.pong-touch-controls {
+  display: none;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.55rem;
+
+  margin-top: 0.7rem;
+}
+
+.pong-touch-btn {
+  min-height: 2.6rem;
+
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+
+  color: #111;
+  background: var(--accent);
+
+  border: 1px solid var(--accent2);
+  border-radius: 4px;
+
+  text-transform: lowercase;
+}
+
+.pong-touch-btn:active {
+  transform: translateY(1px);
+  background: #ff8a33;
+}
+
+body.game-open {
+  overflow: hidden;
+}
+
 /* ===== RESPONSIVE ===== */
+
+@media (max-width: 760px) {
+  .pong-touch-controls {
+    display: grid;
+  }
+
+  .pong-panel {
+    max-height: calc(100svh - 1.5rem);
+    overflow-y: auto;
+  }
+
+  .pong-touch-btn {
+    cursor: auto;
+  }
+}
 
 @media (max-width: 900px) {
   .nav-links {
@@ -1703,6 +1756,7 @@ button.card-rarity {
 }
 
 @media (max-width: 640px) {
+
   button.card-rarity,
   .pong-close {
     cursor: auto;

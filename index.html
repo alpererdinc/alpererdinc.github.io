@@ -371,9 +371,19 @@
 
       <canvas id="pongCanvas" width="640" height="360"></canvas>
 
-      <p class="pong-help" data-tr="W / S veya ↑ / ↓ ile oynanır. Oyunu yeniden başlatmak için R tuşuna bas."
-        data-en="Use W / S or ↑ / ↓ to play. Press R to restart the game.">
-        W / S veya ↑ / ↓ ile oynanır. Oyunu yeniden başlatmak için R tuşuna bas.
+      <div class="pong-touch-controls" aria-label="Mobil Pong kontrolü">
+        <button class="pong-touch-btn" id="pongTouchUp" type="button" data-tr="yukarı" data-en="up">
+          yukarı
+        </button>
+
+        <button class="pong-touch-btn" id="pongTouchDown" type="button" data-tr="aşağı" data-en="down">
+          aşağı
+        </button>
+      </div>
+      <p class="pong-help"
+        data-tr="Masaüstünde W / S veya ↑ / ↓ ile oynanır. Mobilde ekrana dokunup sürükle veya butonları kullan."
+        data-en="On desktop, use W / S or ↑ / ↓. On mobile, drag on the screen or use the buttons.">
+        Masaüstünde W / S veya ↑ / ↓ ile oynanır. Mobilde ekrana dokunup sürükle veya butonları kullan.
       </p>
     </div>
   </div>
