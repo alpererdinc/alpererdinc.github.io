@@ -50,6 +50,32 @@
 
   applyLang(lang);
 
+  /* ── THEME TOGGLE ── */
+  const themeButtons = document.querySelectorAll("[data-theme-choice]");
+  let theme = localStorage.getItem("ae_theme") || "orange";
+
+  function applyTheme(selectedTheme) {
+    theme = selectedTheme;
+
+    localStorage.setItem("ae_theme", selectedTheme);
+    document.documentElement.setAttribute("data-theme", selectedTheme);
+
+    themeButtons.forEach((button) => {
+      button.classList.toggle(
+        "active",
+        button.dataset.themeChoice === selectedTheme
+      );
+    });
+  }
+
+  themeButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      applyTheme(button.dataset.themeChoice);
+    });
+  });
+
+  applyTheme(theme);
+
   /* ── HAMBURGER ── */
   const hamburger = document.getElementById("navHamburger");
   const mobileMenu = document.getElementById("mobileMenu");
@@ -145,6 +171,7 @@
     let currentMode = "normal";
 
     const keys = new Set();
+
     const touchControl = {
       active: false,
       targetY: null,
@@ -254,6 +281,23 @@
       return Math.max(min, Math.min(max, value));
     }
 
+    function getCssVar(name, fallback = "") {
+      const value = getComputedStyle(document.documentElement)
+        .getPropertyValue(name)
+        .trim();
+
+      return value || fallback;
+    }
+
+    function getAccentColor() {
+      return getCssVar("--accent", "#ff7a1a");
+    }
+
+    function getAccentRgba(alpha) {
+      const rgb = getCssVar("--accent-rgb", "255, 122, 26");
+      return `rgba(${rgb}, ${alpha})`;
+    }
+
     function getMode() {
       return modes[currentMode] || modes.normal;
     }
@@ -339,10 +383,6 @@
         movedManually = true;
       }
 
-      /*
-        Mobilde canvas üzerinde parmak sürüklenirse paddle,
-        parmağın yüksekliğine doğru yumuşak şekilde gider.
-      */
       if (!movedManually && touchControl.active && touchControl.targetY !== null) {
         const target = clamp(touchControl.targetY, 0, game.height - player.h);
         const diff = target - player.y;
@@ -365,14 +405,6 @@
 
       const aiCenter = ai.y + ai.h / 2;
       const ballCenter = ball.y + ball.size / 2;
-
-      /*
-        AI artık sadece hatalı hedef seçmiyor.
-        Bazen kısa süreli yanlış karar veriyor:
-        - topa ters yönde hareket edebiliyor
-        - geç tepki veriyor
-        - özellikle orta modda nadiren ama fark edilir hata yapıyor
-      */
 
       if (game.frame % mode.aiErrorInterval === 0) {
         ai.targetOffset = (Math.random() - 0.5) * mode.aiErrorAmount;
@@ -474,7 +506,7 @@
     }
 
     function drawNet() {
-      ctx.fillStyle = "rgba(255, 122, 26, 0.22)";
+      ctx.fillStyle = getAccentRgba(0.22);
 
       for (let y = 12; y < game.height; y += 24) {
         ctx.fillRect(game.width / 2 - 1, y, 2, 10);
@@ -485,7 +517,7 @@
       ctx.fillStyle = "#050505";
       ctx.fillRect(0, 0, game.width, game.height);
 
-      ctx.fillStyle = "rgba(255, 122, 26, 0.045)";
+      ctx.fillStyle = getAccentRgba(0.045);
 
       for (let x = 0; x < game.width; x += 24) {
         ctx.fillRect(x, 0, 1, game.height);
@@ -506,7 +538,7 @@
       drawBackground();
       drawNet();
 
-      ctx.fillStyle = "#ff7a1a";
+      ctx.fillStyle = getAccentColor();
       ctx.fillRect(player.x, player.y, player.w, player.h);
       ctx.fillRect(ai.x, ai.y, ai.w, ai.h);
 
@@ -514,14 +546,14 @@
       ctx.fillRect(ball.x, ball.y, ball.size, ball.size);
 
       ctx.font = "12px monospace";
-      ctx.fillStyle = "rgba(255, 122, 26, 0.7)";
+      ctx.fillStyle = getAccentRgba(0.7);
       ctx.fillText("AE-PONG", 18, 24);
 
       ctx.font = "10px monospace";
       ctx.fillStyle = "rgba(236, 231, 223, 0.45)";
       ctx.fillText("W/S OR ↑/↓", 18, game.height - 18);
 
-      ctx.fillStyle = "rgba(255, 122, 26, 0.55)";
+      ctx.fillStyle = getAccentRgba(0.55);
       ctx.fillText(`MODE: ${currentMode.toUpperCase()}`, game.width - 118, game.height - 18);
     }
 
@@ -553,7 +585,9 @@
 
       running = false;
       cancelAnimationFrame(animationId);
+
       keys.clear();
+
       touchControl.active = false;
       touchControl.up = false;
       touchControl.down = false;

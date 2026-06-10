@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="tr" data-lang="tr">
+<html lang="tr" data-lang="tr" data-theme="orange">
 
 <head>
   <meta charset="UTF-8" />
@@ -9,7 +9,7 @@
 
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
   <link rel="stylesheet" href="css/style.css" />
-</head>
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=5rGarLzuFuJmcjME_8-LXjQE98XH8Ajhw3o4ove8RlxSTZ_XcA4KVLZ7GDjMk9gqUfuhli9kVPxvRw1jU2BRw9H_GHf_whesMw9sVzGHaIbPYxVBbPNugyVWzYhQrq8X_Nu1ufB2t2tpvIikANk5skGsFVDS9KtkVfhiYGDrUsCQ2rBtugp9-mShf4jAc395DDVPzxBuV4xVANDinrUenjYi84w78FmNdPbDC8cd7LMzNP78F2b22ctmMhukAh2QyyR1ux9grUhO0IuCQDca27FKqgCy_XY0tuh65QG5lZig1gwFH1EjnyESkByBGQAk" charset="UTF-8"></script></head>
 
 <body>
   <div class="cursor" id="cursor"></div>
@@ -38,8 +38,15 @@
       <a href="#contact" data-tr="iletişim" data-en="contact">iletişim</a>
     </div>
 
-    <button class="lang-toggle" id="langToggle">EN</button>
-    <button class="nav-hamburger" id="navHamburger">menü</button>
+    <div class="theme-picker" aria-label="Tema seçimi">
+      <button class="theme-dot theme-orange" type="button" data-theme-choice="orange" aria-label="Turuncu tema"></button>
+      <button class="theme-dot theme-blue" type="button" data-theme-choice="blue" aria-label="Mavi tema"></button>
+      <button class="theme-dot theme-purple" type="button" data-theme-choice="purple" aria-label="Mor tema"></button>
+      <button class="theme-dot theme-green" type="button" data-theme-choice="green" aria-label="Yeşil tema"></button>
+    </div>
+
+    <button class="lang-toggle" id="langToggle" type="button">EN</button>
+    <button class="nav-hamburger" id="navHamburger" type="button">menü</button>
   </nav>
 
   <!-- MOBILE MENU -->
@@ -59,6 +66,13 @@
         <a href="pages/brand-detection.html">Vehicle Brand Detection</a>
       </div>
     </details>
+
+    <div class="theme-picker theme-picker-mobile" aria-label="Tema seçimi">
+      <button class="theme-dot theme-orange" type="button" data-theme-choice="orange" aria-label="Turuncu tema"></button>
+      <button class="theme-dot theme-blue" type="button" data-theme-choice="blue" aria-label="Mavi tema"></button>
+      <button class="theme-dot theme-purple" type="button" data-theme-choice="purple" aria-label="Mor tema"></button>
+      <button class="theme-dot theme-green" type="button" data-theme-choice="green" aria-label="Yeşil tema"></button>
+    </div>
 
     <a href="#contact" data-tr="iletişim" data-en="contact">iletişim</a>
   </div>
@@ -338,57 +352,54 @@
     <div class="footer-right">personal portfolio</div>
   </footer>
 
-  <script src="js/main.js"></script>
-  <!-- Cloudflare Web Analytics -->
-  <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
-    data-cf-beacon='{"token": "68b43f9dd63d4fbcb4c4cbe2391aa3a1"}'></script><!-- End Cloudflare Web Analytics -->
-
-
   <button class="scroll-top" id="scrollTopBtn" aria-label="Sayfanın başına dön">
-    ↑
-  </button>
-
+      ↑
+    </button>
 
   <!-- MINI GAME / AE PONG -->
-  <div class="pong-modal" id="pongModal" aria-hidden="true">
-    <div class="pong-panel">
-      <div class="pong-head">
-        <div>
-          <span class="pong-kicker">AE-PONG / SECRET MODE</span>
-          <h2>AE Pong</h2>
+    <div class="pong-modal" id="pongModal" aria-hidden="true">
+      <div class="pong-panel">
+        <div class="pong-head">
+          <div>
+            <span class="pong-kicker">AE-PONG / SECRET MODE</span>
+            <h2>AE Pong</h2>
+          </div>
+  
+          <button class="pong-close" id="closePongBtn" type="button" data-tr="kapat" data-en="close">kapat</button>
         </div>
-
-        <button class="pong-close" id="closePongBtn" type="button">kapat</button>
+  
+        <div class="pong-score" id="pongScore">0 / 0</div>
+  
+        <div class="pong-mode-row" aria-label="Pong zorluk seçimi">
+          <button class="pong-mode-btn" type="button" data-pong-mode="easy" data-tr="kolay" data-en="easy">kolay</button>
+          <button class="pong-mode-btn active" type="button" data-pong-mode="normal" data-tr="orta" data-en="normal">orta</button>
+          <button class="pong-mode-btn" type="button" data-pong-mode="hard" data-tr="zor" data-en="hard">zor</button>
+        </div>
+  
+        <canvas id="pongCanvas" width="640" height="360"></canvas>
+  
+        <div class="pong-touch-controls" aria-label="Mobil Pong kontrolü">
+          <button class="pong-touch-btn" id="pongTouchUp" type="button" data-tr="yukarı" data-en="up">
+            yukarı
+          </button>
+  
+          <button class="pong-touch-btn" id="pongTouchDown" type="button" data-tr="aşağı" data-en="down">
+            aşağı
+          </button>
+        </div>
+        <p class="pong-help"
+          data-tr="Masaüstünde W / S veya ↑ / ↓ ile oynanır. Mobilde ekrana dokunup sürükle veya butonları kullan."
+          data-en="On desktop, use W / S or ↑ / ↓. On mobile, drag on the screen or use the buttons.">
+          Masaüstünde W / S veya ↑ / ↓ ile oynanır. Mobilde ekrana dokunup sürükle veya butonları kullan.
+        </p>
       </div>
-
-      <div class="pong-score" id="pongScore">0 / 0</div>
-
-      <div class="pong-mode-row" aria-label="Pong zorluk seçimi">
-        <button class="pong-mode-btn" type="button" data-pong-mode="easy">kolay</button>
-        <button class="pong-mode-btn active" type="button" data-pong-mode="normal">orta</button>
-        <button class="pong-mode-btn" type="button" data-pong-mode="hard">zor</button>
-      </div>
-
-      <canvas id="pongCanvas" width="640" height="360"></canvas>
-
-      <div class="pong-touch-controls" aria-label="Mobil Pong kontrolü">
-        <button class="pong-touch-btn" id="pongTouchUp" type="button" data-tr="yukarı" data-en="up">
-          yukarı
-        </button>
-
-        <button class="pong-touch-btn" id="pongTouchDown" type="button" data-tr="aşağı" data-en="down">
-          aşağı
-        </button>
-      </div>
-      <p class="pong-help"
-        data-tr="Masaüstünde W / S veya ↑ / ↓ ile oynanır. Mobilde ekrana dokunup sürükle veya butonları kullan."
-        data-en="On desktop, use W / S or ↑ / ↓. On mobile, drag on the screen or use the buttons.">
-        Masaüstünde W / S veya ↑ / ↓ ile oynanır. Mobilde ekrana dokunup sürükle veya butonları kullan.
-      </p>
     </div>
-  </div>
 
   <script src="js/main.js"></script>
+  <!-- Cloudflare Web Analytics -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
+      data-cf-beacon='{"token": "68b43f9dd63d4fbcb4c4cbe2391aa3a1"}'></script><!-- End Cloudflare Web Analytics -->
+
 </body>
 
 </html>
