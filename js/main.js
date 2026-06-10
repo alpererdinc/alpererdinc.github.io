@@ -54,6 +54,40 @@
   const themeButtons = document.querySelectorAll("[data-theme-choice]");
   let theme = localStorage.getItem("ae_theme") || "orange";
 
+  const faviconColors = {
+    orange: "#ff7a1a",
+    blue: "#4aa3ff",
+    purple: "#b987ff",
+    green: "#56d68a"
+  };
+
+  function updateFavicon(selectedTheme) {
+    const color = faviconColors[selectedTheme] || faviconColors.orange;
+
+    const svg = `
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+      <rect width="64" height="64" rx="10" fill="#0a0a0a"/>
+      <circle cx="32" cy="32" r="13" fill="${color}"/>
+      <path d="M18 46 L46 18" stroke="${color}" stroke-width="4" opacity="0.32"/>
+    </svg>
+  `;
+
+    const encodedSvg = encodeURIComponent(svg)
+      .replace(/'/g, "%27")
+      .replace(/"/g, "%22");
+
+    let favicon = document.querySelector('link[rel="icon"]');
+
+    if (!favicon) {
+      favicon = document.createElement("link");
+      favicon.rel = "icon";
+      document.head.appendChild(favicon);
+    }
+
+    favicon.type = "image/svg+xml";
+    favicon.href = `data:image/svg+xml,${encodedSvg}`;
+  }
+
   function applyTheme(selectedTheme) {
     theme = selectedTheme;
 
@@ -66,6 +100,8 @@
         button.dataset.themeChoice === selectedTheme
       );
     });
+
+    updateFavicon(selectedTheme);
   }
 
   themeButtons.forEach((button) => {
