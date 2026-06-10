@@ -128,6 +128,39 @@
     });
   }
 
+  /* ── CLOSE DROPDOWNS ON OUTSIDE CLICK ── */
+  const dropdowns = document.querySelectorAll(".nav-dropdown, .mobile-dropdown");
+
+  if (dropdowns.length) {
+    document.addEventListener("click", (event) => {
+      dropdowns.forEach((dropdown) => {
+        if (dropdown.open && !dropdown.contains(event.target)) {
+          dropdown.removeAttribute("open");
+        }
+      });
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        dropdowns.forEach((dropdown) => {
+          dropdown.removeAttribute("open");
+        });
+      }
+    });
+
+    dropdowns.forEach((dropdown) => {
+      dropdown.addEventListener("toggle", () => {
+        if (!dropdown.open) return;
+
+        dropdowns.forEach((otherDropdown) => {
+          if (otherDropdown !== dropdown) {
+            otherDropdown.removeAttribute("open");
+          }
+        });
+      });
+    });
+  }
+
   /* ── SCROLL FADE-IN FOR PROJECT CARDS ── */
   const cards = document.querySelectorAll(".project-card");
 
