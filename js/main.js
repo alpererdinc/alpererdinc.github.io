@@ -1,45 +1,53 @@
 // alper erdinç — portfolio js
 
 (function () {
-
   /* ── CUSTOM CURSOR ── */
   const cursor = document.getElementById("cursor");
 
   if (cursor && window.matchMedia("(pointer: fine)").matches) {
-    document.addEventListener("mousemove", (e) => {
-      cursor.style.left = e.clientX + "px";
-      cursor.style.top = e.clientY + "px";
+    document.addEventListener("mousemove", (event) => {
+      cursor.style.left = event.clientX + "px";
+      cursor.style.top = event.clientY + "px";
     });
 
-    document.querySelectorAll("a, button, .pill, .project-card").forEach((el) => {
-      el.addEventListener("mouseenter", () => cursor.classList.add("big"));
-      el.addEventListener("mouseleave", () => cursor.classList.remove("big"));
-    });
+    document
+      .querySelectorAll("a, button, .pill, .project-card, summary")
+      .forEach((element) => {
+        element.addEventListener("mouseenter", () => {
+          cursor.classList.add("big");
+        });
+
+        element.addEventListener("mouseleave", () => {
+          cursor.classList.remove("big");
+        });
+      });
   } else if (cursor) {
     cursor.style.display = "none";
   }
 
-  /* ── LANG TOGGLE ── */
+  /* ── LANGUAGE TOGGLE ── */
   let lang = localStorage.getItem("ae_lang") || "tr";
   const toggleBtn = document.getElementById("langToggle");
 
-  function applyLang(l) {
-    lang = l;
+  function applyLang(selectedLang) {
+    lang = selectedLang;
 
-    localStorage.setItem("ae_lang", l);
-    document.documentElement.setAttribute("lang", l === "tr" ? "tr" : "en");
+    localStorage.setItem("ae_lang", selectedLang);
+    document.documentElement.setAttribute("lang", selectedLang === "tr" ? "tr" : "en");
 
     if (toggleBtn) {
-      toggleBtn.textContent = l === "tr" ? "EN" : "TR";
+      toggleBtn.textContent = selectedLang === "tr" ? "EN" : "TR";
     }
 
-    document.querySelectorAll("[data-tr]").forEach((el) => {
-      const val = l === "tr" ? el.dataset.tr : el.dataset.en;
+    document.querySelectorAll("[data-tr]").forEach((element) => {
+      const value = selectedLang === "tr" ? element.dataset.tr : element.dataset.en;
 
-      if (val !== undefined) {
-        el.innerHTML = val;
+      if (value !== undefined) {
+        element.innerHTML = value;
       }
     });
+
+    updateModeButton();
   }
 
   if (toggleBtn) {
@@ -48,11 +56,23 @@
     });
   }
 
-  applyLang(lang);
-
-  /* ── THEME TOGGLE ── */
+  /* ── COLOR THEME + DAY / NIGHT MODE ── */
   const themeButtons = document.querySelectorAll("[data-theme-choice]");
-  let theme = localStorage.getItem("ae_theme") || "orange";
+  const modeToggleBtn = document.getElementById("modeToggle");
+
+  const allowedThemes = ["orange", "blue", "purple", "green"];
+  const allowedModes = ["night", "day"];
+
+  let colorTheme = localStorage.getItem("ae_theme") || "orange";
+  let pageMode = localStorage.getItem("ae_mode") || "night";
+
+  if (!allowedThemes.includes(colorTheme)) {
+    colorTheme = "orange";
+  }
+
+  if (!allowedModes.includes(pageMode)) {
+    pageMode = "night";
+  }
 
   const faviconColors = {
     orange: "#ff7a1a",
@@ -61,16 +81,59 @@
     green: "#56d68a"
   };
 
-  function updateFavicon(selectedTheme) {
-    const color = faviconColors[selectedTheme] || faviconColors.orange;
+  function getCssVar(name, fallback = "") {
+    const value = getComputedStyle(document.documentElement)
+      .getPropertyValue(name)
+      .trim();
+
+    return value || fallback;
+  }
+
+  function getAccentColor() {
+    return getCssVar("--accent", "#ff7a1a");
+  }
+
+  function getAccentRgba(alpha) {
+    const rgb = getCssVar("--accent-rgb", "255, 122, 26");
+    return `rgba(${rgb}, ${alpha})`;
+  }
+
+  function updateModeButton() {
+  if (!modeToggleBtn) return;
+
+  const isNight = pageMode === "night";
+
+  modeToggleBtn.textContent = isNight ? "☀" : "☾";
+
+  modeToggleBtn.classList.toggle("is-night", isNight);
+  modeToggleBtn.classList.toggle("is-day", !isNight);
+
+  modeToggleBtn.setAttribute(
+    "aria-label",
+    isNight
+      ? lang === "tr" ? "Gündüz moduna geç" : "Switch to day mode"
+      : lang === "tr" ? "Gece moduna geç" : "Switch to night mode"
+  );
+
+  modeToggleBtn.setAttribute(
+    "title",
+    isNight
+      ? lang === "tr" ? "Gündüz modu" : "Day mode"
+      : lang === "tr" ? "Gece modu" : "Night mode"
+  );
+}
+
+  function updateFavicon() {
+    const color = faviconColors[colorTheme] || faviconColors.orange;
+    const background = pageMode === "day" ? "#f4efe6" : "#0a0a0a";
 
     const svg = `
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-      <rect width="64" height="64" rx="10" fill="#0a0a0a"/>
-      <circle cx="32" cy="32" r="13" fill="${color}"/>
-      <path d="M18 46 L46 18" stroke="${color}" stroke-width="4" opacity="0.32"/>
-    </svg>
-  `;
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+        <rect width="64" height="64" rx="10" fill="${background}"/>
+        <circle cx="32" cy="32" r="13" fill="${color}"/>
+        <path d="M18 46 L46 18" stroke="${color}" stroke-width="4" opacity="0.32"/>
+      </svg>
+    `;
 
     const encodedSvg = encodeURIComponent(svg)
       .replace(/'/g, "%27")
@@ -88,8 +151,10 @@
     favicon.href = `data:image/svg+xml,${encodedSvg}`;
   }
 
-  function applyTheme(selectedTheme) {
-    theme = selectedTheme;
+  function applyColorTheme(selectedTheme) {
+    if (!allowedThemes.includes(selectedTheme)) return;
+
+    colorTheme = selectedTheme;
 
     localStorage.setItem("ae_theme", selectedTheme);
     document.documentElement.setAttribute("data-theme", selectedTheme);
@@ -101,16 +166,36 @@
       );
     });
 
-    updateFavicon(selectedTheme);
+    updateFavicon();
+  }
+
+  function applyPageMode(selectedMode) {
+    if (!allowedModes.includes(selectedMode)) return;
+
+    pageMode = selectedMode;
+
+    localStorage.setItem("ae_mode", selectedMode);
+    document.documentElement.setAttribute("data-mode", selectedMode);
+
+    updateModeButton();
+    updateFavicon();
   }
 
   themeButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      applyTheme(button.dataset.themeChoice);
+      applyColorTheme(button.dataset.themeChoice);
     });
   });
 
-  applyTheme(theme);
+  if (modeToggleBtn) {
+    modeToggleBtn.addEventListener("click", () => {
+      applyPageMode(pageMode === "night" ? "day" : "night");
+    });
+  }
+
+  applyColorTheme(colorTheme);
+  applyPageMode(pageMode);
+  applyLang(lang);
 
   /* ── HAMBURGER ── */
   const hamburger = document.getElementById("navHamburger");
@@ -121,8 +206,8 @@
       mobileMenu.classList.toggle("open");
     });
 
-    document.addEventListener("click", (e) => {
-      if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+    document.addEventListener("click", (event) => {
+      if (!hamburger.contains(event.target) && !mobileMenu.contains(event.target)) {
         mobileMenu.classList.remove("open");
       }
     });
@@ -165,23 +250,23 @@
   const cards = document.querySelectorAll(".project-card");
 
   if ("IntersectionObserver" in window && cards.length) {
-    cards.forEach((card, i) => {
+    cards.forEach((card, index) => {
       card.style.opacity = "0";
       card.style.transition =
-        `opacity 0.5s ease ${i * 0.07}s, transform 0.15s ease, box-shadow 0.15s ease`;
+        `opacity 0.5s ease ${index * 0.07}s, transform 0.15s ease, box-shadow 0.15s ease`;
     });
 
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) {
-          e.target.style.opacity = "1";
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = "1";
         }
       });
     }, {
       threshold: 0.1
     });
 
-    cards.forEach((c) => obs.observe(c));
+    cards.forEach((card) => observer.observe(card));
   }
 
   /* ── WOBBLE ON LOGO HOVER ── */
@@ -350,30 +435,16 @@
       return Math.max(min, Math.min(max, value));
     }
 
-    function getCssVar(name, fallback = "") {
-      const value = getComputedStyle(document.documentElement)
-        .getPropertyValue(name)
-        .trim();
-
-      return value || fallback;
-    }
-
-    function getAccentColor() {
-      return getCssVar("--accent", "#ff7a1a");
-    }
-
-    function getAccentRgba(alpha) {
-      const rgb = getCssVar("--accent-rgb", "255, 122, 26");
-      return `rgba(${rgb}, ${alpha})`;
-    }
-
     function getMode() {
       return modes[currentMode] || modes.normal;
     }
 
     function updateModeButtons() {
-      modeButtons.forEach((btn) => {
-        btn.classList.toggle("active", btn.dataset.pongMode === currentMode);
+      modeButtons.forEach((button) => {
+        button.classList.toggle(
+          "active",
+          button.dataset.pongMode === currentMode
+        );
       });
     }
 
@@ -583,7 +654,7 @@
     }
 
     function drawBackground() {
-      ctx.fillStyle = "#050505";
+      ctx.fillStyle = getCssVar("--bg", "#050505");
       ctx.fillRect(0, 0, game.width, game.height);
 
       ctx.fillStyle = getAccentRgba(0.045);
@@ -611,7 +682,7 @@
       ctx.fillRect(player.x, player.y, player.w, player.h);
       ctx.fillRect(ai.x, ai.y, ai.w, ai.h);
 
-      ctx.fillStyle = "#ece7df";
+      ctx.fillStyle = getCssVar("--text", "#ece7df");
       ctx.fillRect(ball.x, ball.y, ball.size, ball.size);
 
       ctx.font = "12px monospace";
@@ -729,6 +800,7 @@
       const scaleY = game.height / rect.height;
 
       const pointerY = (event.clientY - rect.top) * scaleY;
+
       touchControl.targetY = pointerY - game.player.h / 2;
       touchControl.active = true;
     }
@@ -785,5 +857,4 @@
     updateModeButtons();
     draw();
   })();
-
 })();
