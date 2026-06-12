@@ -2193,3 +2193,45 @@ html[data-mode="day"] #pongCanvas {
     font-size: clamp(2.35rem, 14vw, 4rem);
   }
 }
+
+/* ===== THEMED SCROLLBAR ===== */
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) var(--bg);
+}
+
+/* Chrome / Edge / Safari */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+  border-left: 1px solid var(--line);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border: 2px solid var(--bg);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--accent) 82%, var(--text) 18%);
+}
+
+/* Pong modal / iç scroll alanları için */
+.pong-panel::-webkit-scrollbar {
+  width: 8px;
+}
+
+.pong-panel::-webkit-scrollbar-track {
+  background: var(--panel);
+}
+
+.pong-panel::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border: 2px solid var(--panel);
+  border-radius: 999px;
+}
