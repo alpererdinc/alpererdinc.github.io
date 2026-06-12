@@ -141,25 +141,49 @@ body::after {
 
 .cursor {
   position: fixed;
-  width: 9px;
-  height: 9px;
+  width: 16px;
+  height: 16px;
+
   background: var(--accent);
-  border-radius: 50%;
+
   pointer-events: none;
   z-index: 9999;
-  transform: translate(-50%, -50%);
+
+  /*
+    Mouse koordinatı üçgenin sol üst ucuna denk gelsin.
+    Bu yüzden normal halde translate kullanmıyoruz.
+  */
+  transform: none;
+
+  /*
+    Sol üst köşe cursor ucu gibi davranır.
+  */
+  clip-path: polygon(0 0, 100% 42%, 38% 100%);
+
   transition:
     width 0.16s ease,
     height 0.16s ease,
     background 0.16s ease,
-    border 0.16s ease;
+    border 0.16s ease,
+    border-radius 0.16s ease,
+    clip-path 0.16s ease,
+    transform 0.16s ease;
 }
 
 .cursor.big {
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
+
   background: transparent;
   border: 1px solid var(--accent);
+  border-radius: 50%;
+
+  clip-path: none;
+
+  /*
+    Hover halinde çember gerçek mouse noktasının etrafında büyüsün.
+  */
+  transform: translate(-50%, -50%);
 }
 
 /* ===== NAVBAR ===== */

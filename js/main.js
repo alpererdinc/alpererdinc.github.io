@@ -99,41 +99,53 @@
   }
 
   function updateModeButton() {
-  if (!modeToggleBtn) return;
+    if (!modeToggleBtn) return;
 
-  const isNight = pageMode === "night";
+    const isNight = pageMode === "night";
 
-  modeToggleBtn.textContent = isNight ? "☀" : "☾";
+    modeToggleBtn.textContent = isNight ? "☀" : "☾";
 
-  modeToggleBtn.classList.toggle("is-night", isNight);
-  modeToggleBtn.classList.toggle("is-day", !isNight);
+    modeToggleBtn.classList.toggle("is-night", isNight);
+    modeToggleBtn.classList.toggle("is-day", !isNight);
 
-  modeToggleBtn.setAttribute(
-    "aria-label",
-    isNight
-      ? lang === "tr" ? "Gündüz moduna geç" : "Switch to day mode"
-      : lang === "tr" ? "Gece moduna geç" : "Switch to night mode"
-  );
+    modeToggleBtn.setAttribute(
+      "aria-label",
+      isNight
+        ? lang === "tr" ? "Gündüz moduna geç" : "Switch to day mode"
+        : lang === "tr" ? "Gece moduna geç" : "Switch to night mode"
+    );
 
-  modeToggleBtn.setAttribute(
-    "title",
-    isNight
-      ? lang === "tr" ? "Gündüz modu" : "Day mode"
-      : lang === "tr" ? "Gece modu" : "Night mode"
-  );
-}
+    modeToggleBtn.setAttribute(
+      "title",
+      isNight
+        ? lang === "tr" ? "Gündüz modu" : "Day mode"
+        : lang === "tr" ? "Gece modu" : "Night mode"
+    );
+  }
 
   function updateFavicon() {
     const color = faviconColors[colorTheme] || faviconColors.orange;
     const background = pageMode === "day" ? "#f4efe6" : "#0a0a0a";
 
     const svg = `
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-        <rect width="64" height="64" rx="10" fill="${background}"/>
-        <circle cx="32" cy="32" r="13" fill="${color}"/>
-        <path d="M18 46 L46 18" stroke="${color}" stroke-width="4" opacity="0.32"/>
-      </svg>
-    `;
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+      <rect width="64" height="64" rx="10" fill="${background}"/>
+
+      <polygon
+        points="17 14, 50 31, 29 51"
+        fill="${color}"
+      />
+
+      <path
+        d="M17 14 L50 31 L29 51"
+        fill="none"
+        stroke="${color}"
+        stroke-width="4"
+        stroke-linejoin="round"
+        opacity="0.24"
+      />
+    </svg>
+  `;
 
     const encodedSvg = encodeURIComponent(svg)
       .replace(/'/g, "%27")
