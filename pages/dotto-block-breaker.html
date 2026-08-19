@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="tr" data-lang="tr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dotto: Block Breaker — Alper Erdinç</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+
+<body>
+  <div class="cursor" id="cursor"></div>
+
+  <nav class="navbar">
+    <a href="../index.html" class="nav-logo">ae.</a>
+
+    <div class="nav-links">
+      <a href="../index.html" data-tr="ana sayfa" data-en="home">ana sayfa</a>
+      <a href="../index.html#about" data-tr="hakkımda" data-en="about">hakkımda</a>
+
+      <details class="nav-dropdown">
+        <summary data-tr="projeler" data-en="projects">projeler</summary>
+        <div class="dropdown-menu">
+          <a href="../index.html#projects" data-tr="tüm projeler" data-en="all projects">tüm projeler</a>
+          <a href="dotto-block-breaker.html">Dotto: Block Breaker</a>
+          <a href="divealamut.html">DiveAlamut</a>
+          <a href="jazurider.html">JazuRider</a>
+          <a href="dottoman.html">Dotto•Man</a>
+          <a href="tez-oyunu.html">Adaptive NPC AI</a>
+          <a href="eticaret.html">CollecZone</a>
+          <a href="nothing-to-report.html">Nothing To Report</a>
+          <a href="2d-oyunlar.html">Kantanfu</a>
+          <a href="brand-detection.html">Vehicle Brand Detection</a>
+        </div>
+      </details>
+
+      <a href="artworks.html" data-tr="çizimler" data-en="artworks">çizimler</a>
+      <a href="../index.html#contact" data-tr="iletişim" data-en="contact">iletişim</a>
+    </div>
+
+    <div class="theme-picker" aria-label="Tema seçimi">
+      <button class="theme-dot theme-orange" type="button" data-theme-choice="orange" aria-label="Turuncu tema"></button>
+      <button class="theme-dot theme-blue" type="button" data-theme-choice="blue" aria-label="Mavi tema"></button>
+      <button class="theme-dot theme-purple" type="button" data-theme-choice="purple" aria-label="Mor tema"></button>
+      <button class="theme-dot theme-green" type="button" data-theme-choice="green" aria-label="Yeşil tema"></button>
+      <button class="mode-toggle" id="modeToggle" type="button" aria-label="Gündüz moduna geç">☀</button>
+    </div>
+
+    <button class="lang-toggle" id="langToggle">EN</button>
+    <button class="nav-hamburger" id="navHamburger">menü</button>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="../index.html" data-tr="ana sayfa" data-en="home">ana sayfa</a>
+    <a href="../index.html#about" data-tr="hakkımda" data-en="about">hakkımda</a>
+    <details class="mobile-dropdown">
+      <summary data-tr="projeler" data-en="projects">projeler</summary>
+      <div class="mobile-dropdown-menu">
+        <a href="../index.html#projects" data-tr="tüm projeler" data-en="all projects">tüm projeler</a>
+        <a href="dotto-block-breaker.html">Dotto: Block Breaker</a>
+        <a href="divealamut.html">DiveAlamut</a>
+        <a href="jazurider.html">JazuRider</a>
+        <a href="dottoman.html">Dotto•Man</a>
+        <a href="tez-oyunu.html">Adaptive NPC AI</a>
+        <a href="eticaret.html">CollecZone</a>
+        <a href="nothing-to-report.html">Nothing To Report</a>
+        <a href="2d-oyunlar.html">Kantanfu</a>
+        <a href="brand-detection.html">Vehicle Brand Detection</a>
+      </div>
+    </details>
+    <a href="../index.html#contact" data-tr="iletişim" data-en="contact">iletişim</a>
+  </div>
+
+  <section class="project-hero">
+    <div class="project-hero-dots"></div>
+    <div class="project-hero-content">
+      <div class="badge" data-tr="oyun / mobil / arcade" data-en="game / mobile / arcade">oyun / mobil / arcade</div>
+      <h1>Dotto: Block Breaker</h1>
+      <p class="lead"
+        data-tr="Nişan al, toplarını art arda fırlat ve bloklar kaybetme çizgisine ulaşmadan mümkün olduğunca uzun süre hayatta kal."
+        data-en="Aim, launch your balls in rapid succession, and survive as long as possible before the blocks reach the loss line.">
+        Nişan al, toplarını art arda fırlat ve bloklar kaybetme çizgisine ulaşmadan mümkün olduğunca uzun süre hayatta kal.
+      </p>
+    </div>
+  </section>
+
+  <main class="project-body project-body-wide">
+    <a href="../index.html#projects" class="back-link" data-tr="projeler" data-en="projects">projeler</a>
+
+    <div class="case-meta case-meta-four">
+      <div class="meta-item">
+        <span data-tr="yapımcılar" data-en="producers">yapımcılar</span>
+        <p>Alper Erdinç<br />Halil Köker</p>
+      </div>
+      <div class="meta-item">
+        <span data-tr="rol" data-en="role">rol</span>
+        <p data-tr="Oyun geliştirme / sistem tasarımı" data-en="Game development / systems design">Oyun geliştirme / sistem tasarımı</p>
+      </div>
+      <div class="meta-item">
+        <span data-tr="alan" data-en="field">alan</span>
+        <p data-tr="Brick-breaker / ball shooter" data-en="Brick-breaker / ball shooter">Brick-breaker / ball shooter</p>
+      </div>
+      <div class="meta-item">
+        <span data-tr="durum" data-en="status">durum</span>
+        <p>Unity 6 / Android</p>
+      </div>
+    </div>
+
+    <h2 data-tr="özet" data-en="overview">özet</h2>
+    <p
+      data-tr="Dotto, Unity ile geliştirilen mobil bir brick-breaker / ball shooter oyunudur. Oyuncu ekranın altından nişan alarak sahip olduğu topları art arda fırlatır. Toplar blokların canını azaltır; tüm toplar geri döndüğünde tur tamamlanır, yeni bir satır gelir ve zorluk yükselir. Bloklar kaybetme çizgisine ulaştığında run sona erer."
+      data-en="Dotto is a mobile brick-breaker / ball shooter built with Unity. The player aims from the bottom of the screen and launches every owned ball in sequence. Balls damage blocks; once all balls return, the turn ends, a new row arrives, and the difficulty increases. The run ends when blocks reach the loss line.">
+      Dotto, Unity ile geliştirilen mobil bir brick-breaker / ball shooter oyunudur. Oyuncu ekranın altından nişan alarak sahip olduğu topları art arda fırlatır. Toplar blokların canını azaltır; tüm toplar geri döndüğünde tur tamamlanır, yeni bir satır gelir ve zorluk yükselir. Bloklar kaybetme çizgisine ulaştığında run sona erer.
+    </p>
+
+    <h2 data-tr="rolüm" data-en="my role">rolüm</h2>
+    <p
+      data-tr="Halil Köker ile birlikte geliştirdiğimiz projede; çekirdek oynanıştan kayıt ve revive akışına, jokerlerden mağaza, achievement, discovery, ses ve haptic sistemlerine kadar oyunun birbirine bağlı mobil sistemleri üzerinde çalıştım. Yönetici tabanlı mimari, veri odaklı içerikler ve üçüncü taraf servis entegrasyonlarının geliştirilmesine katkı sağladım."
+      data-en="In this project, developed together with Halil Köker, I worked on the game's connected mobile systems—from the core loop, saving, and revive flow to powerups, shop, achievements, discoveries, audio, and haptics. I contributed to its manager-based architecture, data-driven content, and third-party service integrations.">
+      Halil Köker ile birlikte geliştirdiğimiz projede; çekirdek oynanıştan kayıt ve revive akışına, jokerlerden mağaza, achievement, discovery, ses ve haptic sistemlerine kadar oyunun birbirine bağlı mobil sistemleri üzerinde çalıştım. Yönetici tabanlı mimari, veri odaklı içerikler ve üçüncü taraf servis entegrasyonlarının geliştirilmesine katkı sağladım.
+    </p>
+
+    <h2 data-tr="temel oyun döngüsü" data-en="core gameplay loop">temel oyun döngüsü</h2>
+    <div class="game-loop">
+      <div class="game-loop-step">
+        <span>01</span>
+        <strong data-tr="nişan al" data-en="aim">nişan al</strong>
+        <small data-tr="Atış yönünü ekranın altından belirle." data-en="Set the shot direction from the bottom of the screen.">Atış yönünü ekranın altından belirle.</small>
+      </div>
+      <div class="game-loop-step">
+        <span>02</span>
+        <strong data-tr="topları fırlat" data-en="launch balls">topları fırlat</strong>
+        <small data-tr="Sahip olduğun tüm topları art arda gönder." data-en="Send every ball you own in rapid succession.">Sahip olduğun tüm topları art arda gönder.</small>
+      </div>
+      <div class="game-loop-step">
+        <span>03</span>
+        <strong data-tr="blokları kır" data-en="break blocks">blokları kır</strong>
+        <small data-tr="Sekmelerle can değerlerini sıfıra indir." data-en="Use rebounds to reduce their health to zero.">Sekmelerle can değerlerini sıfıra indir.</small>
+      </div>
+      <div class="game-loop-step">
+        <span>04</span>
+        <strong data-tr="turu tamamla" data-en="finish the turn">turu tamamla</strong>
+        <small data-tr="Tüm topların dönüşünü bekle veya reclaim kullan." data-en="Wait for every ball to return or use reclaim.">Tüm topların dönüşünü bekle veya reclaim kullan.</small>
+      </div>
+      <div class="game-loop-step">
+        <span>05</span>
+        <strong data-tr="yeni satır" data-en="new row">yeni satır</strong>
+        <small data-tr="Seviyeyi ve giderek yükselen zorluğu karşıla." data-en="Face the next level and its rising difficulty.">Seviyeyi ve giderek yükselen zorluğu karşıla.</small>
+      </div>
+    </div>
+
+    <h2 data-tr="oynanış sistemleri" data-en="gameplay systems">oynanış sistemleri</h2>
+    <div class="system-grid">
+      <article class="system-card">
+        <span class="system-card-kicker" data-tr="blok çeşitliliği" data-en="block variety">blok çeşitliliği</span>
+        <h3 data-tr="özel bloklar" data-en="special blocks">özel bloklar</h3>
+        <ul class="system-list">
+          <li data-tr="Normal ve büyük bloklar" data-en="Normal and large blocks">Normal ve büyük bloklar</li>
+          <li>Spike / Triangle</li>
+          <li>Connected / Chain</li>
+          <li>Clone / Medic</li>
+        </ul>
+      </article>
+
+      <article class="system-card">
+        <span class="system-card-kicker" data-tr="saha etkileşimi" data-en="board interaction">saha etkileşimi</span>
+        <h3 data-tr="collectible ve portallar" data-en="collectibles and portals">collectible ve portallar</h3>
+        <ul class="system-list">
+          <li data-tr="Top sayısını artıran collectible" data-en="Collectible that increases the ball count">Top sayısını artıran collectible</li>
+          <li data-tr="Yatay ve dikey lazerler" data-en="Horizontal and vertical lasers">Yatay ve dikey lazerler</li>
+          <li data-tr="Coin ve rastgele etkiler" data-en="Coins and random effects">Coin ve rastgele etkiler</li>
+          <li data-tr="Normal ve chaotic portal çiftleri" data-en="Normal and chaotic portal pairs">Normal ve chaotic portal çiftleri</li>
+        </ul>
+      </article>
+
+      <article class="system-card">
+        <span class="system-card-kicker" data-tr="ustalık" data-en="mastery">ustalık</span>
+        <h3 data-tr="combo ve perfect clear" data-en="combo and perfect clear">combo ve perfect clear</h3>
+        <ul class="system-list">
+          <li data-tr="Ardışık vuruşları ödüllendiren combo akışı" data-en="A combo flow that rewards consecutive hits">Ardışık vuruşları ödüllendiren combo akışı</li>
+          <li data-tr="Tahtayı tamamen temizleme ödülü" data-en="A reward for fully clearing the board">Tahtayı tamamen temizleme ödülü</li>
+          <li data-tr="Her tur yükselen seviye ve zorluk" data-en="Level and difficulty increase each turn">Her tur yükselen seviye ve zorluk</li>
+          <li data-tr="Kaybetme çizgisine dayalı run sonu" data-en="Run failure based on the loss line">Kaybetme çizgisine dayalı run sonu</li>
+        </ul>
+      </article>
+
+      <article class="system-card">
+        <span class="system-card-kicker" data-tr="tempo kontrolü" data-en="tempo control">tempo kontrolü</span>
+        <h3>Reclaim / Fast-forward</h3>
+        <ul class="system-list">
+          <li data-tr="Reclaim ile aktif topları erkenden geri toplama" data-en="Recall active balls early with reclaim">Reclaim ile aktif topları erkenden geri toplama</li>
+          <li data-tr="İki kademeli simülasyon hızı" data-en="Two-stage simulation speed">İki kademeli simülasyon hızı</li>
+          <li data-tr="Her kademe için ayrı sesli geri bildirim" data-en="Distinct audio feedback for each speed stage">Her kademe için ayrı sesli geri bildirim</li>
+        </ul>
+      </article>
+    </div>
+
+    <h2 data-tr="joker sistemi" data-en="powerup system">joker sistemi</h2>
+    <p
+      data-tr="Jokerler belirli seviyelerde açılır, sınırlı kullanım hakkına sahiptir ve coin karşılığında yeniden alınabilir. Bir önceki run'da açılmış olmaları yeni run'da seviye koşulunu atlamaz."
+      data-en="Powerups unlock at specific levels, have limited uses, and can be repurchased with coins. Unlocking one in a previous run does not bypass its level requirement in a new run.">
+      Jokerler belirli seviyelerde açılır, sınırlı kullanım hakkına sahiptir ve coin karşılığında yeniden alınabilir. Bir önceki run'da açılmış olmaları yeni run'da seviye koşulunu atlamaz.
+    </p>
+
+    <div class="powerup-grid">
+      <article class="powerup-card">
+        <span class="system-card-kicker">Powerup 01</span>
+        <h3>2X Damage</h3>
+        <p data-tr="Bir sonraki atışın verdiği hasarı artırır." data-en="Increases the damage dealt by the next shot.">Bir sonraki atışın verdiği hasarı artırır.</p>
+      </article>
+      <article class="powerup-card">
+        <span class="system-card-kicker">Powerup 02</span>
+        <h3>Block Destroyer</h3>
+        <p data-tr="Oyuncunun seçtiği bir bloğu doğrudan yok eder." data-en="Directly destroys a block selected by the player.">Oyuncunun seçtiği bir bloğu doğrudan yok eder.</p>
+      </article>
+      <article class="powerup-card">
+        <span class="system-card-kicker">Powerup 03</span>
+        <h3>Taso Case / Cover</h3>
+        <p data-tr="Run sırasında oyuncuya ek koruma sağlar." data-en="Provides additional protection during the run.">Run sırasında oyuncuya ek koruma sağlar.</p>
+      </article>
+    </div>
+
+    <div class="engineering-note">
+      <span data-tr="arayüz davranışı" data-en="interface behavior">arayüz davranışı</span>
+      <p
+        data-tr="Powerup menüsü yalnızca oyun Idle durumundayken gösterilir. Atış başladığında yerini reclaim / fast-forward paneli alır; iki UI grubu yumuşak bir crossfade ile geçiş yapar. Revive sonrasında eski reclaim panelinin jokerlerle üst üste kalması da durum senkronizasyonuyla engellendi."
+        data-en="The powerup menu is shown only while the game is Idle. Once a shot begins, the reclaim / fast-forward panel takes its place through a smooth crossfade. State synchronization also prevents a stale reclaim panel from overlapping the powerups after a revive.">
+        Powerup menüsü yalnızca oyun Idle durumundayken gösterilir. Atış başladığında yerini reclaim / fast-forward paneli alır; iki UI grubu yumuşak bir crossfade ile geçiş yapar. Revive sonrasında eski reclaim panelinin jokerlerle üst üste kalması da durum senkronizasyonuyla engellendi.
+      </p>
+    </div>
+
+    <h2 data-tr="run ve ilerleme sistemleri" data-en="run and progression systems">run ve ilerleme sistemleri</h2>
+    <div class="system-grid">
+      <article class="system-card">
+        <span class="system-card-kicker" data-tr="kalıcılık" data-en="persistence">kalıcılık</span>
+        <h3 data-tr="kayıt ve continue" data-en="saving and continue">kayıt ve continue</h3>
+        <ul class="system-list">
+          <li data-tr="Yarıda bırakılan run'a ana menüden devam etme" data-en="Continue an unfinished run from the main menu">Yarıda bırakılan run'a ana menüden devam etme</li>
+          <li data-tr="Continue üzerinde kayıtlı son seviyeyi gösterme" data-en="Show the saved level on the Continue button">Continue üzerinde kayıtlı son seviyeyi gösterme</li>
+          <li data-tr="New Game ile eski kaydı temizleme" data-en="Clear the previous save when starting a New Game">New Game ile eski kaydı temizleme</li>
+        </ul>
+      </article>
+
+      <article class="system-card">
+        <span class="system-card-kicker" data-tr="ikinci şans" data-en="second chance">ikinci şans</span>
+        <h3>Revive</h3>
+        <ul class="system-list">
+          <li data-tr="Reklam izleyerek veya coin ödeyerek devam etme" data-en="Continue by watching an ad or spending coins">Reklam izleyerek veya coin ödeyerek devam etme</li>
+          <li data-tr="Her kullanımda artan coin maliyeti" data-en="Coin cost increases after every use">Her kullanımda artan coin maliyeti</li>
+          <li data-tr="Alt blok satırlarını temizleyerek güvenli dönüş" data-en="Clear lower block rows for a safe return">Alt blok satırlarını temizleyerek güvenli dönüş</li>
+        </ul>
+      </article>
+
+      <article class="system-card">
+        <span class="system-card-kicker" data-tr="ekonomi" data-en="economy">ekonomi</span>
+        <h3 data-tr="mağaza ve özelleştirme" data-en="shop and customization">mağaza ve özelleştirme</h3>
+        <ul class="system-list">
+          <li data-tr="Coin ile satın alınabilen dot / top skinleri" data-en="Dot / ball skins purchasable with coins">Coin ile satın alınabilen dot / top skinleri</li>
+          <li data-tr="Tema, desen ve renkten oluşan frame sistemi" data-en="Frame system composed of theme, pattern, and color">Tema, desen ve renkten oluşan frame sistemi</li>
+          <li data-tr="Tema bazlı frame rengi sahipliği" data-en="Theme-specific ownership for frame colors">Tema bazlı frame rengi sahipliği</li>
+          <li data-tr="Ücretsiz varsayılan beyaz ve yetersiz coin geri bildirimi" data-en="Free default white color and insufficient-coin feedback">Ücretsiz varsayılan beyaz ve yetersiz coin geri bildirimi</li>
+          <li data-tr="Unity IAP ile reklam kaldırma" data-en="Remove ads through Unity IAP">Unity IAP ile reklam kaldırma</li>
+        </ul>
+      </article>
+
+      <article class="system-card">
+        <span class="system-card-kicker" data-tr="koleksiyon" data-en="collection">koleksiyon</span>
+        <h3>Achievement / Discovery</h3>
+        <ul class="system-list">
+          <li data-tr="Kademeli hedefler ve panelden alınan ödüller" data-en="Tiered goals and rewards claimed from the panel">Kademeli hedefler ve panelden alınan ödüller</li>
+          <li data-tr="Yeni blok, collectible ve öğeleri kaydeden discovery sistemi" data-en="Discovery system that records new blocks, collectibles, and items">Yeni blok, collectible ve öğeleri kaydeden discovery sistemi</li>
+          <li data-tr="Chain Breaker gibi mekanik odaklı başarımlar" data-en="Mechanic-focused achievements such as Chain Breaker">Chain Breaker gibi mekanik odaklı başarımlar</li>
+          <li data-tr="Ayrı animasyon ve seslere sahip bildirimler" data-en="Notifications with distinct animations and sounds">Ayrı animasyon ve seslere sahip bildirimler</li>
+          <li data-tr="Dokunma veya yukarı kaydırmayla güvenli popup kapanışı" data-en="Reliable popup dismissal by tap or upward swipe">Dokunma veya yukarı kaydırmayla güvenli popup kapanışı</li>
+        </ul>
+      </article>
+    </div>
+
+    <h2 data-tr="menüler, ses ve cihaz deneyimi" data-en="menus, audio, and device experience">menüler, ses ve cihaz deneyimi</h2>
+    <div class="system-grid">
+      <article class="system-card">
+        <span class="system-card-kicker" data-tr="ana menü" data-en="main menu">ana menü</span>
+        <h3 data-tr="oyun dışı akış" data-en="out-of-game flow">oyun dışı akış</h3>
+        <ul class="system-list">
+          <li>Continue / New Game / Shop</li>
+          <li>Achievements / Discoveries</li>
+          <li>Settings / Info / About</li>
+          <li data-tr="Google Play veya Remote Config tabanlı update bildirimi" data-en="Google Play or Remote Config-based update prompt">Google Play veya Remote Config tabanlı update bildirimi</li>
+          <li data-tr="Android geri tuşuna iki kez basarak çıkış" data-en="Double-back exit behavior on Android">Android geri tuşuna iki kez basarak çıkış</li>
+        </ul>
+      </article>
+
+      <article class="system-card">
+        <span class="system-card-kicker" data-tr="geri bildirim" data-en="feedback">geri bildirim</span>
+        <h3 data-tr="ses ve haptic" data-en="audio and haptics">ses ve haptic</h3>
+        <ul class="system-list">
+          <li data-tr="Atış, vuruş, combo, perfect, fail, lazer ve portal sesleri" data-en="Shot, hit, combo, perfect, fail, laser, and portal sounds">Atış, vuruş, combo, perfect, fail, lazer ve portal sesleri</li>
+          <li data-tr="Collectible, coin, yeni satır ve menü geri bildirimleri" data-en="Collectible, coin, new-row, and menu feedback">Collectible, coin, yeni satır ve menü geri bildirimleri</li>
+          <li data-tr="Reclaim ve iki fast-forward kademesine özel klipler" data-en="Dedicated clips for reclaim and both fast-forward stages">Reclaim ve iki fast-forward kademesine özel klipler</li>
+          <li data-tr="Kaydedilen ses, müzik ve haptic tercihleri" data-en="Persisted sound, music, and haptic preferences">Kaydedilen ses, müzik ve haptic tercihleri</li>
+        </ul>
+      </article>
+    </div>
+
+    <h2 data-tr="teknik yapı" data-en="technical architecture">teknik yapı</h2>
+    <p
+      data-tr="Proje Unity 6 ve C# ile geliştiriliyor; ana hedef platform Android. Oyun sistemleri sorumluluklarına ayrılmış manager sınıfları üzerinden haberleşiyor."
+      data-en="The project is built with Unity 6 and C#, with Android as its primary platform. Game systems communicate through manager classes separated by responsibility.">
+      Proje Unity 6 ve C# ile geliştiriliyor; ana hedef platform Android. Oyun sistemleri sorumluluklarına ayrılmış manager sınıfları üzerinden haberleşiyor.
+    </p>
+
+    <code class="architecture-line">GameManager / SaveManager / AudioManager / PowerupManager / AdManager / AnalyticsManager</code>
+
+    <div class="system-grid">
+      <article class="system-card">
+        <span class="system-card-kicker" data-tr="servisler" data-en="services">servisler</span>
+        <h3 data-tr="analytics ve gelir" data-en="analytics and monetization">analytics ve gelir</h3>
+        <ul class="system-list">
+          <li>Firebase Analytics</li>
+          <li>GameAnalytics</li>
+          <li>Google Mobile Ads</li>
+          <li>Unity IAP v5</li>
+          <li>Remote Config</li>
+        </ul>
+      </article>
+
+      <article class="system-card">
+        <span class="system-card-kicker" data-tr="veri modeli" data-en="data model">veri modeli</span>
+        <h3>ScriptableObject</h3>
+        <ul class="system-list">
+          <li data-tr="Skin ve frame tanımları" data-en="Skin and frame definitions">Skin ve frame tanımları</li>
+          <li data-tr="Achievement ve discovery verileri" data-en="Achievement and discovery data">Achievement ve discovery verileri</li>
+          <li data-tr="İçerik ile çalışma zamanı mantığının ayrılması" data-en="Separation of content from runtime logic">İçerik ile çalışma zamanı mantığının ayrılması</li>
+          <li data-tr="Meta GUID'leri korunarak yapılan asset düzenlemeleri" data-en="Asset reorganization while preserving meta GUIDs">Meta GUID'leri korunarak yapılan asset düzenlemeleri</li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="engineering-note">
+      <span data-tr="uygulama detayları" data-en="implementation details">uygulama detayları</span>
+      <p
+        data-tr="Popup kapanış animasyonu sırasında tekrar dokunmanın bildirimi kilitlemesi, revive sonrasında eski UI durumunun taşınması ve frame renk sahipliğinin temalar arasında yanlış paylaşılması gibi durumlar; geçiş kilitleri, açık durum yönetimi ve tema bazlı veri anahtarlarıyla ele alındı. Sprite klasörleri yeniden düzenlenirken Unity meta GUID'leri korunarak mevcut referansların bozulması önlendi."
+        data-en="Issues such as repeated taps locking a popup during its closing animation, stale UI state surviving a revive, and frame color ownership leaking between themes were handled with transition locks, explicit state management, and theme-scoped data keys. Unity meta GUIDs were preserved while reorganizing sprite folders to keep existing references intact.">
+        Popup kapanış animasyonu sırasında tekrar dokunmanın bildirimi kilitlemesi, revive sonrasında eski UI durumunun taşınması ve frame renk sahipliğinin temalar arasında yanlış paylaşılması gibi durumlar; geçiş kilitleri, açık durum yönetimi ve tema bazlı veri anahtarlarıyla ele alındı. Sprite klasörleri yeniden düzenlenirken Unity meta GUID'leri korunarak mevcut referansların bozulması önlendi.
+      </p>
+    </div>
+
+    <h2 data-tr="teknolojiler" data-en="tech stack">teknolojiler</h2>
+    <ul>
+      <li>Unity 6</li>
+      <li>C#</li>
+      <li>Android</li>
+      <li>Firebase Analytics</li>
+      <li>GameAnalytics</li>
+      <li>Google Mobile Ads</li>
+      <li>Unity IAP v5</li>
+      <li>ScriptableObject</li>
+    </ul>
+
+    <div class="project-links">
+      <a href="https://github.com/alpererdinc" target="_blank" rel="noopener noreferrer" class="btn btn-white">github</a>
+      <a href="https://dottoman.com" target="_blank" rel="noopener noreferrer" class="btn btn-yellow" data-tr="Dotto•Man evreni" data-en="Dotto•Man universe">Dotto•Man evreni</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-left">alper erdinç / 2026</div>
+    <div class="footer-links">
+      <a href="https://github.com/alpererdinc" target="_blank">github</a>
+      <a href="https://dottoman.com" target="_blank">dottoman.com</a>
+    </div>
+    <div class="footer-right">personal portfolio</div>
+  </footer>
+
+  <button class="scroll-top" id="scrollTopBtn" aria-label="Sayfanın başına dön">↑</button>
+  <script src="../js/main.js"></script>
+</body>
+
+</html>

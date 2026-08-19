@@ -323,7 +323,9 @@ body::after {
   transform: translateX(-50%);
 
   width: 230px;
+  max-height: calc(100vh - 6rem);
   padding: 0.45rem;
+  overflow-y: auto;
 
   display: flex;
   flex-direction: column;
@@ -364,7 +366,9 @@ body::after {
   left: 50%;
   z-index: 99;
   width: min(420px, calc(100% - 2rem));
+  max-height: calc(100vh - 5.2rem);
   transform: translateX(-50%);
+  overflow-y: auto;
 
   flex-direction: column;
   gap: 0.15rem;
@@ -1054,6 +1058,7 @@ body::after {
 
 .project-card {
   position: relative;
+  grid-column: span 3;
 
   display: flex;
   flex-direction: column;
@@ -1277,6 +1282,10 @@ body::after {
   padding: 4rem 1rem 6rem;
 }
 
+.project-body-wide {
+  max-width: 960px;
+}
+
 .back-link {
   display: inline-flex;
 
@@ -1361,6 +1370,10 @@ body::after {
   margin-bottom: 3rem;
 }
 
+.case-meta-four {
+  grid-template-columns: repeat(4, 1fr);
+}
+
 .meta-item {
   padding: 1rem;
   background: var(--panel);
@@ -1382,6 +1395,190 @@ body::after {
   color: var(--muted);
   font-size: 0.84rem;
   line-height: 1.55;
+}
+
+/* ===== MOBILE GAME CASE STUDY ===== */
+
+.game-loop {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.55rem;
+  margin: 1.2rem 0 2.8rem;
+}
+
+.game-loop-step {
+  position: relative;
+  min-height: 132px;
+  padding: 0.9rem;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.game-loop-step::after {
+  content: "→";
+  position: absolute;
+  top: 50%;
+  right: -0.48rem;
+  z-index: 2;
+  transform: translateY(-50%);
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 0.8rem;
+}
+
+.game-loop-step:last-child::after {
+  display: none;
+}
+
+.game-loop-step span,
+.system-card-kicker,
+.engineering-note > span {
+  display: block;
+  margin-bottom: 0.65rem;
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.game-loop-step strong {
+  display: block;
+  margin-bottom: 0.4rem;
+  color: var(--text);
+  font-family: var(--display);
+  font-size: 0.8rem;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.game-loop-step small {
+  display: block;
+  color: var(--faint);
+  font-size: 0.72rem;
+  line-height: 1.55;
+}
+
+.system-grid,
+.powerup-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.8rem;
+  margin: 1.1rem 0 2.8rem;
+}
+
+.powerup-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.system-card,
+.powerup-card,
+.engineering-note {
+  padding: 1.15rem;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.system-card-wide {
+  grid-column: 1 / -1;
+}
+
+.system-card h3,
+.powerup-card h3 {
+  margin: 0 0 0.7rem;
+  color: var(--text);
+  font-family: var(--display);
+  font-size: 0.9rem;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.system-card p,
+.powerup-card p,
+.engineering-note p {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.7;
+}
+
+.project-body .system-list {
+  display: grid;
+  gap: 0.52rem;
+  margin: 0;
+  padding: 0;
+}
+
+.project-body .system-list li {
+  position: relative;
+  padding: 0 0 0 0.85rem;
+  color: var(--muted);
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  font-family: var(--body);
+  font-size: 0.8rem;
+  line-height: 1.58;
+}
+
+.project-body .system-list li::before {
+  content: "/";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-family: var(--mono);
+}
+
+.powerup-card {
+  border-top: 2px solid var(--accent);
+}
+
+.engineering-note {
+  margin: 1rem 0 2.8rem;
+  background:
+    linear-gradient(135deg, rgba(var(--accent-rgb), 0.08), transparent 52%),
+    var(--panel);
+}
+
+.architecture-line {
+  display: block;
+  margin: 1rem 0;
+  padding: 0.8rem 0.9rem;
+  overflow-x: auto;
+  color: var(--muted);
+  background: var(--bg2);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  line-height: 1.7;
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .game-loop {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .game-loop-step::after {
+    display: none;
+  }
+
+  .powerup-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .game-loop,
+  .system-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .game-loop-step {
+    min-height: auto;
+  }
 }
 
 /* ===== MEDIA / GIF AREA ===== */

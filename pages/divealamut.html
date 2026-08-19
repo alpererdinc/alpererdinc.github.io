@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="tr" data-lang="tr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DiveAlamut — Alper Erdinç</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+
+<body>
+  <div class="cursor" id="cursor"></div>
+
+  <nav class="navbar">
+    <a href="../index.html" class="nav-logo">ae.</a>
+    <div class="nav-links">
+      <a href="../index.html" data-tr="ana sayfa" data-en="home">ana sayfa</a>
+      <a href="../index.html#about" data-tr="hakkımda" data-en="about">hakkımda</a>
+      <details class="nav-dropdown">
+        <summary data-tr="projeler" data-en="projects">projeler</summary>
+        <div class="dropdown-menu">
+          <a href="../index.html#projects" data-tr="tüm projeler" data-en="all projects">tüm projeler</a>
+          <a href="dotto-block-breaker.html">Dotto: Block Breaker</a>
+          <a href="divealamut.html">DiveAlamut</a>
+          <a href="jazurider.html">JazuRider</a>
+          <a href="dottoman.html">Dotto•Man</a>
+          <a href="tez-oyunu.html">Adaptive NPC AI</a>
+          <a href="eticaret.html">CollecZone</a>
+          <a href="nothing-to-report.html">Nothing To Report</a>
+          <a href="2d-oyunlar.html">Kantanfu</a>
+          <a href="brand-detection.html">Vehicle Brand Detection</a>
+        </div>
+      </details>
+      <a href="artworks.html" data-tr="çizimler" data-en="artworks">çizimler</a>
+      <a href="../index.html#contact" data-tr="iletişim" data-en="contact">iletişim</a>
+    </div>
+
+    <div class="theme-picker" aria-label="Tema seçimi">
+      <button class="theme-dot theme-orange" type="button" data-theme-choice="orange" aria-label="Turuncu tema"></button>
+      <button class="theme-dot theme-blue" type="button" data-theme-choice="blue" aria-label="Mavi tema"></button>
+      <button class="theme-dot theme-purple" type="button" data-theme-choice="purple" aria-label="Mor tema"></button>
+      <button class="theme-dot theme-green" type="button" data-theme-choice="green" aria-label="Yeşil tema"></button>
+      <button class="mode-toggle" id="modeToggle" type="button" aria-label="Gündüz moduna geç">☀</button>
+    </div>
+    <button class="lang-toggle" id="langToggle">EN</button>
+    <button class="nav-hamburger" id="navHamburger">menü</button>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="../index.html" data-tr="ana sayfa" data-en="home">ana sayfa</a>
+    <a href="../index.html#about" data-tr="hakkımda" data-en="about">hakkımda</a>
+    <details class="mobile-dropdown">
+      <summary data-tr="projeler" data-en="projects">projeler</summary>
+      <div class="mobile-dropdown-menu">
+        <a href="../index.html#projects" data-tr="tüm projeler" data-en="all projects">tüm projeler</a>
+        <a href="dotto-block-breaker.html">Dotto: Block Breaker</a>
+        <a href="divealamut.html">DiveAlamut</a>
+        <a href="jazurider.html">JazuRider</a>
+        <a href="dottoman.html">Dotto•Man</a>
+        <a href="tez-oyunu.html">Adaptive NPC AI</a>
+        <a href="eticaret.html">CollecZone</a>
+        <a href="nothing-to-report.html">Nothing To Report</a>
+        <a href="2d-oyunlar.html">Kantanfu</a>
+        <a href="brand-detection.html">Vehicle Brand Detection</a>
+      </div>
+    </details>
+    <a href="../index.html#contact" data-tr="iletişim" data-en="contact">iletişim</a>
+  </div>
+
+  <section class="project-hero">
+    <div class="project-hero-dots"></div>
+    <div class="project-hero-content">
+      <div class="badge" data-tr="oyun / hypercasual / staj" data-en="game / hypercasual / internship">oyun / hypercasual / staj</div>
+      <h1>DiveAlamut</h1>
+      <p class="lead"
+        data-tr="Alamut temalı dönen platformlarda güvenli boşlukları bul, momentum kazan ve Smash Mode ile tehlikeleri parçalayarak aşağı dal."
+        data-en="Find safe openings across Alamut-themed rotating platforms, build momentum, and dive through hazards with Smash Mode.">
+        Alamut temalı dönen platformlarda güvenli boşlukları bul, momentum kazan ve Smash Mode ile tehlikeleri parçalayarak aşağı dal.
+      </p>
+    </div>
+  </section>
+
+  <main class="project-body project-body-wide">
+    <a href="../index.html#projects" class="back-link" data-tr="projeler" data-en="projects">projeler</a>
+    <div class="case-meta">
+      <div class="meta-item">
+        <span data-tr="rol" data-en="role">rol</span>
+        <p data-tr="Gameplay / fizik / polish" data-en="Gameplay / physics / polish">Gameplay / fizik / polish</p>
+      </div>
+      <div class="meta-item">
+        <span data-tr="alan" data-en="field">alan</span>
+        <p data-tr="Hypercasual / arcade düşüş" data-en="Hypercasual / arcade descent">Hypercasual / arcade düşüş</p>
+      </div>
+      <div class="meta-item">
+        <span data-tr="durum" data-en="status">durum</span>
+        <p data-tr="Upperpik / ilk staj projesi" data-en="Upperpik / first internship project">Upperpik / ilk staj projesi</p>
+      </div>
+    </div>
+
+    <h2 data-tr="özet" data-en="overview">özet</h2>
+    <p
+      data-tr="DiveAlamut, Upperpik stajında geliştirdiğim ilk mobil hypercasual projeydi. Helix Jump benzeri dönen platform ve düşüş mekaniğini, klasik renkli kule estetiği yerine Alamut ve Haşhaşi temasına taşıdım. Oyuncu aşağı düşen bir suikastçıyı güvenli boşluklardan geçirir; tehlikeli segmentlere çarptığında run sona erer."
+      data-en="DiveAlamut was the first mobile hypercasual project I developed during my internship at Upperpik. I reinterpreted a Helix Jump-style rotating-platform descent through an Alamut and Assassins theme instead of the familiar colorful tower aesthetic. The player guides a falling assassin through safe openings; hitting a hazardous segment ends the run.">
+      DiveAlamut, Upperpik stajında geliştirdiğim ilk mobil hypercasual projeydi. Helix Jump benzeri dönen platform ve düşüş mekaniğini, klasik renkli kule estetiği yerine Alamut ve Haşhaşi temasına taşıdım. Oyuncu aşağı düşen bir suikastçıyı güvenli boşluklardan geçirir; tehlikeli segmentlere çarptığında run sona erer.
+    </p>
+
+    <h2 data-tr="rolüm" data-en="my role">rolüm</h2>
+    <p
+      data-tr="Temel gameplay loop'un kurulması, fizik ve collision davranışları, game state yönetimi, mobil input, responsive arayüz ve kısa sürede oynanabilir bir prototipin polish edilmesi üzerinde çalıştım. Assassin karakteri, tematik platformlar, ses ve particle geri bildirimleriyle mekanikleri okunaklı ve tatmin edici hâle getirdim."
+      data-en="I worked on establishing the core gameplay loop, physics and collision behavior, game-state management, mobile input, responsive UI, and polishing a playable prototype within a short development cycle. I used the assassin character, themed platforms, audio, and particle feedback to make the mechanics readable and satisfying.">
+      Temel gameplay loop'un kurulması, fizik ve collision davranışları, game state yönetimi, mobil input, responsive arayüz ve kısa sürede oynanabilir bir prototipin polish edilmesi üzerinde çalıştım. Assassin karakteri, tematik platformlar, ses ve particle geri bildirimleriyle mekanikleri okunaklı ve tatmin edici hâle getirdim.
+    </p>
+
+    <h2 data-tr="temel oyun döngüsü" data-en="core gameplay loop">temel oyun döngüsü</h2>
+    <div class="game-loop">
+      <div class="game-loop-step">
+        <span>01</span>
+        <strong data-tr="platformu döndür" data-en="rotate">platformu döndür</strong>
+        <small data-tr="Mobil input ile kulenin yönünü kontrol et." data-en="Control the tower orientation with mobile input.">Mobil input ile kulenin yönünü kontrol et.</small>
+      </div>
+      <div class="game-loop-step">
+        <span>02</span>
+        <strong data-tr="boşluğu bul" data-en="find the gap">boşluğu bul</strong>
+        <small data-tr="Suikastçıyı güvenli segmente hizala." data-en="Align the assassin with a safe segment.">Suikastçıyı güvenli segmente hizala.</small>
+      </div>
+      <div class="game-loop-step">
+        <span>03</span>
+        <strong data-tr="aşağı dal" data-en="dive">aşağı dal</strong>
+        <small data-tr="Ardışık halkalardan hız kesmeden geç." data-en="Pass consecutive rings without losing speed.">Ardışık halkalardan hız kesmeden geç.</small>
+      </div>
+      <div class="game-loop-step">
+        <span>04</span>
+        <strong data-tr="momentum kazan" data-en="build momentum">momentum kazan</strong>
+        <small data-tr="Perfect Drop serisiyle Smash Mode'u tetikle." data-en="Trigger Smash Mode through a Perfect Drop streak.">Perfect Drop serisiyle Smash Mode'u tetikle.</small>
+      </div>
+      <div class="game-loop-step">
+        <span>05</span>
+        <strong data-tr="hedefe ulaş" data-en="reach the goal">hedefe ulaş</strong>
+        <small data-tr="Tehlikelerden kaçınarak bölümü tamamla." data-en="Complete the level while avoiding hazards.">Tehlikelerden kaçınarak bölümü tamamla.</small>
+      </div>
+    </div>
+
+    <h2 data-tr="geliştirilen sistemler" data-en="developed systems">geliştirilen sistemler</h2>
+    <div class="system-grid">
+      <article class="system-card">
+        <span class="system-card-kicker" data-tr="çekirdek mekanik" data-en="core mechanic">çekirdek mekanik</span>
+        <h3 data-tr="platform ve düşüş" data-en="platform and descent">platform ve düşüş</h3>
+        <ul class="system-list">
+          <li data-tr="Helix Jump tarzı dönen platform yapısı" data-en="Helix Jump-style rotating platform structure">Helix Jump tarzı dönen platform yapısı</li>
+          <li data-tr="Güvenli ve tehlikeli segment ayrımı" data-en="Safe and hazardous segment distinction">Güvenli ve tehlikeli segment ayrımı</li>
+          <li data-tr="Bounce ve collision davranışları" data-en="Bounce and collision behavior">Bounce ve collision davranışları</li>
+          <li data-tr="Ardışık başarılı düşüş akışı" data-en="Flow built around consecutive successful drops">Ardışık başarılı düşüş akışı</li>
+        </ul>
+      </article>
+
+      <article class="system-card">
+        <span class="system-card-kicker" data-tr="momentum ödülü" data-en="momentum reward">momentum ödülü</span>
+        <h3>Smash Mode</h3>
+        <ul class="system-list">
+          <li data-tr="Belirli momentumdan sonra tehlikeli platformları kırma" data-en="Break hazardous platforms after reaching enough momentum">Belirli momentumdan sonra tehlikeli platformları kırma</li>
+          <li data-tr="Yaklaşık altı ring ile sınırlı kullanım süresi" data-en="Duration limited to roughly six rings">Yaklaşık altı ring ile sınırlı kullanım süresi</li>
+          <li data-tr="Perfect Drop geri bildirimi" data-en="Perfect Drop feedback">Perfect Drop geri bildirimi</li>
+          <li data-tr="Smash aura ve kırılma particle efektleri" data-en="Smash aura and destruction particles">Smash aura ve kırılma particle efektleri</li>
+        </ul>
+      </article>
+
+      <article class="system-card">
+        <span class="system-card-kicker" data-tr="akış kontrolü" data-en="flow control">akış kontrolü</span>
+        <h3>Game State</h3>
+        <code class="architecture-line">WaitingToStart / Playing / GameOver / LevelComplete</code>
+        <p data-tr="Input, fizik, arayüz ve sonuç ekranlarının yalnızca doğru oyun durumunda çalışmasını sağlayan açık state yönetimi." data-en="Explicit state management ensures that input, physics, UI, and result screens operate only in the correct game state.">Input, fizik, arayüz ve sonuç ekranlarının yalnızca doğru oyun durumunda çalışmasını sağlayan açık state yönetimi.</p>
+      </article>
+
+      <article class="system-card">
+        <span class="system-card-kicker" data-tr="geri bildirim" data-en="feedback">geri bildirim</span>
+        <h3 data-tr="ses ve efektler" data-en="audio and effects">ses ve efektler</h3>
+        <ul class="system-list">
+          <li data-tr="Bounce, smash, puan, fail ve success sesleri" data-en="Bounce, smash, score, fail, and success sounds">Bounce, smash, puan, fail ve success sesleri</li>
+          <li data-tr="Dust, smash aura ve çevresel particle efektleri" data-en="Dust, smash aura, and environmental particles">Dust, smash aura ve çevresel particle efektleri</li>
+          <li data-tr="Mobil build öncesi genel görsel ve işitsel polish" data-en="General audiovisual polish before the mobile build">Mobil build öncesi genel görsel ve işitsel polish</li>
+        </ul>
+      </article>
+    </div>
+
+    <h2 data-tr="tema ve cihaz uyumu" data-en="theme and device support">tema ve cihaz uyumu</h2>
+    <div class="system-grid">
+      <article class="system-card">
+        <span class="system-card-kicker" data-tr="görsel kimlik" data-en="visual identity">görsel kimlik</span>
+        <h3 data-tr="Alamut / Haşhaşi teması" data-en="Alamut / Assassins theme">Alamut / Haşhaşi teması</h3>
+        <p data-tr="Klasik renkli hypercasual kule görünümü yerine Assassin karakter modeli ve temaya uygun platform görselleri kullanıldı." data-en="The familiar colorful hypercasual tower look was replaced with an assassin character model and platform visuals designed around the theme.">Klasik renkli hypercasual kule görünümü yerine Assassin karakter modeli ve temaya uygun platform görselleri kullanıldı.</p>
+      </article>
+      <article class="system-card">
+        <span class="system-card-kicker" data-tr="arayüz" data-en="interface">arayüz</span>
+        <h3 data-tr="responsive deneyim" data-en="responsive experience">responsive deneyim</h3>
+        <p data-tr="Mobil UI farklı ekran oranlarına göre düzenlendi; PC görünümü ve mobil build üzerinde kamera, kadraj ve arayüz uyumu test edildi." data-en="The mobile UI was adapted to different aspect ratios; camera framing and interface behavior were tested across PC views and mobile builds.">Mobil UI farklı ekran oranlarına göre düzenlendi; PC görünümü ve mobil build üzerinde kamera, kadraj ve arayüz uyumu test edildi.</p>
+      </article>
+    </div>
+
+    <div class="engineering-note">
+      <span data-tr="stajdaki kazanım" data-en="internship outcome">stajdaki kazanım</span>
+      <p data-tr="DiveAlamut; core gameplay, collision, game state ve mobil kontrol konularında temelimi güçlendirdi. Kısa geliştirme süresinde çalışan bir prototipi, ses, efekt, karakter, tema ve responsive arayüzle sunulabilir bir mobil deneyime dönüştürme pratiği kazandırdı." data-en="DiveAlamut strengthened my foundations in core gameplay, collision handling, game states, and mobile controls. It gave me practical experience turning a working prototype into a presentable mobile experience through audio, effects, character art, theme, and responsive UI within a short development cycle.">DiveAlamut; core gameplay, collision, game state ve mobil kontrol konularında temelimi güçlendirdi. Kısa geliştirme süresinde çalışan bir prototipi, ses, efekt, karakter, tema ve responsive arayüzle sunulabilir bir mobil deneyime dönüştürme pratiği kazandırdı.</p>
+    </div>
+
+    <h2 data-tr="çalışma alanları" data-en="areas of work">çalışma alanları</h2>
+    <ul>
+      <li>Hypercasual Game Development</li>
+      <li>Physics / Collision</li>
+      <li>Game State Management</li>
+      <li>Gameplay Prototyping</li>
+      <li>Touch Controls</li>
+      <li>UI / UX</li>
+      <li>Audio / Particles</li>
+      <li>Mobile Build</li>
+    </ul>
+
+    <div class="project-links">
+      <a href="https://github.com/alpererdinc" target="_blank" rel="noopener noreferrer" class="btn btn-white">github</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-left">alper erdinç / 2026</div>
+    <div class="footer-links">
+      <a href="https://github.com/alpererdinc" target="_blank">github</a>
+      <a href="https://dottoman.com" target="_blank">dottoman.com</a>
+    </div>
+    <div class="footer-right">personal portfolio</div>
+  </footer>
+  <button class="scroll-top" id="scrollTopBtn" aria-label="Sayfanın başına dön">↑</button>
+  <script src="../js/main.js"></script>
+</body>
+
+</html>

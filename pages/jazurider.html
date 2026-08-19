@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="tr" data-lang="tr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JazuRider — Alper Erdinç</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+
+<body>
+  <div class="cursor" id="cursor"></div>
+
+  <nav class="navbar">
+    <a href="../index.html" class="nav-logo">ae.</a>
+    <div class="nav-links">
+      <a href="../index.html" data-tr="ana sayfa" data-en="home">ana sayfa</a>
+      <a href="../index.html#about" data-tr="hakkımda" data-en="about">hakkımda</a>
+      <details class="nav-dropdown">
+        <summary data-tr="projeler" data-en="projects">projeler</summary>
+        <div class="dropdown-menu">
+          <a href="../index.html#projects" data-tr="tüm projeler" data-en="all projects">tüm projeler</a>
+          <a href="dotto-block-breaker.html">Dotto: Block Breaker</a>
+          <a href="divealamut.html">DiveAlamut</a>
+          <a href="jazurider.html">JazuRider</a>
+          <a href="dottoman.html">Dotto•Man</a>
+          <a href="tez-oyunu.html">Adaptive NPC AI</a>
+          <a href="eticaret.html">CollecZone</a>
+          <a href="nothing-to-report.html">Nothing To Report</a>
+          <a href="2d-oyunlar.html">Kantanfu</a>
+          <a href="brand-detection.html">Vehicle Brand Detection</a>
+        </div>
+      </details>
+      <a href="artworks.html" data-tr="çizimler" data-en="artworks">çizimler</a>
+      <a href="../index.html#contact" data-tr="iletişim" data-en="contact">iletişim</a>
+    </div>
+
+    <div class="theme-picker" aria-label="Tema seçimi">
+      <button class="theme-dot theme-orange" type="button" data-theme-choice="orange" aria-label="Turuncu tema"></button>
+      <button class="theme-dot theme-blue" type="button" data-theme-choice="blue" aria-label="Mavi tema"></button>
+      <button class="theme-dot theme-purple" type="button" data-theme-choice="purple" aria-label="Mor tema"></button>
+      <button class="theme-dot theme-green" type="button" data-theme-choice="green" aria-label="Yeşil tema"></button>
+      <button class="mode-toggle" id="modeToggle" type="button" aria-label="Gündüz moduna geç">☀</button>
+    </div>
+    <button class="lang-toggle" id="langToggle">EN</button>
+    <button class="nav-hamburger" id="navHamburger">menü</button>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="../index.html" data-tr="ana sayfa" data-en="home">ana sayfa</a>
+    <a href="../index.html#about" data-tr="hakkımda" data-en="about">hakkımda</a>
+    <details class="mobile-dropdown">
+      <summary data-tr="projeler" data-en="projects">projeler</summary>
+      <div class="mobile-dropdown-menu">
+        <a href="../index.html#projects" data-tr="tüm projeler" data-en="all projects">tüm projeler</a>
+        <a href="dotto-block-breaker.html">Dotto: Block Breaker</a>
+        <a href="divealamut.html">DiveAlamut</a>
+        <a href="jazurider.html">JazuRider</a>
+        <a href="dottoman.html">Dotto•Man</a>
+        <a href="tez-oyunu.html">Adaptive NPC AI</a>
+        <a href="eticaret.html">CollecZone</a>
+        <a href="nothing-to-report.html">Nothing To Report</a>
+        <a href="2d-oyunlar.html">Kantanfu</a>
+        <a href="brand-detection.html">Vehicle Brand Detection</a>
+      </div>
+    </details>
+    <a href="../index.html#contact" data-tr="iletişim" data-en="contact">iletişim</a>
+  </div>
+
+  <section class="project-hero">
+    <div class="project-hero-dots"></div>
+    <div class="project-hero-content">
+      <div class="badge" data-tr="oyun / hypercasual / staj" data-en="game / hypercasual / internship">oyun / hypercasual / staj</div>
+      <h1>JazuRider</h1>
+      <p class="lead"
+        data-tr="Cazu'yu ve kavanoz yığınını parkur boyunca yönlendir; engellerden kaç, stack'i büyüt ve en yüksek çarpanla bitişe ulaş."
+        data-en="Guide Cazu and her tower of jars through the course, avoid obstacles, grow the stack, and reach the finish with the highest multiplier.">
+        Cazu'yu ve kavanoz yığınını parkur boyunca yönlendir; engellerden kaç, stack'i büyüt ve en yüksek çarpanla bitişe ulaş.
+      </p>
+    </div>
+  </section>
+
+  <main class="project-body project-body-wide">
+    <a href="../index.html#projects" class="back-link" data-tr="projeler" data-en="projects">projeler</a>
+    <div class="case-meta">
+      <div class="meta-item">
+        <span data-tr="rol" data-en="role">rol</span>
+        <p data-tr="Stack fiziği / kamera / polish" data-en="Stack physics / camera / polish">Stack fiziği / kamera / polish</p>
+      </div>
+      <div class="meta-item">
+        <span data-tr="alan" data-en="field">alan</span>
+        <p data-tr="Hypercasual / stack runner" data-en="Hypercasual / stack runner">Hypercasual / stack runner</p>
+      </div>
+      <div class="meta-item">
+        <span data-tr="durum" data-en="status">durum</span>
+        <p data-tr="Upperpik / ikinci staj projesi" data-en="Upperpik / second internship project">Upperpik / ikinci staj projesi</p>
+      </div>
+    </div>
+
+    <h2 data-tr="özet" data-en="overview">özet</h2>
+    <p
+      data-tr="JazuRider, Upperpik stajında geliştirdiğim ikinci mobil hypercasual projeydi. Cube Surfer benzeri stack mekaniğini Türk mitolojisi ve cadı temasına sahip özgün bir görsel dünyada yorumladım. Oyuncu Cazu karakterini üst üste dizilmiş kavanozların üzerinde yönlendirir; engeller yığını küçültür, toplanan kavanozlar ise yeniden büyütür. Amaç mümkün olduğunca fazla kavanozu koruyarak bölüm sonuna ulaşmaktır."
+      data-en="JazuRider was the second mobile hypercasual project I developed during my internship at Upperpik. I reinterpreted a Cube Surfer-style stack mechanic through an original visual world inspired by Turkish mythology and witchcraft. The player guides Cazu on top of a tower of jars; obstacles shrink the stack while collected jars rebuild it. The goal is to preserve as many jars as possible before reaching the finish.">
+      JazuRider, Upperpik stajında geliştirdiğim ikinci mobil hypercasual projeydi. Cube Surfer benzeri stack mekaniğini Türk mitolojisi ve cadı temasına sahip özgün bir görsel dünyada yorumladım. Oyuncu Cazu karakterini üst üste dizilmiş kavanozların üzerinde yönlendirir; engeller yığını küçültür, toplanan kavanozlar ise yeniden büyütür. Amaç mümkün olduğunca fazla kavanozu koruyarak bölüm sonuna ulaşmaktır.
+    </p>
+
+    <h2 data-tr="rolüm" data-en="my role">rolüm</h2>
+    <p
+      data-tr="Dinamik stack davranışı, engel çarpışmaları, karakterin yığın üzerindeki hareketi, takip kamerası ve fizik hissi üzerinde yoğunlaştım. Temel mekanikler tamamlandıktan sonra bounce, gecikmeli kavanoz hareketleri, trail, animasyon, ses, post-processing ve color grading ile oyunun hareketini ve atmosferini polish ettim."
+      data-en="I focused on dynamic stack behavior, obstacle collisions, character movement on top of the stack, the follow camera, and the overall physics feel. Once the core mechanics were complete, I polished the motion and atmosphere with bounce, delayed jar movement, trails, animation, audio, post-processing, and color grading.">
+      Dinamik stack davranışı, engel çarpışmaları, karakterin yığın üzerindeki hareketi, takip kamerası ve fizik hissi üzerinde yoğunlaştım. Temel mekanikler tamamlandıktan sonra bounce, gecikmeli kavanoz hareketleri, trail, animasyon, ses, post-processing ve color grading ile oyunun hareketini ve atmosferini polish ettim.
+    </p>
+
+    <h2 data-tr="temel oyun döngüsü" data-en="core gameplay loop">temel oyun döngüsü</h2>
+    <div class="game-loop">
+      <div class="game-loop-step">
+        <span>01</span>
+        <strong data-tr="Cazu'yu yönlendir" data-en="guide Cazu">Cazu'yu yönlendir</strong>
+        <small data-tr="Karakteri ve yığını parkurda hareket ettir." data-en="Move the character and stack along the course.">Karakteri ve yığını parkurda hareket ettir.</small>
+      </div>
+      <div class="game-loop-step">
+        <span>02</span>
+        <strong data-tr="kavanoz topla" data-en="collect jars">kavanoz topla</strong>
+        <small data-tr="Yeni parçalarla dinamik stack'i büyüt." data-en="Grow the dynamic stack with new pieces.">Yeni parçalarla dinamik stack'i büyüt.</small>
+      </div>
+      <div class="game-loop-step">
+        <span>03</span>
+        <strong data-tr="engelleri aş" data-en="clear obstacles">engelleri aş</strong>
+        <small data-tr="Çarpışmalarda kaybedilen kavanozları yönet." data-en="Manage the jars lost through collisions.">Çarpışmalarda kaybedilen kavanozları yönet.</small>
+      </div>
+      <div class="game-loop-step">
+        <span>04</span>
+        <strong data-tr="yığını koru" data-en="preserve the stack">yığını koru</strong>
+        <small data-tr="Bitişe mümkün olan en yüksek stack ile yaklaş." data-en="Approach the finish with the tallest possible stack.">Bitişe mümkün olan en yüksek stack ile yaklaş.</small>
+      </div>
+      <div class="game-loop-step">
+        <span>05</span>
+        <strong data-tr="çarpanı seç" data-en="choose multiplier">çarpanı seç</strong>
+        <small data-tr="x2 / x3 gate'lerle bölüm ödülünü yükselt." data-en="Increase the level reward through x2 / x3 gates.">x2 / x3 gate'lerle bölüm ödülünü yükselt.</small>
+      </div>
+    </div>
+
+    <h2 data-tr="stack ve fizik sistemleri" data-en="stack and physics systems">stack ve fizik sistemleri</h2>
+    <div class="system-grid">
+      <article class="system-card">
+        <span class="system-card-kicker" data-tr="çekirdek mekanik" data-en="core mechanic">çekirdek mekanik</span>
+        <h3 data-tr="dinamik kavanoz yığını" data-en="dynamic jar stack">dinamik kavanoz yığını</h3>
+        <ul class="system-list">
+          <li data-tr="Toplanan kavanoz sayısına göre büyüyen stack" data-en="A stack that grows with each collected jar">Toplanan kavanoz sayısına göre büyüyen stack</li>
+          <li data-tr="Karakterin yığının üstünde konumlanması" data-en="Character positioning on top of the stack">Karakterin yığının üstünde konumlanması</li>
+          <li data-tr="Engel çarpışmalarında stack kaybetme" data-en="Stack loss through obstacle collisions">Engel çarpışmalarında stack kaybetme</li>
+          <li data-tr="Değişen yüksekliğe göre hareketin güncellenmesi" data-en="Movement updated according to changing stack height">Değişen yüksekliğe göre hareketin güncellenmesi</li>
+        </ul>
+      </article>
+
+      <article class="system-card">
+        <span class="system-card-kicker" data-tr="hareket hissi" data-en="motion feel">hareket hissi</span>
+        <h3 data-tr="bounce ve gecikmeli hareket" data-en="bounce and delayed motion">bounce ve gecikmeli hareket</h3>
+        <ul class="system-list">
+          <li data-tr="Düşüş yüksekliğine bağlı bounce miktarı" data-en="Bounce strength based on fall height">Düşüş yüksekliğine bağlı bounce miktarı</li>
+          <li data-tr="Engel sonrasında hafif kavanoz sekmeleri" data-en="Subtle jar rebounds after obstacles">Engel sonrasında hafif kavanoz sekmeleri</li>
+          <li data-tr="Küçük gecikmelerle birbirinden ayrılan parçalar" data-en="Pieces separating with small delays">Küçük gecikmelerle birbirinden ayrılan parçalar</li>
+          <li data-tr="Yığının doğal biçimde yeniden toparlanması" data-en="Natural reassembly of the stack">Yığının doğal biçimde yeniden toparlanması</li>
+        </ul>
+      </article>
+
+      <article class="system-card">
+        <span class="system-card-kicker" data-tr="kadraj" data-en="framing">kadraj</span>
+        <h3 data-tr="uyarlanabilir takip kamerası" data-en="adaptive follow camera">uyarlanabilir takip kamerası</h3>
+        <ul class="system-list">
+          <li data-tr="Karakteri parkur boyunca takip eden kamera" data-en="Camera that follows the character through the course">Karakteri parkur boyunca takip eden kamera</li>
+          <li data-tr="Stack büyüdükçe uzaklaşma ve yükselme" data-en="Pull back and rise as the stack grows">Stack büyüdükçe uzaklaşma ve yükselme</li>
+          <li data-tr="Karakter ve tüm yığını aynı kadrajda tutma" data-en="Keep both character and full stack in frame">Karakter ve tüm yığını aynı kadrajda tutma</li>
+        </ul>
+      </article>
+
+      <article class="system-card">
+        <span class="system-card-kicker" data-tr="ilerleme" data-en="progression">ilerleme</span>
+        <h3 data-tr="level ve multiplier" data-en="levels and multipliers">level ve multiplier</h3>
+        <ul class="system-list">
+          <li data-tr="Toplam 10 oynanabilir level" data-en="A total of 10 playable levels">Toplam 10 oynanabilir level</li>
+          <li data-tr="Bölüm sonunda x2 / x3 multiplier gate'leri" data-en="x2 / x3 multiplier gates at the level finish">Bölüm sonunda x2 / x3 multiplier gate'leri</li>
+          <li data-tr="Level 10 sonrasında ana menüye dönüş" data-en="Return to the main menu after level 10">Level 10 sonrasında ana menüye dönüş</li>
+          <li data-tr="Stack miktarını bitiş ödülüne bağlayan akış" data-en="A flow that connects remaining stack size to the finish reward">Stack miktarını bitiş ödülüne bağlayan akış</li>
+        </ul>
+      </article>
+    </div>
+
+    <h2 data-tr="görsel ve işitsel polish" data-en="visual and audio polish">görsel ve işitsel polish</h2>
+    <div class="system-grid">
+      <article class="system-card">
+        <span class="system-card-kicker" data-tr="sanat yönetimi" data-en="art direction">sanat yönetimi</span>
+        <h3 data-tr="Türk mitolojisi / cadı teması" data-en="Turkish mythology / witch theme">Türk mitolojisi / cadı teması</h3>
+        <ul class="system-list">
+          <li data-tr="Cazu karakter modeli" data-en="Cazu character model">Cazu karakter modeli</li>
+          <li data-tr="Gece bozkırı ve fantastik atmosfer" data-en="Night steppe and fantasy atmosphere">Gece bozkırı ve fantastik atmosfer</li>
+          <li data-tr="Post-processing ve color grading" data-en="Post-processing and color grading">Post-processing ve color grading</li>
+          <li data-tr="Trail ve hareket efektleri" data-en="Trail and motion effects">Trail ve hareket efektleri</li>
+        </ul>
+      </article>
+
+      <article class="system-card">
+        <span class="system-card-kicker" data-tr="geri bildirim" data-en="feedback">geri bildirim</span>
+        <h3 data-tr="animasyon ve ses" data-en="animation and audio">animasyon ve ses</h3>
+        <ul class="system-list">
+          <li data-tr="Engel ve stack kaybını anlatan hareket detayları" data-en="Motion details that communicate obstacle hits and stack loss">Engel ve stack kaybını anlatan hareket detayları</li>
+          <li data-tr="Karakter için fail animasyonu" data-en="Fail animation for the character">Karakter için fail animasyonu</li>
+          <li data-tr="Oyun akışını destekleyen ses sistemi" data-en="Audio system supporting the gameplay flow">Oyun akışını destekleyen ses sistemi</li>
+          <li data-tr="Genel audio ve görsel efekt polish'i" data-en="General audio and visual-effects polish">Genel audio ve görsel efekt polish'i</li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="engineering-note">
+      <span data-tr="stajdaki gelişim" data-en="internship progression">stajdaki gelişim</span>
+      <p data-tr="DiveAlamut'ta core gameplay, collision, game state ve mobil kontrol üzerine kurduğum temelin ardından JazuRider'da dinamik obje yığınları, kamera takibi, fizik hissi, animasyon ve polish tarafına daha fazla yoğunlaştım. Yığının tek bir katı parça gibi görünmesi yerine, parçaların kontrollü gecikmeler ve fiziksel tepkilerle hareket etmesini sağlayarak daha doğal ve tatmin edici bir sonuç elde ettim." data-en="After building a foundation in core gameplay, collision handling, game states, and mobile controls with DiveAlamut, I focused more deeply on dynamic object stacks, camera tracking, physics feel, animation, and polish in JazuRider. Instead of making the stack behave like one rigid object, I used controlled delays and physical reactions between its pieces to create a more natural and satisfying result.">DiveAlamut'ta core gameplay, collision, game state ve mobil kontrol üzerine kurduğum temelin ardından JazuRider'da dinamik obje yığınları, kamera takibi, fizik hissi, animasyon ve polish tarafına daha fazla yoğunlaştım. Yığının tek bir katı parça gibi görünmesi yerine, parçaların kontrollü gecikmeler ve fiziksel tepkilerle hareket etmesini sağlayarak daha doğal ve tatmin edici bir sonuç elde ettim.</p>
+    </div>
+
+    <h2 data-tr="çalışma alanları" data-en="areas of work">çalışma alanları</h2>
+    <ul>
+      <li>Hypercasual Game Development</li>
+      <li>Dynamic Stack Systems</li>
+      <li>Physics Feel</li>
+      <li>Adaptive Camera</li>
+      <li>Gameplay Prototyping</li>
+      <li>Animation / Trails</li>
+      <li>Post-processing</li>
+      <li>Audio Polish</li>
+    </ul>
+
+    <div class="project-links">
+      <a href="https://github.com/alpererdinc" target="_blank" rel="noopener noreferrer" class="btn btn-white">github</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-left">alper erdinç / 2026</div>
+    <div class="footer-links">
+      <a href="https://github.com/alpererdinc" target="_blank">github</a>
+      <a href="https://dottoman.com" target="_blank">dottoman.com</a>
+    </div>
+    <div class="footer-right">personal portfolio</div>
+  </footer>
+  <button class="scroll-top" id="scrollTopBtn" aria-label="Sayfanın başına dön">↑</button>
+  <script src="../js/main.js"></script>
+</body>
+
+</html>
