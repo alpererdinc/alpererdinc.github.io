@@ -81,11 +81,14 @@ html[data-mode="paper"] body::before {
 
 a {
   color: inherit;
+  -webkit-user-drag: none;
 }
 
 img {
   display: block;
   max-width: 100%;
+  -webkit-user-drag: none;
+  user-select: none;
 }
 
 ::selection {
@@ -347,16 +350,18 @@ html[data-lang="en"] [data-l="tr"] {
   justify-content: center;
 }
 
+/* kept inside its own column at every width, never over the text */
 .ebru {
   position: absolute;
   left: 50%;
   top: 46%;
-  width: 118%;
-  max-width: 620px;
+  width: min(100%, 560px);
   aspect-ratio: 1;
   transform: translate(-50%, -50%);
 }
 
+.ebru .e-cream { fill: #efe6d2; }
+.ebru .e-sand { fill: #ddcca8; }
 .ebru .e-red { fill: var(--red); }
 .ebru .e-deep { fill: var(--red-deep); }
 .ebru .e-ink { fill: var(--ink); }
@@ -369,7 +374,42 @@ html[data-mode="paper"] .ebru .e-ink { fill: #15120f; }
   position: relative;
   width: auto;
   height: min(70vh, 600px);
-  filter: drop-shadow(0 0 0 transparent);
+}
+
+/* Dotto drifts: slow rise and fall, a little sway */
+.hero-figure .float {
+  animation: drift 6.5s ease-in-out infinite;
+  transform-origin: 50% 80%;
+}
+
+/* ink shadow on the paper, smaller when he is higher */
+.float-shadow {
+  position: absolute;
+  left: 50%;
+  bottom: 4px;
+  width: 150px;
+  height: 14px;
+  margin-left: -75px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(12, 11, 10, 0.55), transparent 70%);
+  animation: drift-shadow 6.5s ease-in-out infinite;
+}
+
+@keyframes drift {
+  0%, 100% { transform: translateY(0) rotate(-0.6deg); }
+  50% { transform: translateY(-16px) rotate(0.6deg); }
+}
+
+@keyframes drift-shadow {
+  0%, 100% { transform: scaleX(1); opacity: 0.9; }
+  50% { transform: scaleX(0.72); opacity: 0.45; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-figure .float,
+  .float-shadow {
+    animation: none;
+  }
 }
 
 /* ===== SECTIONS ===== */
@@ -686,7 +726,15 @@ html[data-mode="paper"] .ebru .e-ink { fill: #15120f; }
   border-bottom: 11px solid transparent;
 }
 
-.yt iframe {
+.yt-player {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--ink);
+  border: 1px solid var(--rule);
+}
+
+.yt-player iframe {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -787,6 +835,7 @@ html[data-mode="paper"] .ebru .e-ink { fill: #15120f; }
 
 .about img {
   width: 100%;
+  height: auto;
   border: 1px solid var(--rule);
   filter: grayscale(1) contrast(1.05);
 }
@@ -969,7 +1018,8 @@ html[data-mode="paper"] .ebru .e-ink { fill: #15120f; }
     grid-template-columns: 56px minmax(0, 1fr);
   }
 
-  .episode .yt {
+  .episode .yt,
+  .episode .yt-player {
     grid-column: 2;
     max-width: 560px;
   }
@@ -1007,15 +1057,20 @@ html[data-mode="paper"] .ebru .e-ink { fill: #15120f; }
     font-size: 20px;
   }
 
+  /* a square box below the text; the drum and figure both live inside it */
   .hero-figure {
-    height: 420px;
+    width: min(100%, 440px);
+    height: auto;
+    aspect-ratio: 1;
+    margin: 12px auto 0;
   }
 
   .hero-figure img {
-    height: 400px;
+    height: 100%;
   }
 
   .ebru {
+    top: 50%;
     width: 100%;
   }
 
@@ -1072,7 +1127,8 @@ html[data-mode="paper"] .ebru .e-ink { fill: #15120f; }
     gap: 14px;
   }
 
-  .episode .yt {
+  .episode .yt,
+  .episode .yt-player {
     grid-column: auto;
   }
 

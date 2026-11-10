@@ -11,6 +11,13 @@
     }
   };
 
+  /* nothing here is drag-and-drop: images, links and selected text can't be
+     dragged (a drag dropped outside the window can get stuck). Selecting and
+     copying text still works. */
+  document.addEventListener("dragstart", (event) => {
+    event.preventDefault();
+  });
+
   /* ── language: both texts are in the page; CSS hides one ── */
   const langBtn = document.getElementById("langBtn");
 
@@ -80,9 +87,13 @@
       frame.title = button.getAttribute("aria-label") || "YouTube";
       frame.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
       frame.allowFullscreen = true;
-      button.replaceChildren(frame);
-      button.classList.add("playing");
-      button.style.cursor = "default";
+
+      // swap the poster button for a plain box, so the play mark goes away
+      const player = document.createElement("div");
+      player.className = "yt-player";
+      player.appendChild(frame);
+      button.replaceWith(player);
+      frame.focus();
     }, { once: true });
   });
 

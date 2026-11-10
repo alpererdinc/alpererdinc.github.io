@@ -3,6 +3,14 @@
 (function () {
   /* cursor is a plain CSS arrow now (see analog.css) */
 
+  /* nothing on the site is drag-and-drop: images, links and selected text
+     can't be dragged. A drag dropped outside the window can leave some
+     browsers (and embedded previews) stuck in drag mode. Selecting and
+     copying text still works. */
+  document.addEventListener("dragstart", (event) => {
+    event.preventDefault();
+  });
+
   /* ── LANGUAGE TOGGLE ── */
   let lang = localStorage.getItem("ae_lang") || "tr";
   const toggleBtn = document.getElementById("langToggle");
