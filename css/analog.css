@@ -1313,6 +1313,32 @@ main {
   border: 1px solid var(--accent);
 }
 
+/* shelved prototypes: a short honest note, quieter cards */
+.side-note {
+  max-width: 62ch;
+  margin: 12px 0 4px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 17px;
+  color: var(--muted);
+}
+
+.project-card.is-shelved .card-title,
+.project-card.is-shelved .card-desc {
+  opacity: 0.72;
+}
+
+.project-card.is-shelved:hover .card-title,
+.project-card.is-shelved:hover .card-desc {
+  opacity: 1;
+}
+
+.project-card.is-shelved .live-stamp {
+  color: var(--mustard);
+  border-color: var(--mustard);
+  border-style: dashed;
+}
+
 /* ===== CONTACT ===== */
 
 .contact-section {
