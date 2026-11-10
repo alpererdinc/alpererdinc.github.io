@@ -1,29 +1,7 @@
 // alper erdinç — portfolio js
 
 (function () {
-  /* ── CUSTOM CURSOR ── */
-  const cursor = document.getElementById("cursor");
-
-  if (cursor && window.matchMedia("(pointer: fine)").matches) {
-    document.addEventListener("mousemove", (event) => {
-      cursor.style.left = event.clientX + "px";
-      cursor.style.top = event.clientY + "px";
-    });
-
-    document
-      .querySelectorAll("a, button, .pill, .project-card, summary")
-      .forEach((element) => {
-        element.addEventListener("mouseenter", () => {
-          cursor.classList.add("big");
-        });
-
-        element.addEventListener("mouseleave", () => {
-          cursor.classList.remove("big");
-        });
-      });
-  } else if (cursor) {
-    cursor.style.display = "none";
-  }
+  /* cursor is a plain CSS arrow now (see analog.css) */
 
   /* ── LANGUAGE TOGGLE ── */
   let lang = localStorage.getItem("ae_lang") || "tr";
