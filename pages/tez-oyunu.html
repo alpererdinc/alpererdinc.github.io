@@ -6,14 +6,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tez Oyunu — Alper Erdinç</title>
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
-  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Barlow+Semi+Condensed:wght@400;500;600&family=Chakra+Petch:wght@500;600;700&family=VT323&display=swap" />
+  <link rel="stylesheet" href="../css/analog.css?v=10" />
 </head>
 
 <body>
   <div class="cursor" id="cursor"></div>
+  <div class="grain" aria-hidden="true"></div>
 
   <nav class="navbar">
-    <a href="../index.html" class="nav-logo">ae.</a>
+    <a href="../index.html" class="nav-logo"><span class="nav-logo-tape">ae.</span></a>
 
     <div class="nav-links">
       <a href="../index.html" data-tr="ana sayfa" data-en="home">ana sayfa</a>
@@ -22,7 +27,7 @@
       <details class="nav-dropdown">
         <summary data-tr="projeler" data-en="projects">projeler</summary>
 
-        <div class="dropdown-menu">
+        <div class="dropdown-menu" lang="en">
           <a href="../index.html#projects" data-tr="tüm projeler" data-en="all projects">tüm projeler</a>
           <a href="dotto-block-breaker.html">Dotto: Block Breaker</a>
           <a href="divealamut.html">DiveAlamut</a>
@@ -73,7 +78,7 @@
 
     <div class="project-hero-content">
       <div class="badge" data-tr="oyun / lisans tezi" data-en="game / thesis">oyun / lisans tezi</div>
-      <h1 data-tr="ADAPTIVE NPC AI" data-en="ADAPTIVE NPC AI">ADAPTIVE NPC AI</h1>
+      <h1 lang="en" data-tr="ADAPTIVE NPC AI" data-en="ADAPTIVE NPC AI">ADAPTIVE NPC AI</h1>
       <p class="lead" data-tr="Oyuncu davranışına uyum sağlayan NPC sistemi üzerine geliştirilmiş lisans tezi projesi."
         data-en="A bachelor's thesis project focused on an NPC system that adapts to player behavior.">
         Oyuncu davranışına uyum sağlayan NPC sistemi üzerine geliştirilmiş lisans tezi projesi.
@@ -130,7 +135,7 @@
     </p>
 
     <h2 data-tr="teknolojiler" data-en="tech stack">teknolojiler</h2>
-    <ul>
+    <ul lang="en">
       <li>Unity</li>
       <li>C#</li>
       <li>AI Systems</li>
@@ -147,19 +152,19 @@
   <footer class="footer">
     <div class="footer-left">alper erdinç / 2026</div>
 
-    <div class="footer-links">
+    <div class="footer-links" lang="en">
       <a href="https://github.com/alpererdinc" target="_blank">github</a>
       <a href="https://dottoman.com" target="_blank">dottoman.com</a>
     </div>
 
-    <div class="footer-right">personal portfolio</div>
+    <div class="footer-right" lang="en">personal portfolio</div>
   </footer>
 
   <button class="scroll-top" id="scrollTopBtn" aria-label="Sayfanın başına dön">
     ↑
   </button>
 
-  <script src="../js/main.js"></script>
+  <script src="../js/main.js?v=analog4"></script>
 </body>
 
 </html>

@@ -8,15 +8,21 @@
   <title>Alper Erdinç</title>
 
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Barlow+Semi+Condensed:wght@400;500;600&family=Chakra+Petch:wght@500;600;700&family=VT323&family=Spectral:ital,wght@1,400&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Old+Turkic&display=swap" />
+  <link rel="stylesheet" href="css/analog.css?v=10" />
 </head>
 
 <body>
   <div class="cursor" id="cursor"></div>
+  <div class="grain" aria-hidden="true"></div>
 
   <!-- NAV -->
   <nav class="navbar">
-    <a href="index.html" class="nav-logo">ae.</a>
+    <a href="index.html" class="nav-logo">ae<span style="color: var(--accent)">.</span></a>
 
     <div class="nav-links">
       <a href="index.html" data-tr="ana sayfa" data-en="home">ana sayfa</a>
@@ -25,7 +31,7 @@
       <details class="nav-dropdown">
         <summary data-tr="projeler" data-en="projects">projeler</summary>
 
-        <div class="dropdown-menu">
+        <div class="dropdown-menu" lang="en">
           <a href="#projects" data-tr="tüm projeler" data-en="all projects">tüm projeler</a>
           <a href="pages/dotto-block-breaker.html">Dotto: Block Breaker</a>
           <a href="pages/divealamut.html">DiveAlamut</a>
@@ -44,22 +50,30 @@
       <a href="#contact" data-tr="iletişim" data-en="contact">iletişim</a>
     </div>
 
-    <div class="theme-controls" aria-label="Tema kontrolleri">
-      <div class="theme-picker" aria-label="Renk teması seçimi">
-        <button class="theme-dot theme-orange" type="button" data-theme-choice="orange"
-          aria-label="Turuncu tema"></button>
-        <button class="theme-dot theme-blue" type="button" data-theme-choice="blue" aria-label="Mavi tema"></button>
-        <button class="theme-dot theme-purple" type="button" data-theme-choice="purple" aria-label="Mor tema"></button>
-        <button class="theme-dot theme-green" type="button" data-theme-choice="green" aria-label="Yeşil tema"></button>
+    <div class="nav-right">
+      <div class="nav-clock" aria-hidden="true">
+        <span class="rec-led"></span>
+        <span class="nav-clock-digits" id="navClock">00:00</span>
       </div>
 
-      <button class="mode-toggle" id="modeToggle" type="button" aria-label="Gündüz moduna geç">
-        ☀
-      </button>
-    </div>
+      <div class="theme-controls" aria-label="Tema kontrolleri">
+        <div class="theme-picker" aria-label="Renk teması seçimi">
+          <button class="theme-dot theme-orange" type="button" data-theme-choice="orange" title="I / KIZIL"
+            aria-label="Kırmızı tema">I</button>
+          <button class="theme-dot theme-blue" type="button" data-theme-choice="blue" title="II / GÖK"
+            aria-label="Turkuaz tema">II</button>
+          <button class="theme-dot theme-purple" type="button" data-theme-choice="purple" title="III / ERGUVAN"
+            aria-label="Erguvan tema">III</button>
+          <button class="theme-dot theme-green" type="button" data-theme-choice="green" title="IV / YEŞİL"
+            aria-label="Yeşil tema">IV</button>
+        </div>
 
-    <button class="lang-toggle" id="langToggle">EN</button>
-    <button class="nav-hamburger" id="navHamburger">menü</button>
+        <button class="mode-toggle" id="modeToggle" type="button" aria-label="Gündüz moduna geç">☀</button>
+      </div>
+
+      <button class="lang-toggle" id="langToggle">EN</button>
+      <button class="nav-hamburger" id="navHamburger">menü</button>
+    </div>
   </nav>
 
   <!-- MOBILE MENU -->
@@ -70,7 +84,7 @@
     <details class="mobile-dropdown">
       <summary data-tr="projeler" data-en="projects">projeler</summary>
 
-      <div class="mobile-dropdown-menu">
+      <div class="mobile-dropdown-menu" lang="en">
         <a href="#projects" data-tr="tüm projeler" data-en="all projects">tüm projeler</a>
         <a href="pages/dotto-block-breaker.html">Dotto: Block Breaker</a>
         <a href="pages/divealamut.html">DiveAlamut</a>
@@ -84,17 +98,19 @@
       </div>
     </details>
 
+    <a href="pages/artworks.html" data-tr="çizimler" data-en="artworks">çizimler</a>
     <a href="#contact" data-tr="iletişim" data-en="contact">iletişim</a>
   </div>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-card">
-
-      <div class="card-top">
-        <span class="card-series" data-tr="AE-0047 / PORTFOLYO KARTI" data-en="AE-0047 / PORTFOLIO CARD">
-          AE-0047 / PORTFOLYO KARTI
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-head">
+        <span class="card-series" data-tr="AE-0047 / ÖTÜKEN KAYDI" data-en="AE-0047 / ÖTÜKEN RECORD">
+          AE-0047 / ÖTÜKEN KAYDI
         </span>
+
+        <span class="kilim" aria-hidden="true"></span>
 
         <button class="card-rarity" id="secretGameTrigger" type="button" data-tr="INDIE BUILD" data-en="INDIE BUILD"
           aria-label="Mini oyunu açmak için beş kez tıkla">
@@ -102,325 +118,482 @@
         </button>
       </div>
 
-      <div class="card-main">
-        <div class="card-portrait">
+      <div class="hero-grid">
+        <figure class="card-portrait">
           <img src="images/aePhoto2.png" alt="Alper Erdinç portrait" />
-        </div>
+          <figcaption><span>FIG. 01</span><span>AE / 47</span></figcaption>
+        </figure>
 
         <div class="card-identity">
+          <span class="stele" aria-hidden="true" title="Alper Erdinç"><span class="stele-text" lang="otk">&#x10C00;&#x10C1E;&#x10C2F;&#x10C00;&#x10C3C; &#x205A; &#x10C00;&#x10C3C;&#x10C13;&#x10C03;&#x10C28;</span></span>
+
           <h1 class="hero-name">
-            <span class="underlined" data-tr="Alper" data-en="Alper">Alper</span><br />
-            <em data-tr="Erdinç" data-en="Erdinç">Erdinç</em>
+            <span class="name-first" data-tr="Alper" data-en="Alper">Alper</span>
+            <span class="name-last" data-tr="Erdinç" data-en="Erdinç">Erdinç</span>
           </h1>
 
           <p class="card-subtitle">
-            <span data-tr="Çukurova Üniversitesi" data-en="Çukurova University">
-              Çukurova Üniversitesi
+            <span data-tr="Oyun Geliştirici &amp; Tasarımcı" data-en="Game Developer &amp; Designer">Oyun Geliştirici &amp; Tasarımcı</span>
+            <span class="sub-sep">/</span>
+            <span data-tr="2D Animatör" data-en="2D Animator">2D Animatör</span>
+          </p>
+
+          <p class="card-motto" lang="la">
+            <span data-tr="Festina lente." data-en="Festina lente.">Festina lente.</span>
+          </p>
+
+          <div class="hero-cta">
+            <a href="#projects" class="btn btn-yellow">
+              <span data-tr="Projeleri incele" data-en="View projects">Projeleri incele</span>
+              <span class="key-glyph" aria-hidden="true">↓</span>
+            </a>
+
+            <a href="https://github.com/alpererdinc" target="_blank" class="btn btn-white">
+              <span data-tr="GITHUB profili" data-en="GitHub profile">GITHUB profili</span>
+              <span class="key-glyph" aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- kam davulu: three worlds + twelve-animal calendar -->
+        <figure class="drum" id="drum">
+          <svg viewBox="0 0 320 320" role="img" aria-labelledby="drumTitle">
+            <title id="drumTitle">Kam davulu: gök, yer ve hayat ağacı; çevresinde on iki hayvanlı Türk takvimi</title>
+            <defs>
+              <path id="ringPath" d="M125.58 31.53 A133 133 0 1 1 194.42 288.47 A133 133 0 1 1 125.58 31.53" />
+            </defs>
+
+            <!-- rim -->
+            <circle class="ln" cx="160" cy="160" r="156" />
+            <circle class="ln ln-thin" cx="160" cy="160" r="150" />
+            <circle class="ln ln-thin" cx="160" cy="160" r="120" />
+
+            <!-- current year -->
+            <path class="wedge" id="drumWedge" transform="rotate(180 160 160)"
+              d="M121.18 15.11 A150 150 0 0 1 198.82 15.11 L191.06 44.09 A120 120 0 0 0 128.94 44.09 Z" />
+
+            <!-- sector dividers -->
+            <g class="ln ln-thin">
+              <line x1="160" y1="10" x2="160" y2="40" transform="rotate(-15 160 160)" />
+              <line x1="160" y1="10" x2="160" y2="40" transform="rotate(15 160 160)" />
+              <line x1="160" y1="10" x2="160" y2="40" transform="rotate(45 160 160)" />
+              <line x1="160" y1="10" x2="160" y2="40" transform="rotate(75 160 160)" />
+              <line x1="160" y1="10" x2="160" y2="40" transform="rotate(105 160 160)" />
+              <line x1="160" y1="10" x2="160" y2="40" transform="rotate(135 160 160)" />
+              <line x1="160" y1="10" x2="160" y2="40" transform="rotate(165 160 160)" />
+              <line x1="160" y1="10" x2="160" y2="40" transform="rotate(195 160 160)" />
+              <line x1="160" y1="10" x2="160" y2="40" transform="rotate(225 160 160)" />
+              <line x1="160" y1="10" x2="160" y2="40" transform="rotate(255 160 160)" />
+              <line x1="160" y1="10" x2="160" y2="40" transform="rotate(285 160 160)" />
+              <line x1="160" y1="10" x2="160" y2="40" transform="rotate(315 160 160)" />
+            </g>
+
+            <!-- twelve animals, Old Turkic names -->
+            <g lang="tr">
+              <text class="animal" data-animal="0"><textPath href="#ringPath" startOffset="4.17%" text-anchor="middle">sıçgan</textPath></text>
+              <text class="animal" data-animal="1"><textPath href="#ringPath" startOffset="12.5%" text-anchor="middle">ud</textPath></text>
+              <text class="animal" data-animal="2"><textPath href="#ringPath" startOffset="20.83%" text-anchor="middle">bars</textPath></text>
+              <text class="animal" data-animal="3"><textPath href="#ringPath" startOffset="29.17%" text-anchor="middle">tavışgan</textPath></text>
+              <text class="animal" data-animal="4"><textPath href="#ringPath" startOffset="37.5%" text-anchor="middle">lü</textPath></text>
+              <text class="animal" data-animal="5"><textPath href="#ringPath" startOffset="45.83%" text-anchor="middle">yılan</textPath></text>
+              <text class="animal on" data-animal="6"><textPath href="#ringPath" startOffset="54.17%" text-anchor="middle">yunt</textPath></text>
+              <text class="animal" data-animal="7"><textPath href="#ringPath" startOffset="62.5%" text-anchor="middle">koñ</textPath></text>
+              <text class="animal" data-animal="8"><textPath href="#ringPath" startOffset="70.83%" text-anchor="middle">biçin</textPath></text>
+              <text class="animal" data-animal="9"><textPath href="#ringPath" startOffset="79.17%" text-anchor="middle">takagu</textPath></text>
+              <text class="animal" data-animal="10"><textPath href="#ringPath" startOffset="87.5%" text-anchor="middle">it</textPath></text>
+              <text class="animal" data-animal="11"><textPath href="#ringPath" startOffset="95.83%" text-anchor="middle">toñuz</textPath></text>
+            </g>
+
+            <!-- drum skin -->
+            <circle class="skin" cx="160" cy="160" r="112" />
+            <circle class="ln" cx="160" cy="160" r="112" />
+
+            <!-- gök: sun, moon, stars, birds -->
+            <circle class="fill-accent" cx="103" cy="104" r="12" />
+            <g class="ln ln-accent">
+              <path d="M103 80v6M103 122v6M79 104h6M121 104h6M86 87l4.3 4.3M115.7 116.7l4.3 4.3M120 87l-4.3 4.3M86 121l4.3-4.3" />
+              <path d="M217 89 A15 15 0 0 0 217 119 A11 11 0 0 1 217 89 Z" />
+            </g>
+            <g class="fill-accent">
+              <circle cx="192" cy="70" r="1.6" />
+              <circle cx="128" cy="68" r="1.6" />
+              <circle cx="240" cy="134" r="1.6" />
+              <circle cx="82" cy="138" r="1.6" />
+              <circle cx="250" cy="96" r="1.2" />
+            </g>
+            <path class="ln ln-thin" d="M194 130q4-4 8 0q4-4 8 0M114 136q3-3 6 0q3-3 6 0" />
+
+            <!-- yer: horizon, mountains, water -->
+            <path class="ln" d="M50 160H270" />
+            <path class="ln ln-thin" d="M58 196l20-20 14 14 18-22 18 24M192 192l18-20 14 14 16-16 22 26" />
+            <path class="ln ln-thin" d="M66 222q10-6 20 0t20 0t20 0M190 222q10-6 20 0t20 0t20 0M80 234q10-6 20 0t20 0M204 234q10-6 20 0t20 0" />
+
+            <!-- Bayterek, the world tree, as the axis -->
+            <path class="ln" d="M160 262V62M160 92l-22-22M160 92l22-22M160 120l-30-22M160 120l30-22M160 146l-24-18M160 146l24-18M160 236l-20 18M160 236l20 18M160 212l-14 14M160 212l14 14M152 56l8 6 8-6" />
+            <circle class="fill-accent" cx="160" cy="160" r="4" />
+
+            <!-- teñri / yer in Orkhon script -->
+            <text class="gok-word" x="100" y="150" text-anchor="middle">&#x10C45;&#x10C2D;&#x10C3C;&#x10C03;</text>
+            <text class="gok-word" x="108" y="250" text-anchor="middle">&#x10C18;&#x10C00;&#x10C3C;</text>
+          </svg>
+
+          <figcaption>
+            <span data-tr="Kam davulu: gök, yer ve hayat ağacı. Çevresinde on iki hayvanlı Türk takvimi."
+              data-en="Shaman drum: sky, earth and the world tree, ringed by the Turkic twelve-animal calendar.">
+              Kam davulu: gök, yer ve hayat ağacı. Çevresinde on iki hayvanlı Türk takvimi.
             </span>
             <br />
+            <strong id="drumYear">2026 · yunt (at) yılı</strong>
+          </figcaption>
+        </figure>
+      </div>
 
-            <span data-tr="Bilgisayar Mühendisliği" data-en="Computer Engineering">
-              Bilgisayar Mühendisliği
+      <div class="hero-lower">
+        <div class="card-body">
+          <div class="card-line">
+            <span class="card-label" data-tr="class" data-en="class">class</span>
+            <span class="card-value" data-tr="Oyun Geliştirici / Oyun Tasarımcısı" data-en="Game Developer / Game Designer">
+              Oyun Geliştirici / Oyun Tasarımcısı
             </span>
-            <br />
+          </div>
 
-            <span data-tr='"Festina Lente"' data-en='"Festina Lente"'>
-              "Festina Lente"
+          <div class="card-line">
+            <span class="card-label" data-tr="subclass" data-en="subclass">subclass</span>
+            <span class="card-value" data-tr="2D Animatör / Dijital Çizer" data-en="2D Animator / Digital Artist">
+              2D Animatör / Dijital Çizer
             </span>
+          </div>
+
+          <div class="card-line">
+            <span class="card-label" data-tr="status" data-en="status">status</span>
+            <span class="card-value" data-tr="Dotto: Block Breaker yayında, sıradaki oyun yapım aşamasında"
+              data-en="Dotto: Block Breaker shipped, next game in production">
+              Dotto: Block Breaker yayında, sıradaki oyun yapım aşamasında
+            </span>
+          </div>
+
+          <div class="card-line">
+            <span class="card-label" data-tr="main stack" data-en="main stack">main stack</span>
+            <span class="card-value" lang="en" data-tr="Unity / C#" data-en="Unity / C#">Unity / C#</span>
+          </div>
+
+          <div class="card-line">
+            <span class="card-label" data-tr="education" data-en="education">education</span>
+            <span class="card-value" data-tr="Çukurova Üniversitesi, Bilgisayar Mühendisliği (mezun)"
+              data-en="Çukurova University, Computer Engineering (graduate)">
+              Çukurova Üniversitesi, Bilgisayar Mühendisliği (mezun)
+            </span>
+          </div>
+        </div>
+
+        <div>
+          <div class="card-section-label">
+            <span data-tr="üretim kaydı" data-en="production log">üretim kaydı</span>
+          </div>
+
+          <div class="card-stats">
+            <div class="stat-box">
+              <span class="stat-name" data-tr="oyun projesi" data-en="game projects">oyun projesi</span>
+              <span class="stat-value">06</span>
+              <span class="vu" aria-hidden="true" style="--lvl: 6"></span>
+            </div>
+
+            <div class="stat-box">
+              <span class="stat-name" data-tr="yayınlanan oyun" data-en="games shipped">yayınlanan oyun</span>
+              <span class="stat-value">01</span>
+              <span class="vu" aria-hidden="true" style="--lvl: 1"></span>
+            </div>
+
+            <div class="stat-box">
+              <span class="stat-name" data-tr="yapımda" data-en="in production">yapımda</span>
+              <span class="stat-value">01</span>
+              <span class="vu" aria-hidden="true" style="--lvl: 1"></span>
+            </div>
+
+            <div class="stat-box">
+              <span class="stat-name" data-tr="animasyon" data-en="animation">animasyon</span>
+              <span class="stat-value">08</span>
+              <span class="vu" aria-hidden="true" style="--lvl: 8"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WOVEN BAND -->
+    <div class="marquee-strip" lang="en">
+      <div class="marquee-inner">
+        <span>Game Development</span><span class="sep">&#x205A;</span>
+        <span>Unity</span><span class="sep">&#x205A;</span>
+        <span>C#</span><span class="sep">&#x205A;</span>
+        <span>Game Design</span><span class="sep">&#x205A;</span>
+        <span>2D Animation</span><span class="sep">&#x205A;</span>
+        <span>Pixel Art</span><span class="sep">&#x205A;</span>
+        <span>Digital Drawing</span><span class="sep">&#x205A;</span>
+
+        <span>Game Development</span><span class="sep">&#x205A;</span>
+        <span>Unity</span><span class="sep">&#x205A;</span>
+        <span>C#</span><span class="sep">&#x205A;</span>
+        <span>Game Design</span><span class="sep">&#x205A;</span>
+        <span>2D Animation</span><span class="sep">&#x205A;</span>
+        <span>Pixel Art</span><span class="sep">&#x205A;</span>
+        <span>Digital Drawing</span><span class="sep">&#x205A;</span>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section class="about-section" id="about">
+      <header class="section-head">
+        <span class="section-no">01</span>
+        <h2 data-tr="hakkımda" data-en="about">hakkımda</h2>
+        <span class="section-gok" aria-hidden="true" title="öz"><span lang="otk" dir="rtl">&#x10C07;&#x10C14;</span><small>öz</small></span>
+      </header>
+
+      <div class="about-grid">
+        <figure class="inscription">
+          <span class="inscription-src" data-tr="Kül Tigin Yazıtı · 732 · doğu yüzü, ilk satır"
+            data-en="Kül Tigin inscription · 732 · east face, first line">Kül Tigin Yazıtı · 732 · doğu yüzü, ilk satır</span>
+          <span class="inscription-gok" lang="otk" dir="rtl" aria-hidden="true">&#x10C07;&#x10C14;&#x10C00; &#x205A; &#x10C1C;&#x10C07;&#x10C1C; &#x205A; &#x10C45;&#x10C2D;&#x10C3C;&#x10C03;</span>
+          <p class="inscription-tr" lang="otk">Üze kök teñri asra yagız yer kılıntukda, ekin ara kişi oglı kılınmış.</p>
+          <p class="inscription-mean"
+            data-tr="“Üstte mavi gök, altta yağız yer yaratıldığında, ikisinin arasında insanoğlu yaratılmış.”"
+            data-en="“When the blue sky above and the brown earth below were made, between the two, humankind was made.”">
+            “Üstte mavi gök, altta yağız yer yaratıldığında, ikisinin arasında insanoğlu yaratılmış.”
+          </p>
+        </figure>
+
+        <div class="about-text">
+          <p data-tr="Bilgisayar mühendisliğinden mezun bir oyun geliştirici ve tasarımcıyım. Unity ve C# ile oyun yapıyorum; mobil oyunum Dotto: Block Breaker'ı geliştirip Google Play'de yayınladım, şu anda da yeni bir oyun üzerinde çalışıyorum."
+            data-en="I'm a game developer and designer with a degree in computer engineering. I build games with Unity and C#; I developed and shipped my mobile game Dotto: Block Breaker on Google Play, and I'm currently working on a new game.">
+            Bilgisayar mühendisliğinden mezun bir oyun geliştirici ve tasarımcıyım. Unity ve C# ile oyun yapıyorum;
+            mobil oyunum Dotto: Block Breaker'ı geliştirip Google Play'de yayınladım, şu anda da yeni bir oyun üzerinde
+            çalışıyorum.
+          </p>
+
+          <p data-tr="Oyunların yanında 2D animasyon, piksel sanat ve dijital çizim üretiyorum. Bu portfolyoda oyunlarımın yanı sıra animasyon çalışmalarımı ve yol boyunca denediğim web ve yapay zekâ projelerini de bulabilirsin."
+            data-en="Alongside games, I make 2D animation, pixel art, and digital drawings. This portfolio collects my games, my animation work, and the web and AI projects I've tried along the way.">
+            Oyunların yanında 2D animasyon, piksel sanat ve dijital çizim üretiyorum. Bu portfolyoda oyunlarımın yanı sıra
+            animasyon çalışmalarımı ve yol boyunca denediğim web ve yapay zekâ projelerini de bulabilirsin.
+          </p>
+
+          <div class="skill-pills" lang="en">
+            <span class="pill">Unity</span>
+            <span class="pill">C#</span>
+            <span class="pill">Game Design</span>
+            <span class="pill">Game Development</span>
+            <span class="pill">2D Animation</span>
+            <span class="pill">Pixel Art</span>
+            <span class="pill">Digital Drawing</span>
+          </div>
+
+          <p class="skill-extra">
+            <span class="skill-extra-label" data-tr="ayrıca" data-en="also">ayrıca</span>
+            <span data-tr="Web (HTML / CSS / JS) · Python (temel)" data-en="Web (HTML / CSS / JS) · Python (basic)">Web (HTML / CSS / JS) · Python (temel)</span>
           </p>
         </div>
       </div>
+    </section>
 
-      <div class="card-body">
-        <div class="card-line">
-          <span class="card-label" data-tr="class" data-en="class">class</span>
-          <span class="card-value" data-tr="Bilgisayar Mühendisliği Öğrencisi" data-en="Computer Engineering Student">
-            Bilgisayar Mühendisliği Öğrencisi
-          </span>
-        </div>
+    <!-- PROJECTS -->
+    <section class="projects-section" id="projects">
+      <header class="section-head">
+        <span class="section-no">02</span>
+        <h2 data-tr="projeler" data-en="projects">projeler</h2>
+        <span class="section-gok" aria-hidden="true" title="işler"><span lang="otk" dir="rtl">&#x10C03;&#x10C41;&#x10C20;&#x10C00;&#x10C3C;</span><small>işler</small></span>
+      </header>
 
-        <div class="card-line">
-          <span class="card-label" data-tr="subclass" data-en="subclass">subclass</span>
-          <span class="card-value" data-tr="2D Animatör / Dijital Çizer" data-en="2D Animator / Digital Artist">
-            2D Animatör / Dijital Çizer
-          </span>
-        </div>
-
-        <div class="card-line">
-          <span class="card-label" data-tr="role" data-en="role">role</span>
-          <span class="card-value" data-tr="Bağımsız Oyun Geliştiricisi, hâlâ XP kasıyor"
-            data-en="Indie Game Developer, still grinding XP">
-            Bağımsız Oyun Geliştiricisi, hâlâ XP kasıyor
-          </span>
-        </div>
-
-        <div class="card-line">
-          <span class="card-label" data-tr="build" data-en="build">build</span>
-          <span class="card-value" data-tr="Game Dev / AI / Animasyon" data-en="Game Dev / AI / Animation">
-            Game Dev / AI / Animation
-          </span>
-        </div>
-      </div>
-
-      <div class="card-section-label" data-tr="üretim kaydı" data-en="production log">
-        üretim kaydı
-      </div>
-
-      <div class="card-stats">
-        <div class="stat-box">
-          <span class="stat-name" data-tr="oyun projesi" data-en="game projects">oyun projesi</span>
-          <span class="stat-value">06</span>
-          <span class="stat-unit" data-tr="çalışma" data-en="works">çalışma</span>
-        </div>
-
-        <div class="stat-box">
-          <span class="stat-name" data-tr="animasyon" data-en="animation">animasyon</span>
-          <span class="stat-value">08</span>
-          <span class="stat-unit" data-tr="çalışma" data-en="works">çalışma</span>
-        </div>
-
-        <div class="stat-box">
-          <span class="stat-name" data-tr="ai / ml çalışması" data-en="ai / ml works">ai / ml çalışması</span>
-          <span class="stat-value">02</span>
-          <span class="stat-unit" data-tr="çalışma" data-en="works">çalışma</span>
-        </div>
-
-        <div class="stat-box">
-          <span class="stat-name" data-tr="web projesi" data-en="web projects">web projesi</span>
-          <span class="stat-value">03</span>
-          <span class="stat-unit" data-tr="çalışma" data-en="works">çalışma</span>
-        </div>
-      </div>
-
-      <div class="hero-cta">
-        <a href="#projects" class="btn btn-yellow" data-tr="Projeleri incele" data-en="View projects">
-          Projeleri incele
-        </a>
-
-        <a href="https://github.com/alpererdinc" target="_blank" class="btn btn-white" data-tr="GitHub profili"
-          data-en="GitHub profile">
-          GitHub profili
-        </a>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- MARQUEE -->
-  <div class="marquee-strip">
-    <div class="marquee-inner">
-      <span>Game Development</span><span class="sep">/</span>
-      <span>Unity</span><span class="sep">/</span>
-      <span>Python</span><span class="sep">/</span>
-      <span>Machine Learning</span><span class="sep">/</span>
-      <span>Computer Vision</span><span class="sep">/</span>
-      <span>Web Design</span><span class="sep">/</span>
-      <span>2D Animation</span><span class="sep">/</span>
-      <span>Digital Drawing</span><span class="sep">/</span>
-
-      <span>Game Development</span><span class="sep">/</span>
-      <span>Unity</span><span class="sep">/</span>
-      <span>Python</span><span class="sep">/</span>
-      <span>Machine Learning</span><span class="sep">/</span>
-      <span>Computer Vision</span><span class="sep">/</span>
-      <span>Web Design</span><span class="sep">/</span>
-      <span>2D Animation</span><span class="sep">/</span>
-      <span>Digital Drawing</span><span class="sep">/</span>
-    </div>
-  </div>
-
-  <!-- ABOUT -->
-  <section class="about-section" id="about">
-    <div class="about-avatar">⚓︎</div>
-
-    <div class="about-text">
-      <h2 data-tr="hakkımda" data-en="about">hakkımda</h2>
-
-      <p data-tr="Bilgisayar mühendisliği eğitimimi; oyun geliştirme, yapay zekâ, web tasarım ve görsel üretim alanlarındaki çalışmalarla destekliyorum."
-        data-en="I support my computer engineering education with projects in game development, artificial intelligence, web design, and visual production.">
-        Bilgisayar mühendisliği eğitimimi; oyun geliştirme, yapay zekâ, web tasarım ve görsel üretim alanlarındaki
-        çalışmalarla destekliyorum.
+      <p class="sub" data-tr="Önce oyunlar; ardından animasyon, web ve yapay zekâ denemeleri."
+        data-en="Games first; then animation, web, and AI experiments.">
+        Önce oyunlar; ardından animasyon, web ve yapay zekâ denemeleri.
       </p>
 
-      <p data-tr="Bu portfolyo, geliştirdiğim teknik ve yaratıcı projelerin kısa bir özetini sunar."
-        data-en="This portfolio presents a brief overview of my technical and creative projects.">
-        Bu portfolyo, geliştirdiğim teknik ve yaratıcı projelerin kısa bir özetini sunar.
+      <div class="side-label">
+        <span class="side-letter">I</span>
+        <span class="side-title" data-tr="oyunlar" data-en="games">oyunlar</span>
+        <span class="side-gok" lang="otk" dir="rtl" aria-hidden="true" title="oyun">&#x10C06;&#x10C16;&#x10C06;&#x10C23;</span>
+        <span class="side-rule"></span>
+        <span class="side-meta" data-tr="6 kayıt" data-en="6 entries">6 kayıt</span>
+      </div>
+
+      <div class="projects-grid">
+
+        <a href="pages/dotto-block-breaker.html" class="project-card">
+          <div class="card-label" data-tr="oyun / mobil / arcade" data-en="game / mobile / arcade">oyun / mobil / arcade</div>
+          <div class="card-title" lang="en">DOTTO: BLOCK BREAKER</div>
+          <span class="live-stamp" data-tr="yayında" data-en="released">yayında</span>
+          <p class="card-desc"
+            data-tr="Nişan alıp çoklu top atışları yaptığın; özel bloklar, jokerler ve uzun süreli ilerleme sistemleri içeren mobil brick-breaker."
+            data-en="A mobile brick-breaker built around aimed multi-ball shots, special blocks, powerups, and long-term progression systems.">
+            Nişan alıp çoklu top atışları yaptığın; özel bloklar, jokerler ve uzun süreli ilerleme sistemleri içeren mobil brick-breaker.
+          </p>
+          <span class="card-cta" data-tr="İncele" data-en="View">İncele</span>
+        </a>
+
+        <a href="pages/divealamut.html" class="project-card">
+          <div class="card-label" data-tr="oyun / hypercasual / staj" data-en="game / hypercasual / internship">oyun / hypercasual / staj</div>
+          <div class="card-title" lang="en">DIVEALAMUT</div>
+          <p class="card-desc"
+            data-tr="Alamut temalı dönen platformlar, momentum tabanlı Smash Mode ve hızlı düşüş akışı üzerine kurulu mobil hypercasual oyun."
+            data-en="A mobile hypercasual game built around Alamut-themed rotating platforms, momentum-based Smash Mode, and fast falling gameplay.">
+            Alamut temalı dönen platformlar, momentum tabanlı Smash Mode ve hızlı düşüş akışı üzerine kurulu mobil hypercasual oyun.
+          </p>
+          <span class="card-cta" data-tr="İncele" data-en="View">İncele</span>
+        </a>
+
+        <a href="pages/jazurider.html" class="project-card">
+          <div class="card-label" data-tr="oyun / hypercasual / staj" data-en="game / hypercasual / internship">oyun / hypercasual / staj</div>
+          <div class="card-title" lang="en">JAZURIDER</div>
+          <p class="card-desc"
+            data-tr="Türk mitolojisi esintili dünyasında dinamik kavanoz yığını, fizik hissi ve uyarlanabilir kamera kullanan mobil stack oyunu."
+            data-en="A mobile stack game featuring a dynamic jar tower, responsive physics, and an adaptive camera in a world inspired by Turkish mythology.">
+            Türk mitolojisi esintili dünyasında dinamik kavanoz yığını, fizik hissi ve uyarlanabilir kamera kullanan mobil stack oyunu.
+          </p>
+          <span class="card-cta" data-tr="İncele" data-en="View">İncele</span>
+        </a>
+
+        <a href="pages/nothing-to-report.html" class="project-card">
+          <div class="card-label" data-tr="oyun / 2d" data-en="game / 2d">oyun / 2d</div>
+          <div class="card-title" lang="en" data-tr="NOTHING TO REPORT" data-en="NOTHING TO REPORT">NOTHING TO REPORT</div>
+          <p class="card-desc"
+            data-tr="Yozlaşmış bir gelecekte kanıtları bularak habercilik yaptığımız 2D cyber-noir oyun."
+            data-en="A 2D cyber-noir game where you work as a journalist finding evidence in a corrupt future.">
+            Yozlaşmış bir gelecekte kanıtları bularak habercilik yaptığımız 2D cyber-noir oyun.
+          </p>
+          <span class="card-cta" data-tr="İncele" data-en="View">İncele</span>
+        </a>
+
+        <a href="pages/2d-oyunlar.html" class="project-card">
+          <div class="card-label" data-tr="oyun / 2d" data-en="game / 2d">oyun / 2d</div>
+          <div class="card-title" lang="en" data-tr="Kantanfu" data-en="Kantanfu">Kantanfu</div>
+          <p class="card-desc"
+            data-tr="Çekirdek mekanikler, seviye tasarımı ve etkileşimli oynanışa odaklanan bağımsız oyun prototipi."
+            data-en="An indie game prototype focused on core mechanics, level design and interactive gameplay.">
+            Çekirdek mekanikler, seviye tasarımı ve etkileşimli oynanışa odaklanan bağımsız oyun prototipi.
+          </p>
+          <span class="card-cta" data-tr="İncele" data-en="View">İncele</span>
+        </a>
+
+        <a href="pages/tez-oyunu.html" class="project-card">
+          <div class="card-label" data-tr="oyun / lisans tezi" data-en="game / thesis">oyun / lisans tezi</div>
+          <div class="card-title" lang="en" data-tr="ADAPTIVE NPC AI" data-en="ADAPTIVE NPC AI">ADAPTIVE NPC AI</div>
+          <p class="card-desc"
+            data-tr="Oyuncu davranışına uyum sağlayan NPC sistemi üzerine geliştirilmiş lisans tezi projesi."
+            data-en="A thesis project focused on an NPC system that adapts to player behavior.">
+            Oyuncu davranışına uyum sağlayan NPC sistemi üzerine geliştirilmiş lisans tezi projesi.
+          </p>
+          <span class="card-cta" data-tr="İncele" data-en="View">İncele</span>
+        </a>
+
+      </div>
+
+      <div class="side-label">
+        <span class="side-letter">II</span>
+        <span class="side-title" data-tr="animasyon / web / AI" data-en="animation / web / AI">animasyon / web / AI</span>
+        <span class="side-gok" lang="otk" dir="rtl" aria-hidden="true" title="körk">&#x10C1C;&#x10C07;&#x10C3C;&#x10C1A;</span>
+        <span class="side-rule"></span>
+        <span class="side-meta" data-tr="3 kayıt" data-en="3 entries">3 kayıt</span>
+      </div>
+
+      <div class="projects-grid">
+
+        <a href="pages/dottoman.html" class="project-card">
+          <div class="card-label" data-tr="animasyon / piksel sanat" data-en="animation / pixel art">animasyon / piksel sanat</div>
+          <div class="card-title" lang="en">Dotto<span class="mid-dot">•</span>Man</div>
+          <p class="card-desc" data-tr="Noktalama işaretleri üzerine kurulu kişisel animasyon ve hikâye evrenim."
+            data-en="A personal animation and story universe based on punctuation marks.">
+            Noktalama işaretleri üzerine kurulu kişisel animasyon ve hikâye evrenim.
+          </p>
+          <span class="card-cta" data-tr="İncele" data-en="View">İncele</span>
+        </a>
+
+        <a href="pages/eticaret.html" class="project-card">
+          <div class="card-label" data-tr="web / full stack" data-en="web / full stack">web / full stack</div>
+          <div class="card-title" lang="en">CollecZone</div>
+          <p class="card-desc" data-tr="Koleksiyon ürünleri odağında geliştirilmiş full-stack e-ticaret projesi."
+            data-en="A full-stack e-commerce project focused on collectible products.">
+            Koleksiyon ürünleri odağında geliştirilmiş full-stack e-ticaret projesi.
+          </p>
+          <span class="card-cta" data-tr="İncele" data-en="View">İncele</span>
+        </a>
+
+        <a href="pages/brand-detection.html" class="project-card">
+          <div class="card-label" data-tr="yapay zekâ / COMPUTER VISION" data-en="AI / COMPUTER VISION">yapay zekâ / COMPUTER VISION</div>
+          <div class="card-title" lang="en">VEHICLE BRAND DETECTION</div>
+          <p class="card-desc" data-tr="Araç görüntülerinden marka tespiti yapmaya yönelik computer vision projesi."
+            data-en="A computer vision project for vehicle brand detection.">
+            Araç görüntülerinden marka tespiti yapmaya yönelik computer vision projesi.
+          </p>
+          <span class="card-cta" data-tr="İncele" data-en="View">İncele</span>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact-section" id="contact">
+      <header class="section-head">
+        <span class="section-no">03</span>
+        <h2 data-tr="iletişim" data-en="contact">iletişim</h2>
+        <span class="section-gok" aria-hidden="true" title="bitig"><span lang="otk" dir="rtl">&#x10C0B;&#x10C03;&#x10C45;&#x10C03;&#x10C0F;</span><small>bitig</small></span>
+      </header>
+
+      <p data-tr="Projeler, iş birlikleri ve oyun işleri için yazabilirsin."
+        data-en="Get in touch about projects, collaborations, and game work.">
+        Projeler, iş birlikleri ve oyun işleri için yazabilirsin.
       </p>
 
-      <div class="skill-pills">
-        <span class="pill">Game Dev</span>
-        <span class="pill">Unity</span>
-        <span class="pill">Python</span>
-        <span class="pill">Machine Learning</span>
-        <span class="pill">Computer Vision</span>
-        <span class="pill">Web Design</span>
-        <span class="pill">2D Animation</span>
-        <span class="pill">Digital Drawing</span>
+      <div class="contact-links" lang="en">
+        <a class="contact-row" href="mailto:ae.alpererdinc@gmail.com">
+          <span class="contact-k" lang="tr" data-tr="e-posta" data-en="e-mail">e-posta</span>
+          <span class="contact-v">ae.alpererdinc@gmail.com</span>
+          <span class="contact-go" aria-hidden="true">→</span>
+        </a>
+        <a class="contact-row" href="https://www.linkedin.com/in/alpererdinc47/" target="_blank">
+          <span class="contact-k">LinkedIn</span>
+          <span class="contact-v">in/alpererdinc47</span>
+          <span class="contact-go" aria-hidden="true">↗</span>
+        </a>
+        <a class="contact-row" href="https://github.com/alpererdinc" target="_blank">
+          <span class="contact-k">GitHub</span>
+          <span class="contact-v">alpererdinc</span>
+          <span class="contact-go" aria-hidden="true">↗</span>
+        </a>
+        <a class="contact-row" href="https://www.youtube.com/@alpererdinc47" target="_blank">
+          <span class="contact-k">YouTube</span>
+          <span class="contact-v">@alpererdinc47</span>
+          <span class="contact-go" aria-hidden="true">↗</span>
+        </a>
+        <a class="contact-row" href="https://www.instagram.com/alperd.inc/" target="_blank">
+          <span class="contact-k">Instagram</span>
+          <span class="contact-v">alperd.inc</span>
+          <span class="contact-go" aria-hidden="true">↗</span>
+        </a>
       </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section class="projects-section" id="projects">
-    <h2 data-tr="projeler" data-en="projects">projeler</h2>
-
-    <p class="sub" data-tr="Oyun, web, yapay zekâ ve animasyon alanlarında geliştirdiğim seçili çalışmalar."
-      data-en="Selected works in game development, web, artificial intelligence, and animation.">
-      Oyun, web, yapay zekâ ve animasyon alanlarında geliştirdiğim seçili çalışmalar.
-    </p>
-
-    <div class="projects-grid">
-
-      <a href="pages/dotto-block-breaker.html" class="project-card">
-        <div class="card-color-bar"></div>
-        <div class="card-label" data-tr="oyun / mobil / arcade" data-en="game / mobile / arcade">oyun / mobil / arcade</div>
-        <div class="card-title">DOTTO: BLOCK BREAKER</div>
-        <p class="card-desc"
-          data-tr="Nişan alıp çoklu top atışları yaptığın; özel bloklar, jokerler ve uzun süreli ilerleme sistemleri içeren mobil brick-breaker."
-          data-en="A mobile brick-breaker built around aimed multi-ball shots, special blocks, powerups, and long-term progression systems.">
-          Nişan alıp çoklu top atışları yaptığın; özel bloklar, jokerler ve uzun süreli ilerleme sistemleri içeren mobil brick-breaker.
-        </p>
-        <span class="card-cta" data-tr="İncele" data-en="View">İncele</span>
-      </a>
-
-      <a href="pages/divealamut.html" class="project-card">
-        <div class="card-color-bar"></div>
-        <div class="card-label" data-tr="oyun / hypercasual / staj" data-en="game / hypercasual / internship">oyun / hypercasual / staj</div>
-        <div class="card-title">DIVEALAMUT</div>
-        <p class="card-desc"
-          data-tr="Alamut temalı dönen platformlar, momentum tabanlı Smash Mode ve hızlı düşüş akışı üzerine kurulu mobil hypercasual oyun."
-          data-en="A mobile hypercasual game built around Alamut-themed rotating platforms, momentum-based Smash Mode, and fast falling gameplay.">
-          Alamut temalı dönen platformlar, momentum tabanlı Smash Mode ve hızlı düşüş akışı üzerine kurulu mobil hypercasual oyun.
-        </p>
-        <span class="card-cta" data-tr="İncele" data-en="View">İncele</span>
-      </a>
-
-      <a href="pages/jazurider.html" class="project-card">
-        <div class="card-color-bar"></div>
-        <div class="card-label" data-tr="oyun / hypercasual / staj" data-en="game / hypercasual / internship">oyun / hypercasual / staj</div>
-        <div class="card-title">JAZURIDER</div>
-        <p class="card-desc"
-          data-tr="Türk mitolojisi esintili dünyasında dinamik kavanoz yığını, fizik hissi ve uyarlanabilir kamera kullanan mobil stack oyunu."
-          data-en="A mobile stack game featuring a dynamic jar tower, responsive physics, and an adaptive camera in a world inspired by Turkish mythology.">
-          Türk mitolojisi esintili dünyasında dinamik kavanoz yığını, fizik hissi ve uyarlanabilir kamera kullanan mobil stack oyunu.
-        </p>
-        <span class="card-cta" data-tr="İncele" data-en="View">İncele</span>
-      </a>
-
-      <a href="pages/nothing-to-report.html" class="project-card">
-        <div class="card-color-bar"></div>
-        <div class="card-label" data-tr="oyun / 2d" data-en="game / 2d">oyun / 2d</div>
-        <div class="card-title" data-tr="NOTHING TO REPORT" data-en="NOTHING TO REPORT">NOTHING TO REPORT</div>
-        <p class="card-desc"
-          data-tr="Yozlaşmış bir gelecekte kanıtları bularak habercilik yaptığımız 2D cyber-noir oyun."
-          data-en="A 2D cyber-noir game where you work as a journalist finding evidence in a corrupt future.">
-          Yozlaşmış bir gelecekte kanıtları bularak habercilik yaptığımız 2D cyber-noir oyun.
-        </p>
-        <span class="card-cta" data-tr="İncele" data-en="View">İncele</span>
-      </a>
-
-      <a href="pages/dottoman.html" class="project-card">
-        <div class="card-color-bar"></div>
-        <div class="card-label" data-tr="animasyon / piksel sanat" data-en="animation / pixel art">animasyon / piksel
-          sanat</div>
-        <div class="card-title">Dotto•Man</div>
-        <p class="card-desc" data-tr="Noktalama işaretleri üzerine kurulu kişisel animasyon ve hikâye evrenim."
-          data-en="A personal animation and story universe based on punctuation marks.">
-          Noktalama işaretleri üzerine kurulu kişisel animasyon ve hikâye evrenim.
-        </p>
-        <span class="card-cta" data-tr="İncele" data-en="View">İncele</span>
-      </a>
-
-      <a href="pages/tez-oyunu.html" class="project-card">
-        <div class="card-color-bar"></div>
-        <div class="card-label" data-tr="oyun / lisans tezi" data-en="game / thesis">oyun / lisans tezi</div>
-        <div class="card-title" data-tr="ADAPTIVE NPC AI" data-en="ADAPTIVE NPC AI">ADAPTIVE NPC AI</div>
-        <p class="card-desc"
-          data-tr="Oyuncu davranışına uyum sağlayan NPC sistemi üzerine geliştirilmiş lisans tezi projesi."
-          data-en="A thesis project focused on an NPC system that adapts to player behavior.">
-          Oyuncu davranışına uyum sağlayan NPC sistemi üzerine geliştirilmiş lisans tezi projesi.
-        </p>
-        <span class="card-cta" data-tr="İncele" data-en="View">İncele</span>
-      </a>
-
-      <a href="pages/eticaret.html" class="project-card">
-        <div class="card-color-bar"></div>
-        <div class="card-label" data-tr="web / full stack" data-en="web / full stack">web / full stack</div>
-        <div class="card-title">CollecZone</div>
-        <p class="card-desc" data-tr="Koleksiyon ürünleri odağında geliştirilmiş full-stack e-ticaret projesi."
-          data-en="A full-stack e-commerce project focused on collectible products.">
-          Koleksiyon ürünleri odağında geliştirilmiş full-stack e-ticaret projesi.
-        </p>
-        <span class="card-cta" data-tr="İncele" data-en="View">İncele</span>
-      </a>
-
-      <a href="pages/2d-oyunlar.html" class="project-card">
-        <div class="card-color-bar"></div>
-        <div class="card-label" data-tr="oyun / 2d" data-en="game / 2d">oyun / 2d</div>
-        <div class="card-title" data-tr="Kantanfu" data-en="Kantanfu">Kantanfu</div>
-        <p class="card-desc"
-          data-tr=" Çekirdek mekanikler, seviye tasarımı ve etkileşimli oynanışa odaklanan bağımsız oyun prototipi."
-          data-en="An indie game prototype focused on core mechanics, level design and interactive gameplay.">
-          Çekirdek mekanikler, seviye tasarımı ve etkileşimli oynanışa odaklanan bağımsız oyun prototipi.
-        </p>
-        <span class="card-cta" data-tr="İncele" data-en="View">İncele</span>
-      </a>
-
-
-
-      <a href="pages/brand-detection.html" class="project-card">
-        <div class="card-color-bar"></div>
-        <div class="card-label" data-tr="yapay zekâ / computer vision" data-en="ai / computer vision">yapay zekâ /
-          computer vision</div>
-        <div class="card-title">VEHICLE BRAND DETECTION</div>
-        <p class="card-desc" data-tr="Araç görüntülerinden marka tespiti yapmaya yönelik computer vision projesi."
-          data-en="A computer vision project for vehicle brand detection.">
-          Araç görüntülerinden marka tespiti yapmaya yönelik computer vision projesi.
-        </p>
-        <span class="card-cta" data-tr="İncele" data-en="View">İncele</span>
-      </a>
-
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="contact-section" id="contact">
-    <h2 data-tr="iletişim" data-en="contact">iletişim</h2>
-
-    <p data-tr="Projeler, staj ve iş birlikleri için GitHub, LinkedIn veya e-posta üzerinden iletişime geçilebilir."
-      data-en="For projects, internships, and collaborations, I can be contacted through GitHub, LinkedIn, or email.">
-      Projeler, staj ve iş birlikleri için GitHub, LinkedIn veya e-posta üzerinden iletişime geçilebilir.
-    </p>
-
-    <div class="contact-links">
-      <a href="https://www.linkedin.com/in/alpererdinc47/" target="_blank" class="btn btn-white">linkedin</a>
-      <a href="https://github.com/alpererdinc" target="_blank" class="btn btn-white">github</a>
-      <a href="https://www.youtube.com/@alpererdinc47" target="_blank" class="btn btn-white">youtube</a>
-      <a href="https://www.instagram.com/alperd.inc/" target="_blank" class="btn btn-white">instagram</a>
-      <a href="mailto:ae.alpererdinc@gmail.com" class="btn btn-yellow">e-posta: ae.alpererdinc@gmail.com</a>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <!-- FOOTER -->
   <footer class="footer">
-    <div class="footer-left">alper erdinç / 2026</div>
+    <div class="footer-left">
+      <span class="footer-gok" lang="otk" dir="rtl" title="Alper Erdinç">&#x10C00;&#x10C1E;&#x10C2F;&#x10C00;&#x10C3C; &#x205A; &#x10C00;&#x10C3C;&#x10C13;&#x10C03;&#x10C28;</span>
+      <span>alper erdinç / 2026</span>
+    </div>
 
-    <div class="footer-links">
+    <div class="footer-links" lang="en">
       <a href="https://github.com/alpererdinc" target="_blank">github</a>
       <a href="https://dottoman.com" target="_blank">dottoman.com</a>
     </div>
 
-    <div class="footer-right">personal portfolio</div>
+    <div class="footer-right" lang="en">
+      <span>personal portfolio</span>
+    </div>
   </footer>
+
   <!-- Cloudflare Web Analytics -->
   <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
     data-cf-beacon='{"token": "68b43f9dd63d4fbcb4c4cbe2391aa3a1"}'></script><!-- End Cloudflare Web Analytics -->
 
-
-  <button class="scroll-top" id="scrollTopBtn" aria-label="Sayfanın başına dön">
-    ↑
-  </button>
-
+  <button class="scroll-top" id="scrollTopBtn" aria-label="Sayfanın başına dön">▲</button>
 
   <!-- MINI GAME / AE PONG -->
   <div class="pong-modal" id="pongModal" aria-hidden="true">
@@ -442,16 +615,13 @@
         <button class="pong-mode-btn" type="button" data-pong-mode="hard">zor</button>
       </div>
 
-      <canvas id="pongCanvas" width="640" height="360"></canvas>
+      <div class="pong-screen">
+        <canvas id="pongCanvas" width="640" height="360"></canvas>
+      </div>
 
       <div class="pong-touch-controls" aria-label="Mobil Pong kontrolü">
-        <button class="pong-touch-btn" id="pongTouchUp" type="button" data-tr="yukarı" data-en="up">
-          yukarı
-        </button>
-
-        <button class="pong-touch-btn" id="pongTouchDown" type="button" data-tr="aşağı" data-en="down">
-          aşağı
-        </button>
+        <button class="pong-touch-btn" id="pongTouchUp" type="button" data-tr="yukarı" data-en="up">yukarı</button>
+        <button class="pong-touch-btn" id="pongTouchDown" type="button" data-tr="aşağı" data-en="down">aşağı</button>
       </div>
       <p class="pong-help"
         data-tr="Masaüstünde W / S veya ↑ / ↓ ile oynanır. Mobilde ekrana dokunup sürükle veya butonları kullan."
@@ -460,7 +630,7 @@
       </p>
     </div>
   </div>
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=analog4"></script>
 </body>
 
 </html>

@@ -6,14 +6,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dotto•Man — Alper Erdinç</title>
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
-  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Barlow+Semi+Condensed:wght@400;500;600&family=Chakra+Petch:wght@500;600;700&family=VT323&display=swap" />
+  <link rel="stylesheet" href="../css/analog.css?v=10" />
 </head>
 
 <body>
   <div class="cursor" id="cursor"></div>
+  <div class="grain" aria-hidden="true"></div>
 
   <nav class="navbar">
-    <a href="../index.html" class="nav-logo">ae.</a>
+    <a href="../index.html" class="nav-logo"><span class="nav-logo-tape">ae.</span></a>
 
     <div class="nav-links">
       <a href="../index.html" data-tr="ana sayfa" data-en="home">ana sayfa</a>
@@ -22,7 +27,7 @@
       <details class="nav-dropdown">
         <summary data-tr="projeler" data-en="projects">projeler</summary>
 
-        <div class="dropdown-menu">
+        <div class="dropdown-menu" lang="en">
           <a href="../index.html#projects" data-tr="tüm projeler" data-en="all projects">tüm projeler</a>
           <a href="dotto-block-breaker.html">Dotto: Block Breaker</a>
           <a href="divealamut.html">DiveAlamut</a>
@@ -65,7 +70,7 @@
     <details class="mobile-dropdown">
       <summary data-tr="projeler" data-en="projects">projeler</summary>
 
-      <div class="mobile-dropdown-menu">
+      <div class="mobile-dropdown-menu" lang="en">
         <a href="../index.html#projects" data-tr="tüm projeler" data-en="all projects">tüm projeler</a>
         <a href="dotto-block-breaker.html">Dotto: Block Breaker</a>
         <a href="divealamut.html">DiveAlamut</a>
@@ -88,7 +93,7 @@
     <div class="project-hero-content">
       <div class="badge" data-tr="animasyon / piksel sanat" data-en="animation / pixel art">animasyon / piksel sanat
       </div>
-      <h1>Dotto•Man</h1>
+      <h1 lang="en">Dotto<span class="mid-dot">•</span>Man</h1>
       <p class="lead" data-tr="Noktalama işaretleri üzerine kurulu kişisel animasyon ve hikâye evrenim."
         data-en="A personal animation and story universe based on punctuation marks.">
         Noktalama işaretleri üzerine kurulu kişisel animasyon ve hikâye evrenim.
@@ -176,7 +181,7 @@
     </p>
 
     <h2 data-tr="teknolojiler" data-en="tech stack">teknolojiler</h2>
-    <ul>
+    <ul lang="en">
       <li>PHP</li>
       <li>CSS</li>
       <li>JavaScript</li>
@@ -193,12 +198,12 @@
   <footer class="footer">
     <div class="footer-left">alper erdinç / 2026</div>
 
-    <div class="footer-links">
+    <div class="footer-links" lang="en">
       <a href="https://github.com/alpererdinc" target="_blank">github</a>
       <a href="https://dottoman.com" target="_blank">dottoman.com</a>
     </div>
 
-    <div class="footer-right">personal portfolio</div>
+    <div class="footer-right" lang="en">personal portfolio</div>
   </footer>
 
 
@@ -207,7 +212,7 @@
     ↑
   </button>
 
-  <script src="../js/main.js"></script>
+  <script src="../js/main.js?v=analog4"></script>
 </body>
 
 </html>

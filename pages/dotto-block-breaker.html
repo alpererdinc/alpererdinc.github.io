@@ -6,14 +6,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dotto: Block Breaker — Alper Erdinç</title>
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
-  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Barlow+Semi+Condensed:wght@400;500;600&family=Chakra+Petch:wght@500;600;700&family=VT323&display=swap" />
+  <link rel="stylesheet" href="../css/analog.css?v=10" />
 </head>
 
 <body>
   <div class="cursor" id="cursor"></div>
+  <div class="grain" aria-hidden="true"></div>
 
   <nav class="navbar">
-    <a href="../index.html" class="nav-logo">ae.</a>
+    <a href="../index.html" class="nav-logo"><span class="nav-logo-tape">ae.</span></a>
 
     <div class="nav-links">
       <a href="../index.html" data-tr="ana sayfa" data-en="home">ana sayfa</a>
@@ -21,7 +26,7 @@
 
       <details class="nav-dropdown">
         <summary data-tr="projeler" data-en="projects">projeler</summary>
-        <div class="dropdown-menu">
+        <div class="dropdown-menu" lang="en">
           <a href="../index.html#projects" data-tr="tüm projeler" data-en="all projects">tüm projeler</a>
           <a href="dotto-block-breaker.html">Dotto: Block Breaker</a>
           <a href="divealamut.html">DiveAlamut</a>
@@ -56,7 +61,7 @@
     <a href="../index.html#about" data-tr="hakkımda" data-en="about">hakkımda</a>
     <details class="mobile-dropdown">
       <summary data-tr="projeler" data-en="projects">projeler</summary>
-      <div class="mobile-dropdown-menu">
+      <div class="mobile-dropdown-menu" lang="en">
         <a href="../index.html#projects" data-tr="tüm projeler" data-en="all projects">tüm projeler</a>
         <a href="dotto-block-breaker.html">Dotto: Block Breaker</a>
         <a href="divealamut.html">DiveAlamut</a>
@@ -76,7 +81,7 @@
     <div class="project-hero-dots"></div>
     <div class="project-hero-content">
       <div class="badge" data-tr="oyun / mobil / arcade" data-en="game / mobile / arcade">oyun / mobil / arcade</div>
-      <h1>Dotto: Block Breaker</h1>
+      <h1 lang="en">Dotto: Block Breaker</h1>
       <p class="lead"
         data-tr="Nişan al, toplarını art arda fırlat ve bloklar kaybetme çizgisine ulaşmadan mümkün olduğunca uzun süre hayatta kal."
         data-en="Aim, launch your balls in rapid succession, and survive as long as possible before the blocks reach the loss line.">
@@ -347,7 +352,7 @@
     </div>
 
     <h2 data-tr="teknolojiler" data-en="tech stack">teknolojiler</h2>
-    <ul>
+    <ul lang="en">
       <li>Unity 6</li>
       <li>C#</li>
       <li>Android</li>
@@ -366,15 +371,15 @@
 
   <footer class="footer">
     <div class="footer-left">alper erdinç / 2026</div>
-    <div class="footer-links">
+    <div class="footer-links" lang="en">
       <a href="https://github.com/alpererdinc" target="_blank">github</a>
       <a href="https://dottoman.com" target="_blank">dottoman.com</a>
     </div>
-    <div class="footer-right">personal portfolio</div>
+    <div class="footer-right" lang="en">personal portfolio</div>
   </footer>
 
-  <button class="scroll-top" id="scrollTopBtn" aria-label="Sayfanın başına dön">↑</button>
-  <script src="../js/main.js"></script>
+  <button class="scroll-top" id="scrollTopBtn" aria-label="Sayfanın başına dön">▲</button>
+  <script src="../js/main.js?v=analog4"></script>
 </body>
 
 </html>

@@ -1,29 +1,7 @@
 // alper erdinç — portfolio js
 
 (function () {
-  /* ── CUSTOM CURSOR ── */
-  const cursor = document.getElementById("cursor");
-
-  if (cursor && window.matchMedia("(pointer: fine)").matches) {
-    document.addEventListener("mousemove", (event) => {
-      cursor.style.left = event.clientX + "px";
-      cursor.style.top = event.clientY + "px";
-    });
-
-    document
-      .querySelectorAll("a, button, .pill, .project-card, summary")
-      .forEach((element) => {
-        element.addEventListener("mouseenter", () => {
-          cursor.classList.add("big");
-        });
-
-        element.addEventListener("mouseleave", () => {
-          cursor.classList.remove("big");
-        });
-      });
-  } else if (cursor) {
-    cursor.style.display = "none";
-  }
+  /* cursor is a plain CSS arrow now (see analog.css) */
 
   /* ── LANGUAGE TOGGLE ── */
   let lang = localStorage.getItem("ae_lang") || "tr";
@@ -74,12 +52,21 @@
     pageMode = "night";
   }
 
-  const faviconColors = {
-    orange: "#ff7a1a",
-    blue: "#4aa3ff",
-    purple: "#b987ff",
-    green: "#56d68a"
-  };
+  const usesAnalogSkin = !!document.querySelector('link[href*="analog.css"]');
+
+  const faviconColors = usesAnalogSkin
+    ? {
+      orange: "#d23b2b",
+      blue: "#2aa198",
+      purple: "#b5508c",
+      green: "#7fae4f"
+    }
+    : {
+      orange: "#ff7a1a",
+      blue: "#4aa3ff",
+      purple: "#b987ff",
+      green: "#56d68a"
+    };
 
   function getCssVar(name, fallback = "") {
     const value = getComputedStyle(document.documentElement)
@@ -208,6 +195,64 @@
   applyColorTheme(colorTheme);
   applyPageMode(pageMode);
   applyLang(lang);
+
+  /* ── LCD CLOCK (analog skin) ── */
+  const navClock = document.getElementById("navClock");
+
+  if (navClock) {
+    const tick = () => {
+      const now = new Date();
+      const hh = String(now.getHours()).padStart(2, "0");
+      const mm = String(now.getMinutes()).padStart(2, "0");
+      navClock.textContent = `${hh}${now.getSeconds() % 2 ? " " : ":"}${mm}`;
+    };
+
+    tick();
+    setInterval(tick, 1000);
+  }
+
+  /* ── DRUM: twelve-animal calendar marks the current year ── */
+  const drumWedge = document.getElementById("drumWedge");
+  const drumYear = document.getElementById("drumYear");
+
+  if (drumWedge && drumYear) {
+    const animals = [
+      ["sıçgan", "fare", "mouse"],
+      ["ud", "sığır", "ox"],
+      ["bars", "pars", "leopard"],
+      ["tavışgan", "tavşan", "hare"],
+      ["lü", "ejderha", "dragon"],
+      ["yılan", "yılan", "snake"],
+      ["yunt", "at", "horse"],
+      ["koñ", "koyun", "sheep"],
+      ["biçin", "maymun", "monkey"],
+      ["takagu", "tavuk", "hen"],
+      ["it", "köpek", "dog"],
+      ["toñuz", "domuz", "pig"]
+    ];
+
+    const year = new Date().getFullYear();
+    const index = (((year - 2020) % 12) + 12) % 12; // 2020 was a sıçgan year
+
+    drumWedge.setAttribute("transform", `rotate(${index * 30} 160 160)`);
+
+    document.querySelectorAll("#drum .animal").forEach((el) => {
+      el.classList.toggle("on", Number(el.dataset.animal) === index);
+    });
+
+    const renderDrumYear = () => {
+      const [name, tr, en] = animals[index];
+      drumYear.textContent = lang === "tr"
+        ? `${year} · ${name} (${tr}) yılı`
+        : `${year} · year of the ${name} (${en})`;
+    };
+
+    renderDrumYear();
+
+    if (toggleBtn) {
+      toggleBtn.addEventListener("click", renderDrumYear);
+    }
+  }
 
   /* ── HAMBURGER ── */
   const hamburger = document.getElementById("navHamburger");
