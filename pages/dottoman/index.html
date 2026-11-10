@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="tr" data-lang="tr" data-mode="ink">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dotto•Man</title>
+  <meta name="description"
+    content="Dotto•Man: noktalama işaretlerinin canlı olduğu, mürekkep varlıkların kendi cümlelerini kurduğu animasyon evreni." />
+
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2312100e'/%3E%3Ccircle cx='32' cy='32' r='14' fill='%23d6372a'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;1,6..96,400;1,6..96,700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Courier+Prime&display=swap" />
+  <link rel="stylesheet" href="style.css?v=1" />
+</head>
+
+<body>
+
+  <!-- MASTHEAD -->
+  <header class="masthead">
+    <div class="wrap masthead-inner">
+      <a class="logotype" href="#top" aria-label="Dotto•Man">Dotto<span class="dot">•</span>Man</a>
+
+      <nav class="toc" id="toc" aria-label="İçindekiler">
+        <a href="#bu-ne"><span data-l="tr">bu ne?</span><span data-l="en">what is this?</span></a>
+        <a href="#karakterler"><span data-l="tr">karakterler</span><span data-l="en">characters</span></a>
+        <a href="#fikirler"><span data-l="tr">fikirler</span><span data-l="en">ideas</span></a>
+        <a href="#hikaye"><span data-l="tr">hikâye</span><span data-l="en">story</span></a>
+        <a href="#bolumler"><span data-l="tr">bölümler</span><span data-l="en">episodes</span></a>
+        <a href="#galeri"><span data-l="tr">galeri</span><span data-l="en">gallery</span></a>
+        <a href="#hakkinda"><span data-l="tr">hakkında</span><span data-l="en">about</span></a>
+        <a href="#iletisim"><span data-l="tr">iletişim</span><span data-l="en">contact</span></a>
+      </nav>
+
+      <div class="tools">
+        <button class="toc-toggle" id="tocToggle" type="button" aria-controls="toc" aria-expanded="false">
+          <span data-l="tr">içindekiler</span><span data-l="en">contents</span>
+        </button>
+        <button id="langBtn" type="button" aria-label="Dili değiştir">EN</button>
+        <button id="modeBtn" type="button" aria-label="Kâğıt / mürekkep">☼</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap hero-inner">
+        <div class="hero-text">
+          <div class="hero-kicker label">
+            <span><span data-l="tr">Fasikül I · Cümle · tamamlandı</span><span data-l="en">Issue I · Sentence · complete</span></span>
+            <span><span data-l="tr">Fasikül II · yayında</span><span data-l="en">Issue II · airing</span></span>
+          </div>
+
+          <h1 lang="en">Things are <em>getting</em><br />p<span class="drop" aria-hidden="true"></span><span class="sr">o</span>intless.</h1>
+
+          <p class="hero-sub">
+            <span data-l="tr">Noktalama işaretlerinin canlı olduğu, mürekkep varlıkların kendi cümlelerini kurduğu kişisel animasyon evreni.</span>
+            <span data-l="en">A personal animation universe where punctuation marks are alive and ink beings write their own sentences.</span>
+          </p>
+
+          <div class="hero-cta">
+            <a class="btn btn-red" href="#bolumler"><span data-l="tr">Bölümleri izle</span><span data-l="en">Watch the episodes</span> ↓</a>
+            <a class="btn" href="#karakterler"><span data-l="tr">Karakterler</span><span data-l="en">Characters</span></a>
+          </div>
+        </div>
+
+        <div class="hero-figure">
+          <!-- ebru: ink dropped on water, combed once -->
+          <svg class="ebru" viewBox="0 0 600 600" aria-hidden="true">
+            <defs>
+              <filter id="ebruFilter" x="-10%" y="-10%" width="120%" height="120%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.006 0.011" numOctaves="2" seed="11" />
+                <feDisplacementMap in="SourceGraphic" scale="110" xChannelSelector="R" yChannelSelector="G" />
+              </filter>
+              <clipPath id="ebruClip">
+                <circle cx="300" cy="300" r="290" />
+              </clipPath>
+            </defs>
+            <g clip-path="url(#ebruClip)">
+              <rect class="e-paper" width="600" height="600" />
+              <g filter="url(#ebruFilter)">
+                <circle class="e-ink" cx="300" cy="300" r="280" />
+                <circle class="e-red" cx="300" cy="300" r="236" />
+                <circle class="e-ink" cx="300" cy="300" r="200" />
+                <circle class="e-deep" cx="300" cy="300" r="168" />
+                <circle class="e-bone" cx="300" cy="300" r="128" />
+                <circle class="e-ink" cx="300" cy="300" r="110" />
+                <circle class="e-red" cx="300" cy="300" r="70" />
+                <circle class="e-ink" cx="300" cy="300" r="40" />
+                <circle class="e-red" cx="150" cy="140" r="34" />
+                <circle class="e-ink" cx="150" cy="140" r="18" />
+                <circle class="e-bone" cx="470" cy="470" r="26" />
+              </g>
+            </g>
+            <circle cx="300" cy="300" r="290" fill="none" stroke="currentColor" stroke-opacity="0.25" />
+          </svg>
+
+          <img src="https://dottoman.com/images/DottoTrnsprnt.png" alt="Dotto, kırmızı pelerinli mürekkep insan"
+            width="456" height="1148" />
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT IS THIS -->
+    <section class="section" id="bu-ne">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="glyph" aria-hidden="true">?</span>
+          <h2><span data-l="tr">Bu ne?</span><span data-l="en">What is this?</span></h2>
+          <span class="label">§ 00</span>
+        </div>
+
+        <p class="verse" data-l="tr">Bu benim ilk düzgün animasyon çalışmam,
+“Dotto•Man.”
+Noktadan insana döndüğü için
+adı “dot to man” olacaktı,
+ama karakter pelerin gelince kendi lakabını buldu.
+“Dotto” İtalyanca'da “bilgili”,
+Türkçe ağzında “inatçı, sert” demek.
+Belki karakter bu yönde derinleşir
+ve ben çizmeye devam ederim, kim bilir?
+Dotto bazı meselelere nokta koymaya gelebilir.<span class="verse-end">Nokta<span class="nokta"></span></span></p>
+
+        <p class="verse" data-l="en">This is my first proper animation work,
+“Dotto•Man.”
+Since he turned from a dot into a man,
+it was going to be called “dot to man”,
+but when the cape came along, the character found his own nickname.
+“Dotto” means “learned” in Italian,
+and “stubborn, tough” in Turkish dialect.
+Maybe the character will deepen in that direction
+and I’ll keep drawing, who knows?
+Dotto may be coming to put a full stop to some matters.<span class="verse-end">Period<span class="nokta"></span></span></p>
+      </div>
+    </section>
+
+    <!-- CHARACTERS -->
+    <section class="section" id="karakterler">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="glyph" aria-hidden="true">•</span>
+          <h2><span data-l="tr">Karakterler</span><span data-l="en">Characters</span></h2>
+          <span class="label"><span data-l="tr">lügat · 4 madde</span><span data-l="en">lexicon · 4 entries</span></span>
+        </div>
+
+        <!-- Nokta -->
+        <article class="entry">
+          <div class="entry-glyph red" aria-hidden="true">•</div>
+          <div>
+            <div class="entry-name">
+              <h3><span data-l="tr">Nokta</span><span data-l="en">Dot</span></h3>
+              <span class="label" lang="en">a.k.a. Dotto</span>
+            </div>
+            <p class="entry-body" data-l="tr">Meselelere —ve genel olarak şeylere— nokta koyar.
+Bitirir, sonlandırır, kapatır. Neticeye erdirir.
+
+Bu gücü kötülüklere karşı kullanmayı seçmiştir; ama bir şeyleri geri döndürülemez biçimde sona erdirme ihtimali onu iyiliklere yaklaşırken temkinli kılar. Yanlış yerde konmuş bir noktanın, doğru bir cümleyi bile susturabileceğini bilir.
+
+Bilgili, derin düşünen ve bilgisi nispetinde inatçıdır. Çünkü bazı şeylerin tartışması değil, kapanışı vardır.</p>
+            <p class="entry-body" data-l="en">He puts a full stop to matters —and to things in general.
+He ends, terminates, closes. Brings to a conclusion.
+
+He has chosen to use this power against evil; but the chance of ending something irreversibly makes him cautious around good. He knows a dot in the wrong place can silence even a right sentence.
+
+Learned, deep-thinking, and stubborn in proportion to what he knows. Because some things don’t need a debate; they need a closing.</p>
+            <p class="entry-tag"><span data-l="tr">Bazen bir kurtarıcı, bazen bir son.</span><span data-l="en">Sometimes a saviour, sometimes an ending.</span></p>
+          </div>
+          <figure class="entry-sprite">
+            <img src="https://dottoman.com/images/Sprite-Dotto-AE_BIG.gif" alt="Dotto piksel animasyonu" width="320" height="320" loading="lazy" />
+            <figcaption class="label">fig. Dotto</figcaption>
+          </figure>
+        </article>
+
+        <!-- Soru -->
+        <article class="entry">
+          <div class="entry-glyph" aria-hidden="true">?</div>
+          <div>
+            <div class="entry-name">
+              <h3><span data-l="tr">Soru</span><span data-l="en">Question</span></h3>
+              <span class="label" lang="en">a.k.a. Quinna</span>
+            </div>
+            <p class="entry-body" data-l="tr">Her şeyin nedenini kurcalar.
+Cevaptan çok sorunun kendisiyle ilgilenir.
+
+Sabit durmaz; bir fikrin etrafında dolaşır, altını kazar, üstünü çizer. Koşar, durur, geri döner. Nokta'nın koyduğu her bitişe, içinden sessizce şunu fısıldar:</p>
+            <p class="entry-body" data-l="en">She pokes at the reason behind everything.
+She cares more about the question than the answer.
+
+She never stands still; she circles an idea, digs under it, crosses it out. She runs, stops, turns back. To every ending Dot puts down, she quietly whispers from within:</p>
+            <p class="entry-tag"><span data-l="tr">“Emin miyiz?”</span><span data-l="en">“Are we sure?”</span></p>
+            <p class="label ep-note"><span data-l="tr">Yakında sorular artacak.</span><span data-l="en">More questions soon.</span></p>
+          </div>
+          <figure class="entry-sprite">
+            <img src="https://dottoman.com/images/Sprite-Quinna-AE_BIG.gif" alt="Quinna piksel animasyonu" width="320" height="320" loading="lazy" />
+            <figcaption class="label">fig. Quinna</figcaption>
+          </figure>
+        </article>
+
+        <!-- Ünlem -->
+        <article class="entry">
+          <div class="entry-glyph" aria-hidden="true">!</div>
+          <div>
+            <div class="entry-name">
+              <h3><span data-l="tr">Ünlem</span><span data-l="en">Exclamation</span></h3>
+              <span class="label" lang="en">a.k.a. Rex</span>
+            </div>
+            <p class="entry-body" data-l="tr">Geldiği yer belli olur.
+Sesi, öfkesi, sevinci… hepsi fazladır.
+
+Bir şey hissediyorsa, herkes bilmelidir. Düşünmeden atılır, durmadan bağırır; bazen yıkar, bazen ayağa kaldırır.
+
+Nokta'nın susturduğunu, Ünlem ayağa kaldırır.
+Soru'nun düşündüğünü, Ünlem haykırır.</p>
+            <p class="entry-body" data-l="en">You can always tell where he’s been.
+His voice, his anger, his joy… all of it is too much.
+
+If he feels something, everyone must know. He leaps without thinking, shouts without stopping; sometimes he tears down, sometimes he lifts up.
+
+What Dot silences, Exclamation raises.
+What Question ponders, Exclamation shouts.</p>
+          </div>
+          <figure class="entry-sprite">
+            <img src="https://dottoman.com/images/Sprite-Rex-AE_BIG.gif" alt="Rex piksel animasyonu" width="320" height="320" loading="lazy" />
+            <figcaption class="label">fig. Rex</figcaption>
+          </figure>
+        </article>
+
+        <!-- Virgül -->
+        <article class="entry">
+          <div class="entry-glyph" aria-hidden="true">,</div>
+          <div>
+            <div class="entry-name">
+              <h3><span data-l="tr">Virgül</span><span data-l="en">Comma</span></h3>
+              <span class="label" lang="en">a.k.a. Paus</span>
+            </div>
+            <p class="entry-body" data-l="tr">Tam bitmemiştir.
+Ama tamamen de kopmamıştır.
+
+Bir cümlenin nefes aldığı yerdir. Durmakla devam etmek arasındaki kararsızlık.
+
+Ayrılmış, dışlanmış, kendi yoluna savrulmuştur. Ama hâlâ her şeyle bağlantısı vardır.
+
+Bazıları onun gelmesini bekler,
+bazıları gelmemesini.</p>
+            <p class="entry-body" data-l="en">Not quite finished.
+But not entirely cut off either.
+
+The place where a sentence breathes. The indecision between stopping and going on.
+
+Parted, cast out, drifted onto a path of her own. Yet still connected to everything.
+
+Some wait for her to come,
+some for her not to.</p>
+          </div>
+          <figure class="entry-sprite empty">
+            <figcaption class="label"><span data-l="tr">çizim yolda</span><span data-l="en">drawing in progress</span></figcaption>
+          </figure>
+        </article>
+      </div>
+    </section>
+
+    <!-- IDEAS -->
+    <section class="section" id="fikirler">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="glyph" aria-hidden="true">;</span>
+          <h2><span data-l="tr">Fikirler</span><span data-l="en">Ideas</span></h2>
+          <span class="label">§ 02</span>
+        </div>
+
+        <div class="ideas">
+          <div>
+            <h3><span data-l="tr">Aile fikri</span><span data-l="en">The family</span></h3>
+            <p class="dropcap" data-l="tr">Noktalama işaretlerinin vücut bulmuş halleri olan bu varlıklar, bir ailenin bireyleridir. Bir gün sadece birer işaret olmaktan sıkılıp insansı suretlere bürünmüş ve kendilerine roller, amaçlar seçmişler. Ailenin en büyük çocuğu olan Nokta, ya da onu tanıyanların seslendiği şekliyle Dotto, doğuştan verilmiş bu özel gücünü insanlığı ve genel olarak varoluşu kötü etkilediğini düşündüğü durum ve olayları bitirmekte kullanır. Bunu yaparken de bu “sorunlara” yapıcı çözümler bulması gerekir. Sadece ellerinden noktalama ışını göndermesi olayları sonlandırmak için yeterli değildir. Noktalamak için doğru şeyi seçmeli, noktalarken geçerli sebepler bulmalıdır.</p>
+            <p class="dropcap" data-l="en">These beings, punctuation marks made flesh, are members of one family. One day, tired of being mere marks, they took on human-like forms and chose roles and purposes for themselves. Dot, the eldest child —or Dotto, as those who know him call him— uses the power he was born with to end situations and events he believes harm humanity and existence in general. In doing so he has to find constructive answers to these “problems.” Firing punctuation beams from his hands is not enough to end anything. He must choose the right thing to punctuate, and find good reasons while he does.</p>
+          </div>
+
+          <div>
+            <h3><span data-l="tr">Teklik fikri</span><span data-l="en">The oneness</span></h3>
+            <p class="dropcap" data-l="tr">Tüm işaretler noktadan türemiştir. Noktalama işaretleri adı da (punctuation) buradan gelir (punctus: nokta). Dotto bu işaretlerin hepsini türetme özelliğine sahiptir; beraberinde onların güçlerine de hâkimdir. Zamanla noktaya diğerlerine göre daha az benzeyen işaretler (parantez, tire, eğik çizgi vb.) ondan ayrılmış ve kendi bireyselliklerine kavuşmuşlardır.</p>
+            <p class="dropcap" data-l="en">Every mark descends from the dot. That is where the word punctuation comes from (punctus: point). Dotto can derive all of these marks, and with them he commands their powers. Over time, the marks that resembled the dot least (parentheses, dashes, slashes and so on) broke away from him and found their own individuality.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STORY -->
+    <section class="section" id="hikaye">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="glyph" aria-hidden="true">“</span>
+          <h2><span data-l="tr">Hikâye</span><span data-l="en">Story</span></h2>
+          <span class="label"><span data-l="tr">tefrika · giriş</span><span data-l="en">serial · prologue</span></span>
+        </div>
+
+        <div class="tefrika" data-l="tr">
+          <p class="dropcap">Dünya, bir süredir fazlasıyla sıradan. İnsanlar, fizik kuralları ile etten-kemiktenlik arasında mahsur, bu durumdan genellikle memnun. Aralarından bazıları zaman zaman özel ya da doğaüstü niteliklere sahip oldukları iddiasında bulunsa da bunların çoğu safsata, bazısı mental olarak sağlıksız, bir kısmı da muhtemelen açıklanabilene dek kendince doğru. Teknoloji, orta ayar bilimkurgunun tarih boyunca tahmin ettiklerinin dışına çıkmadı. Savaşların, zulümlerin, beşerî afetlerin sürdüğü bu kaotik düzende iyi şeyler de olmuyor değil tabii.</p>
+          <p>Fakat Dünya'nın sıradanlığından bahsederken bu kötülüklerden söz edilmezse bu sıradanlık, sükûnet ile karıştırılıp büyük yanılgılara düşülebilir. Bu süregelimde insan; anlatmaya, çizmeye, yazmaya devam etti. Anlattıkça hayal kurdu, çizdikçe ayna kurdu, yazdıkça da cümle kurdu. Cümle kurarken noktalama kullandı. Bu noktalamalar zaman içinde yoğruldular. Yazılanlara ve dolayısıyla yaşananlara şahitlik ettiler. Şahitlikleri onların cansız şekillerinde anlamsız kaldı. Peki, gerçekten öyle mi oldu?</p>
+          <p>Bu hikâyede noktalamaların maceralarını biraz komedik, biraz didaktik, biraz da dramatik bir ağızla anlatadurayım; bu görünüşte ciddiyetsiz, yüzeysel, hatta “öylesine” duran bölümleri tüketirken aklınızın bir köşesinde şunları bulundurmanızı rica ediyorum:</p>
+        </div>
+
+        <div class="tefrika" data-l="en">
+          <p class="dropcap">The world has been far too ordinary for a while. People are stuck between the laws of physics and being flesh and bone, and are mostly content with it. Now and then some claim special or supernatural gifts, but most of it is nonsense, some of it is illness, and some is probably true in its own way until it can be explained. Technology never went beyond what middling science fiction predicted. In this chaotic order of wars, cruelty and man-made disasters, good things do still happen, of course.</p>
+          <p>But talk about the world’s ordinariness without these evils, and ordinariness may be mistaken for calm, which leads to great errors. Throughout it all, people kept telling, drawing, writing. Telling, they dreamed; drawing, they held up mirrors; writing, they made sentences. And making sentences, they used punctuation. Those marks were kneaded by time. They witnessed what was written, and so what was lived. In their lifeless shapes, their witness meant nothing. But was that really so?</p>
+          <p>While I tell the adventures of the punctuation marks in a voice that is a little comic, a little didactic and a little dramatic, I ask you to keep this in a corner of your mind as you go through these seemingly frivolous, shallow, even “casual” episodes:</p>
+        </div>
+
+        <p class="pull" data-l="tr">
+          <span>Bu, tek görevi olmaya sürgün edilmiş sessizlerin hikâyesi.</span>
+          <span>Bu, yazılanlara anlam ve mantık katarken birçok malzemeyle üretilip türetilmişlerin hikâyesi.</span>
+          <span>Bu, anlamsız kalan şahitliklerin hikâyesi. Ama farklı bir üslupta.</span>
+        </p>
+        <p class="pull" data-l="en">
+          <span>This is the story of the silent, exiled to a single task.</span>
+          <span>The story of those made and derived from many materials while giving meaning and logic to what is written.</span>
+          <span>The story of witness left meaningless. Only told differently.</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- EPISODES -->
+    <section class="section" id="bolumler">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="glyph" aria-hidden="true">№</span>
+          <h2><span data-l="tr">Bölümler</span><span data-l="en">Episodes</span></h2>
+          <span class="label"><span data-l="tr">2 fasikül · 7 bölüm</span><span data-l="en">2 issues · 7 episodes</span></span>
+        </div>
+
+        <p class="label lang-note" data-l="en">Episode texts are in Turkish; the animations are narrated in Turkish.</p>
+
+        <!-- FASİKÜL I -->
+        <div class="fasikul-head">
+          <h3><span data-l="tr">Fasikül I</span><span data-l="en">Issue I</span> <small><span data-l="tr">Cümle</span><span data-l="en">Sentence</span></small></h3>
+          <span class="label"><span data-l="tr">bölüm 0–5 · tamamlandı</span><span data-l="en">episodes 0–5 · complete</span></span>
+        </div>
+
+        <article class="episode">
+          <div class="ep-no">0</div>
+          <div>
+            <h4><span data-l="tr">Sıfır Noktası</span><span data-l="en">Zero Point</span></h4>
+            <div class="prose" lang="tr">
+              <p>Boşlukta nokta belirdi. Zıpladı, zıpladı, insana dönüştü. Tamamen mürekkepimsi bir maddeden, stabil olmayan dalgalanmalarıyla etten-kemikten olmadığı belirgin bir insan. Yürüdü, sırtına kırmızı bir pelerin döküldü. Bir amaç hissediyordu. Zaman içinde üzerine düşündüğü bir amaç. Tek dizine çöktü, aniden sıçradı. Uçmaya başladı Nokta. İsmi buydu. Şeklinden bağımsız, hâlâ Nokta'ydı.</p>
+              <p>Biri diğerine bıçak çekmiş iki kişi gördü. Bıçak çeken kötücül, çekilen korkmuş görünüyordu. Hissetti Nokta, suçu hissetti. Bunu durdurmalıydı. Onu gören haydut telaşa kapıldı, diğeri de şaşkındı. Neyin nesiydi bu pelerinli insansı petrol? Nokta, yerin 3-4 metre üzerinde havada süzülüyordu. Yumruğunu bıçaklıya doğrulttu, ne yaptığını biliyor gibiydi. Silah gibi ateşledi kolunu Nokta. Yumruğundan siyah bir mürekkep topu fırladı; kurşun gibi ama el boyutunda. Neyden olduğu belirsizdi fakat gören mürekkep sanardı. Top, hızla haydudu vurdu, etrafını sardı, kavradı, çevreledi ve içine alarak büyük bir noktaya dönüştü. Ardından giderek küçüldü. “Güzel,” dedi Nokta, “bu suça bi' nokta koymanın zamanı gelmişti.”</p>
+            </div>
+          </div>
+          <button class="yt" type="button" data-yt="s2BFlN5_l6Y" aria-label="Bölüm 0: Sıfır Noktası, videoyu oynat"></button>
+        </article>
+
+        <article class="episode">
+          <div class="ep-no">1</div>
+          <div>
+            <h4><span data-l="tr">Garip Bir His</span><span data-l="en">A Strange Feeling</span></h4>
+            <div class="prose" lang="tr">
+              <p>Zıpladı Nokta, havada dönüştü Dotto. Tanıyanlar ona böyle seslenirdi. Kendisi de severdi bu ismi; farklı hissettirirdi. Biz de onu öyle analım. Hava bariyerini aşarak uçtu Dotto, kilometrelerce. Aniden durdu. Garip bir his oluşmuştu içinde, tanıdık bir his. Bu kayada bir terslik vardı. Rüzgâr farklı esiyordu sanki etrafında. Bir süre baktı, sonra bir ses işitti. Kilometrelerce arkasından gelmişti bu ses. Klavye sesi… Gitmesi gerektiğini hissetti. Yanlışlık sezmişti.</p>
+              <p>Bu sırada Dotto'nun karşısında, masa başında bilgisayarına bir şeyler yazan bir çocuk vardı. Çocuğun klavyesiyle yazdıkları, Dotto'nun gözünün önünde beliriyordu: “Bunları biliyor muydunuz? Tüm kelebeklerin ömrü 1 günd-” Tam cümlesini yazmayı bitirecekken Dotto elini kaldırdı: “Dur!” Açıp doğrulttuğu avucunun etrafında halkalar oluşmaya başladı. Dotto konuştu: “Bazıları 1-2 aya kadar yaşayabilir. Bu eksik bilgiyi noktalamanın vakti gelmişti.”</p>
+            </div>
+          </div>
+          <button class="yt" type="button" data-yt="5V6Long-QcQ" aria-label="Bölüm 1: Garip Bir His, videoyu oynat"></button>
+        </article>
+
+        <article class="episode">
+          <div class="ep-no">2</div>
+          <div>
+            <h4><span data-l="tr">Eski Bir Dost</span><span data-l="en">An Old Friend</span></h4>
+            <div class="prose" lang="tr">
+              <p>“Cümle yazdı bir el. Birden fazla cümle yazdı, cümleler oldu. Cümlelerin sonlarına noktalar koydu; yargı belirtiyordu çünkü cümleler. Bu noktalar arttıkça arttı. Sonunda bunların birinden çıktı Dotto ve düşmanı.” Bu cümleleri yazdı el ve gerçekten de dediği gibi oldu. Yumruklaşarak çıktılar. Büyüyerek çıktılar. Dövüşerek uzaklaştılar yazı yazan elden. Yılların dostluğu, ebedî bir düşmanlığa mı dönüşmüştü? Neden ölümcül bir kavgadaydı Nokta ve Virgül?</p>
+              <p>(Dokuz yıl sonra, günümüz.) Terk edilmiş bir fabrika. Gece vakti, yağmurlu. Kapüşonlu bir adam kapının kilidini açtı. Yüzü görünmüyordu; sadece sakalı gibi görünen siyah bir çıkıntı, çenesinin olması gerektiği yerde belli oluyordu.</p>
+            </div>
+          </div>
+          <button class="yt" type="button" data-yt="5WFHDjvMZb0" aria-label="Bölüm 2: Eski Bir Dost, videoyu oynat"></button>
+        </article>
+
+        <article class="episode">
+          <div class="ep-no">3</div>
+          <div>
+            <h4><span data-l="tr">Dünya Düzeni</span><span data-l="en">World Order</span></h4>
+            <div class="prose" lang="tr">
+              <p>İçinde yaşadığımız dünyanın öyle ya da böyle bir düzeni var. Bu süregelimde insan; anlatmaya, çizmeye, yazmaya devam etti. Yazarken cümleler kurduk ve noktalamalar kullandık. Bu noktalamalar zaman içinde yoğruldular. Yazılanlara ve dolayısıyla yaşananlara şahitlik ettiler. Şahitlikleri onların cansız şekillerinde anlamsız kaldı. Peki, gerçekten öyle mi oldu?</p>
+              <p>Bir zamanlar evlat, babam bana bu kullandığımız noktalamaların canlı olduğu hikâyeler anlatırdı. Hepsinin kendine has karakterleri, özellikleri vardı. Onları, şimdiye dek yazılmış her esere bir şekilde şahit olmaları sebebiyle istisnai bir farkındalık sahibi olarak hayal eder, hepsine öznel motivasyonlar kurardı. Sen nasıl edersin bilmem ama ben bu hikâyeleri sadece kurgusal öyküler olarak düşünmezdim.</p>
+            </div>
+          </div>
+          <button class="yt" type="button" data-yt="KvR2XXrnXxA" aria-label="Bölüm 3: Dünya Düzeni, videoyu oynat"></button>
+        </article>
+
+        <article class="episode">
+          <div class="ep-no">4</div>
+          <div>
+            <h4><span data-l="tr">Kayıp Dostun Gölgesi</span><span data-l="en">Shadow of a Lost Friend</span></h4>
+            <div class="prose" lang="tr">
+              <p>Noktadan virgüle, virgülden insan biçimine dönüştü düşünce. Dönüşürken biraz kıvrandı. “Ahh… Merhaba, eski dostum. Uzun zaman oldu. Bu an hiç gelmeyecek sanmıştım.” Dotto şaşkındı, donakaldı. “Hayalet görmüş gibisin.” Dotto'nun şaşkınlığı yerini meraka bırakmıştı. “Ne sandın, öldüğümü falan mı? Hayır, Dotto. Son yaşadıklarımızdan sonra ben de öyle sanmıştım. Ama sanırım ikimiz de doğamı unutmuşuz, öyle değil mi? Senin aksine ben, devam ettirmek için varım.” Havalandı. Toz ve dumandan kaskı oluştu, parladı. “…yarım kalmış işlerim var.” Dotto ona doğru uçtu. Kaybolmadan yetişemedi.</p>
+              <p>Bir yere uçtu Dotto. Sakladığı bir şeyi bir yerden çıkardı. Çıkardığı deftere şunları yazdı: “Söyle bana seni nasıl çağırırlar gecenin Plütonlu kıyısından? Dedi kuzgun: ‘Asla!’”</p>
+            </div>
+          </div>
+          <button class="yt" type="button" data-yt="Nv-8p2e4aio" aria-label="Bölüm 4: Kayıp Dostun Gölgesi, videoyu oynat"></button>
+        </article>
+
+        <article class="episode">
+          <div class="ep-no">5</div>
+          <div>
+            <h4><span data-l="tr">Cümle Âlem Toplandı</span><span data-l="en">The Whole Sentence</span></h4>
+            <div class="prose" lang="tr">
+              <p>Cümle âlem toplandı! Dotto'nun çağrısını alınca yola çıkmış olan Rex, geçerli bir maruzatı olsa bile geç kaldığı için Quinna'dan azar işitmekten kurtulamaz. Antidot'un yeni bir silgi cihazı ürettiğinin farkına varan Noktalamalar, artık büyük bir tehditle karşı karşıyadır. Peki bu işin arkasında Paus olabilir mi? Yani… son sahnede ona bi' göz kırptığımıza göre gayet muhtemel.</p>
+            </div>
+          </div>
+          <button class="yt" type="button" data-yt="a87W0nHkKag" aria-label="Bölüm 5: Cümle Âlem Toplandı, videoyu oynat"></button>
+        </article>
+
+        <article class="episode">
+          <div class="ep-no">I</div>
+          <div>
+            <h4><span data-l="tr">Fasikül I, tek parça</span><span data-l="en">Issue I, in one piece</span></h4>
+            <div class="prose">
+              <p data-l="tr">Dotto•Man evreninin 0'dan 5'e kadar olan ilk bölümleri tek parça halinde. Noktanın kendine geldiği, kardeşlerini aramaya başladığı ve gelecek olanın anlamını kavramaya yönelik ilk adımlarını attığı bu hikâyede her şey bir noktayla başlıyor.</p>
+              <p data-l="en">Episodes 0 to 5 of the Dotto•Man universe in one piece. The dot comes to itself, starts looking for its siblings, and takes its first steps toward understanding what is coming. Everything starts with a dot.</p>
+            </div>
+          </div>
+          <button class="yt" type="button" data-yt="f0OObCAaUVg" aria-label="Fasikül I tek parça, videoyu oynat"></button>
+        </article>
+
+        <div class="notes">
+          <p class="label"><span data-l="tr">fasikül notları</span><span data-l="en">issue notes</span></p>
+          <ul data-l="tr">
+            <li><span class="nokta"></span>5. bölümün çıkmasıyla serinin ilk fasikülü tamamlandı: “Cümle”.</li>
+            <li><span class="nokta"></span>Her beş bölümde bir final yapacak sezonlara “fasikül” adını verdim.</li>
+            <li><span class="nokta"></span>Bu evrende geçen ve Rex'i merkezine alan bir oyun geliştiriyorum.</li>
+            <li><span class="nokta"></span>Evren içinde yeni isimlendirmeler yaptım: Nokta – Dotto, Ünlem – Rex, Soru – Quinna, Virgül – Paus.</li>
+            <li><span class="nokta"></span>Bu evren lore'uyla, animasyonuyla, oyunuyla ve belki de çizgi romanlarıyla genişlemeye devam edecek. Katkıda bulunmayı düşünürseniz iletişime geçmekten çekinmeyin. Nokta.</li>
+          </ul>
+          <ul data-l="en">
+            <li><span class="nokta"></span>With episode 5, the first issue of the series is complete: “Sentence”.</li>
+            <li><span class="nokta"></span>I call the seasons, each ending with a finale every five episodes, “issues” (fasikül).</li>
+            <li><span class="nokta"></span>I’m developing a game set in this universe, centred on Rex.</li>
+            <li><span class="nokta"></span>New in-universe names: Dot – Dotto, Exclamation – Rex, Question – Quinna, Comma – Paus.</li>
+            <li><span class="nokta"></span>The universe will keep growing through lore, animation, a game and maybe comics. If you’d like to contribute, get in touch. Period.</li>
+          </ul>
+          <p class="aside" data-l="tr">not: olsa çok iyi olacak olmasına rağmen bu bir silgi reklamı değildir. ama olabilir, ilgilenen markalar dm.</p>
+          <p class="aside" data-l="en">note: as great as it would be, this is not an eraser ad. but it could be; interested brands, DM.</p>
+        </div>
+
+        <!-- FASİKÜL II -->
+        <div class="fasikul-head">
+          <h3><span data-l="tr">Fasikül II</span><span data-l="en">Issue II</span></h3>
+          <span class="label"><span data-l="tr">yayında</span><span data-l="en">airing</span></span>
+        </div>
+
+        <article class="episode">
+          <div class="ep-no">1</div>
+          <div>
+            <h4><span data-l="tr">Silgi Tozu</span><span data-l="en">Eraser Dust</span></h4>
+            <div class="prose">
+              <p data-l="tr">Karayazı'nın ıssız sokaklarında yankılanan “bilinmeyen” fısıltıları, hiyeroglifleri amansız bir pusuya doğru sürüklüyor; yere saçılmış silgi tozları, mürekkebin en kadim düşmanıyla yüzleşmek üzere olduğunu müjdeliyor.</p>
+              <p data-l="en">“Unknown” whispers echoing through the empty streets of Karayazı drag the hieroglyphs toward a merciless ambush; eraser dust scattered on the ground announces that ink is about to face its oldest enemy.</p>
+            </div>
+          </div>
+          <button class="yt" type="button" data-yt="R5LXWQ7DCUE" aria-label="Fasikül II Bölüm 1: Silgi Tozu, videoyu oynat"></button>
+        </article>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="section" id="galeri">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="glyph" aria-hidden="true">※</span>
+          <h2><span data-l="tr">Galeri</span><span data-l="en">Gallery</span></h2>
+          <span class="label"><span data-l="tr">7 kare</span><span data-l="en">7 frames</span></span>
+        </div>
+
+        <div class="gallery">
+          <figure class="wide">
+            <a href="https://dottoman.com/images/gallery/1.png" target="_blank" rel="noopener"><img src="https://dottoman.com/images/gallery/1.png" alt="Dotto•Man bölüm karesi" width="1920" height="1080" loading="lazy" /></a>
+            <figcaption><span class="label">01</span><span class="label"><span data-l="tr">bölüm karesi</span><span data-l="en">episode frame</span></span></figcaption>
+          </figure>
+          <figure class="wide">
+            <a href="https://dottoman.com/images/gallery/3.png" target="_blank" rel="noopener"><img src="https://dottoman.com/images/gallery/3.png" alt="Mürekkebin ardından: yapım görseli" width="1920" height="1080" loading="lazy" /></a>
+            <figcaption><span class="label">02</span><span class="label"><span data-l="tr">mürekkebin ardı</span><span data-l="en">behind the ink</span></span></figcaption>
+          </figure>
+          <figure class="wide">
+            <a href="https://dottoman.com/images/gallery/4.png" target="_blank" rel="noopener"><img src="https://dottoman.com/images/gallery/4.png" alt="Karakter tasarımı" width="1920" height="1080" loading="lazy" /></a>
+            <figcaption><span class="label">03</span><span class="label"><span data-l="tr">karakter tasarımı</span><span data-l="en">character design</span></span></figcaption>
+          </figure>
+          <figure class="wide">
+            <a href="https://dottoman.com/images/gallery/8.png" target="_blank" rel="noopener"><img src="https://dottoman.com/images/gallery/8.png" alt="Final sahnesi" width="1638" height="2048" loading="lazy" style="object-position: center 20%" /></a>
+            <figcaption><span class="label">04</span><span class="label"><span data-l="tr">final sahnesi</span><span data-l="en">final scene</span></span></figcaption>
+          </figure>
+          <figure class="wide">
+            <a href="https://dottoman.com/images/gallery/5.png" target="_blank" rel="noopener"><img src="https://dottoman.com/images/gallery/5.png" alt="Storyboard örneği" width="2556" height="1179" loading="lazy" /></a>
+            <figcaption><span class="label">05</span><span class="label">storyboard</span></figcaption>
+          </figure>
+          <figure class="wide">
+            <a href="https://dottoman.com/images/gallery/6.png" target="_blank" rel="noopener"><img src="https://dottoman.com/images/gallery/6.png" alt="Renk paleti" width="2556" height="1179" loading="lazy" /></a>
+            <figcaption><span class="label">06</span><span class="label"><span data-l="tr">renk paleti</span><span data-l="en">colour palette</span></span></figcaption>
+          </figure>
+          <figure class="wide">
+            <a href="https://dottoman.com/images/gallery/7.png" target="_blank" rel="noopener"><img src="https://dottoman.com/images/gallery/7.png" alt="Animasyon karesi" width="2556" height="1179" loading="lazy" /></a>
+            <figcaption><span class="label">07</span><span class="label"><span data-l="tr">animasyon karesi</span><span data-l="en">animation frame</span></span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="hakkinda">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="glyph" aria-hidden="true">@</span>
+          <h2><span data-l="tr">Hakkında</span><span data-l="en">About</span></h2>
+          <span class="label"><span data-l="tr">yazar</span><span data-l="en">author</span></span>
+        </div>
+
+        <div class="about">
+          <img src="https://dottoman.com/images/AePhoto2.png" alt="Alper Erdinç" width="596" height="867" loading="lazy" />
+          <div>
+            <h3>Alper Erdinç</h3>
+            <p class="label roles">
+              <span data-l="tr">oyun geliştirici &amp; tasarımcı · 2D animatör · bilgisayar mühendisliği mezunu</span>
+              <span data-l="en">game developer &amp; designer · 2D animator · computer engineering graduate</span>
+            </p>
+            <div class="prose">
+              <p data-l="tr">Dotto•Man'in yazarı, çizeri ve animatörü. Unity ve C# ile oyun geliştiriyorum; mobil oyunum Dotto: Block Breaker Google Play'de yayında, şu anda da bu evrende geçen ve Rex'i merkezine alan bir oyun üzerinde çalışıyorum.</p>
+              <p data-l="en">Writer, artist and animator of Dotto•Man. I make games with Unity and C#; my mobile game Dotto: Block Breaker is out on Google Play, and I’m now working on a game set in this universe, centred on Rex.</p>
+            </div>
+            <div class="about-links" lang="en">
+              <a href="https://alpererdinc.github.io/" target="_blank" rel="noopener">alpererdinc.github.io</a>
+              <a href="mailto:ae.alpererdinc@gmail.com">ae.alpererdinc@gmail.com</a>
+              <a href="https://www.youtube.com/@alpererdinc47" target="_blank" rel="noopener">YouTube</a>
+              <a href="https://www.instagram.com/dottomanimation/" target="_blank" rel="noopener">@dottomanimation</a>
+              <a href="https://www.instagram.com/alperd.inc/" target="_blank" rel="noopener">@alperd.inc</a>
+              <a href="https://www.linkedin.com/in/alpererdinc47/" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="iletisim">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="glyph" aria-hidden="true">✉</span>
+          <h2><span data-l="tr">İletişim</span><span data-l="en">Contact</span></h2>
+          <span class="label">§ 07</span>
+        </div>
+
+        <div class="contact">
+          <div class="prose">
+            <p data-l="tr">Sponsorluk, iş birliği ya da bu evrene dair bir fikir için yazabilirsiniz. Bir selam verin, konuşalım.</p>
+            <p data-l="en">Write about sponsorship, collaboration, or an idea for this universe. Say hello, let’s talk.</p>
+            <p class="label ep-note">
+              <span data-l="tr">Form çalışmazsa</span><span data-l="en">If the form fails,</span>
+              <a class="text-link"
+                href="https://docs.google.com/forms/d/e/1FAIpQLScLqgcQuryLJsp0JWkoV0NIS2dMe2x4g6Cf2iumDaPq2lEHKw/viewform"
+                target="_blank" rel="noopener">Google Form</a>
+            </p>
+          </div>
+
+          <form class="form" id="contactForm" action="https://formspree.io/f/mgobwvgg" method="POST">
+            <label class="field">
+              <span class="label"><span data-l="tr">adınız</span><span data-l="en">your name</span></span>
+              <input type="text" name="name" required autocomplete="name" />
+            </label>
+            <label class="field">
+              <span class="label"><span data-l="tr">e-posta</span><span data-l="en">e-mail</span></span>
+              <input type="email" name="email" required autocomplete="email" />
+            </label>
+            <label class="field full">
+              <span class="label"><span data-l="tr">konu</span><span data-l="en">subject</span></span>
+              <input type="text" name="subject" required />
+            </label>
+            <label class="field full">
+              <span class="label"><span data-l="tr">mesajınız</span><span data-l="en">your message</span></span>
+              <textarea name="message" required></textarea>
+            </label>
+            <div class="form-foot">
+              <button class="btn btn-red" type="submit">
+                <span data-l="tr">Gönder bakalım</span><span data-l="en">Send it</span> →
+              </button>
+              <span class="form-status" id="formStatus" role="status" aria-live="polite"></span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <span class="end">Nokta<span class="nokta"></span></span>
+      <span class="label">© 2026 Alper Erdinç · Dotto•Man</span>
+      <a class="text-link" href="../dottoman.html"><span data-l="tr">← portfolyodaki proje sayfası</span><span data-l="en">← project page in the portfolio</span></a>
+    </div>
+  </footer>
+
+  <script src="script.js?v=1"></script>
+</body>
+
+</html>
