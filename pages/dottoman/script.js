@@ -47,7 +47,8 @@
     if (modeBtn) modeBtn.textContent = mode === "ink" ? "☼" : "☾";
   }
 
-  setMode(store.get("dotto-mode") === "paper" ? "paper" : "ink");
+  // paper (cream, black ink) is the default look, like the logo
+  setMode(store.get("dotto-mode") === "ink" ? "ink" : "paper");
   if (modeBtn) {
     modeBtn.addEventListener("click", () => setMode(root.dataset.mode === "ink" ? "paper" : "ink"));
   }
