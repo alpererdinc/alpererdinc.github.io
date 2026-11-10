@@ -56,10 +56,10 @@
 
   const faviconColors = usesAnalogSkin
     ? {
-      orange: "#e0442a",
-      blue: "#4f86c6",
-      purple: "#c9558f",
-      green: "#8fc25a"
+      orange: "#d23b2b",
+      blue: "#2aa198",
+      purple: "#b5508c",
+      green: "#7fae4f"
     }
     : {
       orange: "#ff7a1a",
