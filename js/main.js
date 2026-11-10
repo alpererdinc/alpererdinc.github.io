@@ -211,6 +211,49 @@
     setInterval(tick, 1000);
   }
 
+  /* ── DRUM: twelve-animal calendar marks the current year ── */
+  const drumWedge = document.getElementById("drumWedge");
+  const drumYear = document.getElementById("drumYear");
+
+  if (drumWedge && drumYear) {
+    const animals = [
+      ["sıçgan", "fare", "mouse"],
+      ["ud", "sığır", "ox"],
+      ["bars", "pars", "leopard"],
+      ["tavışgan", "tavşan", "hare"],
+      ["lü", "ejderha", "dragon"],
+      ["yılan", "yılan", "snake"],
+      ["yunt", "at", "horse"],
+      ["koñ", "koyun", "sheep"],
+      ["biçin", "maymun", "monkey"],
+      ["takagu", "tavuk", "hen"],
+      ["it", "köpek", "dog"],
+      ["toñuz", "domuz", "pig"]
+    ];
+
+    const year = new Date().getFullYear();
+    const index = (((year - 2020) % 12) + 12) % 12; // 2020 was a sıçgan year
+
+    drumWedge.setAttribute("transform", `rotate(${index * 30} 160 160)`);
+
+    document.querySelectorAll("#drum .animal").forEach((el) => {
+      el.classList.toggle("on", Number(el.dataset.animal) === index);
+    });
+
+    const renderDrumYear = () => {
+      const [name, tr, en] = animals[index];
+      drumYear.textContent = lang === "tr"
+        ? `${year} · ${name} (${tr}) yılı`
+        : `${year} · year of the ${name} (${en})`;
+    };
+
+    renderDrumYear();
+
+    if (toggleBtn) {
+      toggleBtn.addEventListener("click", renderDrumYear);
+    }
+  }
+
   /* ── HAMBURGER ── */
   const hamburger = document.getElementById("navHamburger");
   const mobileMenu = document.getElementById("mobileMenu");
