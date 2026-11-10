@@ -79,9 +79,8 @@
       <div class="badge" data-tr="oyun / hypercasual / staj" data-en="game / hypercasual / internship">oyun / hypercasual / staj</div>
       <h1 lang="en">DiveAlamut</h1>
       <p class="lead"
-        data-tr="Alamut temalı dönen platformlarda güvenli boşlukları bul, momentum kazan ve Smash Mode ile tehlikeleri parçalayarak aşağı dal."
-        data-en="Find safe openings across Alamut-themed rotating platforms, build momentum, and dive through hazards with Smash Mode.">
-        Alamut temalı dönen platformlarda güvenli boşlukları bul, momentum kazan ve Smash Mode ile tehlikeleri parçalayarak aşağı dal.
+        data-tr="Kuleyi döndür, boşluğu bul, aşağı dal. Yeterince hız topladığında Smash Mode açılıyor ve tehlikeli platformlar bir süreliğine senin değil, onların sorunu oluyor." data-en="Spin the tower, find the gap, dive. Build enough speed and Smash Mode kicks in; for a while the dangerous platforms become their problem, not yours.">
+        Kuleyi döndür, boşluğu bul, aşağı dal. Yeterince hız topladığında Smash Mode açılıyor ve tehlikeli platformlar bir süreliğine senin değil, onların sorunu oluyor.
       </p>
     </div>
   </section>
@@ -105,17 +104,15 @@
 
     <h2 data-tr="özet" data-en="overview">özet</h2>
     <p
-      data-tr="DiveAlamut, Upperpik stajında geliştirdiğim ilk mobil hypercasual projeydi. Helix Jump benzeri dönen platform ve düşüş mekaniğini, klasik renkli kule estetiği yerine Alamut ve Haşhaşi temasına taşıdım. Oyuncu aşağı düşen bir suikastçıyı güvenli boşluklardan geçirir; tehlikeli segmentlere çarptığında run sona erer."
-      data-en="DiveAlamut was the first mobile hypercasual project I developed during my internship at Upperpik. I reinterpreted a Helix Jump-style rotating-platform descent through an Alamut and Assassins theme instead of the familiar colorful tower aesthetic. The player guides a falling assassin through safe openings; hitting a hazardous segment ends the run.">
-      DiveAlamut, Upperpik stajında geliştirdiğim ilk mobil hypercasual projeydi. Helix Jump benzeri dönen platform ve düşüş mekaniğini, klasik renkli kule estetiği yerine Alamut ve Haşhaşi temasına taşıdım. Oyuncu aşağı düşen bir suikastçıyı güvenli boşluklardan geçirir; tehlikeli segmentlere çarptığında run sona erer.
-    </p>
+      data-tr="Upperpik'teki stajımda yaptığım ilk mobil hypercasual oyun. Helix Jump tarzı dönen kule ve düşüş mekaniğini aldım; renkli şeker kulesi görünümü yerine Alamut kalesine ve Haşhaşi temasına taşıdım. Aşağı süzülen bir suikastçıyı güvenli boşluklardan geçiriyorsun; yanlış segmente değdiğin an suikast iptal." data-en="My first mobile hypercasual game, made during my internship at Upperpik. I took the Helix Jump style spinning tower and fall, and moved it from a candy-coloured tower to the fortress of Alamut and its Hashashin. You guide a falling assassin through the safe gaps; touch the wrong segment and the assassination is off.">
+        Upperpik'teki stajımda yaptığım ilk mobil hypercasual oyun. Helix Jump tarzı dönen kule ve düşüş mekaniğini aldım; renkli şeker kulesi görünümü yerine Alamut kalesine ve Haşhaşi temasına taşıdım. Aşağı süzülen bir suikastçıyı güvenli boşluklardan geçiriyorsun; yanlış segmente değdiğin an suikast iptal.
+      </p>
 
     <h2 data-tr="rolüm" data-en="my role">rolüm</h2>
     <p
-      data-tr="Temel gameplay loop'un kurulması, fizik ve collision davranışları, game state yönetimi, mobil input, responsive arayüz ve kısa sürede oynanabilir bir prototipin polish edilmesi üzerinde çalıştım. Assassin karakteri, tematik platformlar, ses ve particle geri bildirimleriyle mekanikleri okunaklı ve tatmin edici hâle getirdim."
-      data-en="I worked on establishing the core gameplay loop, physics and collision behavior, game-state management, mobile input, responsive UI, and polishing a playable prototype within a short development cycle. I used the assassin character, themed platforms, audio, and particle feedback to make the mechanics readable and satisfying.">
-      Temel gameplay loop'un kurulması, fizik ve collision davranışları, game state yönetimi, mobil input, responsive arayüz ve kısa sürede oynanabilir bir prototipin polish edilmesi üzerinde çalıştım. Assassin karakteri, tematik platformlar, ses ve particle geri bildirimleriyle mekanikleri okunaklı ve tatmin edici hâle getirdim.
-    </p>
+      data-tr="Temel oyun döngüsünü kurdum; fizik ve çarpışma davranışlarını, oyun durumlarını, mobil dokunmatik kontrolleri ve farklı ekranlara uyan arayüzü yazdım. Sonra kısa sürede oynanabilir hale gelen prototipi parlattım: suikastçı karakteri, temaya uygun platformlar, ses ve particle efektleriyle her düşüşün okunaklı ve tatmin edici hissettirmesine uğraştım." data-en="I built the core loop and wrote the physics and collision behaviour, the game states, the touch controls and a UI that fits different screens. Then I polished the quickly playable prototype: with the assassin character, themed platforms, sound and particles, I worked on making every drop readable and satisfying.">
+        Temel oyun döngüsünü kurdum; fizik ve çarpışma davranışlarını, oyun durumlarını, mobil dokunmatik kontrolleri ve farklı ekranlara uyan arayüzü yazdım. Sonra kısa sürede oynanabilir hale gelen prototipi parlattım: suikastçı karakteri, temaya uygun platformlar, ses ve particle efektleriyle her düşüşün okunaklı ve tatmin edici hissettirmesine uğraştım.
+      </p>
 
     <h2 data-tr="temel oyun döngüsü" data-en="core gameplay loop">temel oyun döngüsü</h2>
     <div class="game-loop">
@@ -174,7 +171,9 @@
         <span class="system-card-kicker" data-tr="akış kontrolü" data-en="flow control">akış kontrolü</span>
         <h3>Game State</h3>
         <code class="architecture-line">WaitingToStart / Playing / GameOver / LevelComplete</code>
-        <p data-tr="Input, fizik, arayüz ve sonuç ekranlarının yalnızca doğru oyun durumunda çalışmasını sağlayan açık state yönetimi." data-en="Explicit state management ensures that input, physics, UI, and result screens operate only in the correct game state.">Input, fizik, arayüz ve sonuç ekranlarının yalnızca doğru oyun durumunda çalışmasını sağlayan açık state yönetimi.</p>
+        <p data-tr="Input, fizik, arayüz ve sonuç ekranları sadece doğru oyun durumundayken çalışıyor. Yani düşmüş bir suikastçı ekrana dokununca tekrar zıplayamıyor." data-en="Input, physics, UI and result screens only run in the right game state. In other words, a fallen assassin can't tap the screen and jump again.">
+        Input, fizik, arayüz ve sonuç ekranları sadece doğru oyun durumundayken çalışıyor. Yani düşmüş bir suikastçı ekrana dokununca tekrar zıplayamıyor.
+      </p>
       </article>
 
       <article class="system-card">
@@ -193,18 +192,24 @@
       <article class="system-card">
         <span class="system-card-kicker" data-tr="görsel kimlik" data-en="visual identity">görsel kimlik</span>
         <h3 data-tr="Alamut / Haşhaşi teması" data-en="Alamut / Assassins theme">Alamut / Haşhaşi teması</h3>
-        <p data-tr="Klasik renkli hypercasual kule görünümü yerine Assassin karakter modeli ve temaya uygun platform görselleri kullanıldı." data-en="The familiar colorful hypercasual tower look was replaced with an assassin character model and platform visuals designed around the theme.">Klasik renkli hypercasual kule görünümü yerine Assassin karakter modeli ve temaya uygun platform görselleri kullanıldı.</p>
+        <p data-tr="Klasik renkli hypercasual kule yerine suikastçı karakter modeli ve temaya uygun platform görselleri kullandım." data-en="Instead of the usual colourful hypercasual tower, I used an assassin character model and platforms that fit the theme.">
+        Klasik renkli hypercasual kule yerine suikastçı karakter modeli ve temaya uygun platform görselleri kullandım.
+      </p>
       </article>
       <article class="system-card">
         <span class="system-card-kicker" data-tr="arayüz" data-en="interface">arayüz</span>
         <h3 data-tr="responsive deneyim" data-en="responsive experience">responsive deneyim</h3>
-        <p data-tr="Mobil UI farklı ekran oranlarına göre düzenlendi; PC görünümü ve mobil build üzerinde kamera, kadraj ve arayüz uyumu test edildi." data-en="The mobile UI was adapted to different aspect ratios; camera framing and interface behavior were tested across PC views and mobile builds.">Mobil UI farklı ekran oranlarına göre düzenlendi; PC görünümü ve mobil build üzerinde kamera, kadraj ve arayüz uyumu test edildi.</p>
+        <p data-tr="Arayüzü farklı ekran oranlarına göre düzenledim; kamera, kadraj ve UI'ı hem PC görünümünde hem mobil build'de test ettim." data-en="I laid out the UI for different aspect ratios and tested the camera, framing and UI both in the PC view and on a mobile build.">
+        Arayüzü farklı ekran oranlarına göre düzenledim; kamera, kadraj ve UI'ı hem PC görünümünde hem mobil build'de test ettim.
+      </p>
       </article>
     </div>
 
     <div class="engineering-note">
       <span data-tr="stajdaki kazanım" data-en="internship outcome">stajdaki kazanım</span>
-      <p data-tr="DiveAlamut; core gameplay, collision, game state ve mobil kontrol konularında temelimi güçlendirdi. Kısa geliştirme süresinde çalışan bir prototipi, ses, efekt, karakter, tema ve responsive arayüzle sunulabilir bir mobil deneyime dönüştürme pratiği kazandırdı." data-en="DiveAlamut strengthened my foundations in core gameplay, collision handling, game states, and mobile controls. It gave me practical experience turning a working prototype into a presentable mobile experience through audio, effects, character art, theme, and responsive UI within a short development cycle.">DiveAlamut; core gameplay, collision, game state ve mobil kontrol konularında temelimi güçlendirdi. Kısa geliştirme süresinde çalışan bir prototipi, ses, efekt, karakter, tema ve responsive arayüzle sunulabilir bir mobil deneyime dönüştürme pratiği kazandırdı.</p>
+      <p data-tr="DiveAlamut bana oyunun omurgasını öğretti: core gameplay, çarpışma, oyun durumları ve mobil kontrol. Kısa sürede çalışan bir prototipi ses, efekt, karakter ve temayla gerçekten oynanan bir mobil oyuna çevirmeyi de burada denedim." data-en="DiveAlamut taught me a game's backbone: core gameplay, collision, game states and mobile controls. It's also where I first turned a quick working prototype into a mobile game people actually play, with sound, effects, a character and a theme.">
+        DiveAlamut bana oyunun omurgasını öğretti: core gameplay, çarpışma, oyun durumları ve mobil kontrol. Kısa sürede çalışan bir prototipi ses, efekt, karakter ve temayla gerçekten oynanan bir mobil oyuna çevirmeyi de burada denedim.
+      </p>
     </div>
 
     <h2 data-tr="çalışma alanları" data-en="areas of work">çalışma alanları</h2>
@@ -233,7 +238,7 @@
     <div class="footer-right" lang="en">personal portfolio</div>
   </footer>
   <button class="scroll-top" id="scrollTopBtn" aria-label="Sayfanın başına dön">▲</button>
-  <script src="../js/main.js?v=analog6"></script>
+  <script src="../js/main.js?v=analog7"></script>
 </body>
 
 </html>

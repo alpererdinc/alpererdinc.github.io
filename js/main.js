@@ -334,19 +334,6 @@
     cards.forEach((card) => observer.observe(card));
   }
 
-  /* ── WOBBLE ON LOGO HOVER ── */
-  const logo = document.querySelector(".nav-logo");
-
-  if (logo) {
-    logo.addEventListener("mouseenter", () => {
-      logo.style.transform = "translate(-1px,-1px) rotate(-2deg)";
-    });
-
-    logo.addEventListener("mouseleave", () => {
-      logo.style.transform = "";
-    });
-  }
-
   /* ── SCROLL TO TOP BUTTON ── */
   const scrollTopBtn = document.getElementById("scrollTopBtn");
 
