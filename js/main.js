@@ -74,12 +74,21 @@
     pageMode = "night";
   }
 
-  const faviconColors = {
-    orange: "#ff7a1a",
-    blue: "#4aa3ff",
-    purple: "#b987ff",
-    green: "#56d68a"
-  };
+  const usesAnalogSkin = !!document.querySelector('link[href*="analog.css"]');
+
+  const faviconColors = usesAnalogSkin
+    ? {
+      orange: "#e0442a",
+      blue: "#4f86c6",
+      purple: "#c9558f",
+      green: "#8fc25a"
+    }
+    : {
+      orange: "#ff7a1a",
+      blue: "#4aa3ff",
+      purple: "#b987ff",
+      green: "#56d68a"
+    };
 
   function getCssVar(name, fallback = "") {
     const value = getComputedStyle(document.documentElement)
@@ -208,6 +217,21 @@
   applyColorTheme(colorTheme);
   applyPageMode(pageMode);
   applyLang(lang);
+
+  /* ── LCD CLOCK (analog skin) ── */
+  const navClock = document.getElementById("navClock");
+
+  if (navClock) {
+    const tick = () => {
+      const now = new Date();
+      const hh = String(now.getHours()).padStart(2, "0");
+      const mm = String(now.getMinutes()).padStart(2, "0");
+      navClock.textContent = `${hh}${now.getSeconds() % 2 ? " " : ":"}${mm}`;
+    };
+
+    tick();
+    setInterval(tick, 1000);
+  }
 
   /* ── HAMBURGER ── */
   const hamburger = document.getElementById("navHamburger");
