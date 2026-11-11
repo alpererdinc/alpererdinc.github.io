@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Mansalva&family=Caveat:wght@500;700&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Courier+Prime&display=swap" />
-  <link rel="stylesheet" href="style.css?v=10" />
+  <link rel="stylesheet" href="style.css?v=14" />
 </head>
 
 <body>
@@ -57,7 +57,7 @@
 
           <h1 class="hero-logo"><img class="logo-ink" src="img/dottoman-logo-ink.png?v=2" alt="Dotto•Man" width="1875" height="483" /><img class="logo-bone" src="img/dottoman-logo-bone.png?v=2" alt="Dotto•Man" width="1875" height="483" /></h1>
 
-          <p class="tagline" lang="en">Things are <em>getting</em><br />p<span class="drop" aria-hidden="true"></span><span class="sr">o</span>intless.</p>
+          <p class="tagline" lang="en">Things are <em>getting</em><br />p<a class="drop" href="https://www.instagram.com/dottomanimation/" target="_blank" rel="noopener" title="@dottomanimation"><span class="sr" data-l="tr">Dotto•Man Instagram hesabı</span><span class="sr" data-l="en">Dotto•Man on Instagram</span></a><span class="sr">o</span>intless.</p>
 
           <p class="hero-sub">
             <span data-l="tr">Noktalama işaretlerinin canlı olduğu, mürekkep varlıkların kendi cümlelerini kurduğu kişisel animasyon evreni.</span>
@@ -595,6 +595,28 @@ some for her not to.</p>
     </section>
   </main>
 
+  <!-- GALLERY LIGHTBOX: opens on the page instead of a new tab -->
+  <dialog class="lightbox" id="lightbox" aria-labelledby="lbText">
+    <div class="lb-frame">
+      <button class="lb-close" type="button" autofocus>
+        <span data-l="tr">kapat</span><span data-l="en">close</span> ✕
+      </button>
+      <button class="lb-nav lb-prev" type="button">
+        <span aria-hidden="true">‹</span><span class="sr" data-l="tr">önceki</span><span class="sr" data-l="en">previous</span>
+      </button>
+      <figure class="lb-figure">
+        <img class="lb-img" alt="" />
+        <figcaption class="lb-cap">
+          <span class="label lb-count"></span>
+          <span class="label lb-text" id="lbText"></span>
+        </figcaption>
+      </figure>
+      <button class="lb-nav lb-next" type="button">
+        <span aria-hidden="true">›</span><span class="sr" data-l="tr">sonraki</span><span class="sr" data-l="en">next</span>
+      </button>
+    </div>
+  </dialog>
+
   <footer class="footer">
     <div class="wrap footer-inner">
       <span class="end">Nokta<span class="nokta"></span></span>
@@ -603,7 +625,26 @@ some for her not to.</p>
     </div>
   </footer>
 
-  <script src="script.js?v=5"></script>
+  <!-- SECTION TIMELINE: circles joined by a line; the ink fills as you read -->
+  <nav class="rail" id="rail" aria-label="Bölümler">
+    <ol>
+      <li><a href="#bu-ne"><span class="rail-dot" aria-hidden="true"></span><span class="rail-label"><span data-l="tr">bu ne?</span><span data-l="en">what is this?</span></span></a></li>
+      <li><a href="#karakterler"><span class="rail-dot" aria-hidden="true"></span><span class="rail-label"><span data-l="tr">karakterler</span><span data-l="en">characters</span></span></a></li>
+      <li><a href="#fikirler"><span class="rail-dot" aria-hidden="true"></span><span class="rail-label"><span data-l="tr">fikirler</span><span data-l="en">ideas</span></span></a></li>
+      <li><a href="#hikaye"><span class="rail-dot" aria-hidden="true"></span><span class="rail-label"><span data-l="tr">hikâye</span><span data-l="en">story</span></span></a></li>
+      <li><a href="#bolumler"><span class="rail-dot" aria-hidden="true"></span><span class="rail-label"><span data-l="tr">bölümler</span><span data-l="en">episodes</span></span></a></li>
+      <li><a href="#galeri"><span class="rail-dot" aria-hidden="true"></span><span class="rail-label"><span data-l="tr">galeri</span><span data-l="en">gallery</span></span></a></li>
+      <li><a href="#hakkinda"><span class="rail-dot" aria-hidden="true"></span><span class="rail-label"><span data-l="tr">hakkında</span><span data-l="en">about</span></span></a></li>
+      <li><a href="#iletisim"><span class="rail-dot" aria-hidden="true"></span><span class="rail-label"><span data-l="tr">iletişim</span><span data-l="en">contact</span></span></a></li>
+    </ol>
+  </nav>
+
+  <!-- BACK TO TOP -->
+  <a class="to-top" id="toTop" href="#top">
+    <span aria-hidden="true">↑</span><span class="sr" data-l="tr">en üste dön</span><span class="sr" data-l="en">back to top</span>
+  </a>
+
+  <script src="script.js?v=7"></script>
 </body>
 
 </html>
