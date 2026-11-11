@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Barlow+Semi+Condensed:wght@400;500;600&family=Chakra+Petch:wght@500;600;700&family=VT323&display=swap" />
-  <link rel="stylesheet" href="../css/analog.css?v=13" />
+  <link rel="stylesheet" href="../css/analog.css?v=18" />
 </head>
 
 <body>
@@ -104,8 +104,8 @@
       <div class="badge" data-tr="yapay zekâ / COMPUTER VISION" data-en="ai / computer vision">yapay zekâ / computer
         vision</div>
       <h1 lang="en">Vehicle Brand Detection</h1>
-      <p class="lead" data-tr="Bir araba fotoğrafına bakıp markasını tahmin etmeye çalışan bir computer vision projesi." data-en="A computer vision project that looks at a photo of a car and tries to guess the brand.">
-        Bir araba fotoğrafına bakıp markasını tahmin etmeye çalışan bir computer vision projesi.
+      <p class="lead" data-tr="Trafik videosundaki araçları bulup takip eden, markalarını tahmin edip sayan bir computer vision projesi." data-en="A computer vision project that finds and tracks the cars in a traffic video, guesses their brands and counts them.">
+        Trafik videosundaki araçları bulup takip eden, markalarını tahmin edip sayan bir computer vision projesi.
       </p>
     </div>
   </section>
@@ -144,13 +144,34 @@
 
     <h2 data-tr="süreç" data-en="pipeline">süreç</h2>
     <p>
-      <code class="inline-code">görüntü / ön işleme / model / tahmin</code>
+      <code class="inline-code">video / YOLOv8 araç tespiti / ByteTrack takip / MobileNetV2 marka / sayım</code>
     </p>
 
     <h2 data-tr="kapsam" data-en="scope">kapsam</h2>
     <p data-tr="Odak noktası, araç görsellerinden anlamlı özellikler çıkarıp bunlardan marka tahmini üretmek." data-en="The focus is pulling meaningful features out of car images and turning them into a brand prediction.">
         Odak noktası, araç görsellerinden anlamlı özellikler çıkarıp bunlardan marka tahmini üretmek.
       </p>
+
+    <h2 data-tr="ekran görüntüleri" data-en="screenshots">ekran görüntüleri</h2>
+    <p data-tr="Demo iki modda çalışıyor: marka tespiti ve sayım ya da karşılaştırma için yalnızca YOLO. Görsellere tıklayınca büyüyor."
+      data-en="The demo runs in two modes: brand detection with counting, or YOLO only as a baseline. Click a screenshot to enlarge it.">
+      Demo iki modda çalışıyor: marka tespiti ve sayım ya da karşılaştırma için yalnızca YOLO. Görsellere tıklayınca büyüyor.
+    </p>
+
+    <div class="shots">
+      <figure class="shot">
+        <a href="../images/projects/brand-detection/01-demo-app.webp"><img src="../images/projects/brand-detection/01-demo-app.webp" alt="Demo arayüzü: solda ayarlar, ortada yüklenen trafik videosu ve işlenmiş çıktı videosu" width="1600" height="773" loading="lazy" /></a>
+        <figcaption><span class="shot-no">01</span><span data-tr="demo arayüzü · girdi ve çıktı videosu" data-en="demo app · input and output video">demo arayüzü · girdi ve çıktı videosu</span></figcaption>
+      </figure>
+      <figure class="shot">
+        <a href="../images/projects/brand-detection/02-brand-counts.webp"><img src="../images/projects/brand-detection/02-brand-counts.webp" alt="Araçların üzerinde marka etiketleri ve sol üstte markalara göre sayaç" width="1370" height="786" loading="lazy" /></a>
+        <figcaption><span class="shot-no">02</span><span data-tr="marka tespiti ve sayım" data-en="brand detection and counting">marka tespiti ve sayım</span></figcaption>
+      </figure>
+      <figure class="shot">
+        <a href="../images/projects/brand-detection/03-yolo-tracking.webp"><img src="../images/projects/brand-detection/03-yolo-tracking.webp" alt="Marka sınıflandırması olmadan araç tespiti ve takip numaraları" width="1172" height="905" loading="lazy" /></a>
+        <figcaption><span class="shot-no">03</span><span data-tr="yalnızca YOLO · tespit ve takip" data-en="YOLO only · detection and tracking">yalnızca YOLO · tespit ve takip</span></figcaption>
+      </figure>
+    </div>
 
     <h2 data-tr="teknolojiler" data-en="tech stack">teknolojiler</h2>
     <ul lang="en">
@@ -159,6 +180,9 @@
       <li>Keras</li>
       <li>OpenCV</li>
       <li>NumPy</li>
+      <li>YOLOv8</li>
+      <li>ByteTrack</li>
+      <li>MobileNetV2</li>
     </ul>
 
     <div class="project-links">
@@ -182,7 +206,7 @@
   </button>
 
 
-  <script src="../js/main.js?v=analog7"></script>
+  <script src="../js/main.js?v=analog9"></script>
 </body>
 
 </html>

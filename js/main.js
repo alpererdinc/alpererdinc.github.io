@@ -334,6 +334,103 @@
     cards.forEach((card) => observer.observe(card));
   }
 
+  /* ── SCREENSHOT LIGHTBOX: any .shots block gets an on-page viewer ── */
+  const shotFigures = [...document.querySelectorAll(".shots .shot")];
+
+  if (shotFigures.length && typeof HTMLDialogElement === "function") {
+    const t = (tr, en) => (lang === "tr" ? tr : en);
+
+    const lb = document.createElement("dialog");
+    lb.className = "lightbox";
+    lb.innerHTML = `
+      <div class="lb-frame">
+        <button class="lb-close" type="button"></button>
+        <button class="lb-nav lb-prev" type="button"><span aria-hidden="true">‹</span><span class="sr"></span></button>
+        <figure class="lb-figure">
+          <img class="lb-img" alt="" />
+          <figcaption class="lb-cap"><span class="lb-count"></span><span class="lb-text"></span></figcaption>
+        </figure>
+        <button class="lb-nav lb-next" type="button"><span aria-hidden="true">›</span><span class="sr"></span></button>
+      </div>`;
+    document.body.appendChild(lb);
+
+    const lbImg = lb.querySelector(".lb-img");
+    const lbCount = lb.querySelector(".lb-count");
+    const lbText = lb.querySelector(".lb-text");
+    const closeBtn = lb.querySelector(".lb-close");
+    const pad = (n) => String(n).padStart(2, "0");
+    let current = 0;
+
+    function labels() {
+      closeBtn.textContent = t("kapat ✕", "close ✕");
+      lb.querySelector(".lb-prev .sr").textContent = t("önceki", "previous");
+      lb.querySelector(".lb-next .sr").textContent = t("sonraki", "next");
+    }
+
+    function show(index) {
+      current = (index + shotFigures.length) % shotFigures.length;
+      const fig = shotFigures[current];
+      const link = fig.querySelector("a");
+      const img = fig.querySelector("img");
+      const cap = fig.querySelector("figcaption span:last-child");
+
+      // dim while loading; an image that is already there fires no load event
+      const done = () => lbImg.classList.remove("loading");
+      lbImg.classList.add("loading");
+      lbImg.onload = done;
+      lbImg.onerror = done;
+      lbImg.src = link.href;
+      lbImg.alt = img.alt;
+      if (lbImg.complete && lbImg.naturalWidth) done();
+      lbCount.textContent = `${pad(current + 1)} / ${pad(shotFigures.length)}`;
+      lbText.textContent = cap ? cap.textContent.trim() : "";
+
+      [current + 1, current - 1].forEach((i) => {
+        const next = shotFigures[(i + shotFigures.length) % shotFigures.length];
+        new Image().src = next.querySelector("a").href;
+      });
+    }
+
+    shotFigures.forEach((fig, i) => {
+      fig.querySelector("a").addEventListener("click", (event) => {
+        if (event.metaKey || event.ctrlKey || event.shiftKey) return; // keep "open in new tab"
+        event.preventDefault();
+        labels();
+        show(i);
+        lb.showModal();
+        document.body.classList.add("lb-open");
+        closeBtn.focus();
+      });
+    });
+
+    lb.addEventListener("close", () => {
+      document.body.classList.remove("lb-open");
+      shotFigures[current].querySelector("a").focus({ preventScroll: true });
+    });
+
+    closeBtn.addEventListener("click", () => lb.close());
+    lb.querySelector(".lb-prev").addEventListener("click", () => show(current - 1));
+    lb.querySelector(".lb-next").addEventListener("click", () => show(current + 1));
+
+    lb.addEventListener("click", (event) => {
+      if (event.target === lb || event.target.classList.contains("lb-frame")) lb.close();
+    });
+
+    lb.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowRight") { event.preventDefault(); show(current + 1); }
+      if (event.key === "ArrowLeft") { event.preventDefault(); show(current - 1); }
+    });
+
+    let startX = null;
+    lbImg.addEventListener("pointerdown", (event) => { startX = event.clientX; });
+    lbImg.addEventListener("pointerup", (event) => {
+      if (startX === null) return;
+      const dx = event.clientX - startX;
+      startX = null;
+      if (Math.abs(dx) > 50) show(current + (dx < 0 ? 1 : -1));
+    });
+  }
+
   /* ── SCROLL TO TOP BUTTON ── */
   const scrollTopBtn = document.getElementById("scrollTopBtn");
 

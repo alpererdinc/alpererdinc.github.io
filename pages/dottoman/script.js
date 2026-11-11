@@ -126,10 +126,14 @@
     function show(index) {
       current = (index + items.length) % items.length;
       const item = items[current];
+      // dim while loading; an image that is already there fires no load event
+      const done = () => lbImg.classList.remove("loading");
       lbImg.classList.add("loading");
-      lbImg.onload = () => lbImg.classList.remove("loading");
+      lbImg.onload = done;
+      lbImg.onerror = done;
       lbImg.src = item.src;
       lbImg.alt = item.alt;
+      if (lbImg.complete && lbImg.naturalWidth) done();
       lbCount.textContent = `${pad(current + 1)} / ${pad(items.length)}`;
       lbText.textContent = captionOf(item.fig);
 
