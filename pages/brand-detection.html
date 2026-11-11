@@ -18,7 +18,7 @@
   <div class="grain" aria-hidden="true"></div>
 
   <nav class="navbar">
-    <a href="../index.html" class="nav-logo"><span class="nav-logo-tape">ae.</span></a>
+    <a href="../index.html" class="nav-logo">ae<span style="color: var(--accent)">.</span></a>
 
     <div class="nav-links">
       <a href="../index.html" data-tr="ana sayfa" data-en="home">ana sayfa</a>
@@ -43,24 +43,33 @@
 
       <a href="artworks.html" data-tr="çizimler" data-en="artworks">çizimler</a>
 
-
       <a href="../index.html#contact" data-tr="iletişim" data-en="contact">iletişim</a>
     </div>
 
-    <div class="theme-picker" aria-label="Tema seçimi">
-      <button class="theme-dot theme-orange" type="button" data-theme-choice="orange"
-        aria-label="Turuncu tema"></button>
-      <button class="theme-dot theme-blue" type="button" data-theme-choice="blue" aria-label="Mavi tema"></button>
-      <button class="theme-dot theme-purple" type="button" data-theme-choice="purple" aria-label="Mor tema"></button>
-      <button class="theme-dot theme-green" type="button" data-theme-choice="green" aria-label="Yeşil tema"></button>
+    <div class="nav-right">
+      <div class="nav-clock" aria-hidden="true">
+        <span class="rec-led"></span>
+        <span class="nav-clock-digits" id="navClock">00:00</span>
+      </div>
 
-      <button class="mode-toggle" id="modeToggle" type="button" aria-label="Gündüz moduna geç">
-        ☀
-      </button>
+      <div class="theme-controls" aria-label="Tema kontrolleri">
+        <div class="theme-picker" aria-label="Renk teması seçimi">
+          <button class="theme-dot theme-orange" type="button" data-theme-choice="orange" title="I / KIZIL"
+            aria-label="Kırmızı tema">I</button>
+          <button class="theme-dot theme-blue" type="button" data-theme-choice="blue" title="II / GÖK"
+            aria-label="Turkuaz tema">II</button>
+          <button class="theme-dot theme-purple" type="button" data-theme-choice="purple" title="III / ERGUVAN"
+            aria-label="Erguvan tema">III</button>
+          <button class="theme-dot theme-green" type="button" data-theme-choice="green" title="IV / YEŞİL"
+            aria-label="Yeşil tema">IV</button>
+        </div>
+
+        <button class="mode-toggle" id="modeToggle" type="button" aria-label="Gündüz moduna geç">☀</button>
+      </div>
+
+      <button class="lang-toggle" id="langToggle">EN</button>
+      <button class="nav-hamburger" id="navHamburger">menü</button>
     </div>
-
-    <button class="lang-toggle" id="langToggle">EN</button>
-    <button class="nav-hamburger" id="navHamburger">menü</button>
   </nav>
 
   <div class="mobile-menu" id="mobileMenu">
@@ -76,7 +85,7 @@
         <a href="divealamut.html">DiveAlamut</a>
         <a href="jazurider.html">JazuRider</a>
         <a href="dottoman.html">Dotto•Man</a>
-        <a href="tez-oyunu.html" data-tr="Tez Oyunu" data-en="Thesis Game">Tez Oyunu</a>
+        <a href="tez-oyunu.html" data-tr="ADAPTIVE NPC AI" data-en="ADAPTIVE NPC AI">ADAPTIVE NPC AI</a>
         <a href="eticaret.html">CollecZone</a>
         <a href="nothing-to-report.html">Nothing To Report</a>
         <a href="2d-oyunlar.html" data-tr="Kantanfu" data-en="Kantanfu">Kantanfu</a>
@@ -84,6 +93,7 @@
       </div>
     </details>
 
+    <a href="artworks.html" data-tr="çizimler" data-en="artworks">çizimler</a>
     <a href="../index.html#contact" data-tr="iletişim" data-en="contact">iletişim</a>
   </div>
 
@@ -162,7 +172,7 @@
 
     <div class="footer-links" lang="en">
       <a href="https://github.com/alpererdinc" target="_blank">github</a>
-      <a href="https://dottoman.com" target="_blank">dottoman.com</a>
+      <a href="dottoman/">dotto<span class="mid-dot">•</span>man</a>
     </div>
 
     <div class="footer-right" lang="en">personal portfolio</div>

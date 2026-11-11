@@ -18,58 +18,82 @@
   <div class="grain" aria-hidden="true"></div>
 
   <nav class="navbar">
-    <a href="../index.html" class="nav-logo"><span class="nav-logo-tape">ae.</span></a>
+    <a href="../index.html" class="nav-logo">ae<span style="color: var(--accent)">.</span></a>
+
     <div class="nav-links">
       <a href="../index.html" data-tr="ana sayfa" data-en="home">ana sayfa</a>
       <a href="../index.html#about" data-tr="hakkımda" data-en="about">hakkımda</a>
+
       <details class="nav-dropdown">
         <summary data-tr="projeler" data-en="projects">projeler</summary>
+
         <div class="dropdown-menu" lang="en">
           <a href="../index.html#projects" data-tr="tüm projeler" data-en="all projects">tüm projeler</a>
           <a href="dotto-block-breaker.html">Dotto: Block Breaker</a>
           <a href="divealamut.html">DiveAlamut</a>
           <a href="jazurider.html">JazuRider</a>
           <a href="dottoman.html">Dotto•Man</a>
-          <a href="tez-oyunu.html">Adaptive NPC AI</a>
+          <a href="tez-oyunu.html" data-tr="adaptive npc ai" data-en="adaptive npc ai">adaptive npc ai</a>
           <a href="eticaret.html">CollecZone</a>
           <a href="nothing-to-report.html">Nothing To Report</a>
-          <a href="2d-oyunlar.html">Kantanfu</a>
+          <a href="2d-oyunlar.html" data-tr="Kantanfu" data-en="Kantanfu">Kantanfu</a>
           <a href="brand-detection.html">Vehicle Brand Detection</a>
         </div>
       </details>
+
       <a href="artworks.html" data-tr="çizimler" data-en="artworks">çizimler</a>
+
       <a href="../index.html#contact" data-tr="iletişim" data-en="contact">iletişim</a>
     </div>
 
-    <div class="theme-picker" aria-label="Tema seçimi">
-      <button class="theme-dot theme-orange" type="button" data-theme-choice="orange" aria-label="Turuncu tema"></button>
-      <button class="theme-dot theme-blue" type="button" data-theme-choice="blue" aria-label="Mavi tema"></button>
-      <button class="theme-dot theme-purple" type="button" data-theme-choice="purple" aria-label="Mor tema"></button>
-      <button class="theme-dot theme-green" type="button" data-theme-choice="green" aria-label="Yeşil tema"></button>
-      <button class="mode-toggle" id="modeToggle" type="button" aria-label="Gündüz moduna geç">☀</button>
+    <div class="nav-right">
+      <div class="nav-clock" aria-hidden="true">
+        <span class="rec-led"></span>
+        <span class="nav-clock-digits" id="navClock">00:00</span>
+      </div>
+
+      <div class="theme-controls" aria-label="Tema kontrolleri">
+        <div class="theme-picker" aria-label="Renk teması seçimi">
+          <button class="theme-dot theme-orange" type="button" data-theme-choice="orange" title="I / KIZIL"
+            aria-label="Kırmızı tema">I</button>
+          <button class="theme-dot theme-blue" type="button" data-theme-choice="blue" title="II / GÖK"
+            aria-label="Turkuaz tema">II</button>
+          <button class="theme-dot theme-purple" type="button" data-theme-choice="purple" title="III / ERGUVAN"
+            aria-label="Erguvan tema">III</button>
+          <button class="theme-dot theme-green" type="button" data-theme-choice="green" title="IV / YEŞİL"
+            aria-label="Yeşil tema">IV</button>
+        </div>
+
+        <button class="mode-toggle" id="modeToggle" type="button" aria-label="Gündüz moduna geç">☀</button>
+      </div>
+
+      <button class="lang-toggle" id="langToggle">EN</button>
+      <button class="nav-hamburger" id="navHamburger">menü</button>
     </div>
-    <button class="lang-toggle" id="langToggle">EN</button>
-    <button class="nav-hamburger" id="navHamburger">menü</button>
   </nav>
 
   <div class="mobile-menu" id="mobileMenu">
     <a href="../index.html" data-tr="ana sayfa" data-en="home">ana sayfa</a>
     <a href="../index.html#about" data-tr="hakkımda" data-en="about">hakkımda</a>
+
     <details class="mobile-dropdown">
       <summary data-tr="projeler" data-en="projects">projeler</summary>
+
       <div class="mobile-dropdown-menu" lang="en">
         <a href="../index.html#projects" data-tr="tüm projeler" data-en="all projects">tüm projeler</a>
         <a href="dotto-block-breaker.html">Dotto: Block Breaker</a>
         <a href="divealamut.html">DiveAlamut</a>
         <a href="jazurider.html">JazuRider</a>
         <a href="dottoman.html">Dotto•Man</a>
-        <a href="tez-oyunu.html">Adaptive NPC AI</a>
+        <a href="tez-oyunu.html" data-tr="ADAPTIVE NPC AI" data-en="ADAPTIVE NPC AI">ADAPTIVE NPC AI</a>
         <a href="eticaret.html">CollecZone</a>
         <a href="nothing-to-report.html">Nothing To Report</a>
-        <a href="2d-oyunlar.html">Kantanfu</a>
+        <a href="2d-oyunlar.html" data-tr="Kantanfu" data-en="Kantanfu">Kantanfu</a>
         <a href="brand-detection.html">Vehicle Brand Detection</a>
       </div>
     </details>
+
+    <a href="artworks.html" data-tr="çizimler" data-en="artworks">çizimler</a>
     <a href="../index.html#contact" data-tr="iletişim" data-en="contact">iletişim</a>
   </div>
 
@@ -79,8 +103,8 @@
       <div class="badge" data-tr="oyun / hypercasual / staj" data-en="game / hypercasual / internship">oyun / hypercasual / staj</div>
       <h1 lang="en">JazuRider</h1>
       <p class="lead"
-        data-tr="Cazu'yu kavanoz kulesinin tepesinde parkur boyunca sür; engellerden kaç, kuleyi büyüt ve bitişe en yüksek çarpanla gir." data-en="Ride Cazu along the track on top of a tower of jars; dodge the obstacles, grow the tower and cross the finish on the highest multiplier.">
-        Cazu'yu kavanoz kulesinin tepesinde parkur boyunca sür; engellerden kaç, kuleyi büyüt ve bitişe en yüksek çarpanla gir.
+        data-tr="Cazu'yu küp kulesinin tepesinde parkur boyunca sür; engellerden kaç, kuleyi büyüt ve bitişe en yüksek çarpanla gir." data-en="Ride Cazu along the track on top of a tower of küps, old Turkish jars; dodge the obstacles, grow the tower and cross the finish on the highest multiplier.">
+        Cazu'yu küp kulesinin tepesinde parkur boyunca sür; engellerden kaç, kuleyi büyüt ve bitişe en yüksek çarpanla gir.
       </p>
     </div>
   </section>
@@ -104,9 +128,9 @@
 
     <h2 data-tr="özet" data-en="overview">özet</h2>
     <p
-      data-tr="Upperpik stajındaki ikinci mobil hypercasual projem. Cube Surfer tarzı yığın mekaniğini aldım; Türk mitolojisinden ve cadı temasından beslenen bir dünyaya taşıdım. Cazu üst üste dizilmiş kavanozların tepesinde ilerliyor; engeller kuleyi kısaltıyor, topladığın kavanozlar yeniden uzatıyor. Hedef bitişe olabildiğince çok kavanozla varmak. Kavanozların içinde ne olduğunu sormayın, Cazu'nun bileceği iş." data-en="My second mobile hypercasual project at Upperpik. I took the Cube Surfer style stacking and moved it into a world drawn from Turkish mythology and witchcraft. Cazu rides on top of a pile of jars; obstacles shorten the tower and the jars you pick up build it back. The goal is to reach the finish with as many jars as you can. Don't ask what's in the jars; that's Cazu's business.">
-        Upperpik stajındaki ikinci mobil hypercasual projem. Cube Surfer tarzı yığın mekaniğini aldım; Türk mitolojisinden ve cadı temasından beslenen bir dünyaya taşıdım. Cazu üst üste dizilmiş kavanozların tepesinde ilerliyor; engeller kuleyi kısaltıyor, topladığın kavanozlar yeniden uzatıyor. Hedef bitişe olabildiğince çok kavanozla varmak. Kavanozların içinde ne olduğunu sormayın, Cazu'nun bileceği iş.
-      </p>
+      data-tr="Upperpik stajındaki ikinci mobil hypercasual projem. Fikir bir deyimden çıktı: eskiden kavanoza küp denirdi ve halk inanışına göre cadılar küplere binip uçardı. Öfkeden kudurana bugün hâlâ 'küplere bindi' dememiz oradan geliyor. Ben de Cube Surfer tarzı yığın mekaniğini bu hikâyeyle buluşturdum. Cadımız Cazu, üst üste dizdiği küplerin tepesinde parkuru aşıyor; engeller kuleyi kısaltıyor, topladığın küpler yeniden uzatıyor. Hedef bitişe olabildiğince yüksek bir küp kulesiyle varmak. Küplerin içinde ne olduğunu da sormayın; Cazu'yu küplere bindirmeyelim." data-en="My second mobile hypercasual project at Upperpik. The idea came from an idiom: in old Turkish a jar was a küp, and folk belief had witches flying around riding küps. That's why, when someone flies into a rage, Turks still say they 'rode the küps'. I paired that story with Cube Surfer style stacking. Our witch Cazu rides a tower of küps along the track; obstacles knock it shorter and the küps you collect build it back up. The goal is to reach the finish with the tallest tower you can. And don't ask what's inside the küps; you don't want Cazu riding them in anger.">
+      Upperpik stajındaki ikinci mobil hypercasual projem. Fikir bir deyimden çıktı: eskiden kavanoza küp denirdi ve halk inanışına göre cadılar küplere binip uçardı. Öfkeden kudurana bugün hâlâ 'küplere bindi' dememiz oradan geliyor. Ben de Cube Surfer tarzı yığın mekaniğini bu hikâyeyle buluşturdum. Cadımız Cazu, üst üste dizdiği küplerin tepesinde parkuru aşıyor; engeller kuleyi kısaltıyor, topladığın küpler yeniden uzatıyor. Hedef bitişe olabildiğince yüksek bir küp kulesiyle varmak. Küplerin içinde ne olduğunu da sormayın; Cazu'yu küplere bindirmeyelim.
+    </p>
 
     <h2 data-tr="rolüm" data-en="my role">rolüm</h2>
     <p
@@ -242,7 +266,7 @@
     <div class="footer-left">alper erdinç / 2026</div>
     <div class="footer-links" lang="en">
       <a href="https://github.com/alpererdinc" target="_blank">github</a>
-      <a href="https://dottoman.com" target="_blank">dottoman.com</a>
+      <a href="dottoman/">dotto<span class="mid-dot">•</span>man</a>
     </div>
     <div class="footer-right" lang="en">personal portfolio</div>
   </footer>
