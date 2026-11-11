@@ -1466,6 +1466,145 @@ main {
   border-color: var(--accent);
 }
 
+/* ===== SECTION RAIL (vertical timeline) ===== */
+
+.rail {
+  position: fixed;
+  top: 50%;
+  right: 24px;
+  z-index: 300;
+  transform: translateY(-50%);
+}
+
+.rail ol {
+  --p: 0; /* 0..1, how far the line has filled (set from JS) */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--rail-gap, 26px);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* the line, and the part of it already travelled */
+.rail ol::before,
+.rail ol::after {
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: 7px;
+  width: 2px;
+  margin-left: -1px;
+  pointer-events: none;
+}
+
+.rail ol::before {
+  bottom: 7px;
+  background: var(--line2);
+}
+
+.rail ol::after {
+  height: calc((100% - 14px) * var(--p));
+  background: var(--accent);
+  transition: height 0.3s ease-out;
+}
+
+.rail li {
+  margin: 0;
+  padding: 0;
+}
+
+.rail a {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  height: 14px;
+  text-decoration: none;
+}
+
+.rail-dot {
+  flex: none;
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--faint);
+  border-radius: 50%;
+  background: var(--bg);
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+/* sections already read: ring in the accent colour */
+.rail li.passed .rail-dot {
+  border-color: var(--accent);
+}
+
+/* where you are now: filled dot */
+.rail li.active .rail-dot {
+  border-color: var(--accent);
+  background: var(--accent);
+  transform: scale(1.25);
+}
+
+.rail a:hover .rail-dot,
+.rail a:focus-visible .rail-dot {
+  border-color: var(--accent);
+}
+
+.rail a:focus-visible {
+  outline: none;
+}
+
+.rail a:focus-visible .rail-dot {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* the name slides out to the left of the dot */
+.rail-label {
+  position: absolute;
+  right: 28px;
+  padding: 3px 10px;
+  font-family: var(--label);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--line2);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s;
+}
+
+.rail a:hover .rail-label,
+.rail a:focus-visible .rail-label {
+  opacity: 1;
+}
+
+/* the current section's name is always readable, quietly */
+.rail li.active .rail-label {
+  opacity: 1;
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* only where there is room beside the content */
+@media (max-width: 1280px), (max-height: 520px) {
+  .rail {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rail ol::after,
+  .rail-dot {
+    transition: none;
+  }
+}
+
 /* ===== SCROLL TOP ===== */
 
 .scroll-top {

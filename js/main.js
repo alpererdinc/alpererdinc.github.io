@@ -451,6 +451,110 @@
     });
   }
 
+  /* ── SECTION RAIL: vertical timeline of the page's sections ── */
+  (() => {
+    const isHome = !!document.getElementById("projects");
+    const items = [];
+
+    if (isHome) {
+      // the hero has no heading of its own, so it gets a name here
+      [
+        ["main .hero", "giriş", "intro"],
+        ["#about", null, null],
+        ["#projects", null, null],
+        ["#contact", null, null]
+      ].forEach(([selector, tr, en]) => {
+        const section = document.querySelector(selector);
+        if (!section) return;
+        const h2 = section.querySelector("h2");
+        items.push({
+          el: section,
+          tr: tr || (h2 && h2.dataset.tr) || "",
+          en: en || (h2 && h2.dataset.en) || ""
+        });
+      });
+    } else {
+      document.querySelectorAll(".project-body > h2").forEach((h2) => {
+        items.push({ el: h2, tr: h2.dataset.tr || h2.textContent, en: h2.dataset.en || h2.textContent });
+      });
+    }
+
+    if (items.length < 3) return;
+
+    const nav = document.createElement("nav");
+    nav.className = "rail";
+    nav.setAttribute("aria-label", lang === "tr" ? "Bölümler" : "Sections");
+    const list = document.createElement("ol");
+
+    items.forEach((item, i) => {
+      if (!item.el.id) item.el.id = "bolum-" + (i + 1);
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      a.href = "#" + item.el.id;
+      const dot = document.createElement("span");
+      dot.className = "rail-dot";
+      dot.setAttribute("aria-hidden", "true");
+      const label = document.createElement("span");
+      label.className = "rail-label";
+      label.dataset.tr = item.tr;
+      label.dataset.en = item.en;
+      label.textContent = lang === "tr" ? item.tr : item.en;
+      a.append(dot, label);
+      li.append(a);
+      list.append(li);
+      item.li = li;
+    });
+
+    nav.append(list);
+    document.body.append(nav);
+
+    // many sections: pull the dots closer so the rail fits on short screens
+    function fit() {
+      const room = window.innerHeight - 180;
+      const gap = Math.max(8, Math.min(26, room / (items.length - 1) - 14));
+      list.style.setProperty("--rail-gap", gap + "px");
+    }
+
+    function update() {
+      // the section whose top has passed ~35% of the screen is the current one
+      const line = window.innerHeight * 0.35;
+      let active = -1;
+      items.forEach((item, i) => {
+        if (item.el.getBoundingClientRect().top <= line) active = i;
+      });
+      const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+      if (atBottom) active = items.length - 1;
+
+      items.forEach((item, i) => {
+        item.li.classList.toggle("active", i === active);
+        item.li.classList.toggle("passed", i < active);
+        const link = item.li.firstChild;
+        if (i === active) link.setAttribute("aria-current", "true");
+        else link.removeAttribute("aria-current");
+      });
+
+      list.style.setProperty("--p", String(active < 0 ? 0 : active / (items.length - 1)));
+    }
+
+    let ticking = false;
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => { update(); ticking = false; });
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", () => { fit(); onScroll(); });
+    if (toggleBtn) {
+      toggleBtn.addEventListener("click", () => {
+        nav.setAttribute("aria-label", lang === "tr" ? "Bölümler" : "Sections");
+        requestAnimationFrame(update);
+      });
+    }
+    fit();
+    update();
+  })();
+
   /* ── AE PONG SECRET MINI GAME ── */
   (() => {
     const trigger = document.getElementById("secretGameTrigger");
