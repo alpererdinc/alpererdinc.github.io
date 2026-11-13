@@ -344,7 +344,7 @@
   }
 
   /* ── SCREENSHOT LIGHTBOX: any .shots block gets an on-page viewer ── */
-  const shotFigures = [...document.querySelectorAll(".shots .shot")];
+  const shotFigures = [...document.querySelectorAll(".shots .shot, .artwork-grid .artwork-card")];
 
   if (shotFigures.length && typeof HTMLDialogElement === "function") {
     const t = (tr, en) => (lang === "tr" ? tr : en);
@@ -382,7 +382,7 @@
       const fig = shotFigures[current];
       const link = fig.querySelector("a");
       const img = fig.querySelector("img");
-      const cap = fig.querySelector("figcaption span:last-child");
+      const cap = fig.querySelector("figcaption strong") || fig.querySelector("figcaption span:last-child");
 
       // dim while loading; an image that is already there fires no load event
       const done = () => lbImg.classList.remove("loading");

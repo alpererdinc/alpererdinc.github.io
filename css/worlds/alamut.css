@@ -204,3 +204,147 @@ html:not([data-mode="day"]) .world-alamut {
     left: var(--rest, 20%);
   }
 }
+
+
+/* =========================================================
+   BOLDER: the page is the tower. Each section sits on a platform
+   with a gap to dive through and a red segment that smashes once
+   you have scrolled past it. The loop is a staircase going down.
+   Cards are stone blocks with gothic titles.
+   ========================================================= */
+
+.world-alamut .project-body > h2 {
+  margin-bottom: 0;
+  padding-bottom: 12px;
+  border-bottom: 0;
+}
+
+/* the platform under a section title */
+.plat {
+  display: flex;
+  height: 18px;
+  margin: 0 0 26px;
+}
+
+.plat span {
+  display: block;
+  height: 100%;
+}
+
+.plat .s {
+  background: var(--stone);
+  border-bottom: 6px solid var(--stone-band);
+}
+
+/* the gap: the way down, marked with an arrow */
+.plat .g {
+  position: relative;
+}
+
+.plat .g::after {
+  content: "\2193";
+  position: absolute;
+  left: 50%;
+  top: -4px;
+  transform: translateX(-50%);
+  font-family: var(--label);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--faint);
+}
+
+/* the dangerous segment: red, and it smashes when you pass */
+.plat .r {
+  background: var(--accent);
+  border-bottom: 6px solid var(--accent2);
+  transform-origin: 50% 0;
+}
+
+.plat.is-passed .r {
+  animation: smash 0.75s ease-in forwards;
+}
+
+@keyframes smash {
+  30% { transform: translateY(6px) rotate(3deg); opacity: 1; }
+  100% { transform: translateY(46px) rotate(14deg); opacity: 0; }
+}
+
+/* the loop is a staircase going down */
+.world-alamut .game-loop {
+  align-items: start;
+  border: 0;
+  margin: 26px 0 70px;
+}
+
+.world-alamut .game-loop-step {
+  padding: 14px 14px 16px;
+  border: 0;
+  border-bottom: 8px solid var(--stone);
+}
+
+.world-alamut .game-loop-step + .game-loop-step {
+  border-left: 0;
+}
+
+.world-alamut .game-loop-step:nth-child(2) { margin-top: 26px; }
+.world-alamut .game-loop-step:nth-child(3) { margin-top: 52px; }
+.world-alamut .game-loop-step:nth-child(4) { margin-top: 78px; }
+.world-alamut .game-loop-step:nth-child(5) { margin-top: 104px; }
+
+.world-alamut .game-loop-step:nth-child(5) {
+  border-bottom-color: var(--accent);
+}
+
+/* stone blocks with gothic titles */
+.world-alamut .system-card,
+.world-alamut .powerup-card {
+  padding: 18px 20px 20px;
+  background: var(--panel);
+  border: 1px solid var(--line2);
+  border-top: 8px solid var(--stone);
+}
+
+.world-alamut .system-card h3,
+.world-alamut .powerup-card h3 {
+  font-family: var(--gothic);
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 0.95;
+  text-transform: none;
+  color: var(--accent);
+}
+
+/* the game's own hint, under the lead */
+.world-alamut .project-hero .lead::after {
+  content: "swipe to dive\A\2190  drag left or right  \2192";
+  display: block;
+  margin-top: 22px;
+  font-size: 18px;
+  line-height: 1.35;
+  white-space: pre;
+  color: var(--accent);
+  animation: swipe 3.2s ease-in-out infinite alternate;
+}
+
+@keyframes swipe {
+  from { transform: translateX(-8px); }
+  to { transform: translateX(8px); }
+}
+
+@media (max-width: 860px) {
+  .world-alamut .game-loop-step:nth-child(n) {
+    margin-top: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .plat.is-passed .r {
+    animation: none;
+    opacity: 0;
+  }
+
+  .world-alamut .project-hero .lead::after {
+    animation: none;
+  }
+}

@@ -241,3 +241,128 @@ html[data-mode="day"] .dusk .stars {
     left: var(--rest, 30%);
   }
 }
+
+
+/* =========================================================
+   BOLDER: the page is a run. The game's HUD follows you down it
+   (level, bar, multiplier, a stack of jars that grows), section
+   numbers are multiplier gates, and the cards are jars.
+   ========================================================= */
+
+/* section numbers are gates: x1, x2, x3... */
+.world-jazu .project-body > h2 {
+  align-items: center;
+  gap: 16px;
+}
+
+.world-jazu .project-body > h2::before {
+  content: "x" counter(sec);
+  padding: 4px 14px 2px;
+  font-family: var(--display);
+  font-size: 30px;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--accent);
+  background: var(--panel);
+  border: 3px solid var(--accent);
+  border-radius: 12px;
+}
+
+/* cards are jars: a flared rim sits on top of the body */
+.world-jazu .system-card,
+.world-jazu .powerup-card {
+  position: relative;
+  margin-top: 16px;
+  padding: 22px 22px 22px;
+  background: var(--panel);
+  border: 2px solid var(--accent);
+  border-radius: 6px 6px 22px 22px;
+}
+
+.world-jazu .system-card::before,
+.world-jazu .powerup-card::before {
+  content: "";
+  position: absolute;
+  top: -14px;
+  left: 12px;
+  right: 12px;
+  height: 14px;
+  background: var(--accent);
+  border-radius: 8px 8px 0 0;
+}
+
+.world-jazu .system-card-kicker {
+  color: var(--accent);
+}
+
+/* the HUD, bottom centre */
+.hud {
+  position: fixed;
+  left: 50%;
+  bottom: 18px;
+  z-index: 350;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: min(460px, 56vw);
+  padding: 10px 16px 9px;
+  font-family: var(--display);
+  background: var(--panel);
+  border: 1px solid var(--line2);
+}
+
+.hud b {
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--text);
+}
+
+.hud-x {
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--rider);
+}
+
+.hud-bar {
+  position: relative;
+  flex: 1;
+  height: 10px;
+  background: var(--line);
+}
+
+.hud-bar i {
+  display: block;
+  width: 0;
+  height: 100%;
+  background: var(--accent);
+}
+
+/* the jars stand on the bar at the marker, taller with every section */
+.hud-stack {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  display: flex;
+  flex-direction: column-reverse;
+  width: 20px;
+  margin-left: -10px;
+  color: var(--accent);
+  pointer-events: none;
+}
+
+.hud-stack svg {
+  display: block;
+  width: 20px;
+  height: 18px;
+  margin-top: -6px;
+}
+
+@media (max-width: 860px), (max-height: 560px) {
+  .hud {
+    display: none;
+  }
+}

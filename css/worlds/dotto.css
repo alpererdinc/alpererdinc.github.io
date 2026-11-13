@@ -205,3 +205,256 @@ html[data-mode="day"] .stars.s3 { opacity: 0.7; }
     height: 100%;
   }
 }
+
+
+/* =========================================================
+   BOLDER: the page is a board. Titles are blocks with a number,
+   cards are blocks you can break, the loop is an aim line.
+   ========================================================= */
+
+.world-dotto {
+  --display: 'Jost', 'Arial Narrow', sans-serif;
+  --label: 'Jost', system-ui, sans-serif;
+  --lcd: 'Jost', system-ui, sans-serif;
+  --violet: #6f7bff;
+  --magenta: #ff3df2;
+  --green: #39ff6a;
+  --orange: #ff9f1c;
+}
+
+html[data-mode="day"] .world-dotto {
+  --violet: #4a37d9;
+  --magenta: #b01aa8;
+  --green: #1f9d3f;
+  --orange: #c76a00;
+}
+
+/* the title is a block: outline, a number in the corner (the game's HIGH 316) */
+.world-dotto .project-hero h1 {
+  position: relative;
+  width: fit-content;
+  max-width: 100%;
+  margin: 26px 0 24px;
+  padding: 18px 30px 14px;
+  font-size: clamp(46px, 7vw, 100px);
+  font-weight: 800;
+  line-height: 0.92;
+  letter-spacing: -0.01em;
+  border: 3px solid var(--pink);
+  border-radius: 20px;
+}
+
+.world-dotto .project-hero h1::after {
+  content: "316";
+  position: absolute;
+  top: -18px;
+  right: 24px;
+  padding: 0 10px;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1;
+  color: var(--pink);
+  background: var(--bg);
+}
+
+/* section titles: a numbered block, each in one of the game's colours */
+.world-dotto .project-body > h2 {
+  --c: var(--cyan);
+  align-items: center;
+  gap: 18px;
+  font-weight: 800;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.world-dotto .project-body > h2::before {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  font-family: var(--display);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--c);
+  background: var(--panel);
+  border: 3px solid var(--c);
+  border-radius: 14px;
+}
+
+.world-dotto .project-body > h2:nth-of-type(7n + 1) { --c: var(--pink); }
+.world-dotto .project-body > h2:nth-of-type(7n + 2) { --c: var(--cyan); }
+.world-dotto .project-body > h2:nth-of-type(7n + 3) { --c: var(--yellow); }
+.world-dotto .project-body > h2:nth-of-type(7n + 4) { --c: var(--magenta); }
+.world-dotto .project-body > h2:nth-of-type(7n + 5) { --c: var(--green); }
+.world-dotto .project-body > h2:nth-of-type(7n + 6) { --c: var(--violet); }
+.world-dotto .project-body > h2:nth-of-type(7n) { --c: var(--orange); }
+
+/* the loop: rings on a dotted aim line */
+.world-dotto .game-loop {
+  position: relative;
+  border: 0;
+  margin: 30px 0 14px;
+}
+
+.world-dotto .game-loop::before {
+  content: "";
+  position: absolute;
+  top: 38px;
+  left: 6%;
+  right: 6%;
+  border-top: 4px dotted var(--line2);
+}
+
+.world-dotto .game-loop-step {
+  position: relative;
+  z-index: 1;
+  align-items: center;
+  text-align: center;
+  padding: 16px 12px 18px;
+  border: 0;
+}
+
+.world-dotto .game-loop-step + .game-loop-step {
+  border-left: 0;
+}
+
+.world-dotto .game-loop-step::after {
+  content: none;
+}
+
+.world-dotto .game-loop-step span {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  font-family: var(--display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--pink);
+  background: var(--bg);
+  border: 3px solid var(--pink);
+  border-radius: 50%;
+}
+
+.world-dotto .game-loop-step strong {
+  margin-top: 6px;
+  font-size: 22px;
+  font-weight: 800;
+  text-transform: none;
+}
+
+/* cards are blocks: outlined in a block colour, with an HP number you can chip away */
+.world-dotto .system-grid,
+.world-dotto .powerup-grid {
+  gap: 20px;
+}
+
+.world-dotto .system-card,
+.world-dotto .powerup-card {
+  --c: var(--cyan);
+  position: relative;
+  padding: 24px 24px 22px;
+  background: var(--panel);
+  border: 3px solid var(--c);
+  border-radius: 16px;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.world-dotto .system-card:nth-child(7n + 1) { --c: var(--pink); }
+.world-dotto .system-card:nth-child(7n + 2) { --c: var(--cyan); }
+.world-dotto .system-card:nth-child(7n + 3) { --c: var(--yellow); }
+.world-dotto .system-card:nth-child(7n + 4) { --c: var(--magenta); }
+.world-dotto .system-card:nth-child(7n + 5) { --c: var(--green); }
+.world-dotto .system-card:nth-child(7n + 6) { --c: var(--violet); }
+.world-dotto .system-card:nth-child(7n) { --c: var(--orange); }
+.world-dotto .powerup-card:nth-child(3n + 1) { --c: var(--pink); }
+.world-dotto .powerup-card:nth-child(3n + 2) { --c: var(--green); }
+.world-dotto .powerup-card:nth-child(3n) { --c: var(--yellow); }
+
+.world-dotto .system-card-kicker {
+  color: var(--c);
+  padding-right: 44px;
+}
+
+.world-dotto .system-card h3,
+.world-dotto .powerup-card h3 {
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.world-dotto .project-body .system-list li {
+  border-top-color: var(--line2);
+}
+
+.world-dotto .project-body .system-list li::before {
+  color: var(--c);
+}
+
+.world-dotto .hp {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--c);
+  pointer-events: none;
+}
+
+/* a hit shakes the block; a broken one goes hollow, then comes back */
+.world-dotto .is-hit {
+  animation: hit 0.18s linear;
+}
+
+@keyframes hit {
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+.world-dotto .is-broken {
+  opacity: 0.4;
+  border-style: dashed;
+}
+
+.world-dotto .is-broken > *:not(.hp) {
+  opacity: 0.35;
+}
+
+.world-dotto .engineering-note {
+  border: 3px solid var(--yellow);
+  border-radius: 16px;
+  padding: 16px 24px 18px;
+}
+
+.world-dotto .engineering-note > span {
+  color: var(--yellow);
+}
+
+/* balls bouncing around the board */
+.balls {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 860px) {
+  .world-dotto .game-loop::before {
+    display: none;
+  }
+
+  .world-dotto .project-hero h1::after {
+    font-size: 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .world-dotto .is-hit {
+    animation: none;
+  }
+}

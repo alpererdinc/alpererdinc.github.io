@@ -215,3 +215,170 @@ html:not([data-mode="day"]) .world-collec {
     animation: none;
   }
 }
+
+
+/* =========================================================
+   BOLDER: the page is a record sleeve. Sections are tracks on the
+   back (A1 ..... 3:42), a little turntable plays the page as you
+   read (the tonearm moves in toward the centre), and the tech tags
+   are hang tags with a hole.
+   ========================================================= */
+
+/* tracklist: title, a dotted leader, a running time */
+.world-collec .project-body > h2 {
+  align-items: flex-end;
+  border-bottom: 3px dotted var(--line2);
+}
+
+.world-collec .project-body > h2::after {
+  margin-left: auto;
+  padding-bottom: 4px;
+  font-family: var(--label);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--faint);
+}
+
+.world-collec .project-body > h2:nth-of-type(7n + 1)::after { content: "3:42"; }
+.world-collec .project-body > h2:nth-of-type(7n + 2)::after { content: "2:58"; }
+.world-collec .project-body > h2:nth-of-type(7n + 3)::after { content: "4:16"; }
+.world-collec .project-body > h2:nth-of-type(7n + 4)::after { content: "3:07"; }
+.world-collec .project-body > h2:nth-of-type(7n + 5)::after { content: "5:01"; }
+.world-collec .project-body > h2:nth-of-type(7n + 6)::after { content: "2:33"; }
+.world-collec .project-body > h2:nth-of-type(7n)::after { content: "3:49"; }
+
+/* tags are hang tags: a punched hole at one end */
+.world-collec .project-body > ul li {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding-left: 12px;
+}
+
+.world-collec .project-body > ul li::before {
+  content: "";
+  flex: none;
+  width: 8px;
+  height: 8px;
+  background: var(--bg);
+  border: 2px solid #15110e;
+  border-radius: 50%;
+}
+
+/* the turntable, bottom left */
+.deck {
+  position: fixed;
+  left: 22px;
+  bottom: 22px;
+  z-index: 330;
+  width: 196px;
+}
+
+.deck svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.deck-base {
+  fill: var(--panel);
+  stroke: var(--text);
+  stroke-width: 2;
+}
+
+.deck-vinyl {
+  fill: #15110e;
+  stroke: var(--text);
+  stroke-width: 1.5;
+}
+
+.deck-groove {
+  fill: none;
+  stroke: #3a312a;
+  stroke-width: 1;
+}
+
+.deck-half-a { fill: var(--s1); }
+.deck-half-b { fill: #f6ecd8; }
+
+.deck-hole {
+  fill: var(--bg);
+}
+
+.deck-record {
+  transform-box: view-box;
+  transform-origin: 68px 64px;
+  animation: deck-turn 3.8s linear infinite;
+}
+
+.deck-pivot {
+  fill: var(--text);
+}
+
+.deck-arm {
+  transform-box: view-box;
+  transform-origin: 146px 22px;
+  transition: transform 0.25s ease-out;
+}
+
+.deck-arm line {
+  stroke: var(--text);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.deck-arm rect {
+  fill: var(--accent);
+  stroke: var(--text);
+  stroke-width: 1.5;
+}
+
+@keyframes deck-turn {
+  to { transform: rotate(360deg); }
+}
+
+.deck-label {
+  margin-top: 6px;
+  padding: 6px 10px 7px;
+  font-family: var(--label);
+  background: var(--panel);
+  border: 2px solid var(--text);
+}
+
+.deck-now {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--faint);
+}
+
+.deck-track {
+  display: block;
+  overflow: hidden;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--text);
+}
+
+@media (max-width: 1280px), (max-height: 560px) {
+  .deck {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .deck-record {
+    animation: none;
+  }
+
+  .deck-arm {
+    transition: none;
+  }
+}

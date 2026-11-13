@@ -289,13 +289,53 @@ html[data-mode="day"] .grain {
   pointer-events: none;
 }
 
+/* the logo is my signature: "ae." in a speech bubble, as in the corner of my drawings */
 .nav-logo {
-  font-family: var(--display);
-  font-size: 30px;
-  font-weight: 900;
+  position: relative;
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 29px;
+  margin-bottom: 5px;
+  padding: 0 0 6px 1px;
+  font-family: 'Fredoka', var(--display);
+  font-size: 22px;
+  font-weight: 600;
   line-height: 1;
+  letter-spacing: 0;
   text-decoration: none;
-  color: var(--text);
+  color: var(--bg);
+  background: var(--text);
+  border: 3px solid var(--text);
+  border-radius: 9px;
+  --tail-fill: var(--text);
+}
+
+/* the tail: an outline triangle with a filled one on top of it */
+.nav-logo::before,
+.nav-logo::after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: transparent;
+}
+
+.nav-logo::before {
+  bottom: -10px;
+  border-width: 8px 7px 0 0;
+  border-top-color: var(--text);
+}
+
+.nav-logo::after {
+  bottom: -4px;
+  left: 9px;
+  border-width: 5px 3px 0 0;
+  border-top-color: var(--tail-fill);
 }
 
 .nav-logo-tape {
@@ -303,7 +343,28 @@ html[data-mode="day"] .grain {
 }
 
 .nav-logo:hover {
-  color: var(--accent);
+  background: var(--accent);
+  border-color: var(--text);
+  color: var(--on-accent);
+  --tail-fill: var(--accent);
+}
+
+/* by day the bubble is paper with ink, like on the drawings */
+html[data-mode="day"] .nav-logo {
+  color: var(--text);
+  background: #fbf6ea;
+  --tail-fill: #fbf6ea;
+}
+
+html[data-mode="day"] .nav-logo:hover {
+  color: var(--on-accent);
+  background: var(--accent);
+  --tail-fill: var(--accent);
+}
+
+/* project pages keep their own colours, so the four-colour picker is not offered there */
+body[data-world] .theme-picker {
+  display: none;
 }
 
 .nav-links {
@@ -1665,12 +1726,6 @@ main {
   .rail-dot {
     transition: none;
   }
-}
-
-/* pages with their own world: the colour picker rests, in place */
-.theme-dot:disabled {
-  opacity: 0.35;
-  cursor: default;
 }
 
 /* ===== SCROLL TOP ===== */

@@ -184,3 +184,124 @@ html:not([data-mode="day"]) .world-kantanfu {
     animation: none;
   }
 }
+
+
+/* =========================================================
+   BOLDER: the page is a level. Rex runs along the bottom as you
+   scroll and hops the gaps in the ground; every section title
+   stands on its own black ledge; the screenshots are stepping
+   stones.
+   ========================================================= */
+
+/* the ground along the bottom edge, with three gaps (same fractions as the script) */
+.ground {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 340;
+  height: 10px;
+  background: var(--text);
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(90deg, #000 0 17%, transparent 17% 21.5%, #000 21.5% 46%, transparent 46% 51%, #000 51% 74%, transparent 74% 79%, #000 79%);
+  mask-image: linear-gradient(90deg, #000 0 17%, transparent 17% 21.5%, #000 21.5% 46%, transparent 46% 51%, #000 51% 74%, transparent 74% 79%, #000 79%);
+}
+
+/* Rex: his place on the ground follows how far down the page you are */
+.runner {
+  position: fixed;
+  bottom: 10px;
+  left: calc(var(--p, 0) * (100% - 72px));
+  z-index: 341;
+  width: 72px;
+  height: 72px;
+  pointer-events: none;
+}
+
+.runner img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+}
+
+.runner.is-moving img {
+  animation: bob 0.28s steps(2) infinite;
+}
+
+.runner.is-hop {
+  animation: hop 0.6s ease-out;
+}
+
+@keyframes bob {
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes hop {
+  0% { transform: translateY(0); }
+  45% { transform: translateY(-76px); }
+  100% { transform: translateY(0); }
+}
+
+/* section titles: each one stands on a ledge as long as the title, with a block at the end */
+.world-kantanfu .project-body > h2 {
+  display: flex;
+  width: fit-content;
+  max-width: 100%;
+  align-items: flex-end;
+  gap: 16px;
+  padding: 0 26px 8px 0;
+  border-bottom: 10px solid var(--text);
+}
+
+.world-kantanfu .project-body > h2::before {
+  content: "LV " counter(sec, decimal-leading-zero);
+  align-self: center;
+  padding: 5px 10px 3px;
+  font-family: var(--label);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--on-accent);
+  background: var(--accent);
+}
+
+.world-kantanfu .project-body > h2::after {
+  content: "";
+  width: 16px;
+  height: 30px;
+  margin-bottom: -10px;
+  background: var(--text);
+}
+
+/* screenshots: stepping stones */
+.world-kantanfu .shot:nth-child(even) {
+  margin-top: 46px;
+}
+
+.world-kantanfu .shot img {
+  border: 3px solid var(--text);
+}
+
+.world-kantanfu .footer {
+  padding-bottom: 96px;
+}
+
+@media (max-width: 860px) {
+  .runner {
+    width: 56px;
+    height: 56px;
+    left: calc(var(--p, 0) * (100% - 56px));
+  }
+
+  .world-kantanfu .shot:nth-child(even) {
+    margin-top: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .runner.is-moving img,
+  .runner.is-hop {
+    animation: none;
+  }
+}

@@ -195,3 +195,120 @@ html[data-mode="day"] .desk::after {
     animation: none;
   }
 }
+
+
+/* =========================================================
+   BOLDER: the page is a document review desk. The game's status
+   bar runs along the bottom (day, clock, four stats that move as
+   you dig), some words are blacked out until you click them, and
+   section numbers are folder tabs.
+   ========================================================= */
+
+.world-ntr {
+  --ok: #58e08a;
+  --bad: #ff5a4d;
+  --warn: #f0a23a;
+  --tealstat: #38d6cb;
+}
+
+html[data-mode="day"] .world-ntr {
+  --ok: #1d8f4a;
+  --bad: #c2231d;
+  --warn: #a8660e;
+  --tealstat: #0b7a74;
+}
+
+/* section numbers are folder tabs sitting on the line */
+.world-ntr .project-body > h2 {
+  align-items: flex-end;
+  gap: 18px;
+}
+
+.world-ntr .project-body > h2::before {
+  content: "DOC " counter(sec, decimal-leading-zero);
+  align-self: flex-end;
+  margin-bottom: -1px;
+  padding: 7px 14px 5px;
+  font-family: var(--pixel);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  background: var(--bg);
+  border: 1px solid var(--line2);
+  border-bottom-color: var(--bg);
+}
+
+/* blacked-out words: click (or Enter) to read */
+.redact {
+  padding: 0 0.12em;
+  color: transparent;
+  background: var(--text);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.redact:hover {
+  background: var(--muted);
+}
+
+.redact:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.redact.is-open {
+  color: inherit;
+  background: transparent;
+  box-shadow: inset 0 -2px 0 var(--accent);
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+/* the status bar, bottom: GUN 03 // 00:18 and the four stats */
+.statusbar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 330;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 1fr 1fr 1.4fr;
+  gap: 12px;
+  padding: 9px var(--gutter) 8px;
+  font-family: var(--pixel);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  color: var(--muted);
+  background: var(--panel);
+  border-top: 1px solid var(--line2);
+}
+
+.sb-trust { color: var(--ok); }
+.sb-danger { color: var(--bad); }
+.sb-funds { color: var(--warn); }
+.sb-safety { color: var(--tealstat); }
+
+.world-ntr .scroll-top {
+  bottom: 54px;
+}
+
+.world-ntr .footer {
+  padding-bottom: 70px;
+}
+
+@media (max-width: 860px) {
+  .statusbar {
+    display: none;
+  }
+
+  .world-ntr .scroll-top {
+    bottom: 20px;
+  }
+
+  .world-ntr .footer {
+    padding-bottom: 30px;
+  }
+}

@@ -207,3 +207,156 @@ html[data-mode="day"] .world-dottoman {
     font-size: 26px;
   }
 }
+
+
+/* =========================================================
+   BOLDER: the page is an issue of the serial. The aside under the
+   title is a speech bubble pointing at the hero frame, the
+   portraits are comic panels with caption boxes, and the frames
+   from the animation run edge to edge as a strip of film.
+   ========================================================= */
+
+.world-dottoman {
+  --film: #0c0b0a;
+  --film-text: #e8dfcc;
+  --hole: #e8dfcc;
+  --caption: #efdc8e;
+}
+
+/* the hero frame is a panel */
+.world-dottoman .hero-shot img {
+  border: 4px solid var(--text);
+}
+
+/* the aside is a speech bubble; its tail points at the hero frame */
+.world-dottoman .project-hero .lead {
+  position: relative;
+  align-self: start;
+  max-width: 17em;
+  margin-right: 26px;
+  padding: 18px 26px 16px;
+  font-size: 32px;
+  line-height: 1.1;
+  color: var(--text);
+  background: var(--panel);
+  border: 3px solid var(--text);
+  border-radius: 30px;
+}
+
+.world-dottoman .project-hero .lead::before,
+.world-dottoman .project-hero .lead::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: solid transparent;
+}
+
+/* outer (ink) triangle, then the inner (paper) one on top of it */
+.world-dottoman .project-hero .lead::before {
+  right: -30px;
+  bottom: 22px;
+  border-width: 14px 0 14px 30px;
+  border-left-color: var(--text);
+}
+
+.world-dottoman .project-hero .lead::after {
+  right: -21px;
+  bottom: 26px;
+  border-width: 10px 0 10px 22px;
+  border-left-color: var(--panel);
+}
+
+/* portraits: comic panels, the label a caption box in the corner */
+.world-dottoman .media-grid {
+  gap: 30px;
+  margin: 30px 0;
+}
+
+.world-dottoman .media-card {
+  position: relative;
+  background: var(--panel);
+  border: 4px solid var(--text);
+}
+
+.world-dottoman .media-card img {
+  display: block;
+  border: 0;
+}
+
+.world-dottoman .media-card figcaption {
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  padding: 5px 14px;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #15120f;
+  background: var(--caption);
+  border: 3px solid var(--text);
+}
+
+/* the animation frames: a strip of film, edge to edge, that you swipe along */
+.world-dottoman .shots {
+  display: flex;
+  gap: 0;
+  align-items: stretch;
+  width: 100vw;
+  margin: 34px 0 40px calc(50% - 50vw);
+  padding: 40px max(28px, calc(50vw - 460px)) 40px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
+  scroll-padding-inline: max(28px, calc(50vw - 460px));
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) #1c1915;
+  background:
+    linear-gradient(90deg, transparent 0 11px, var(--hole) 11px 25px, transparent 25px 36px) 0 11px / 36px 15px repeat-x local,
+    linear-gradient(90deg, transparent 0 11px, var(--hole) 11px 25px, transparent 25px 36px) 0 calc(100% - 11px) / 36px 15px repeat-x local,
+    var(--film);
+}
+
+.world-dottoman .shot {
+  flex: 0 0 min(400px, 78vw);
+  padding: 0 10px;
+  scroll-snap-align: start;
+}
+
+.world-dottoman .shot img {
+  border: 0;
+  background: #1a1714;
+}
+
+.world-dottoman .shot figcaption {
+  color: var(--film-text);
+}
+
+.world-dottoman .shot-no {
+  color: var(--caption);
+}
+
+@media (max-width: 860px) {
+  .world-dottoman .project-hero .lead {
+    max-width: none;
+    margin-right: 0;
+    margin-bottom: 30px;
+    font-size: 28px;
+  }
+
+  /* on a narrow screen the image is below: the tail points down at it */
+  .world-dottoman .project-hero .lead::before {
+    right: auto;
+    left: 44px;
+    bottom: -30px;
+    border-width: 30px 14px 0 14px;
+    border-color: var(--text) transparent transparent transparent;
+  }
+
+  .world-dottoman .project-hero .lead::after {
+    right: auto;
+    left: 48px;
+    bottom: -21px;
+    border-width: 22px 10px 0 10px;
+    border-color: var(--panel) transparent transparent transparent;
+  }
+}

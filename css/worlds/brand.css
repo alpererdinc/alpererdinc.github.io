@@ -218,3 +218,132 @@ html[data-mode="day"] .world-brand {
     right: auto;
   }
 }
+
+
+/* =========================================================
+   BOLDER: the page is a live detection feed. Every section title
+   is a boxed detection with its tag and ID; text and screenshots
+   get a green box the first time they come into view; and a
+   "Brand Counts" overlay, like the demo's, counts one car per
+   section you pass.
+   ========================================================= */
+
+/* section titles: boxed, tagged "#03 | car | ford 0.38" */
+.world-brand .project-body > h2 {
+  position: relative;
+  width: fit-content;
+  max-width: 100%;
+  margin-top: 84px;
+  padding: 8px 20px 6px;
+  gap: 0;
+  border: 2px solid var(--box);
+}
+
+.world-brand .project-body > h2::before {
+  position: absolute;
+  left: -2px;
+  bottom: 100%;
+  padding: 1px 10px;
+  font-family: var(--label);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  color: #04120a;
+  background: var(--box);
+}
+
+.world-brand .project-body > h2:nth-of-type(6n + 1)::before { content: "#" counter(sec, decimal-leading-zero) " | car | renault 0.35"; }
+.world-brand .project-body > h2:nth-of-type(6n + 2)::before { content: "#" counter(sec, decimal-leading-zero) " | car | hyundai 0.88"; }
+.world-brand .project-body > h2:nth-of-type(6n + 3)::before { content: "#" counter(sec, decimal-leading-zero) " | car | ford 0.38"; }
+.world-brand .project-body > h2:nth-of-type(6n + 4)::before { content: "#" counter(sec, decimal-leading-zero) " | motorcycle 0.61"; }
+.world-brand .project-body > h2:nth-of-type(6n + 5)::before { content: "#" counter(sec, decimal-leading-zero) " | car | honda 0.71"; }
+.world-brand .project-body > h2:nth-of-type(6n)::before { content: "#" counter(sec, decimal-leading-zero) " | truck 0.54"; }
+
+/* the first time something comes into view, the detector boxes it */
+.world-brand .project-body > p,
+.world-brand .shot {
+  position: relative;
+}
+
+.world-brand .is-scanned {
+  animation: scan-box 1.8s ease-out;
+}
+
+.world-brand .is-scanned::after {
+  content: "text " attr(data-conf);
+  position: absolute;
+  left: -2px;
+  bottom: 100%;
+  margin-bottom: 8px;
+  padding: 0 8px;
+  font-family: var(--label);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.6;
+  white-space: nowrap;
+  color: #04120a;
+  background: var(--box);
+  animation: scan-tag 1.8s ease-out forwards;
+}
+
+.world-brand .shot.is-scanned::after {
+  content: "screen " attr(data-conf);
+}
+
+@keyframes scan-box {
+  0% { outline: 2px solid var(--box); outline-offset: 8px; }
+  65% { outline: 2px solid var(--box); outline-offset: 8px; }
+  100% { outline: 2px solid transparent; outline-offset: 8px; }
+}
+
+@keyframes scan-tag {
+  0%, 65% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* the overlay: the demo's "Brand Counts", top right */
+.counts {
+  position: fixed;
+  top: 76px;
+  right: 24px;
+  z-index: 330;
+  min-width: 150px;
+  padding: 10px 16px 12px;
+  font-family: var(--label);
+  font-size: 13px;
+  line-height: 1.55;
+  color: #f1f6f1;
+  background: rgba(4, 12, 8, 0.78);
+  border: 1px solid var(--box);
+}
+
+.counts b {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 15px;
+  letter-spacing: 0.03em;
+}
+
+.counts ul {
+  list-style: none;
+}
+
+.counts.is-empty ul::before {
+  content: "no vehicles yet";
+  color: #9ba5b3;
+}
+
+@media (max-width: 1280px), (max-height: 560px) {
+  .counts {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .world-brand .is-scanned,
+  .world-brand .is-scanned::after {
+    animation: none;
+  }
+}
