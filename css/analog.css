@@ -2977,3 +2977,63 @@ body.lb-open {
     scroll-behavior: auto;
   }
 }
+
+
+/* =========================================================
+   THE ANCHOR (hope) and the sea, kept quiet: a marker on the rail,
+   the scroll-to-top button, the footer, and a low wave line.
+   ========================================================= */
+
+:root {
+  --anchor: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%271.9%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Ccircle%20cx%3D%2712%27%20cy%3D%274.6%27%20r%3D%272.2%27%2F%3E%3Cpath%20d%3D%27M12%206.8V20.6%27%2F%3E%3Cpath%20d%3D%27M8.4%209.6H15.6%27%2F%3E%3Cpath%20d%3D%27M4.6%2013.4C5%2017.6%208.2%2020.6%2012%2020.6S19%2017.6%2019.4%2013.4%27%2F%3E%3Cpath%20d%3D%27M2.9%2014.8L4.6%2013L6.5%2014.6%27%2F%3E%3Cpath%20d%3D%27M17.5%2014.6L19.4%2013L21.1%2014.8%27%2F%3E%3C%2Fsvg%3E");
+  --anchor-up: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%271.9%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27M5.2%207.4L12%201.2L18.8%207.4%27%2F%3E%3Cpath%20d%3D%27M12%201.6V8.2%27%2F%3E%3Ccircle%20cx%3D%2712%27%20cy%3D%2712.2%27%20r%3D%271.5%27%2F%3E%3Cpath%20d%3D%27M12%2013.7V22.8%27%2F%3E%3Cpath%20d%3D%27M9.6%2015.8H14.4%27%2F%3E%3Cpath%20d%3D%27M6.6%2018.2C6.9%2021%209.2%2022.8%2012%2022.8S17.1%2021%2017.4%2018.2%27%2F%3E%3Cpath%20d%3D%27M5.6%2019.3L6.6%2018L7.9%2019.1%27%2F%3E%3Cpath%20d%3D%27M16.1%2019.1L17.4%2018L18.4%2019.3%27%2F%3E%3C%2Fsvg%3E");
+  --wave: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2732%27%20height%3D%278%27%20viewBox%3D%270%200%2032%208%27%3E%3Cpath%20d%3D%27M0%204Q8%200.6%2016%204T32%204%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%271.6%27%2F%3E%3C%2Fsvg%3E");
+}
+
+/* where you are on the page: you have dropped anchor here */
+.rail li.active .rail-dot {
+  width: 20px;
+  height: 20px;
+  margin-left: -3px;
+  background: var(--accent);
+  border: 0;
+  border-radius: 0;
+  transform: none;
+  -webkit-mask: var(--anchor) center / contain no-repeat;
+  mask: var(--anchor) center / contain no-repeat;
+}
+
+/* back to the top = weigh anchor */
+.scroll-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0;
+}
+
+.scroll-top::before {
+  content: "";
+  width: 22px;
+  height: 22px;
+  background: currentColor;
+  -webkit-mask: var(--anchor-up) center / contain no-repeat;
+  mask: var(--anchor-up) center / contain no-repeat;
+}
+
+/* footer: a small anchor before the signature line, a low wave instead of the kilim band */
+.footer-left::before {
+  content: "";
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin-right: 9px;
+  vertical-align: -3px;
+  background: var(--accent);
+  -webkit-mask: var(--anchor) center / contain no-repeat;
+  mask: var(--anchor) center / contain no-repeat;
+}
+
+.footer::before {
+  -webkit-mask: var(--wave) repeat-x left center / 32px 8px;
+  mask: var(--wave) repeat-x left center / 32px 8px;
+}

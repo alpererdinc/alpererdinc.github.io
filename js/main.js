@@ -445,6 +445,15 @@
   const scrollTopBtn = document.getElementById("scrollTopBtn");
 
   if (scrollTopBtn) {
+    // the anchor icon needs a name: back to the top is weighing anchor
+    const nameTop = () => {
+      const label = lang === "tr" ? "çapayı çek: sayfanın başına dön" : "weigh anchor: back to the top";
+      scrollTopBtn.setAttribute("aria-label", label);
+      scrollTopBtn.setAttribute("title", label);
+    };
+    nameTop();
+    if (toggleBtn) toggleBtn.addEventListener("click", () => setTimeout(nameTop, 0));
+
     window.addEventListener("scroll", () => {
       if (window.scrollY > 450) {
         scrollTopBtn.classList.add("show");

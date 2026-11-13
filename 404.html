@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="tr" data-lang="tr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Rota bulunamadı — Alper Erdinç</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&text=ae.&display=swap" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Barlow+Semi+Condensed:wght@400;500;600&family=Chakra+Petch:wght@500;600;700&family=VT323&display=swap" />
+  <!-- absolute paths: this page is served from any missing address, at any depth -->
+  <link rel="stylesheet" href="/css/analog.css?v=37" />
+  <style>
+    /* a sea chart: fine grid, a few low wave lines */
+    .lost-chart {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background-image:
+        linear-gradient(to right, var(--line) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--line) 1px, transparent 1px);
+      background-size: 64px 64px;
+      opacity: 0.55;
+    }
+
+    .lost-wave {
+      position: fixed;
+      left: 0;
+      right: 0;
+      height: 8px;
+      z-index: -1;
+      pointer-events: none;
+      background: var(--accent);
+      -webkit-mask: var(--wave) repeat-x left center / 32px 8px;
+      mask: var(--wave) repeat-x left center / 32px 8px;
+    }
+
+    .lost-wave.w1 { bottom: 64px; opacity: 0.5; }
+    .lost-wave.w2 { bottom: 42px; opacity: 0.3; }
+    .lost-wave.w3 { bottom: 22px; opacity: 0.16; }
+
+    .lost {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: calc(100vh - 130px);
+      padding: 40px var(--gutter) 90px;
+      text-align: center;
+    }
+
+    .lost-anchor {
+      width: 112px;
+      height: 112px;
+      margin-bottom: 18px;
+      background: var(--accent);
+      -webkit-mask: var(--anchor) center / contain no-repeat;
+      mask: var(--anchor) center / contain no-repeat;
+    }
+
+    .lost-code {
+      font-family: var(--label);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      color: var(--accent);
+    }
+
+    .lost h1 {
+      margin: 10px 0 14px;
+      font-family: var(--display);
+      font-size: clamp(48px, 9vw, 110px);
+      font-weight: 900;
+      line-height: 0.9;
+      text-transform: uppercase;
+    }
+
+    .lost p {
+      max-width: 44ch;
+      margin: 0 auto 26px;
+      font-size: 19px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+
+<body data-world="lost">
+  <div class="grain" aria-hidden="true"></div>
+  <div class="lost-chart" aria-hidden="true"></div>
+  <i class="lost-wave w1" aria-hidden="true"></i>
+  <i class="lost-wave w2" aria-hidden="true"></i>
+  <i class="lost-wave w3" aria-hidden="true"></i>
+
+  <nav class="navbar">
+    <a href="/" class="nav-logo" aria-label="ana sayfa">ae<span style="color: var(--accent)">.</span></a>
+    <div class="nav-links"></div>
+    <div class="nav-right">
+      <div class="theme-controls">
+        <button class="mode-toggle" id="modeToggle" type="button" aria-label="Gündüz moduna geç">☀</button>
+      </div>
+      <button class="lang-toggle" id="langToggle" type="button">EN</button>
+    </div>
+  </nav>
+
+  <main class="lost">
+    <div class="lost-anchor" role="img" aria-label="çapa"></div>
+    <span class="lost-code">404</span>
+    <h1 data-tr="Rota bulunamadı" data-en="Route not found">Rota bulunamadı</h1>
+    <p data-tr="Aradığın sayfa yok ya da başka bir limana taşınmış. Çapayı at, baştan başla."
+      data-en="The page you were looking for is not here, or it has moved to another harbour. Drop anchor and start again.">
+      Aradığın sayfa yok ya da başka bir limana taşınmış. Çapayı at, baştan başla.
+    </p>
+    <a class="btn btn-yellow" href="/" data-tr="ana sayfaya dön" data-en="back to the home page">ana sayfaya dön</a>
+  </main>
+
+  <script src="/js/main.js?v=analog13"></script>
+</body>
+
+</html>
