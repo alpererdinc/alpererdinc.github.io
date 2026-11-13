@@ -10,10 +10,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Barlow+Semi+Condensed:wght@400;500;600&family=Chakra+Petch:wght@500;600;700&family=VT323&display=swap" />
-  <link rel="stylesheet" href="../css/analog.css?v=19" />
+  <link rel="stylesheet" href="../css/analog.css?v=20" />
+  <link rel="stylesheet" href="../css/worlds/collec.css?v=2" />
 </head>
 
-<body>
+<body data-world="collec">
   <div class="cursor" id="cursor"></div>
   <div class="grain" aria-hidden="true"></div>
 
@@ -97,15 +98,24 @@
     <a href="../index.html#contact" data-tr="iletişim" data-en="contact">iletişim</a>
   </div>
 
-  <section class="project-hero">
+  <div class="world world-collec">
+  <div class="crate" aria-hidden="true">
+    <span class="record"></span>
+    <i class="spines"></i>
+  </div>
+
+  <section class="project-hero project-hero--shot">
     <div class="project-hero-dots"></div>
 
     <div class="project-hero-content">
       <div class="badge" data-tr="web / full stack" data-en="web / full stack">web / full stack</div>
-      <h1 lang="en">CollecZone</h1>
+      <h1 lang="en"><span class="h1-a">Collec</span><span class="h1-b">Zone</span></h1>
       <p class="lead" data-tr="Koleksiyon ürünleri için yaptığım full-stack bir e-ticaret sitesi." data-en="A full-stack e-commerce site I built for collectibles.">
         Koleksiyon ürünleri için yaptığım full-stack bir e-ticaret sitesi.
       </p>
+      <figure class="hero-shot">
+        <img src="../images/projects/colleczone/01-home-colour.webp" alt="CollecZone ana sayfası, renkli arka planlı plak çalar ve Expand your collection yazısı" width="1600" height="822" />
+      </figure>
     </div>
   </section>
 
@@ -223,11 +233,13 @@
     <div class="footer-right" lang="en">personal portfolio</div>
   </footer>
 
+
   <button class="scroll-top" id="scrollTopBtn" aria-label="Sayfanın başına dön">
     ↑
   </button>
+  </div>
 
-  <script src="../js/main.js?v=analog10"></script>
+  <script src="../js/main.js?v=analog11"></script>
   <script data-goatcounter="https://alpererdinc.goatcounter.com/count"
     async src="https://gc.zgo.at/count.js"></script>
 </body>

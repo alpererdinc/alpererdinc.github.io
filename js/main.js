@@ -46,6 +46,15 @@
   const themeButtons = document.querySelectorAll("[data-theme-choice]");
   const modeToggleBtn = document.getElementById("modeToggle");
 
+  // a page with its own world keeps its own colours: the four-colour picker
+  // rests there (day / night still works, each world has both)
+  if (document.body.dataset.world) {
+    themeButtons.forEach((button) => {
+      button.disabled = true;
+      button.title = lang === "tr" ? "bu sayfanın kendi rengi var" : "this page has its own colours";
+    });
+  }
+
   const allowedThemes = ["orange", "blue", "purple", "green"];
   const allowedModes = ["night", "day"];
 
@@ -352,7 +361,8 @@
         </figure>
         <button class="lb-nav lb-next" type="button"><span aria-hidden="true">›</span><span class="sr"></span></button>
       </div>`;
-    document.body.appendChild(lb);
+    // inside the page's own world, so the lightbox wears its colours
+    (document.querySelector(".world") || document.body).appendChild(lb);
 
     const lbImg = lb.querySelector(".lb-img");
     const lbCount = lb.querySelector(".lb-count");
@@ -474,8 +484,17 @@
         });
       });
     } else {
-      document.querySelectorAll(".project-body > h2").forEach((h2) => {
-        items.push({ el: h2, tr: h2.dataset.tr || h2.textContent, en: h2.dataset.en || h2.textContent });
+      // project pages: their h2 headings. The artworks page: its intro, its
+      // two galleries (named by the jump links) and the closing note.
+      document.querySelectorAll(".project-body > h2, .artwork-page-intro h2, .artwork-category").forEach((el) => {
+        if (el.classList.contains("artwork-category")) {
+          const jump = document.querySelector('.artwork-jump-links a[href="#' + el.id + '"]');
+          const h2 = el.querySelector("h2");
+          const from = jump || h2;
+          items.push({ el, tr: from.dataset.tr || from.textContent, en: from.dataset.en || from.textContent });
+        } else {
+          items.push({ el, tr: el.dataset.tr || el.textContent, en: el.dataset.en || el.textContent });
+        }
       });
     }
 
@@ -506,7 +525,7 @@
     });
 
     nav.append(list);
-    document.body.append(nav);
+    (document.querySelector(".world") || document.body).append(nav);
 
     // many sections: pull the dots closer so the rail fits on short screens
     function fit() {

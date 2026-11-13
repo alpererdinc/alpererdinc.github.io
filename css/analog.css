@@ -1466,6 +1466,68 @@ main {
   border-color: var(--accent);
 }
 
+/* ===== HERO WITH A REAL SCREENSHOT (used by the page worlds) ===== */
+
+.project-hero--shot .project-hero-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(200px, var(--shot-w, 290px));
+  grid-template-areas:
+    "badge art"
+    "title art"
+    "lead art";
+  grid-template-rows: auto auto 1fr;
+  column-gap: 44px;
+  align-items: start;
+}
+
+.project-hero--shot .badge { grid-area: badge; }
+.project-hero--shot h1 { grid-area: title; }
+.project-hero--shot .lead { grid-area: lead; }
+
+/* two lines: the first in the page's accent colour */
+.project-hero h1 .h1-a,
+.project-hero h1 .h1-b {
+  display: block;
+}
+
+.project-hero h1 .h1-a {
+  color: var(--accent);
+}
+
+.hero-shot {
+  grid-area: art;
+  align-self: start;
+  justify-self: end;
+  width: 100%;
+  margin: 0;
+}
+
+.hero-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: var(--panel);
+  border: 1px solid var(--line2);
+}
+
+@media (max-width: 860px) {
+  .project-hero--shot .project-hero-content {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "badge"
+      "title"
+      "lead"
+      "art";
+    grid-template-rows: none;
+  }
+
+  .hero-shot {
+    justify-self: start;
+    width: min(100%, var(--shot-w-m, 240px));
+    margin-top: 22px;
+  }
+}
+
 /* ===== SECTION RAIL (vertical timeline) ===== */
 
 .rail {
@@ -1603,6 +1665,12 @@ main {
   .rail-dot {
     transition: none;
   }
+}
+
+/* pages with their own world: the colour picker rests, in place */
+.theme-dot:disabled {
+  opacity: 0.35;
+  cursor: default;
 }
 
 /* ===== SCROLL TOP ===== */

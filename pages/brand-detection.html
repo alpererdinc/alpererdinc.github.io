@@ -10,10 +10,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Barlow+Semi+Condensed:wght@400;500;600&family=Chakra+Petch:wght@500;600;700&family=VT323&display=swap" />
-  <link rel="stylesheet" href="../css/analog.css?v=19" />
+  <link rel="stylesheet" href="../css/analog.css?v=20" />
+  <link rel="stylesheet" href="../css/worlds/brand.css?v=2" />
 </head>
 
-<body>
+<body data-world="brand">
   <div class="cursor" id="cursor"></div>
   <div class="grain" aria-hidden="true"></div>
 
@@ -97,7 +98,18 @@
     <a href="../index.html#contact" data-tr="iletişim" data-en="contact">iletişim</a>
   </div>
 
-  <section class="project-hero">
+  <div class="world world-brand">
+  <div class="traffic" aria-hidden="true">
+    <i class="lane"></i>
+    <span class="det" style="--y:58%;--w:190px;--h:104px;--t:120s;--d:-30s;--rest:20%"><b>car | renault 0.35</b></span>
+    <span class="det" style="--y:66%;--w:150px;--h:82px;--t:95s;--d:-70s;--rest:55%"><b>car | hyundai 0.88</b></span>
+    <span class="det rev" style="--y:72%;--w:64px;--h:70px;--t:140s;--d:-20s;--rest:78%"><b>motorcycle 0.61</b></span>
+    <span class="det rev" style="--y:50%;--w:170px;--h:92px;--t:170s;--d:-110s;--rest:40%"><b>car | ford 0.38</b></span>
+    <span class="det" style="--y:30%;--w:130px;--h:70px;--t:200s;--d:-90s;--rest:10%"><b>car | honda 0.71</b></span>
+    <span class="det rev" style="--y:16%;--w:220px;--h:120px;--t:230s;--d:-150s;--rest:62%"><b>truck 0.54</b></span>
+  </div>
+
+  <section class="project-hero project-hero--shot">
     <div class="project-hero-dots"></div>
 
     <div class="project-hero-content">
@@ -107,6 +119,9 @@
       <p class="lead" data-tr="Trafik videosundaki araçları bulup takip eden, markalarını tahmin edip sayan bir computer vision projesi." data-en="A computer vision project that finds and tracks the cars in a traffic video, guesses their brands and counts them.">
         Trafik videosundaki araçları bulup takip eden, markalarını tahmin edip sayan bir computer vision projesi.
       </p>
+      <figure class="hero-shot">
+        <img src="../images/projects/brand-detection/02-brand-counts.webp" alt="Araçların üzerinde marka etiketleri ve sol üstte markalara göre sayaç" width="1370" height="786" />
+      </figure>
     </div>
   </section>
 
@@ -201,12 +216,14 @@
 
     <div class="footer-right" lang="en">personal portfolio</div>
   </footer>
+
+
   <button class="scroll-top" id="scrollTopBtn" aria-label="Sayfanın başına dön">
     ↑
   </button>
+  </div>
 
-
-  <script src="../js/main.js?v=analog10"></script>
+  <script src="../js/main.js?v=analog11"></script>
   <script data-goatcounter="https://alpererdinc.goatcounter.com/count"
     async src="https://gc.zgo.at/count.js"></script>
 </body>

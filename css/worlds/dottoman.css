@@ -1,0 +1,209 @@
+/* =========================================================
+   WORLD: Dotto•Man — the ink serial
+   Same palette as the series' own site: ink and paper, one red
+   (the cape). Same flat bones as the rest of the portfolio; this
+   page changes the hands (ink-brush titles, pen asides,
+   typewriter labels) and adds the marks of print: halftone
+   corners, a newspaper rule, a red calligrapher's dot, and the
+   slight wobble of hand-drawn lines.
+
+   Night = ink (black page, bone-coloured type).
+   Day   = paper (cream page, black type).
+   The page lives in .world.world-dottoman; the navbar stays outside.
+   ========================================================= */
+
+.world-dottoman {
+  --display: 'Mansalva', 'Segoe Print', 'Bradley Hand', cursive;
+  --hand: 'Caveat', 'Segoe Print', 'Bradley Hand', cursive;
+  --label: 'Courier Prime', 'Courier New', monospace;
+
+  --bg: #12100e;
+  --bg2: #17140f;
+  --panel: #1a1714;
+  --panel2: #221e19;
+
+  --text: #e8dfcc;
+  --muted: #aca28c;
+  --faint: #7a7160;
+
+  --line: #2f2a23;
+  --line2: #4d4639;
+
+  --accent: #d6372a;
+  --accent2: #8c1f17;
+  --accent-rgb: 214, 55, 42;
+  --on-accent: #f6eedb;
+  --mustard: #aca28c;
+
+  --ink: 232, 223, 204;
+  --dot-a: 0.2;
+
+  position: relative;
+  isolation: isolate;
+  background: var(--bg);
+  color: var(--text);
+}
+
+html[data-mode="day"] .world-dottoman {
+  --bg: #f2ece0;
+  --bg2: #f6f1e6;
+  --panel: #ece4d3;
+  --panel2: #e3dac7;
+
+  --text: #15120f;
+  --muted: #4c4337;
+  --faint: #847863;
+
+  --line: #d3c8ad;
+  --line2: #b7a98a;
+
+  --accent: #c62824;
+  --accent2: #7a1a13;
+  --accent-rgb: 198, 40, 36;
+  --on-accent: #fbf6ea;
+
+  --ink: 21, 18, 15;
+  --dot-a: 0.16;
+}
+
+/* ===== THE PRESS: halftone in two corners (fixed, behind the page) ===== */
+
+.press {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.press::before,
+.press::after {
+  content: "";
+  position: absolute;
+  width: 62vmax;
+  height: 62vmax;
+  background-image: radial-gradient(circle, rgba(var(--ink), var(--dot-a)) 1.7px, transparent 2.2px);
+  background-size: 10px 10px;
+}
+
+.press::before {
+  top: 0;
+  right: 0;
+  -webkit-mask-image: radial-gradient(circle at 100% 0%, #000 0, transparent 62%);
+  mask-image: radial-gradient(circle at 100% 0%, #000 0, transparent 62%);
+}
+
+.press::after {
+  bottom: 0;
+  left: 0;
+  -webkit-mask-image: radial-gradient(circle at 0% 100%, #000 0, transparent 62%);
+  mask-image: radial-gradient(circle at 0% 100%, #000 0, transparent 62%);
+}
+
+/* ===== NEWSPAPER RULE instead of the kilim band ===== */
+
+.world-dottoman .project-hero-dots,
+.world-dottoman .footer::before {
+  height: 7px;
+  background: none;
+  opacity: 1;
+  -webkit-mask: none;
+  mask: none;
+  border-top: 3px solid var(--text);
+  border-bottom: 1px solid var(--text);
+}
+
+.world-dottoman .footer::before {
+  top: -9px;
+}
+
+/* ===== HERO ===== */
+
+.world-dottoman .project-hero {
+  --shot-w: 520px;
+  --shot-w-m: 100%;
+}
+
+.world-dottoman .badge {
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+
+.world-dottoman .project-hero h1 {
+  font-family: var(--display);
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: clamp(76px, 12vw, 170px);
+  line-height: 0.9;
+}
+
+/* the pen-hand aside under the title */
+.world-dottoman .project-hero .lead {
+  font-family: var(--hand);
+  font-size: 30px;
+  line-height: 1.15;
+  color: var(--muted);
+}
+
+/* hand-drawn lines never sit perfectly still: a gentle boil on the title */
+.boil-defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .world-dottoman .project-hero h1 {
+    filter: url(#boil);
+  }
+}
+
+/* ===== TITLES: ink brush, with the red calligrapher's dot ===== */
+
+.world-dottoman .project-body > h2 {
+  font-family: var(--display);
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: clamp(38px, 5.4vw, 60px);
+  line-height: 1;
+  align-items: center;
+}
+
+.world-dottoman .project-body > h2::before {
+  content: "";
+  flex: none;
+  width: 15px;
+  height: 15px;
+  margin-right: 4px;
+  background: var(--accent);
+  transform: rotate(45deg);
+}
+
+/* typewriter for the small things */
+.world-dottoman .meta-item span,
+.world-dottoman .shot figcaption {
+  font-weight: 700;
+}
+
+.world-dottoman .shot-no {
+  font-family: var(--label);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+/* ===== SMALL SCREENS ===== */
+
+@media (max-width: 860px) {
+  .press::before,
+  .press::after {
+    width: 90vmax;
+    height: 90vmax;
+  }
+
+  .world-dottoman .project-hero .lead {
+    font-size: 26px;
+  }
+}

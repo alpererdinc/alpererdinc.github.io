@@ -1,0 +1,220 @@
+/* =========================================================
+   WORLD: Vehicle Brand Detection — the tracker
+   The demo draws a green box around every vehicle and tags it:
+   "car | ford 0.38". Same flat bones as the rest of the portfolio;
+   this page borrows that look: green detection boxes drifting past
+   like traffic, a dashed lane line, a bounding box around the
+   title, tracking IDs (#01, #02...) for section numbers.
+
+   Night = the demo app's dark screen, neon-green boxes.
+   Day   = the same feed in daylight: pale asphalt, green boxes.
+   The page lives in .world.world-brand; the navbar stays outside.
+   ========================================================= */
+
+.world-brand {
+  --bg: #0e1117;
+  --bg2: #12161d;
+  --panel: #151a23;
+  --panel2: #1d2431;
+
+  --text: #e8ecf1;
+  --muted: #9ba5b3;
+  --faint: #67717f;
+
+  --line: rgba(150, 170, 200, 0.16);
+  --line2: rgba(150, 170, 200, 0.36);
+
+  --accent: #19e05b;
+  --accent2: #0fa642;
+  --accent-rgb: 25, 224, 91;
+  --on-accent: #04120a;
+  --mustard: #c9a227;
+
+  --box: #19e05b;
+  --box-a: 0.3;
+
+  position: relative;
+  isolation: isolate;
+  background: var(--bg);
+  color: var(--text);
+}
+
+html[data-mode="day"] .world-brand {
+  --bg: #e6e9e4;
+  --bg2: #ecefe9;
+  --panel: #eff1ec;
+  --panel2: #dce0d9;
+
+  --text: #11161c;
+  --muted: #4a5560;
+  --faint: #808b93;
+
+  --line: rgba(17, 22, 28, 0.18);
+  --line2: rgba(17, 22, 28, 0.4);
+
+  --accent: #0b7f33;
+  --accent2: #075a23;
+  --accent-rgb: 11, 127, 51;
+  --on-accent: #f1f6f1;
+  --mustard: #9a7a12;
+
+  --box: #1fcf59;
+  --box-a: 0.3;
+}
+
+/* ===== THE FEED (fixed, behind the page) ===== */
+
+.traffic {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* the road's centre line */
+.lane {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 78%;
+  border-top: 3px dashed rgba(var(--accent-rgb), 0.22);
+}
+
+/* detection boxes drifting past like traffic, each with its tag */
+.det {
+  position: absolute;
+  left: -24vw;
+  top: var(--y, 50%);
+  width: var(--w, 150px);
+  height: var(--h, 80px);
+  border: 2px solid var(--box);
+  opacity: var(--box-a);
+  animation: pass var(--t, 110s) linear var(--d, 0s) infinite;
+  will-change: transform;
+}
+
+.det.rev {
+  left: auto;
+  right: -24vw;
+  animation-name: pass-back;
+}
+
+.det b {
+  position: absolute;
+  left: -2px;
+  bottom: 100%;
+  padding: 1px 8px;
+  font-family: var(--label);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  color: #04120a;
+  background: var(--box);
+}
+
+@keyframes pass {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(calc(100vw + 48vw), 0, 0); }
+}
+
+@keyframes pass-back {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(calc(-100vw - 48vw), 0, 0); }
+}
+
+/* ===== HERO ===== */
+
+.world-brand .project-hero {
+  --shot-w: 520px;
+  --shot-w-m: 100%;
+}
+
+/* the title is itself a detection: boxed, tagged */
+.world-brand .project-hero h1 {
+  position: relative;
+  width: fit-content;
+  max-width: 100%;
+  margin: 34px 0 22px;
+  padding: 8px 18px 6px;
+  font-size: clamp(40px, 5.6vw, 78px);
+  line-height: 0.95;
+  border: 2px solid var(--box);
+}
+
+.world-brand .project-hero h1::before {
+  content: "h1 | title 0.99";
+  position: absolute;
+  left: -2px;
+  bottom: 100%;
+  padding: 1px 10px;
+  font-family: var(--label);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: #04120a;
+  background: var(--box);
+}
+
+.world-brand .hero-shot img {
+  border-color: var(--box);
+  border-width: 2px;
+}
+
+/* ===== TRACKING IDS instead of section numbers ===== */
+
+.world-brand .project-body > h2::before {
+  content: "#" counter(sec, decimal-leading-zero);
+  font-family: var(--label);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #04120a;
+  background: var(--box);
+  padding: 2px 8px;
+}
+
+/* tech tags look like the detector's own label strips */
+.world-brand .project-body > ul li {
+  color: #04120a;
+  background: var(--box);
+  border-color: var(--box);
+}
+
+.world-brand .shot-no {
+  font-family: var(--label);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.world-brand .shot img {
+  border-color: var(--line2);
+}
+
+.world-brand .shot a:hover img,
+.world-brand .shot a:focus-visible img {
+  border-color: var(--box);
+}
+
+/* ===== SMALL SCREENS ===== */
+
+@media (max-width: 860px) {
+  .det:nth-of-type(n + 5) {
+    display: none;
+  }
+}
+
+/* a still feed for people who ask for less motion */
+@media (prefers-reduced-motion: reduce) {
+  .det {
+    animation: none;
+    left: var(--rest, 30%);
+  }
+
+  .det.rev {
+    right: auto;
+  }
+}

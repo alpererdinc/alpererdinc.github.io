@@ -10,10 +10,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Barlow+Semi+Condensed:wght@400;500;600&family=Chakra+Petch:wght@500;600;700&family=VT323&display=swap" />
-  <link rel="stylesheet" href="../css/analog.css?v=19" />
+  <link rel="stylesheet" href="../css/analog.css?v=20" />
+  <link rel="stylesheet" href="../css/worlds/npc.css?v=1" />
 </head>
 
-<body>
+<body data-world="npc">
   <div class="cursor" id="cursor"></div>
   <div class="grain" aria-hidden="true"></div>
 
@@ -97,15 +98,31 @@
     <a href="../index.html#contact" data-tr="iletişim" data-en="contact">iletişim</a>
   </div>
 
-  <section class="project-hero">
+  <div class="world world-npc">
+  <div class="sky" aria-hidden="true">
+    <svg class="sun" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+      <circle class="disc" cx="200" cy="200" r="72" />
+      <path d="M200 128A72 72 0 0 1 272 200" stroke-width="3.2" stroke-linecap="round" />
+      <g class="ring r1"><circle cx="200" cy="200" r="92" stroke-dasharray="120 14 40 14 12 14" /></g>
+      <g class="ring r2"><circle cx="200" cy="200" r="118" stroke-dasharray="180 20 6 20" /></g>
+      <g class="ring r3"><circle cx="200" cy="200" r="150" stroke-dasharray="320 26 70 26" /></g>
+      <circle cx="200" cy="200" r="186" stroke-width="7" stroke-dasharray="1.2 11" />
+    </svg>
+    <i class="ash a1"></i><i class="ash a2"></i>
+  </div>
+
+  <section class="project-hero project-hero--shot">
     <div class="project-hero-dots"></div>
 
     <div class="project-hero-content">
       <div class="badge" data-tr="oyun / lisans tezi" data-en="game / thesis">oyun / lisans tezi</div>
-      <h1 lang="en" data-tr="ADAPTIVE NPC AI" data-en="ADAPTIVE NPC AI">ADAPTIVE NPC AI</h1>
+      <h1 lang="en"><span class="h1-a">Adaptive</span> <span class="h1-b">NPC AI</span></h1>
       <p class="lead" data-tr="Lisans tezim: oyuncunun nasıl oynadığını izleyip davranışını ona göre değiştiren NPC'ler." data-en="My graduation thesis: NPCs that watch how you play and change their behaviour to match.">
         Lisans tezim: oyuncunun nasıl oynadığını izleyip davranışını ona göre değiştiren NPC'ler.
       </p>
+      <figure class="hero-shot">
+        <img src="../images/projects/adaptive-npc/02-final-arena.webp" alt="Gün batımında arena; oyuncu ve adaptif NPC karşı karşıya, sağda oyuncu profili ve NPC'nin uyarlama paneli" width="1600" height="785" />
+      </figure>
     </div>
   </section>
 
@@ -222,11 +239,13 @@
     <div class="footer-right" lang="en">personal portfolio</div>
   </footer>
 
+
   <button class="scroll-top" id="scrollTopBtn" aria-label="Sayfanın başına dön">
     ↑
   </button>
+  </div>
 
-  <script src="../js/main.js?v=analog10"></script>
+  <script src="../js/main.js?v=analog11"></script>
   <script data-goatcounter="https://alpererdinc.goatcounter.com/count"
     async src="https://gc.zgo.at/count.js"></script>
 </body>

@@ -10,10 +10,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Barlow+Semi+Condensed:wght@400;500;600&family=Chakra+Petch:wght@500;600;700&family=VT323&display=swap" />
-  <link rel="stylesheet" href="../css/analog.css?v=19" />
+  <link rel="stylesheet" href="../css/analog.css?v=20" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mansalva&family=Caveat:wght@500;700&family=Courier+Prime:wght@400;700&display=swap" />
+  <link rel="stylesheet" href="../css/worlds/dottoman.css?v=1" />
 </head>
 
-<body>
+<body data-world="dottoman">
   <div class="cursor" id="cursor"></div>
   <div class="grain" aria-hidden="true"></div>
 
@@ -97,7 +99,18 @@
     <a href="../index.html#contact" data-tr="iletişim" data-en="contact">iletişim</a>
   </div>
 
-  <section class="project-hero">
+  <div class="world world-dottoman">
+  <div class="press" aria-hidden="true"></div>
+  <svg class="boil-defs" aria-hidden="true" focusable="false">
+    <filter id="boil" x="-2%" y="-5%" width="104%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.022" numOctaves="2" seed="1" result="n">
+        <animate attributeName="seed" values="1;2;3;4;5" dur="0.9s" calcMode="discrete" repeatCount="indefinite" />
+      </feTurbulence>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="3.5" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+  </svg>
+
+  <section class="project-hero project-hero--shot">
     <div class="project-hero-dots"></div>
 
     <div class="project-hero-content">
@@ -107,6 +120,9 @@
       <p class="lead" data-tr="Noktalama işaretlerinin canlandığı, kendi animasyon ve hikâye evrenim." data-en="My own animation and story universe, where punctuation marks come to life.">
         Noktalama işaretlerinin canlandığı, kendi animasyon ve hikâye evrenim.
       </p>
+      <figure class="hero-shot">
+        <img src="../images/projects/dottoman/03-dotto-rooftop.webp" alt="Dotto bir çatının kenarında, uzun kırmızı pelerini rüzgârda, arkada mavi şehir silueti" width="1376" height="766" />
+      </figure>
     </div>
   </section>
 
@@ -275,11 +291,13 @@
 
 
 
+
   <button class="scroll-top" id="scrollTopBtn" aria-label="Sayfanın başına dön">
     ↑
   </button>
+  </div>
 
-  <script src="../js/main.js?v=analog10"></script>
+  <script src="../js/main.js?v=analog11"></script>
   <script data-goatcounter="https://alpererdinc.goatcounter.com/count"
     async src="https://gc.zgo.at/count.js"></script>
 </body>

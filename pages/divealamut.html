@@ -10,10 +10,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Barlow+Semi+Condensed:wght@400;500;600&family=Chakra+Petch:wght@500;600;700&family=VT323&display=swap" />
-  <link rel="stylesheet" href="../css/analog.css?v=19" />
+  <link rel="stylesheet" href="../css/analog.css?v=20" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pirata+One&display=swap" />
+  <link rel="stylesheet" href="../css/worlds/alamut.css?v=1" />
 </head>
 
-<body>
+<body data-world="alamut">
   <div class="cursor" id="cursor"></div>
   <div class="grain" aria-hidden="true"></div>
 
@@ -97,15 +99,28 @@
     <a href="../index.html#contact" data-tr="iletişim" data-en="contact">iletişim</a>
   </div>
 
-  <section class="project-hero">
+  <div class="world world-alamut">
+  <div class="heights" aria-hidden="true">
+    <svg class="cloud" viewBox="0 0 160 64" style="--y:14%;--w:260px;--t:150s;--d:-40s;--rest:62%" xmlns="http://www.w3.org/2000/svg"><path d="M8 62Q8 42 30 42Q36 18 62 22Q82 4 104 26Q132 20 138 44Q156 44 156 62Z"/></svg>
+    <svg class="cloud" viewBox="0 0 160 64" style="--y:34%;--w:180px;--t:110s;--d:-95s;--rest:18%" xmlns="http://www.w3.org/2000/svg"><path d="M8 62Q8 42 30 42Q36 18 62 22Q82 4 104 26Q132 20 138 44Q156 44 156 62Z"/></svg>
+    <svg class="cloud" viewBox="0 0 160 64" style="--y:52%;--w:320px;--t:190s;--d:-120s;--rest:40%" xmlns="http://www.w3.org/2000/svg"><path d="M8 62Q8 42 30 42Q36 18 62 22Q82 4 104 26Q132 20 138 44Q156 44 156 62Z"/></svg>
+    <svg class="cloud" viewBox="0 0 160 64" style="--y:70%;--w:210px;--t:130s;--d:-20s;--rest:74%" xmlns="http://www.w3.org/2000/svg"><path d="M8 62Q8 42 30 42Q36 18 62 22Q82 4 104 26Q132 20 138 44Q156 44 156 62Z"/></svg>
+    <svg class="cloud" viewBox="0 0 160 64" style="--y:86%;--w:280px;--t:170s;--d:-150s;--rest:8%" xmlns="http://www.w3.org/2000/svg"><path d="M8 62Q8 42 30 42Q36 18 62 22Q82 4 104 26Q132 20 138 44Q156 44 156 62Z"/></svg>
+    <div class="tower"><i></i></div>
+  </div>
+
+  <section class="project-hero project-hero--shot">
     <div class="project-hero-dots"></div>
     <div class="project-hero-content">
       <div class="badge" data-tr="oyun / hypercasual / staj" data-en="game / hypercasual / internship">oyun / hypercasual / staj</div>
-      <h1 lang="en">DiveAlamut</h1>
+      <h1 lang="en"><span class="h1-a">dive</span> <span class="h1-b">alamut</span></h1>
       <p class="lead"
         data-tr="Kuleyi döndür, boşluğu bul, aşağı dal. Yeterince hız topladığında Smash Mode açılıyor ve tehlikeli platformlar bir süreliğine senin değil, onların sorunu oluyor." data-en="Spin the tower, find the gap, dive. Build enough speed and Smash Mode kicks in; for a while the dangerous platforms become their problem, not yours.">
         Kuleyi döndür, boşluğu bul, aşağı dal. Yeterince hız topladığında Smash Mode açılıyor ve tehlikeli platformlar bir süreliğine senin değil, onların sorunu oluyor.
       </p>
+      <figure class="hero-shot">
+        <img src="../images/projects/divealamut/02-level-12.webp" alt="12. seviyede sütunlu kule, kırmızı ve kahverengi platformlar arasında düşen suikastçi top" width="872" height="1198" />
+      </figure>
     </div>
   </section>
 
@@ -295,7 +310,9 @@
     <div class="footer-right" lang="en">personal portfolio</div>
   </footer>
   <button class="scroll-top" id="scrollTopBtn" aria-label="Sayfanın başına dön">▲</button>
-  <script src="../js/main.js?v=analog10"></script>
+  </div>
+
+  <script src="../js/main.js?v=analog11"></script>
   <script data-goatcounter="https://alpererdinc.goatcounter.com/count"
     async src="https://gc.zgo.at/count.js"></script>
 </body>

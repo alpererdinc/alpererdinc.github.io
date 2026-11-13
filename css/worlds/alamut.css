@@ -1,0 +1,206 @@
+/* =========================================================
+   WORLD: DiveAlamut — the eagle's nest
+   A tower above the clouds, a ball diving down it.
+   Same flat bones as the rest of the site; this page changes the
+   colour, the sky behind it, the headings (blackletter, like the
+   game's own logo) and one mark: a tower at the side with a ball
+   that dives as you scroll.
+
+   Day   = the game's turquoise sky, crimson titles.
+   Night = the same tower after dusk, torch-lit.
+   The page lives in .world.world-alamut; the navbar stays outside.
+   ========================================================= */
+
+.world-alamut {
+  --gothic: 'Pirata One', 'UnifrakturCook', 'Georgia', serif;
+
+  --bg: #98d8db;
+  --bg2: #a4dde0;
+  --panel: #b6e5e6;
+  --panel2: #86cdd1;
+
+  --text: #0a2a30;
+  --muted: #2b5a60;
+  --faint: #4f8087;
+
+  --line: rgba(10, 42, 48, 0.2);
+  --line2: rgba(10, 42, 48, 0.42);
+
+  --accent: #a3141a;
+  --accent2: #6f0c10;
+  --accent-rgb: 163, 20, 26;
+  --on-accent: #fff6ec;
+  --mustard: #b87a10;
+
+  --dive: #1d44d4;        /* the blue "dive" of the logo */
+  --cloud: 255, 255, 255;
+  --cloud-a: 0.42;
+  --stone: #e8a53a;       /* the tower */
+  --stone-band: #b87a10;
+
+  position: relative;
+  isolation: isolate;
+  background: var(--bg);
+  color: var(--text);
+}
+
+html[data-mode="night"] .world-alamut,
+html:not([data-mode="day"]) .world-alamut {
+  --bg: #061b22;
+  --bg2: #082229;
+  --panel: #0b2831;
+  --panel2: #0f3541;
+
+  --text: #e4f1ee;
+  --muted: #a3c6c4;
+  --faint: #6f9594;
+
+  --line: rgba(190, 235, 230, 0.17);
+  --line2: rgba(190, 235, 230, 0.36);
+
+  --accent: #ff6252;
+  --accent2: #b73a2e;
+  --accent-rgb: 255, 98, 82;
+  --on-accent: #1a0806;
+  --mustard: #d4a03a;
+
+  --dive: #7ea4ff;
+  --cloud: 170, 225, 222;
+  --cloud-a: 0.07;
+  --stone: #9a6a22;
+  --stone-band: #6b4714;
+}
+
+/* ===== THE SKY (fixed, behind the page) ===== */
+
+.heights {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* flat clouds, drifting across at different heights and speeds */
+.cloud {
+  position: absolute;
+  left: -30vw;
+  top: var(--y, 20%);
+  width: var(--w, 220px);
+  fill: rgba(var(--cloud), var(--cloud-a));
+  animation: drift var(--t, 120s) linear var(--d, 0s) infinite;
+  will-change: transform;
+}
+
+@keyframes drift {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(calc(100vw + 60vw), 0, 0); }
+}
+
+/* the tower at the side: fluted stone, a carved band every so often */
+.tower {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 46px;
+  width: 58px;
+  background:
+    repeating-linear-gradient(90deg, transparent 0 7px, rgba(0, 0, 0, 0.13) 7px 9px),
+    var(--stone);
+}
+
+.tower::before {
+  content: "";
+  position: absolute;
+  inset: 0 -9px;
+  background: repeating-linear-gradient(to bottom, transparent 0 164px, var(--stone-band) 164px 188px);
+}
+
+/* the ball that dives as the page scrolls (needs scroll-linked animation) */
+.tower i {
+  display: none;
+  position: absolute;
+  top: 70px;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  margin-left: -12px;
+  background: #eef2f2;
+  border: 2px solid var(--text);
+  border-radius: 50%;
+}
+
+@supports (animation-timeline: scroll()) {
+  .tower i {
+    display: block;
+    animation: dive linear both;
+    animation-timeline: scroll(root block);
+  }
+}
+
+@keyframes dive {
+  from { transform: translateY(0); }
+  to { transform: translateY(calc(100vh - 170px)); }
+}
+
+@media (max-width: 1280px) {
+  .tower {
+    display: none;
+  }
+}
+
+/* ===== TITLES: blackletter, like the game's logo ===== */
+
+.world-alamut .project-hero h1,
+.world-alamut .project-body > h2 {
+  font-family: var(--gothic);
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.world-alamut .project-hero h1 {
+  font-size: clamp(76px, 12vw, 160px);
+  line-height: 0.82;
+}
+
+.world-alamut .project-hero h1 .h1-a {
+  color: var(--dive);
+}
+
+.world-alamut .project-hero h1 .h1-b {
+  color: var(--accent);
+}
+
+.world-alamut .project-body > h2 {
+  font-size: clamp(42px, 6vw, 68px);
+  line-height: 0.9;
+  color: var(--accent);
+}
+
+.world-alamut .project-body > h2::before {
+  font-size: 26px;
+}
+
+/* ===== HERO ===== */
+
+.world-alamut .project-hero {
+  --shot-w: 270px;
+  --shot-w-m: 230px;
+}
+
+/* ===== SMALL SCREENS ===== */
+
+@media (max-width: 860px) {
+  .cloud:nth-of-type(n + 4) {
+    display: none;
+  }
+}
+
+/* a still sky for people who ask for less motion */
+@media (prefers-reduced-motion: reduce) {
+  .cloud {
+    animation: none;
+    left: var(--rest, 20%);
+  }
+}

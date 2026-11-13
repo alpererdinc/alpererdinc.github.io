@@ -1,0 +1,243 @@
+/* =========================================================
+   WORLD: JazuRider — a tale at night
+   The witches of Turkish folk tales rode jars (küp) into the sky.
+   Same flat bones as the rest of the site; this page changes the
+   colour, the sky behind it and a few marks: a moon, ridges that
+   slide past like the game's endless road, jars drifting by.
+
+   Night = the game's indigo night, yellow crescent.
+   Day   = the same tale by daylight: warm paper, terracotta ridges, a sun.
+   The page lives in .world.world-jazu; the navbar stays outside.
+   ========================================================= */
+
+.world-jazu {
+  --bg: #130d3b;
+  --bg2: #171046;
+  --panel: #1b1352;
+  --panel2: #251a6a;
+
+  --text: #eeeaff;
+  --muted: #b9b0e6;
+  --faint: #8378c2;
+
+  --line: rgba(190, 175, 255, 0.2);
+  --line2: rgba(190, 175, 255, 0.4);
+
+  --accent: #ff7a2a;
+  --accent2: #b4430c;
+  --accent-rgb: 255, 122, 42;
+  --on-accent: #1a0a05;
+  --mustard: #e6b52c;
+
+  --moon: #f5c518;
+  --lav: #cbc5ff;          /* "JAZU" in the logo */
+  --rider: #ffc61a;        /* "RIDER" in the logo */
+  --ridge-1: #281d79;
+  --ridge-2: #1e1665;
+  --ridge-3: #150f4a;
+  --star: 236, 232, 255;
+
+  position: relative;
+  isolation: isolate;
+  background: var(--bg);
+  color: var(--text);
+}
+
+html[data-mode="day"] .world-jazu {
+  --bg: #f0dfc2;
+  --bg2: #f4e6cd;
+  --panel: #f6ead3;
+  --panel2: #e6d2ae;
+
+  --text: #1d1450;
+  --muted: #483d84;
+  --faint: #8a7fae;
+
+  --line: rgba(29, 20, 80, 0.2);
+  --line2: rgba(29, 20, 80, 0.4);
+
+  --accent: #c0430a;
+  --accent2: #85290a;
+  --accent-rgb: 192, 67, 10;
+  --on-accent: #fff4e6;
+  --mustard: #b07410;
+
+  --moon: #f2a22a;
+  --lav: #3b2cae;
+  --rider: #d4540e;
+  --ridge-1: #ecbc92;
+  --ridge-2: #e0a47c;
+  --ridge-3: #cf8a5f;
+}
+
+/* ===== THE SKY (fixed, behind the page) ===== */
+
+.dusk {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* the moon: a crescent at night, a plain sun by day */
+.moon {
+  position: absolute;
+  top: 12vh;
+  right: 9vw;
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  box-shadow: -20px 5px 0 0 var(--moon);
+}
+
+html[data-mode="day"] .moon {
+  background: var(--moon);
+  box-shadow: none;
+}
+
+/* a few stars, only at night, blinking slowly */
+.dusk .stars {
+  position: absolute;
+  inset: 0;
+  background-color: rgb(var(--star));
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='340' height='340'%3E%3Cg fill='%23000'%3E%3Ccircle cx='30' cy='46' r='1.3'/%3E%3Ccircle cx='140' cy='260' r='1.1'/%3E%3Ccircle cx='210' cy='90' r='1.5'/%3E%3Ccircle cx='300' cy='200' r='1.2'/%3E%3Ccircle cx='80' cy='170' r='1'/%3E%3Ccircle cx='260' cy='20' r='1.3'/%3E%3C/g%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='340' height='340'%3E%3Cg fill='%23000'%3E%3Ccircle cx='30' cy='46' r='1.3'/%3E%3Ccircle cx='140' cy='260' r='1.1'/%3E%3Ccircle cx='210' cy='90' r='1.5'/%3E%3Ccircle cx='300' cy='200' r='1.2'/%3E%3Ccircle cx='80' cy='170' r='1'/%3E%3Ccircle cx='260' cy='20' r='1.3'/%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.7;
+  animation: blink 7s ease-in-out infinite alternate;
+}
+
+html[data-mode="day"] .dusk .stars {
+  display: none;
+}
+
+@keyframes blink {
+  from { opacity: 0.35; }
+  to { opacity: 0.8; }
+}
+
+/* ridges: three layers sliding past at different speeds, like the endless road */
+.ridge {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: var(--h);
+  background: var(--c);
+  -webkit-mask-repeat: repeat-x;
+  mask-repeat: repeat-x;
+  -webkit-mask-size: 900px 100%;
+  mask-size: 900px 100%;
+  -webkit-mask-position: 0 100%;
+  mask-position: 0 100%;
+  animation: ridge-slide var(--t) linear infinite;
+}
+
+.ridge.r1 {
+  --h: 34vh;
+  --c: var(--ridge-1);
+  --t: 420s;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20900%20200%27%20preserveAspectRatio%3D%27none%27%3E%3Cpath%20d%3D%27M0%20130%20L176%2050%20L281%20118%20L361%2047%20L439%20116%20L552%2029%20L627%20122%20L683%2027%20L780%20129%20L900%20130%20L900%20200%20L0%20200Z%27%2F%3E%3C%2Fsvg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20900%20200%27%20preserveAspectRatio%3D%27none%27%3E%3Cpath%20d%3D%27M0%20130%20L176%2050%20L281%20118%20L361%2047%20L439%20116%20L552%2029%20L627%20122%20L683%2027%20L780%20129%20L900%20130%20L900%20200%20L0%20200Z%27%2F%3E%3C%2Fsvg%3E");
+}
+
+.ridge.r2 {
+  --h: 24vh;
+  --c: var(--ridge-2);
+  --t: 280s;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20900%20200%27%20preserveAspectRatio%3D%27none%27%3E%3Cpath%20d%3D%27M0%20160%20L182%2064%20L269%20158%20L307%20103%20L383%20157%20L427%20102%20L494%20150%20L564%20129%20L646%20151%20L751%2080%20L822%20159%20L900%20160%20L900%20200%20L0%20200Z%27%2F%3E%3C%2Fsvg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20900%20200%27%20preserveAspectRatio%3D%27none%27%3E%3Cpath%20d%3D%27M0%20160%20L182%2064%20L269%20158%20L307%20103%20L383%20157%20L427%20102%20L494%20150%20L564%20129%20L646%20151%20L751%2080%20L822%20159%20L900%20160%20L900%20200%20L0%20200Z%27%2F%3E%3C%2Fsvg%3E");
+}
+
+.ridge.r3 {
+  --h: 14vh;
+  --c: var(--ridge-3);
+  --t: 170s;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20900%20200%27%20preserveAspectRatio%3D%27none%27%3E%3Cpath%20d%3D%27M0%20184%20L123%20162%20L182%20171%20L244%20139%20L303%20178%20L339%20161%20L399%20175%20L438%20147%20L499%20177%20L588%20116%20L652%20183%20L651%20151%20L704%20173%20L806%20137%20L865%20175%20L900%20184%20L900%20200%20L0%20200Z%27%2F%3E%3C%2Fsvg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20900%20200%27%20preserveAspectRatio%3D%27none%27%3E%3Cpath%20d%3D%27M0%20184%20L123%20162%20L182%20171%20L244%20139%20L303%20178%20L339%20161%20L399%20175%20L438%20147%20L499%20177%20L588%20116%20L652%20183%20L651%20151%20L704%20173%20L806%20137%20L865%20175%20L900%20184%20L900%20200%20L0%20200Z%27%2F%3E%3C%2Fsvg%3E");
+}
+
+@keyframes ridge-slide {
+  from { -webkit-mask-position: 0 100%; mask-position: 0 100%; }
+  to { -webkit-mask-position: -900px 100%; mask-position: -900px 100%; }
+}
+
+/* jars drifting across the sky, each bobbing a little */
+.kup {
+  position: absolute;
+  left: -14vw;
+  top: var(--y, 30%);
+  width: var(--s, 54px);
+  color: var(--accent);
+  opacity: 0.38;
+  animation: kup-fly var(--t, 110s) linear var(--d, 0s) infinite;
+  will-change: transform;
+}
+
+.kup svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  animation: kup-bob 5.5s ease-in-out infinite alternate;
+}
+
+@keyframes kup-fly {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(calc(100vw + 28vw), 0, 0); }
+}
+
+@keyframes kup-bob {
+  from { transform: translateY(-9px) rotate(-4deg); }
+  to { transform: translateY(9px) rotate(4deg); }
+}
+
+/* ===== HERO ===== */
+
+.world-jazu .project-hero {
+  --shot-w: 270px;
+  --shot-w-m: 230px;
+}
+
+/* the logo: JAZU in lavender, RIDER spread out in yellow */
+.world-jazu .project-hero h1 .h1-a {
+  color: var(--lav);
+}
+
+.world-jazu .project-hero h1 .h1-b {
+  color: var(--rider);
+  letter-spacing: 0.1em;
+}
+
+/* ===== SMALL SCREENS ===== */
+
+@media (max-width: 860px) {
+  .moon {
+    top: 9vh;
+    right: 7vw;
+    width: 56px;
+    height: 56px;
+    box-shadow: -15px 4px 0 0 var(--moon);
+  }
+
+  .ridge.r1 { --h: 24vh; }
+  .ridge.r2 { --h: 17vh; }
+  .ridge.r3 { --h: 10vh; }
+
+  .kup:nth-of-type(n + 3) {
+    display: none;
+  }
+}
+
+/* a still sky for people who ask for less motion */
+@media (prefers-reduced-motion: reduce) {
+  .dusk .stars,
+  .ridge,
+  .kup,
+  .kup svg {
+    animation: none;
+  }
+
+  .kup {
+    left: var(--rest, 30%);
+  }
+}

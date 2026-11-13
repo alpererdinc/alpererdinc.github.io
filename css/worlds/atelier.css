@@ -1,0 +1,136 @@
+/* =========================================================
+   WORLD: Çizimler — the desk
+   "My desk, slightly tidied up", the page says. So the page is a
+   desk: a ruler down the edge, crop marks in the corners, each
+   piece laid on a mat like a print. The colours stay out of the
+   way (the drawings bring their own): charcoal by night, paper by
+   day. The accent borrows the two colours of "Velvet":
+   orange at night, cobalt by day.
+   Same flat bones as the rest of the site.
+
+   The page lives in .world.world-atelier; the navbar stays outside.
+   ========================================================= */
+
+.world-atelier {
+  --bg: #151413;
+  --bg2: #1a1917;
+  --panel: #1d1b19;
+  --panel2: #262421;
+
+  --text: #eae5da;
+  --muted: #aaa398;
+  --faint: #716c62;
+
+  --line: rgba(234, 229, 218, 0.14);
+  --line2: rgba(234, 229, 218, 0.32);
+
+  --accent: #ff7a3d;
+  --accent2: #c2511d;
+  --accent-rgb: 255, 122, 61;
+  --on-accent: #1a0c05;
+  --mustard: #d9a23a;
+
+  --ink: 234, 229, 218;
+  --mat: #0f0e0d;
+
+  position: relative;
+  isolation: isolate;
+  background: var(--bg);
+  color: var(--text);
+}
+
+html[data-mode="day"] .world-atelier {
+  --bg: #ece8e0;
+  --bg2: #f1ede6;
+  --panel: #f4f1ea;
+  --panel2: #e2ddd2;
+
+  --text: #1a1814;
+  --muted: #57514a;
+  --faint: #8a8479;
+
+  --line: rgba(26, 24, 20, 0.16);
+  --line2: rgba(26, 24, 20, 0.38);
+
+  --accent: #3640d6;
+  --accent2: #232b9c;
+  --accent-rgb: 54, 64, 214;
+  --on-accent: #ffffff;
+  --mustard: #a8781a;
+
+  --ink: 26, 24, 20;
+  --mat: #f9f7f1;
+}
+
+/* ===== THE DESK (fixed, behind the page) ===== */
+
+.studio {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* a ruler down the left edge: a tick every 10 px, a longer one every 50 */
+.studio .ruler {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 16px;
+  background:
+    repeating-linear-gradient(to bottom, rgba(var(--ink), 0.5) 0 1px, transparent 1px 50px) left top / 16px 100% no-repeat,
+    repeating-linear-gradient(to bottom, rgba(var(--ink), 0.28) 0 1px, transparent 1px 10px) left top / 8px 100% no-repeat;
+  border-right: 1px solid rgba(var(--ink), 0.2);
+}
+
+/* crop marks in the four corners, as on a print proof */
+.studio .crop {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 0 solid rgba(var(--ink), 0.4);
+}
+
+.studio .crop.tl { top: 74px; left: 40px; border-top-width: 1px; border-left-width: 1px; }
+.studio .crop.tr { top: 74px; right: 40px; border-top-width: 1px; border-right-width: 1px; }
+.studio .crop.bl { bottom: 24px; left: 40px; border-bottom-width: 1px; border-left-width: 1px; }
+.studio .crop.br { bottom: 24px; right: 40px; border-bottom-width: 1px; border-right-width: 1px; }
+
+/* ===== PRINTS ON MATS ===== */
+
+/* the whole drawing, never cropped, laid on a mat */
+.world-atelier .artwork-card img {
+  object-fit: contain;
+  padding: 16px;
+  background: var(--mat);
+  border: 1px solid var(--line2);
+}
+
+.world-atelier .design-card img {
+  padding: 26px;
+}
+
+.world-atelier .artwork-card:hover img {
+  border-color: var(--accent);
+}
+
+/* museum-label captions: a thin rule above the title */
+.world-atelier .artwork-card figcaption {
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid var(--line2);
+}
+
+.world-atelier .artwork-category-head > span {
+  letter-spacing: 0.2em;
+}
+
+/* ===== SMALL SCREENS ===== */
+
+@media (max-width: 860px) {
+  .studio .ruler,
+  .studio .crop {
+    display: none;
+  }
+}

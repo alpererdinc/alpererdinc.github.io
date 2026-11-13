@@ -12,10 +12,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Barlow+Semi+Condensed:wght@400;500;600&family=Chakra+Petch:wght@500;600;700&family=VT323&display=swap" />
-  <link rel="stylesheet" href="../css/analog.css?v=19" />
+  <link rel="stylesheet" href="../css/analog.css?v=20" />
+  <link rel="stylesheet" href="../css/worlds/atelier.css?v=1" />
 </head>
 
-<body>
+<body data-world="atelier">
   <div class="cursor" id="cursor"></div>
   <div class="grain" aria-hidden="true"></div>
 
@@ -99,6 +100,12 @@
 
     <a href="artworks.html" data-tr="çizimler" data-en="artworks">çizimler</a>
     <a href="../index.html#contact" data-tr="iletişim" data-en="contact">iletişim</a>
+  </div>
+
+  <div class="world world-atelier">
+  <div class="studio" aria-hidden="true">
+    <i class="ruler"></i>
+    <i class="crop tl"></i><i class="crop tr"></i><i class="crop bl"></i><i class="crop br"></i>
   </div>
 
   <!-- HERO -->
@@ -337,11 +344,13 @@
     <div class="footer-right" lang="en">personal portfolio</div>
   </footer>
 
+
   <button class="scroll-top" id="scrollTopBtn" aria-label="Sayfanın başına dön">
     ↑
   </button>
+  </div>
 
-  <script src="../js/main.js?v=analog10"></script>
+  <script src="../js/main.js?v=analog11"></script>
   <script data-goatcounter="https://alpererdinc.goatcounter.com/count"
     async src="https://gc.zgo.at/count.js"></script>
 </body>

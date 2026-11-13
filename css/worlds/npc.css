@@ -1,0 +1,221 @@
+/* =========================================================
+   WORLD: Adaptive NPC AI — the dead sun
+   The sun fell, a lab was lifted off the ground on solar engines,
+   and its robots now treat it as an arena.
+   Same flat bones as the rest of the site; this page changes the
+   colour, the sky behind it and a few marks.
+
+   Night = the lab in the dark, lit by engine glow and embers.
+   Day   = the same record as a printed lab report: ink on grey paper.
+   The page lives in .world.world-npc; the navbar stays outside it.
+   ========================================================= */
+
+.world-npc {
+  --bg: #0c0a09;
+  --bg2: #120f0d;
+  --panel: #17120f;
+  --panel2: #211914;
+
+  --text: #efe4d2;
+  --muted: #b5a68e;
+  --faint: #7d6f5a;
+
+  --line: rgba(239, 200, 150, 0.17);
+  --line2: rgba(239, 200, 150, 0.36);
+
+  --accent: #ff7a1a;
+  --accent2: #b84a0a;
+  --accent-rgb: 255, 122, 26;
+  --on-accent: #160a03;
+  --mustard: #c99a3a;
+
+  --ink: 239, 228, 210;   /* lines and dust */
+  --ember: 255, 150, 60;  /* the glow */
+
+  position: relative;
+  isolation: isolate;
+  background: var(--bg);
+  color: var(--text);
+}
+
+html[data-mode="day"] .world-npc {
+  --bg: #dedacf;
+  --bg2: #e5e1d6;
+  --panel: #ebe7dc;
+  --panel2: #d3cec0;
+
+  --text: #1a1511;
+  --muted: #55493c;
+  --faint: #857a68;
+
+  --line: rgba(26, 21, 17, 0.17);
+  --line2: rgba(26, 21, 17, 0.4);
+
+  --accent: #b3380a;
+  --accent2: #7c2306;
+  --accent-rgb: 179, 56, 10;
+  --on-accent: #f7f0e3;
+  --mustard: #8f6f12;
+
+  --ink: 26, 21, 17;
+  --ember: 179, 56, 10;
+}
+
+/* ===== THE SKY (fixed, behind the page) ===== */
+
+.sky {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* graph paper: the lab's own sheet */
+.sky::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(var(--ink), 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(var(--ink), 0.05) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+html[data-mode="day"] .sky::before {
+  background-image:
+    linear-gradient(to right, rgba(var(--ink), 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(var(--ink), 0.07) 1px, transparent 1px);
+}
+
+/* engine glow along the bottom edge: the lab is being held up from below */
+.sky::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 26vh;
+  background: linear-gradient(to top, rgba(var(--ember), 0.16), transparent);
+  animation: thrum 7s ease-in-out infinite;
+}
+
+html[data-mode="day"] .sky::after {
+  display: none;
+}
+
+@keyframes thrum {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+
+/* the fallen sun: a dark disc and the broken rings around it */
+.sun {
+  position: absolute;
+  top: -16vmin;
+  right: -18vmin;
+  width: 84vmin;
+  height: 84vmin;
+  fill: none;
+  stroke: rgb(var(--ember));
+  opacity: 0.5;
+}
+
+html[data-mode="day"] .sun {
+  stroke: rgb(var(--ink));
+  opacity: 0.32;
+}
+
+.sun .disc {
+  fill: var(--bg);
+  stroke-width: 1.6;
+}
+
+.sun .ring {
+  transform-box: view-box;
+  transform-origin: 50% 50%;
+}
+
+.sun .ring circle {
+  stroke-width: 1.4;
+}
+
+.sun .r1 { animation: spin 300s linear infinite; }
+.sun .r2 { animation: spin 420s linear infinite reverse; }
+.sun .r3 { animation: spin 560s linear infinite; }
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ash and embers, falling slowly. The tile is a mask, so colour follows the mode. */
+.ash {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 200%;
+  background-color: rgb(var(--ember));
+  -webkit-mask-repeat: repeat;
+  mask-repeat: repeat;
+  will-change: transform;
+}
+
+html[data-mode="day"] .ash {
+  background-color: rgb(var(--ink));
+}
+
+.ash.a1 {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cg fill='%23000'%3E%3Ccircle cx='30' cy='50' r='1.2'/%3E%3Ccircle cx='120' cy='240' r='1'/%3E%3Ccircle cx='180' cy='110' r='1.3'/%3E%3Ccircle cx='260' cy='190' r='1'/%3E%3Ccircle cx='70' cy='170' r='.9'/%3E%3Ccircle cx='230' cy='20' r='1.1'/%3E%3Ccircle cx='150' cy='280' r='1'/%3E%3C/g%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cg fill='%23000'%3E%3Ccircle cx='30' cy='50' r='1.2'/%3E%3Ccircle cx='120' cy='240' r='1'/%3E%3Ccircle cx='180' cy='110' r='1.3'/%3E%3Ccircle cx='260' cy='190' r='1'/%3E%3Ccircle cx='70' cy='170' r='.9'/%3E%3Ccircle cx='230' cy='20' r='1.1'/%3E%3Ccircle cx='150' cy='280' r='1'/%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.55;
+  animation: ash-down 260s linear infinite;
+}
+
+/* the larger flakes: short dashes, like ash caught sideways */
+.ash.a2 {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='460' height='460'%3E%3Cg stroke='%23000' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M60 90l5 3'/%3E%3Cpath d='M300 40l-5 4'/%3E%3Cpath d='M410 300l6 2'/%3E%3Cpath d='M170 380l-4 5'/%3E%3Cpath d='M240 210l5 2'/%3E%3C/g%3E%3Cg fill='%23000'%3E%3Ccircle cx='350' cy='150' r='1.8'/%3E%3Ccircle cx='90' cy='300' r='1.7'/%3E%3C/g%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='460' height='460'%3E%3Cg stroke='%23000' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M60 90l5 3'/%3E%3Cpath d='M300 40l-5 4'/%3E%3Cpath d='M410 300l6 2'/%3E%3Cpath d='M170 380l-4 5'/%3E%3Cpath d='M240 210l5 2'/%3E%3C/g%3E%3Cg fill='%23000'%3E%3Ccircle cx='350' cy='150' r='1.8'/%3E%3Ccircle cx='90' cy='300' r='1.7'/%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.7;
+  animation: ash-down 150s linear infinite;
+}
+
+html[data-mode="day"] .ash.a1 { opacity: 0.35; }
+html[data-mode="day"] .ash.a2 { opacity: 0.45; }
+
+@keyframes ash-down {
+  from { transform: translate3d(0, -50%, 0); }
+  to { transform: translate3d(0, 0, 0); }
+}
+
+/* ===== HERO ===== */
+
+.world-npc .project-hero {
+  --shot-w: 520px;
+  --shot-w-m: 100%;
+}
+
+/* ===== SMALL SCREENS ===== */
+
+@media (max-width: 860px) {
+  .sun {
+    top: -10vmin;
+    right: -30vmin;
+    width: 100vmin;
+    height: 100vmin;
+  }
+}
+
+/* a still sky for people who ask for less motion */
+@media (prefers-reduced-motion: reduce) {
+  .sky::after,
+  .sun .ring,
+  .ash {
+    animation: none;
+  }
+
+  .ash {
+    height: 100%;
+    transform: none;
+  }
+}

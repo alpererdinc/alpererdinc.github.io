@@ -10,10 +10,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Barlow+Semi+Condensed:wght@400;500;600&family=Chakra+Petch:wght@500;600;700&family=VT323&display=swap" />
-  <link rel="stylesheet" href="../css/analog.css?v=19" />
+  <link rel="stylesheet" href="../css/analog.css?v=20" />
+  <link rel="stylesheet" href="../css/worlds/jazu.css?v=2" />
 </head>
 
-<body>
+<body data-world="jazu">
   <div class="cursor" id="cursor"></div>
   <div class="grain" aria-hidden="true"></div>
 
@@ -97,15 +98,29 @@
     <a href="../index.html#contact" data-tr="iletişim" data-en="contact">iletişim</a>
   </div>
 
-  <section class="project-hero">
+  <div class="world world-jazu">
+  <div class="dusk" aria-hidden="true">
+    <i class="stars"></i>
+    <span class="moon"></span>
+    <span class="kup" style="--y:30%;--s:62px;--t:120s;--d:-20s;--rest:60%"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><path d="M16 24H48Q54 24 54 32V50Q54 58 46 58H18Q10 58 10 50V32Q10 24 16 24Z" fill="currentColor"/><path d="M18 11H46L42 25H22Z" fill="currentColor"/><path d="M23 14H41L40 18H24Z" fill="var(--bg)"/><path d="M17 35V49" stroke="#fff" stroke-opacity=".28" stroke-width="3" stroke-linecap="round"/></svg></span>
+    <span class="kup" style="--y:52%;--s:46px;--t:150s;--d:-85s;--rest:22%"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><path d="M16 24H48Q54 24 54 32V50Q54 58 46 58H18Q10 58 10 50V32Q10 24 16 24Z" fill="currentColor"/><path d="M18 11H46L42 25H22Z" fill="currentColor"/><path d="M23 14H41L40 18H24Z" fill="var(--bg)"/><path d="M17 35V49" stroke="#fff" stroke-opacity=".28" stroke-width="3" stroke-linecap="round"/></svg></span>
+    <span class="kup" style="--y:18%;--s:54px;--t:100s;--d:-60s;--rest:80%"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><path d="M16 24H48Q54 24 54 32V50Q54 58 46 58H18Q10 58 10 50V32Q10 24 16 24Z" fill="currentColor"/><path d="M18 11H46L42 25H22Z" fill="currentColor"/><path d="M23 14H41L40 18H24Z" fill="var(--bg)"/><path d="M17 35V49" stroke="#fff" stroke-opacity=".28" stroke-width="3" stroke-linecap="round"/></svg></span>
+    <span class="kup" style="--y:68%;--s:40px;--t:170s;--d:-130s;--rest:40%"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><path d="M16 24H48Q54 24 54 32V50Q54 58 46 58H18Q10 58 10 50V32Q10 24 16 24Z" fill="currentColor"/><path d="M18 11H46L42 25H22Z" fill="currentColor"/><path d="M23 14H41L40 18H24Z" fill="var(--bg)"/><path d="M17 35V49" stroke="#fff" stroke-opacity=".28" stroke-width="3" stroke-linecap="round"/></svg></span>
+    <i class="ridge r1"></i><i class="ridge r2"></i><i class="ridge r3"></i>
+  </div>
+
+  <section class="project-hero project-hero--shot">
     <div class="project-hero-dots"></div>
     <div class="project-hero-content">
       <div class="badge" data-tr="oyun / hypercasual / staj" data-en="game / hypercasual / internship">oyun / hypercasual / staj</div>
-      <h1 lang="en">JazuRider</h1>
+      <h1 lang="en"><span class="h1-a">Jazu</span> <span class="h1-b">Rider</span></h1>
       <p class="lead"
         data-tr="Cazu'yu küp kulesinin tepesinde parkur boyunca sür; engellerden kaç, kuleyi büyüt ve bitişe en yüksek çarpanla gir." data-en="Ride Cazu along the track on top of a tower of küps, old Turkish jars; dodge the obstacles, grow the tower and cross the finish on the highest multiplier.">
         Cazu'yu küp kulesinin tepesinde parkur boyunca sür; engellerden kaç, kuleyi büyüt ve bitişe en yüksek çarpanla gir.
       </p>
+      <figure class="hero-shot">
+        <img src="../images/projects/jazurider/02-kup-tower.webp" alt="Kapüşonlu cadı üst üste dizilmiş turuncu küplerin üstünde yolda ilerliyor" width="543" height="955" />
+      </figure>
     </div>
   </section>
 
@@ -312,7 +327,9 @@
     <div class="footer-right" lang="en">personal portfolio</div>
   </footer>
   <button class="scroll-top" id="scrollTopBtn" aria-label="Sayfanın başına dön">▲</button>
-  <script src="../js/main.js?v=analog10"></script>
+  </div>
+
+  <script src="../js/main.js?v=analog11"></script>
   <script data-goatcounter="https://alpererdinc.goatcounter.com/count"
     async src="https://gc.zgo.at/count.js"></script>
 </body>

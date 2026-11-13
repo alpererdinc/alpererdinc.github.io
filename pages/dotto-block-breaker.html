@@ -10,10 +10,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Barlow+Semi+Condensed:wght@400;500;600&family=Chakra+Petch:wght@500;600;700&family=VT323&display=swap" />
-  <link rel="stylesheet" href="../css/analog.css?v=19" />
+  <link rel="stylesheet" href="../css/analog.css?v=20" />
+  <link rel="stylesheet" href="../css/worlds/dotto.css?v=5" />
 </head>
 
-<body>
+<body data-world="dotto">
   <div class="cursor" id="cursor"></div>
   <div class="grain" aria-hidden="true"></div>
 
@@ -97,15 +98,29 @@
     <a href="../index.html#contact" data-tr="iletişim" data-en="contact">iletişim</a>
   </div>
 
-  <section class="project-hero">
+  <div class="world world-dotto">
+  <div class="cosmos" aria-hidden="true">
+    <i class="stars s1"></i><i class="stars s2"></i><i class="stars s3"></i>
+    <span class="float" style="left:7%;--s:70px;--c:var(--pink);--t:58s;--d:-18s;--dx:12vw;--r0:-20deg;--r1:25deg"><svg viewBox="0 0 64 64"><rect x="3" y="3" width="58" height="58" rx="12" fill="none" stroke="currentColor" stroke-width="3"/><text x="32" y="42" text-anchor="middle" font-size="26" font-weight="500" fill="currentColor">158</text></svg></span>
+    <span class="float" style="left:30%;--s:62px;--c:var(--yellow);--t:85s;--d:-30s;--dx:10vw;--r0:10deg;--r1:-30deg"><svg viewBox="0 0 64 64"><path d="M6 6H58L6 58Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><text x="22" y="30" text-anchor="middle" font-size="20" font-weight="500" fill="currentColor">79</text></svg></span>
+    <span class="float" style="left:48%;--s:44px;--c:var(--cyan);--t:70s;--d:-45s;--dx:-8vw;--r0:0deg;--r1:0deg"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="27" fill="none" stroke="currentColor" stroke-width="3"/><text x="32" y="40" text-anchor="middle" font-size="22" font-weight="500" fill="currentColor">1</text></svg></span>
+    <span class="float" style="left:64%;--s:84px;--c:var(--yellow);--t:96s;--d:-60s;--dx:6vw;--r0:0deg;--r1:40deg"><svg viewBox="0 0 64 64"><polygon points="32.0,4.0 36.9,10.6 44.1,6.8 45.7,14.8 53.9,14.5 51.8,22.5 59.3,25.8 54.0,32.0 59.3,38.2 51.8,41.5 53.9,49.5 45.7,49.2 44.1,57.2 36.9,53.4 32.0,60.0 27.1,53.4 19.9,57.2 18.3,49.2 10.1,49.5 12.2,41.5 4.7,38.2 10.0,32.0 4.7,25.8 12.2,22.5 10.1,14.5 18.3,14.8 19.9,6.8 27.1,10.6" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><text x="32" y="40" text-anchor="middle" font-size="22" font-weight="500" fill="currentColor">80</text></svg></span>
+    <span class="float" style="left:80%;--s:66px;--c:var(--pink);--t:72s;--d:-36s;--dx:-12vw;--r0:15deg;--r1:-15deg"><svg viewBox="0 0 64 64"><rect x="3" y="3" width="58" height="58" rx="12" fill="none" stroke="currentColor" stroke-width="3"/><text x="32" y="42" text-anchor="middle" font-size="26" font-weight="500" fill="currentColor">76</text></svg></span>
+    <span class="float" style="left:92%;--s:72px;--c:var(--cyan);--t:110s;--d:-82s;--dx:-7vw;--r0:-6deg;--r1:14deg"><svg viewBox="0 0 64 64"><rect x="3" y="3" width="58" height="58" rx="12" fill="none" stroke="currentColor" stroke-width="3"/><text x="32" y="42" text-anchor="middle" font-size="26" font-weight="500" fill="currentColor">316</text></svg></span>
+  </div>
+
+  <section class="project-hero project-hero--shot">
     <div class="project-hero-dots"></div>
     <div class="project-hero-content">
       <div class="badge" data-tr="oyun / mobil / staj" data-en="game / mobile / internship">oyun / mobil / staj</div>
-      <h1 lang="en">Dotto: Block Breaker</h1>
+      <h1 lang="en"><span class="h1-a">Dotto:</span> <span class="h1-b">Block Breaker</span></h1>
       <p class="lead"
         data-tr="Kural basit: nişan al, bütün topları sırayla sal ve bloklar çizgiye inmeden onları kır. Sonrası 'bir tur daha' diye geçen akşamlar." data-en="The rule is simple: aim, let every ball go, and break the blocks before they reach the line. The rest is a lot of 'one more run' evenings.">
         Kural basit: nişan al, bütün topları sırayla sal ve bloklar çizgiye inmeden onları kır. Sonrası 'bir tur daha' diye geçen akşamlar.
       </p>
+      <figure class="hero-shot">
+        <img src="../images/projects/dotto-block-breaker/01-store-art.webp" alt="Dotto: Block Breaker mağaza görseli: neon bloklarla dolu oyun alanı ve Dotto silueti" width="649" height="1136" />
+      </figure>
     </div>
   </section>
 
@@ -451,7 +466,9 @@
   </footer>
 
   <button class="scroll-top" id="scrollTopBtn" aria-label="Sayfanın başına dön">▲</button>
-  <script src="../js/main.js?v=analog10"></script>
+  </div>
+
+  <script src="../js/main.js?v=analog11"></script>
   <script data-goatcounter="https://alpererdinc.goatcounter.com/count"
     async src="https://gc.zgo.at/count.js"></script>
 </body>

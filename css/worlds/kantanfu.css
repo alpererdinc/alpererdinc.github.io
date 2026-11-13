@@ -1,0 +1,186 @@
+/* =========================================================
+   WORLD: Kantanfu — rooftops at sundown
+   Rex is the exclamation mark of the Dotto•Man universe: loud,
+   big-haired, always on a roof. The game is flat orange city
+   against a white sky, black platforms, a purple menu.
+   Same flat bones as the rest of the site; this page changes the
+   colour, adds a skyline that slides past, and one arcade joke:
+   the game is on the shelf, so the hero asks "CONTINUE?".
+
+   Day   = the game as it looks: white sky, orange city, pale sun.
+   Night = the same city after dark.
+   The page lives in .world.world-kantanfu; the navbar stays outside.
+   ========================================================= */
+
+.world-kantanfu {
+  --bg: #fffaf0;
+  --bg2: #fff4e0;
+  --panel: #fff1d9;
+  --panel2: #ffe5bd;
+
+  --text: #14100c;
+  --muted: #5b4a38;
+  --faint: #94826a;
+
+  --line: rgba(20, 16, 12, 0.16);
+  --line2: rgba(20, 16, 12, 0.4);
+
+  --accent: #7a2fd2;       /* the purple of the logo shadow and menu */
+  --accent2: #521a96;
+  --accent-rgb: 122, 47, 210;
+  --on-accent: #ffffff;
+  --mustard: #ff9a1f;
+
+  --city-far: #ffb450;
+  --city-near: #ff9a1f;
+  --sun: #ffe680;
+  --sun-a: 1;
+
+  position: relative;
+  isolation: isolate;
+  background: var(--bg);
+  color: var(--text);
+}
+
+html[data-mode="night"] .world-kantanfu,
+html:not([data-mode="day"]) .world-kantanfu {
+  --bg: #0e0b12;
+  --bg2: #120e18;
+  --panel: #17121e;
+  --panel2: #211a2c;
+
+  --text: #f3ece0;
+  --muted: #bbaea2;
+  --faint: #81746a;
+
+  --line: rgba(255, 200, 140, 0.15);
+  --line2: rgba(255, 200, 140, 0.34);
+
+  --accent: #bb8cff;
+  --accent2: #7a45c9;
+  --accent-rgb: 187, 140, 255;
+  --on-accent: #12091f;
+  --mustard: #ff9a1f;
+
+  --city-far: #1f1729;
+  --city-near: #17101f;
+  --sun: #ff9a1f;
+  --sun-a: 0.16;
+}
+
+/* ===== THE CITY (fixed, behind the page) ===== */
+
+.rooftops {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.rooftops .sun {
+  position: absolute;
+  right: 16vw;
+  bottom: 12vh;
+  width: 40vmin;
+  height: 40vmin;
+  border-radius: 50%;
+  background: var(--sun);
+  opacity: var(--sun-a);
+}
+
+/* two skylines sliding past at different speeds, like the game's parallax */
+.skyline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: var(--h);
+  background: var(--c);
+  -webkit-mask-repeat: repeat-x;
+  mask-repeat: repeat-x;
+  -webkit-mask-size: 1200px 100%;
+  mask-size: 1200px 100%;
+  -webkit-mask-position: 0 100%;
+  mask-position: 0 100%;
+  animation: city-slide var(--t) linear infinite;
+}
+
+.skyline.far {
+  --h: 44vh;
+  --c: var(--city-far);
+  --t: 520s;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%201200%20300%27%20preserveAspectRatio%3D%27none%27%3E%3Crect%20x%3D%270%27%20y%3D%27145%27%20width%3D%27149%27%20height%3D%27157%27%2F%3E%3Crect%20x%3D%27149%27%20y%3D%27203%27%20width%3D%27137%27%20height%3D%2799%27%2F%3E%3Crect%20x%3D%27286%27%20y%3D%27197%27%20width%3D%27101%27%20height%3D%27105%27%2F%3E%3Crect%20x%3D%27354%27%20y%3D%27152%27%20width%3D%275%27%20height%3D%2772%27%2F%3E%3Crect%20x%3D%27387%27%20y%3D%2771%27%20width%3D%27118%27%20height%3D%27231%27%2F%3E%3Crect%20x%3D%27439%27%20y%3D%2738%27%20width%3D%2748%27%20height%3D%2735%27%2F%3E%3Crect%20x%3D%27505%27%20y%3D%27170%27%20width%3D%27119%27%20height%3D%27132%27%2F%3E%3Crect%20x%3D%27592%27%20y%3D%27101%27%20width%3D%275%27%20height%3D%2772%27%2F%3E%3Crect%20x%3D%27624%27%20y%3D%27178%27%20width%3D%27126%27%20height%3D%27124%27%2F%3E%3Crect%20x%3D%27637%27%20y%3D%27158%27%20width%3D%2774%27%20height%3D%2722%27%2F%3E%3Crect%20x%3D%27750%27%20y%3D%27168%27%20width%3D%2791%27%20height%3D%27134%27%2F%3E%3Crect%20x%3D%27763%27%20y%3D%27114%27%20width%3D%2753%27%20height%3D%2756%27%2F%3E%3Crect%20x%3D%27783%27%20y%3D%27114%27%20width%3D%275%27%20height%3D%2772%27%2F%3E%3Crect%20x%3D%27841%27%20y%3D%27205%27%20width%3D%27108%27%20height%3D%2797%27%2F%3E%3Crect%20x%3D%27874%27%20y%3D%27176%27%20width%3D%2742%27%20height%3D%2731%27%2F%3E%3Crect%20x%3D%27887%27%20y%3D%27137%27%20width%3D%275%27%20height%3D%2772%27%2F%3E%3Crect%20x%3D%27949%27%20y%3D%27210%27%20width%3D%27145%27%20height%3D%2792%27%2F%3E%3Crect%20x%3D%271094%27%20y%3D%27131%27%20width%3D%27106%27%20height%3D%27171%27%2F%3E%3Crect%20x%3D%271105%27%20y%3D%2791%27%20width%3D%2745%27%20height%3D%2742%27%2F%3E%3C%2Fsvg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%201200%20300%27%20preserveAspectRatio%3D%27none%27%3E%3Crect%20x%3D%270%27%20y%3D%27145%27%20width%3D%27149%27%20height%3D%27157%27%2F%3E%3Crect%20x%3D%27149%27%20y%3D%27203%27%20width%3D%27137%27%20height%3D%2799%27%2F%3E%3Crect%20x%3D%27286%27%20y%3D%27197%27%20width%3D%27101%27%20height%3D%27105%27%2F%3E%3Crect%20x%3D%27354%27%20y%3D%27152%27%20width%3D%275%27%20height%3D%2772%27%2F%3E%3Crect%20x%3D%27387%27%20y%3D%2771%27%20width%3D%27118%27%20height%3D%27231%27%2F%3E%3Crect%20x%3D%27439%27%20y%3D%2738%27%20width%3D%2748%27%20height%3D%2735%27%2F%3E%3Crect%20x%3D%27505%27%20y%3D%27170%27%20width%3D%27119%27%20height%3D%27132%27%2F%3E%3Crect%20x%3D%27592%27%20y%3D%27101%27%20width%3D%275%27%20height%3D%2772%27%2F%3E%3Crect%20x%3D%27624%27%20y%3D%27178%27%20width%3D%27126%27%20height%3D%27124%27%2F%3E%3Crect%20x%3D%27637%27%20y%3D%27158%27%20width%3D%2774%27%20height%3D%2722%27%2F%3E%3Crect%20x%3D%27750%27%20y%3D%27168%27%20width%3D%2791%27%20height%3D%27134%27%2F%3E%3Crect%20x%3D%27763%27%20y%3D%27114%27%20width%3D%2753%27%20height%3D%2756%27%2F%3E%3Crect%20x%3D%27783%27%20y%3D%27114%27%20width%3D%275%27%20height%3D%2772%27%2F%3E%3Crect%20x%3D%27841%27%20y%3D%27205%27%20width%3D%27108%27%20height%3D%2797%27%2F%3E%3Crect%20x%3D%27874%27%20y%3D%27176%27%20width%3D%2742%27%20height%3D%2731%27%2F%3E%3Crect%20x%3D%27887%27%20y%3D%27137%27%20width%3D%275%27%20height%3D%2772%27%2F%3E%3Crect%20x%3D%27949%27%20y%3D%27210%27%20width%3D%27145%27%20height%3D%2792%27%2F%3E%3Crect%20x%3D%271094%27%20y%3D%27131%27%20width%3D%27106%27%20height%3D%27171%27%2F%3E%3Crect%20x%3D%271105%27%20y%3D%2791%27%20width%3D%2745%27%20height%3D%2742%27%2F%3E%3C%2Fsvg%3E");
+}
+
+.skyline.near {
+  --h: 28vh;
+  --c: var(--city-near);
+  --t: 320s;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%201200%20300%27%20preserveAspectRatio%3D%27none%27%3E%3Crect%20x%3D%270%27%20y%3D%27172%27%20width%3D%27149%27%20height%3D%27130%27%2F%3E%3Crect%20x%3D%2743%27%20y%3D%27152%27%20width%3D%2757%27%20height%3D%2722%27%2F%3E%3Crect%20x%3D%27149%27%20y%3D%27240%27%20width%3D%27167%27%20height%3D%2762%27%2F%3E%3Crect%20x%3D%27197%27%20y%3D%27218%27%20width%3D%2797%27%20height%3D%2724%27%2F%3E%3Crect%20x%3D%27316%27%20y%3D%27158%27%20width%3D%27147%27%20height%3D%27144%27%2F%3E%3Crect%20x%3D%27330%27%20y%3D%27135%27%20width%3D%2757%27%20height%3D%2725%27%2F%3E%3Crect%20x%3D%27463%27%20y%3D%27242%27%20width%3D%27165%27%20height%3D%2760%27%2F%3E%3Crect%20x%3D%27628%27%20y%3D%27237%27%20width%3D%27185%27%20height%3D%2765%27%2F%3E%3Crect%20x%3D%27813%27%20y%3D%27158%27%20width%3D%27118%27%20height%3D%27144%27%2F%3E%3Crect%20x%3D%27931%27%20y%3D%27216%27%20width%3D%27269%27%20height%3D%2786%27%2F%3E%3C%2Fsvg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%201200%20300%27%20preserveAspectRatio%3D%27none%27%3E%3Crect%20x%3D%270%27%20y%3D%27172%27%20width%3D%27149%27%20height%3D%27130%27%2F%3E%3Crect%20x%3D%2743%27%20y%3D%27152%27%20width%3D%2757%27%20height%3D%2722%27%2F%3E%3Crect%20x%3D%27149%27%20y%3D%27240%27%20width%3D%27167%27%20height%3D%2762%27%2F%3E%3Crect%20x%3D%27197%27%20y%3D%27218%27%20width%3D%2797%27%20height%3D%2724%27%2F%3E%3Crect%20x%3D%27316%27%20y%3D%27158%27%20width%3D%27147%27%20height%3D%27144%27%2F%3E%3Crect%20x%3D%27330%27%20y%3D%27135%27%20width%3D%2757%27%20height%3D%2725%27%2F%3E%3Crect%20x%3D%27463%27%20y%3D%27242%27%20width%3D%27165%27%20height%3D%2760%27%2F%3E%3Crect%20x%3D%27628%27%20y%3D%27237%27%20width%3D%27185%27%20height%3D%2765%27%2F%3E%3Crect%20x%3D%27813%27%20y%3D%27158%27%20width%3D%27118%27%20height%3D%27144%27%2F%3E%3Crect%20x%3D%27931%27%20y%3D%27216%27%20width%3D%27269%27%20height%3D%2786%27%2F%3E%3C%2Fsvg%3E");
+}
+
+@keyframes city-slide {
+  from { -webkit-mask-position: 0 100%; mask-position: 0 100%; }
+  to { -webkit-mask-position: -1200px 100%; mask-position: -1200px 100%; }
+}
+
+/* ===== HERO ===== */
+
+.world-kantanfu .project-hero {
+  --shot-w: 520px;
+  --shot-w-m: 100%;
+}
+
+.world-kantanfu .project-hero h1 {
+  color: var(--accent);
+}
+
+/* the arcade joke: the game is on the shelf, so it asks */
+@property --n {
+  syntax: "<integer>";
+  inherits: false;
+  initial-value: 9;
+}
+
+.world-kantanfu .project-hero .lead::after {
+  display: block;
+  margin-top: 20px;
+  font-family: var(--lcd);
+  font-size: 30px;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  counter-reset: n var(--n);
+  content: "CONTINUE? " counter(n, decimal-leading-zero);
+  animation: continue-count 12s linear infinite;
+}
+
+@keyframes continue-count {
+  0% { --n: 9; }
+  80%, 100% { --n: 0; }
+}
+
+/* ===== SMALL SCREENS ===== */
+
+@media (max-width: 860px) {
+  .rooftops .sun {
+    right: 8vw;
+    bottom: 10vh;
+    width: 46vmin;
+    height: 46vmin;
+  }
+
+  .skyline.far { --h: 32vh; }
+  .skyline.near { --h: 20vh; }
+}
+
+/* a still city for people who ask for less motion */
+@media (prefers-reduced-motion: reduce) {
+  .skyline,
+  .world-kantanfu .project-hero .lead::after {
+    animation: none;
+  }
+}
